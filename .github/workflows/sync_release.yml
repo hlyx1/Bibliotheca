@@ -1,0 +1,179 @@
+name: Sync Release
+
+on:
+  workflow_run:
+    workflows: ["Sync News"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    outputs:
+      date: ${{ steps.ts.outputs.full_date }}
+      year: ${{ steps.ts.outputs.year }}
+      month: ${{ steps.ts.outputs.month }}
+      day: ${{ steps.ts.outputs.day }}
+      workflows: ${{ steps.matrix.outputs.workflows }}
+      should_proceed: ${{ steps.gate.outputs.should_proceed }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+      - id: ts
+        run: |
+          TZ=Asia/Shanghai date +'year=%y' >> "$GITHUB_OUTPUT"
+          TZ=Asia/Shanghai date +'month=%m' >> "$GITHUB_OUTPUT"
+          TZ=Asia/Shanghai date +'day=%d' >> "$GITHUB_OUTPUT"
+          TZ=Asia/Shanghai date +'full_date=%Y-%m-%d' >> "$GITHUB_OUTPUT"
+      - id: gate
+        run: |
+          commits="$(git log --since='24 hours ago' --oneline)"
+          has_news=$(printf '%s' "$commits" | grep -c 'feat(news): bump' || printf '0')
+          has_law=$(printf '%s' "$commits" | grep -c 'feat(law): bump' || printf '0')
+          has_ruleset=$(printf '%s' "$commits" | grep -c 'feat(ruleset):' || printf '0')
+          if [[ $has_news -gt 0 && $has_law -gt 0 && $has_ruleset -gt 0 ]]; then
+            printf 'should_proceed=true\n' >> "$GITHUB_OUTPUT"
+          else
+            printf 'should_proceed=false\n' >> "$GITHUB_OUTPUT"
+          fi
+      - id: matrix
+        run: |
+          printf 'workflows=["Law","News","Rule"]\n' >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: prepare
+    if: ${{ needs.prepare.outputs.should_proceed == 'true' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        workflow: ${{fromJson(needs.prepare.outputs.workflows)}}
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+          lfs: true
+      - name: Prep Sys
+        run: |
+          sudo DEBIAN_FRONTEND=noninteractive apt-get update -qq
+          sudo apt-get install -y --no-install-recommends p7zip-full pigz zstd parallel xxhash
+          echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor 2>/dev/null || true
+          sudo sysctl -w vm.dirty_ratio=80 vm.dirty_background_ratio=20 vm.dirty_expire_centisecs=12000 vm.swappiness=10 vm.vfs_cache_pressure=50 2>/dev/null || true
+      - id: create_archive
+        env:
+          WORKFLOW_NAME: ${{ matrix.workflow }}
+          MAX_SIZE: 2147483648
+          ZSTD_CLEVEL: 19
+          ZSTD_NBTHREADS: 0
+        run: |
+          declare -A DIR_MAP=(["Law"]="./国家法律法规数据库" ["News"]="./新闻联播" ["Rule"]="./Ruleset")
+          SOURCE_DIR="${DIR_MAP[$WORKFLOW_NAME]}"
+          [[ -z "$SOURCE_DIR" || ! -d "$SOURCE_DIR" ]] && exit 1
+          ARCHIVE_NAME="${WORKFLOW_NAME}.tar.zst"
+          SOURCE_DIR_DIRNAME="$(dirname "$SOURCE_DIR")"
+          SOURCE_DIR_BASENAME="$(basename "$SOURCE_DIR")"
+          ionice -c 2 -n 0 nice -n -20 tar --use-compress-program="pigz -1" -cf - -C "$SOURCE_DIR_DIRNAME" "$SOURCE_DIR_BASENAME" | ionice -c 2 -n 0 nice -n -20 zstd -T$ZSTD_NBTHREADS -$ZSTD_CLEVEL --ultra --long=31 --adapt=min=16,max=19 --no-progress - -o "$ARCHIVE_NAME"
+          ARCHIVE_SIZE=$(stat -c%s "$ARCHIVE_NAME")
+          if (( ARCHIVE_SIZE > MAX_SIZE )); then
+            TEMP_DIR=$(mktemp -d)
+            trap 'rm -rf "$TEMP_DIR"' EXIT
+            original_hash=$(xxh64sum "$ARCHIVE_NAME" | cut -d" " -f1)
+            split_dir="${WORKFLOW_NAME}_split"
+            mkdir -p "$split_dir"
+            {
+              echo "Original file: $ARCHIVE_NAME"
+              echo "Original size: $ARCHIVE_SIZE bytes"
+              echo "Original xxHash: $original_hash"
+              echo "Split timestamp: $(date -u +\"%Y-%m-%dT%H:%M:%SZ\")"
+              echo "Parts:"
+            } > "$split_dir/manifest.txt"
+            split -b 1900M --numeric-suffixes=1 --suffix-length=2 "$ARCHIVE_NAME" "$TEMP_DIR/${WORKFLOW_NAME}_"
+            find "$TEMP_DIR" -name "${WORKFLOW_NAME}_*" -type f -print0 | sort -z | while IFS= read -r -d '' part; do
+              part_basename=$(basename "$part")
+              part_name="${part_basename}.tar.zst"
+              part_hash=$(xxh64sum "$part" | cut -d" " -f1)
+              ionice -c 2 -n 0 cp --reflink=auto --sparse=always "$part" "$split_dir/$part_name"
+              echo "$part_name: $part_hash (split part)" >> "$split_dir/manifest.txt"
+            done
+            shred -u "$ARCHIVE_NAME" 2>/dev/null || rm -f "$ARCHIVE_NAME"
+            echo "ARCHIVE_PATH=${split_dir}" >> $GITHUB_OUTPUT
+          else
+            echo "ARCHIVE_PATH=${ARCHIVE_NAME}" >> $GITHUB_OUTPUT
+          fi
+      - uses: actions/upload-artifact@v5
+        with:
+          name: ${{ matrix.workflow }}
+          path: ${{ steps.create_archive.outputs.ARCHIVE_PATH }}
+          retention-days: 1
+          compression-level: 0
+
+  publish:
+    needs: [prepare, build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+      - uses: actions/download-artifact@v6
+        with:
+          path: ./artifacts
+      - run: |
+          mkdir -p ./release-files
+          declare -A DIR_ALIAS=( ["Law"]="National-Database-of-Laws-and-Regulations" ["News"]="Xinwen-Lianbo" ["Rule"]="Ruleset" )
+          for workflow in Law News Rule; do
+            artifact_dir="./artifacts/${workflow}"
+            [[ ! -d "$artifact_dir" ]] && continue
+            ascii_name="${DIR_ALIAS[$workflow]}"
+            find "$artifact_dir" -type f -name "*.tar.zst" -print0 | while IFS= read -r -d '' file; do
+              if [[ -n "$ascii_name" && "$workflow" != "Rule" ]]; then
+                cp -a --reflink=auto --sparse=always "$file" "./release-files/${ascii_name}.tar.zst"
+              else
+                cp -a --reflink=auto --sparse=always "$file" "./release-files/"
+              fi
+            done
+            split_dir="$artifact_dir/${workflow}_split"
+            if [[ -d "$split_dir" ]]; then
+              if [[ -f "$split_dir/manifest.txt" ]]; then
+                if [[ -n "$ascii_name" && "$workflow" != "Rule" ]]; then
+                  cp -a --reflink=auto "$split_dir/manifest.txt" "./release-files/${ascii_name}_manifest.txt"
+                else
+                  cp -a --reflink=auto "$split_dir/manifest.txt" "./release-files/${workflow}_manifest.txt"
+                fi
+              fi
+              find "$split_dir" -name "${workflow}_*.tar.zst" -type f -print0 | LC_ALL=C sort -z | while IFS= read -r -d '' src; do
+                basename_src=$(basename "$src")
+                if [[ -n "$ascii_name" && "$workflow" != "Rule" ]]; then
+                  dst_name="${basename_src//${workflow}_/${ascii_name}_}"
+                  dst="./release-files/$dst_name"
+                else
+                  dst="./release-files/$(basename "$src")"
+                fi
+                cp -a --reflink=auto --sparse=always "$src" "$dst"
+              done
+            fi
+          done
+      - id: generate_notes
+        run: git -c log.showSignature=false log --pretty=format:"* %s (%h)" --since="24 hours ago" --no-merges > release_notes.md
+      - uses: softprops/action-gh-release@v2.4.2
+        with:
+          tag_name: v${{ needs.prepare.outputs.year }}.${{ needs.prepare.outputs.month }}.${{ needs.prepare.outputs.day }}
+          name: ${{ needs.prepare.outputs.date }}
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+          make_latest: true
+          files: ./release-files/*
+          fail_on_unmatched_files: false
