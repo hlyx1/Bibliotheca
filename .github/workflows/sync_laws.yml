@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 1
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.14t"
+          python-version: "3.14"
           cache: "pip"
           cache-dependency-path: "国家法律法规数据库/requirements.txt"
       - shell: bash
