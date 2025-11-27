@@ -3,14 +3,22 @@
   "rules": [
     {
       "domain": [
-        "nom.telemetrydeck.com"
+        "nom.telemetrydeck.com",
+        "stat.youpin.mi.com"
       ],
       "domain_suffix": [
         ".undefined",
         ".null",
+        ".getui.net",
+        ".easytomessage.com",
+        ".getui.com",
         ".in.applicationinsights.azure.com",
         ".geo2.adobe.com",
-        ".beacon.qq.com"
+        ".tracking.miui.com",
+        ".tracking.intl.miui.com",
+        ".beacon.qq.com",
+        ".jpush.io",
+        ".jpush.cn"
       ]
     }
   ]
