@@ -308,6 +308,9 @@
         "httpdns-v6.gslb.yy.com"
       ],
       "domain_regex": [
+        "/igd\\.xml",
+        "/\\d+/resolve",
+        "/\\d+/sign_d",
         "^info\\.[\\w.-]*?\\.aleragroup\\.com$",
         "^f-log[\\w.-]*?\\.grammarly\\.io$",
         "^[\\w.-]*?\\.ad\\.[\\w.-]*?\\.prod\\.hosts\\.ooklaserver\\.net$",
@@ -322,10 +325,7 @@
         "^mon-[\\w.-]*?\\.byteoversea\\.com$",
         "^pixel[\\w.-]*?\\.adswizz\\.com$",
         "^log[\\w.-]*?-normal-[\\w.-]*?\\.tiktokv\\.com$",
-        "^analytics-[\\w.-]*?\\.aasaam\\.com$",
-        "/igd\\.xml",
-        "/\\d+/resolve",
-        "/\\d+/sign_d"
+        "^analytics-[\\w.-]*?\\.aasaam\\.com$"
       ],
       "ip_cidr": [
         "39.97.128.148/32",

@@ -44,11 +44,6 @@ ALIAS = {
     "HOST": "domain",
     "HOST-SUFFIX": "domain_suffix",
     "HOST-KEYWORD": "domain_keyword",
-    "host": "domain",
-    "host-suffix": "domain_suffix",
-    "host-keyword": "domain_keyword",
-    "ip-cidr": "ip_cidr",
-    "ip-cidr6": "ip_cidr",
 }
 
 ORDER = [
@@ -99,40 +94,44 @@ async def prefix(asn: str) -> list[str]:  # noqa: D103
         return cached
 
     asn_id = asn.replace("AS", "").replace("as", "")
-    cidrs: list[str] = []
 
-    with contextlib.suppress(httpx.HTTPError, orjson.JSONDecodeError, KeyError):
-        resp = await POOL.get(f"https://api.bgpview.io/asn/{asn_id}/prefixes")
-        if resp.status_code == 200:  # noqa: PLR2004
-            body = orjson.loads(resp.content)
-            if body.get("status") == "ok":
-                blob = body.get("data", {})
-                cidrs.extend(item["prefix"] for item in blob.get("ipv4_prefixes", ()))
-                cidrs.extend(item["prefix"] for item in blob.get("ipv6_prefixes", ()))
-                if cidrs:
-                    ASN_CACHE[asn] = cidrs
-                    return cidrs
-
-    with contextlib.suppress(httpx.HTTPError, orjson.JSONDecodeError, KeyError):
-        resp = await POOL.get(
+    apis = [
+        (
+            f"https://api.bgpview.io/asn/{asn_id}/prefixes",
+            lambda body: [
+                item["prefix"]
+                for prefix_list in (
+                    body.get("data", {}).get("ipv4_prefixes", ()),
+                    body.get("data", {}).get("ipv6_prefixes", ()),
+                )
+                for item in prefix_list
+            ],
+        ),
+        (
             f"https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{asn_id}",
-        )
-        if resp.status_code == 200:  # noqa: PLR2004
-            body = orjson.loads(resp.content)
-            if body.get("status") == "ok":
-                cidrs.extend(item["prefix"] for item in body.get("data", {}).get("prefixes", ()) if "prefix" in item)
-                if cidrs:
-                    ASN_CACHE[asn] = cidrs
-                    return cidrs
+            lambda body: [item["prefix"] for item in body.get("data", {}).get("prefixes", ()) if "prefix" in item],
+        ),
+    ]
 
+    for url_template, extractor in apis:
+        with contextlib.suppress(httpx.HTTPError, orjson.JSONDecodeError, KeyError):
+            resp = await POOL.get(url_template.format(asn_id=asn_id))
+            if resp.status_code == 200:  # noqa: PLR2004
+                body = orjson.loads(resp.content)
+                if body.get("status") == "ok":
+                    cidrs = extractor(body)
+                    if cidrs:
+                        ASN_CACHE[asn] = cidrs
+                        return cidrs
+
+    cidrs = []
     ASN_CACHE[asn] = cidrs
     return cidrs
 
 
 async def fetch(url: str) -> str:  # noqa: D103
     if url.startswith("file://"):
-        path = url[7:]
-        async with await anyio.Path(path).open("r", encoding="utf-8") as handle:
+        async with await anyio.Path(url[7:]).open("r", encoding="utf-8") as handle:
             return await handle.read()
 
     resp = await POOL.get(url)
@@ -224,9 +223,9 @@ def split_port(item: str) -> tuple[str | None, int | None]:  # noqa: D103
             with contextlib.suppress(ValueError):
                 start, end = int(parts[0]), int(parts[1])
                 return f"{start}:{end}", None
-    else:
-        with contextlib.suppress(ValueError):
-            return None, int(item)
+        return None, None
+    with contextlib.suppress(ValueError):
+        return None, int(item)
     return None, None
 
 
@@ -273,40 +272,42 @@ def compose(frame: pl.DataFrame, cidrs: list[str]) -> dict[str, Any]:  # noqa: C
             continue
 
         if pattern == "port":
+            port_results = [(split_port(item)[0], split_port(item)[1]) for item in addresses]
             ports, ranges = (
                 zip(
                     *[
-                        (None, span) if (span := split_port(item)[0]) is not None else (value, None)
-                        for item in addresses
-                        if (span := split_port(item)[0]) is not None or (value := split_port(item)[1]) is not None
+                        (None, span) if span is not None else (value, None)
+                        for span, value in port_results
+                        if span is not None or value is not None
                     ],
                     strict=False,
                 )
                 if addresses
                 else ([], [])
             )
-            if ports := [p for p in ports if p is not None]:
+            if ports := [p for p in ports if p]:
                 payload.setdefault("port", []).extend(ports)
-            if ranges := [r for r in ranges if r is not None]:
+            if ranges := [r for r in ranges if r]:
                 payload.setdefault("port_range", []).extend(ranges)
             continue
 
         if pattern == "source_port":
+            port_results = [(split_port(item)[0], split_port(item)[1]) for item in addresses]
             ports, ranges = (
                 zip(
                     *[
-                        (None, span) if (span := split_port(item)[0]) is not None else (value, None)
-                        for item in addresses
-                        if (span := split_port(item)[0]) is not None or (value := split_port(item)[1]) is not None
+                        (None, span) if span is not None else (value, None)
+                        for span, value in port_results
+                        if span is not None or value is not None
                     ],
                     strict=False,
                 )
                 if addresses
                 else ([], [])
             )
-            if ports := [p for p in ports if p is not None]:
+            if ports := [p for p in ports if p]:
                 payload.setdefault("source_port", []).extend(ports)
-            if ranges := [r for r in ranges if r is not None]:
+            if ranges := [r for r in ranges if r]:
                 payload.setdefault("source_port_range", []).extend(ranges)
             continue
 
@@ -357,7 +358,7 @@ async def emit(url: str, directory: str, category: str) -> anyio.Path | None:  #
 
     invalid = frame.filter(pl.col("pattern").is_in(list(DENY)))
     if invalid.height > 0:
-        obsolete = [item for item in invalid["pattern"].unique().to_list() if item in DENY]
+        obsolete = list(set(invalid["pattern"].unique().to_list()) & set(DENY))
         if obsolete:
             frame = frame.filter(~pl.col("pattern").is_in(obsolete))
 
@@ -394,14 +395,18 @@ async def main() -> None:  # noqa: D103
     srs_base = anyio.Path("sing-box/srs")
 
     for base_dir in [json_base, srs_base]:
-        for subdir in ["domainset", "ip", "non_ip", "dns"]:
-            await (base_dir / subdir).mkdir(exist_ok=True, parents=True)
+        await asyncio.gather(
+            *(
+                (base_dir / subdir).mkdir(exist_ok=True, parents=True)
+                for subdir in ["domainset", "ip", "non_ip", "dns"]
+            ),
+        )
 
     conf_files = [
         (conf_file, subdir)
         for subdir in ["domainset", "ip", "non_ip"]
-        if await (subdir_path := list_dir / subdir).exists()
-        for conf_file in [f async for f in subdir_path.glob("*.conf")]
+        if await (list_dir / subdir).exists()
+        for conf_file in [f async for f in (list_dir / subdir).glob("*.conf")]
     ]
 
     tasks = [
@@ -414,9 +419,10 @@ async def main() -> None:  # noqa: D103
         modules_dir = anyio.Path("../dist/Modules/Rules/sukka_local_dns_mapping")
 
     if await modules_dir.exists():
+        dns_files = [f async for f in modules_dir.glob("*.conf")]
         tasks.extend([
             asyncio.create_task(emit(f"file://{await conf_file.absolute()}", str(json_base / "dns"), "dns"))
-            for conf_file in [f async for f in modules_dir.glob("*.conf")]
+            for conf_file in dns_files
         ])
 
     if tasks:
