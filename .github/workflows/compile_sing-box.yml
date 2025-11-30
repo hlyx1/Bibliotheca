@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 env:
-  SING_BOX_VERSION: 1.13.0-alpha.26
+  SING_BOX_VERSION: 1.13.0-alpha.27
   SING_BOX_PACKAGE: linux-amd64
 
 jobs:
