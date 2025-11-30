@@ -49,7 +49,7 @@ jobs:
         run: |
           cd Ruleset/sing-box
           shopt -s nullglob
-          for category in domainset ip non_ip local_dns; do
+          for category in domainset ip non_ip dns; do
             json_path="json/$category"
             srs_path="srs/$category"
             [ -d "$json_path" ] || continue

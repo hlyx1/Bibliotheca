@@ -1,4 +1,4 @@
-import asyncio  # noqa: CPY001, D100, INP001
+import asyncio  # noqa: CPY001, D100
 import contextlib
 import ipaddress
 from typing import Any
@@ -390,7 +390,7 @@ async def main() -> None:  # noqa: C901, D103
     srs_base = anyio.Path("sing-box/srs")
 
     for base_dir in [json_base, srs_base]:
-        for subdir in ["domainset", "ip", "non_ip", "local_dns"]:
+        for subdir in ["domainset", "ip", "non_ip", "dns"]:
             await (base_dir / subdir).mkdir(exist_ok=True, parents=True)
 
     conf_files = []
@@ -413,8 +413,8 @@ async def main() -> None:  # noqa: C901, D103
         local_dns_files = [f async for f in modules_dir.glob("*.conf")]
         for conf_file in local_dns_files:
             file_url = f"file://{await conf_file.absolute()}"
-            output_dir = json_base / "local_dns"
-            tasks.append(asyncio.create_task(emit(file_url, str(output_dir), "local_dns")))
+            output_dir = json_base / "dns"
+            tasks.append(asyncio.create_task(emit(file_url, str(output_dir), "dns")))
 
     if tasks:
         await asyncio.gather(*tasks, return_exceptions=False)
