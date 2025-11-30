@@ -837,7 +837,7 @@
         ".3.cn"
       ],
       "domain_regex": [
-        "^[^.]+\\.qhimgs?\\.com$"
+        "^[\\w.-]*?\\.qhimgs[\\w.-]\\.com$"
       ]
     }
   ]

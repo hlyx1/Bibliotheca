@@ -202,8 +202,8 @@ def validate_regex(pattern: str) -> bool:  # noqa: D103
 
 def mask_regex(pattern: str) -> str:  # noqa: D103
     masked = pattern.lstrip(".")
-    escaped = masked.replace(".", r"\.").replace("*", "MASK")
-    return f"^{escaped.replace('MASK', r'[^.]+')}$"
+    char_map = {".": r"\.", "*": r"[\w.-]*?", "?": r"[\w.-]"}
+    return "^" + "".join(char_map.get(char, char) for char in masked) + "$"
 
 
 def normalize_cidr(entry: str) -> str:  # noqa: D103
