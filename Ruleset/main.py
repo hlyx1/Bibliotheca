@@ -1,6 +1,8 @@
-import asyncio  # noqa: CPY001, D100
+import asyncio  # noqa: CPY001, D100, INP001
 import contextlib
 import ipaddress
+import itertools
+import re
 from typing import Any
 
 import anyio
@@ -140,38 +142,33 @@ async def fetch(url: str) -> str:  # noqa: D103
 
 def decode_yaml(blob: str) -> list[dict[str, str]]:  # noqa: D103
     parsed = yaml.safe_load(blob)
-    rows: list[dict[str, str]] = []
-    for item in parsed.get("payload", ()):
-        entry = item.strip("'\"")
-        if "," not in item:
-            if is_net(entry):
-                kind = "IP-CIDR"
-            elif entry.startswith("+"):
-                kind = "DOMAIN-SUFFIX"
-                entry = entry[1:].lstrip(".")
-            else:
-                kind = "DOMAIN"
-        else:
-            parts = item.split(",", 2)
-            kind = parts[0].strip()
-            entry = parts[1].strip()
-        rows.append({"pattern": kind, "address": entry})
-    return rows
+    return [
+        {
+            "pattern": (
+                "IP-CIDR"
+                if is_net(entry := item.strip("'\""))
+                else "DOMAIN-SUFFIX"
+                if entry.startswith("+")
+                else "DOMAIN"
+            )
+            if "," not in item
+            else item.split(",", 2)[0].strip(),
+            "address": ((entry := entry[1:].lstrip(".")) if entry.startswith("+") else entry)
+            if "," not in item
+            else item.split(",", 2)[1].strip(),
+        }
+        for item in parsed.get("payload", ())
+    ]
 
 
 def decode_list(blob: str) -> list[dict[str, str]]:  # noqa: D103
-    entries: list[dict[str, str]] = []
-    for raw in blob.strip().split("\n"):
-        line = raw.strip()
-        if not line or line.startswith("#"):
-            continue
-        parts = line.split(",", 2)
-        if len(parts) >= 2:  # noqa: PLR2004
-            entries.append({"pattern": parts[0].strip(), "address": parts[1].strip()})
-        elif len(parts) == 1:
-            address = parts[0].strip().removeprefix(".")
-            entries.append({"pattern": "DOMAIN-SUFFIX", "address": address})
-    return entries
+    return [
+        {"pattern": parts[0].strip(), "address": parts[1].strip()}
+        if len(parts := line.split(",", 2)) >= 2  # noqa: PLR2004
+        else {"pattern": "DOMAIN-SUFFIX", "address": parts[0].strip().removeprefix(".")}
+        for line in blob.strip().split("\n")
+        if line.strip() and not line.startswith("#")
+    ]
 
 
 def is_net(address: str) -> bool:  # noqa: D103
@@ -192,11 +189,15 @@ async def ingest(url: str) -> pl.DataFrame:  # noqa: D103
 
 async def merge(asn_list: list[str]) -> list[str]:  # noqa: D103
     bundles = await asyncio.gather(*(prefix(item) for item in asn_list), return_exceptions=True)
-    cidrs: list[str] = []
-    for bundle in bundles:
-        if isinstance(bundle, list):
-            cidrs.extend(bundle)
-    return cidrs
+    return list(itertools.chain.from_iterable(bundle for bundle in bundles if isinstance(bundle, list)))
+
+
+def validate_regex(pattern: str) -> bool:  # noqa: D103
+    try:
+        re.compile(pattern)
+    except re.error:
+        return False
+    return True
 
 
 def mask_regex(pattern: str) -> str:  # noqa: D103
@@ -252,11 +253,15 @@ def compose(frame: pl.DataFrame, cidrs: list[str]) -> dict[str, Any]:  # noqa: C
             continue
 
         if pattern == "domain_regex":
-            payload.setdefault("domain_regex", []).extend(addresses)
+            valid_regexes = [item for item in addresses if validate_regex(item)]
+            if valid_regexes:
+                payload.setdefault("domain_regex", []).extend(valid_regexes)
             continue
 
         if pattern == "domain_wildcard":
-            payload.setdefault("domain_regex", []).extend(mask_regex(item) for item in addresses)
+            regex_patterns = [regex for item in addresses if (regex := mask_regex(item)) and validate_regex(regex)]
+            if regex_patterns:
+                payload.setdefault("domain_regex", []).extend(regex_patterns)
             continue
 
         if pattern == "ip_cidr":
@@ -268,32 +273,40 @@ def compose(frame: pl.DataFrame, cidrs: list[str]) -> dict[str, Any]:  # noqa: C
             continue
 
         if pattern == "port":
-            ports: list[int] = []
-            ranges: list[str] = []
-            for item in addresses:
-                span, value = split_port(item)
-                if span is not None:
-                    ranges.append(span)
-                elif value is not None:
-                    ports.append(value)
-            if ports:
+            ports, ranges = (
+                zip(
+                    *[
+                        (None, span) if (span := split_port(item)[0]) is not None else (value, None)
+                        for item in addresses
+                        if (span := split_port(item)[0]) is not None or (value := split_port(item)[1]) is not None
+                    ],
+                    strict=False,
+                )
+                if addresses
+                else ([], [])
+            )
+            if ports := [p for p in ports if p is not None]:
                 payload.setdefault("port", []).extend(ports)
-            if ranges:
+            if ranges := [r for r in ranges if r is not None]:
                 payload.setdefault("port_range", []).extend(ranges)
             continue
 
         if pattern == "source_port":
-            ports: list[int] = []
-            ranges: list[str] = []
-            for item in addresses:
-                span, value = split_port(item)
-                if span is not None:
-                    ranges.append(span)
-                elif value is not None:
-                    ports.append(value)
-            if ports:
+            ports, ranges = (
+                zip(
+                    *[
+                        (None, span) if (span := split_port(item)[0]) is not None else (value, None)
+                        for item in addresses
+                        if (span := split_port(item)[0]) is not None or (value := split_port(item)[1]) is not None
+                    ],
+                    strict=False,
+                )
+                if addresses
+                else ([], [])
+            )
+            if ports := [p for p in ports if p is not None]:
                 payload.setdefault("source_port", []).extend(ports)
-            if ranges:
+            if ranges := [r for r in ranges if r is not None]:
                 payload.setdefault("source_port_range", []).extend(ranges)
             continue
 
@@ -313,23 +326,14 @@ def compose(frame: pl.DataFrame, cidrs: list[str]) -> dict[str, Any]:  # noqa: C
     if cidrs:
         payload.setdefault("ip_cidr", []).extend(normalize_cidr(item) for item in cidrs)
 
-    for key, value in list(payload.items()):
-        if isinstance(value, list):
-            if key in {"port", "source_port"}:
-                payload[key] = sorted(set(value))
-            elif key in {"port_range", "source_port_range"}:
-                payload[key] = list(dict.fromkeys(value))
-            else:
-                payload[key] = list(dict.fromkeys(value))
+    payload = {
+        key: (sorted(set(value)) if key in {"port", "source_port"} else list(dict.fromkeys(value)))
+        for key, value in payload.items()
+        if isinstance(value, list)
+    }
 
-    ordered: dict[str, Any] = {}
-    for field in ORDER:
-        if payload.get(field):
-            ordered[field] = payload[field]
-
-    for field, value in payload.items():
-        if field not in ordered and value:
-            ordered[field] = value
+    ordered = {field: payload[field] for field in ORDER if payload.get(field)}
+    ordered.update({field: value for field, value in payload.items() if field not in ordered and value})
 
     if not ordered:
         return {"version": 2, "rules": []}
@@ -377,7 +381,7 @@ async def emit(url: str, directory: str, category: str) -> anyio.Path | None:  #
     return file_name
 
 
-async def main() -> None:  # noqa: C901, D103
+async def main() -> None:  # noqa: D103
     list_dir = anyio.Path("dist/List")
 
     if not await list_dir.exists():
@@ -393,28 +397,27 @@ async def main() -> None:  # noqa: C901, D103
         for subdir in ["domainset", "ip", "non_ip", "dns"]:
             await (base_dir / subdir).mkdir(exist_ok=True, parents=True)
 
-    conf_files = []
-    for subdir in ["domainset", "ip", "non_ip"]:
-        subdir_path = list_dir / subdir
-        if await subdir_path.exists():
-            conf_files.extend([(conf_file, subdir) async for conf_file in subdir_path.glob("*.conf")])
+    conf_files = [
+        (conf_file, subdir)
+        for subdir in ["domainset", "ip", "non_ip"]
+        if await (subdir_path := list_dir / subdir).exists()
+        for conf_file in [f async for f in subdir_path.glob("*.conf")]
+    ]
 
-    tasks: list[asyncio.Task[Any]] = []
-    for conf_file, category in conf_files:
-        file_url = f"file://{await conf_file.absolute()}"
-        output_dir = json_base / category
-        tasks.append(asyncio.create_task(emit(file_url, str(output_dir), category)))
+    tasks = [
+        asyncio.create_task(emit(f"file://{await conf_file.absolute()}", str(json_base / category), category))
+        for conf_file, category in conf_files
+    ]
 
     modules_dir = anyio.Path("dist/Modules/Rules/sukka_local_dns_mapping")
     if not await modules_dir.exists():
         modules_dir = anyio.Path("../dist/Modules/Rules/sukka_local_dns_mapping")
 
     if await modules_dir.exists():
-        local_dns_files = [f async for f in modules_dir.glob("*.conf")]
-        for conf_file in local_dns_files:
-            file_url = f"file://{await conf_file.absolute()}"
-            output_dir = json_base / "dns"
-            tasks.append(asyncio.create_task(emit(file_url, str(output_dir), "dns")))
+        tasks.extend([
+            asyncio.create_task(emit(f"file://{await conf_file.absolute()}", str(json_base / "dns"), "dns"))
+            for conf_file in [f async for f in modules_dir.glob("*.conf")]
+        ])
 
     if tasks:
         await asyncio.gather(*tasks, return_exceptions=False)
