@@ -1,5 +1,5 @@
 ! Title: Sukka's Ruleset - AdGuardHome Blocklist
-! Last modified: Sun, 30 Nov 2025 04:46:01 GMT
+! Last modified: Sun, 30 Nov 2025 06:55:59 GMT
 ! Expires: 6 hours
 ! License: https://github.com/SukkaW/Surge/blob/master/LICENSE
 ! Homepage: https://github.com/SukkaW/Surge
@@ -417,6 +417,7 @@
 ||jciokqknvlfyc.website^
 ||jbwcujtcmchoh.website^
 ||izalyzvesmopi.website^
+||iyxkoshoagpfc.website^
 ||iwwugzbfzslaq.website^
 ||iwbiwzzlztbcv.website^
 ||ivvmkcwxvifeb.website^
@@ -450,6 +451,7 @@
 ||hsmvuwsdauuoo.website^
 ||hscfjrtmjpabs.website^
 ||hpzvitkflstxx.website^
+||hnfuvjqpmzzey.website^
 ||hlcgyuuvlwgjs.website^
 ||hkzhevbvnykvf.website^
 ||hhwvhuhpobudu.website^
@@ -827,6 +829,7 @@
 ||zyzimjopitrvj.online^
 ||zynnrgeptfjhg.online^
 ||zxauldkcfsvcc.online^
+||zxaoopbthcrlh.online^
 ||zvdmqmssfnxml.online^
 ||zuzezsdafjupl.online^
 ||zpwlgazfvycmd.online^
@@ -1083,6 +1086,7 @@
 ||nptducyolrful.online^
 ||npsczocxkpdkr.online^
 ||npmfetklmwfzj.online^
+||npjdvywxsbtbz.online^
 ||nmfbpkejqebcu.online^
 ||njnmdxsovpzkk.online^
 ||ngjemhyhqlwil.online^
@@ -2147,6 +2151,7 @@
 ||ztgppjnsiebwe.space^
 ||zpqfqxoczrwfq.space^
 ||zohlikopegrdz.space^
+||znpeduhjhauqz.space^
 ||zmrcxkocldojo.space^
 ||zjhopmpjrehih.space^
 ||zjaawdreetkcd.space^
@@ -2168,6 +2173,7 @@
 ||yrfitmobjkskj.space^
 ||yqocbixitiqnc.space^
 ||yoehgupyqivfh.space^
+||ynjryqkgtlixu.space^
 ||ymjwzofxrfjwc.space^
 ||ymjpyeapkcoae.space^
 ||ykwoclkfabviu.space^
@@ -2433,6 +2439,7 @@
 ||lxvsjdmjygqcc.space^
 ||lwbqhebumidbs.space^
 ||luabrsxnfdloc.space^
+||lrieddklibrbq.space^
 ||lqpzqdtgxebxx.space^
 ||lpqznnkdczxuo.space^
 ||lpbtqxqhjzsvc.space^
@@ -2442,6 +2449,7 @@
 ||lnemejybcariz.space^
 ||lmxjnuysjbyea.space^
 ||llxhgmptlnuxe.space^
+||llrcuclntbhft.space^
 ||llawmyiudnyby.space^
 ||lhrlgjmgifkkl.space^
 ||lgjdmglqloopu.space^
@@ -3581,6 +3589,7 @@
 ||rpokplgddrbjg.site^
 ||rpjxrvhkcntkw.site^
 ||roefcldengayg.site^
+||rliclcdbwdmsg.site^
 ||rfbowzahficrp.site^
 ||rdjypzrfxctjo.site^
 ||rdhzeagmyxdim.site^
@@ -4586,6 +4595,7 @@
 ||eeg16joqhgl54p4k.rest^
 ||e3jeqwm4yko2pyk2.rest^
 ||e15hz6n67pl7m2xp.rest^
+||bxltulc7ezovker2.rest^
 ||bwb83vbtwfel9zlt.rest^
 ||b8gz93k6to54cz5v.rest^
 ||8zggvq4m8gtrqyb9.rest^
@@ -5682,6 +5692,7 @@
 ||refundpathan.help^
 ||razziakinkly.help^
 ||quilezbutles.help^
+||poaceaemilla.help^
 ||plottontchwi.help^
 ||outbawlkiddy.help^
 ||nichtemeroid.help^
@@ -5816,6 +5827,7 @@
 ||4bcc6h75ic9yu5h9nhwnv.cyou^
 ||23hxl5rkz4r87pymvlkf5.cyou^
 ||bv41c3c51jrvoqqhc939.cyou^
+||pretanlancetseventh.cyou^
 ||hlx7gepwl5xlyuo821w.cyou^
 ||farseercrumbedlochs.cyou^
 ||birliebouclewetbird.cyou^
@@ -5827,6 +5839,7 @@
 ||awkvastestbegani.cyou^
 ||7pl3eg6tj1ob6wzb.cyou^
 ||6lioz2j44t7br7c5.cyou^
+||tzugpyowtnpkw4w.cyou^
 ||lleritsymutular.cyou^
 ||hcqflu9l1huok4o.cyou^
 ||g1nzf947vmkbzqc.cyou^
@@ -7129,6 +7142,7 @@
 ||ayjvwlrbjaybm.top^
 ||ayarkkbmakzew.top^
 ||awkbkkqkqmvyv.top^
+||awbrwrywkomor.top^
 ||awavjblrwejzv.top^
 ||avzwkkmoeleba.top^
 ||avvelwavlvkmm.top^
@@ -7839,6 +7853,7 @@
 ||horribletemperature.pro^
 ||delectableimplement.pro^
 ||biodegradable-minor.pro^
+||tatteredperception.pro^
 ||scentedassociation.pro^
 ||scarce-negotiation.pro^
 ||richtransportation.pro^
@@ -8038,6 +8053,7 @@
 ||gummy-bonus.pro^
 ||grygrothapi.pro^
 ||gno-protect.pro^
+||frigid-wait.pro^
 ||frayedpizza.pro^
 ||exaltedgame.pro^
 ||dualweekend.pro^
@@ -10341,6 +10357,7 @@
 ||maithigloab.net^
 ||looroononam.net^
 ||stats.loitersquad.net^
+||lishigreels.net^
 ||leesaushoah.net^
 ||leadboltads.net^
 ||kulroakonsu.net^
@@ -24052,6 +24069,7 @@
 ||marketing.industrialspec.com^
 ||indulgencelate.com^
 ||bjkoi.incommonbeauty.com^
+||imxoqvsfeteyyx.com^
 ||impressiondarn.com^
 ||importedinsect.com^
 ||secure.imaginative-24.com^
@@ -35948,6 +35966,7 @@
 ||ytoontoteh.com^
 ||yto3kavwud.com^
 ||yry62x1vwl.com^
+||yr2spd4ucy.com^
 ||yp0loy5lcl.com^
 ||nqyljn.yoyoexpert.com^
 ||analytics.yourshades.com^
@@ -42828,6 +42847,7 @@
 ||server-stape.playbicho.com^
 ||marketing.plantprod.com^
 ||plantchia.com^
+||pksumhbrf.com^
 ||links.pkrewards.com^
 ||pkrchp001.com^
 ||pkpmhr2gw.com^
@@ -43668,6 +43688,7 @@
 ||m0rsq075u.com^
 ||server.m-pilates.com^
 ||lzxvxsiyr.com^
+||lytgbkybd.com^
 ||lyo1dkdbp.com^
 ||lyjq9gwob.com^
 ||lycheebit.com^
@@ -44541,6 +44562,7 @@
 ||harvest.graindata.com^
 ||gtm.gradguard.com^
 ||gqxwfhe7o.com^
+||gqnarvogh.com^
 ||gpdfkjvys.com^
 ||gozendata.com^
 ||kfqjyh.govplanet.com^
@@ -50238,6 +50260,7 @@
 ||dadatuwz.com^
 ||marketing.dacocorp.com^
 ||dacmaiss.com^
+||cywuqofp.com^
 ||analytics.cyrillus.com^
 ||tags.cxagents.com^
 ||cvastico.com^
@@ -64127,6 +64150,7 @@
 ||ads-api.x.com^
 ||t.e.x.com^
 ||o4pkovjvjvvj1b7czy5jnx81ppc81fn6f7xk9lo.cfd^
+||u8wiw86hfn3f476fyi3n87pxbpryo627uc5hjk.cfd^
 ||lvq3m854zb6mjk4ey9f7j8bitk2wjpxv4izrxp.cfd^
 ||kckc7p3oc4nffjhk2lolynocgr3pcvoe9yw.cfd^
 ||i2ij7inr7kbiw8423rwiticev1xbzjo6jxh.cfd^
@@ -64254,6 +64278,7 @@
 ||faginecoriausxiphiid.cfd^
 ||e121curmecn9ug47fcum.cfd^
 ||crusetsbleauntgarlic.cfd^
+||chylespastoseobclude.cfd^
 ||bombaycincherprinked.cfd^
 ||8rjctqt2mqilxkt39w4i.cfd^
 ||8n193nm29qn8kg57oghj.cfd^

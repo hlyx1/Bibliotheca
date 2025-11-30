@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Reject Extra
-# Last Updated: 2025-11-30T04:45:36.065Z
-# Size: 73922
+# Last Updated: 2025-11-30T06:55:32.835Z
+# Size: 73915
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -1032,10 +1032,10 @@
 +.jblaptokniuuu.website
 +.jbkwfrjaqpprv.website
 +.jbcekxybbwsbz.website
++.jbazlkbvmyecd.website
 +.jawqgjbvrceel.website
 +.jaforvsuneysw.website
 +.jacbxfspyctmr.website
-+.iyxkoshoagpfc.website
 +.iypxxhjdiwggg.website
 +.iylwnmnnchzkq.website
 +.iyisxchvajdxu.website
@@ -1046,6 +1046,7 @@
 +.ixjqjoscayasz.website
 +.ixcirsgywnnmi.website
 +.ixamawwpxjchg.website
++.iwxasakxqpcxi.website
 +.iwuzyhpiwptij.website
 +.iwjbodkdwgaxq.website
 +.ivlnszjtorszh.website
@@ -1121,7 +1122,6 @@
 +.howwtmrkhjzfb.website
 +.hnwqolckynifk.website
 +.hnsziqysnqozo.website
-+.hnfuvjqpmzzey.website
 +.hlufsqadxupgr.website
 +.hlbhzwrntodiv.website
 +.hkubluminqjxy.website
@@ -2476,6 +2476,7 @@
 +.rgskrmtckgwwl.online
 +.rgmuksfuciowy.online
 +.rfqjpyrqurtje.online
++.rfpjoviqbmecn.online
 +.rfilmuhipsfdh.online
 +.rezjcyniuvosb.online
 +.revwneghofvae.online
@@ -2731,7 +2732,6 @@
 +.nqubqpqmnecey.online
 +.nqqncdeniixdo.online
 +.nqdgrzcyyeiul.online
-+.npjdvywxsbtbz.online
 +.nobonfthelnzj.online
 +.nnyejjtckhxkp.online
 +.nlyvcmyicrhkv.online
@@ -3348,6 +3348,7 @@
 +.egpealygnhgue.online
 +.egcuxefgvsjpw.online
 +.effevtrqxgnik.online
++.eexdpbhuaohsx.online
 +.edqwztrptkdna.online
 +.edktdzgduapfb.online
 +.eclbxwsilamsg.online
@@ -5552,7 +5553,6 @@
 +.yoyjdfpylpyfl.space
 +.yolvyzasxyojr.space
 +.yobxluanlfwvu.space
-+.ynjryqkgtlixu.space
 +.ynfanslkhrdtn.space
 +.ymvcapbwcgsqw.space
 +.ymovooiljamnc.space
@@ -6086,6 +6086,7 @@
 +.owwqbgkedrqeh.space
 +.owtpooquoezgt.space
 +.owgmsuvofbvtx.space
++.owfijkhomxdfo.space
 +.owajwdyuesrbl.space
 +.ovkyjqwvvqosx.space
 +.overfxdyqgwvr.space
@@ -6290,7 +6291,6 @@
 +.ludpvyyfohlgi.space
 +.ltnchfmuwmltz.space
 +.ltbzdstsmjiop.space
-+.lrieddklibrbq.space
 +.lqtxnaqqmbqxm.space
 +.lqnzjmlhskmez.space
 +.lqepkvudjwgwn.space
@@ -6305,7 +6305,6 @@
 +.lmejmdznwwtth.space
 +.lmdljboquvute.space
 +.llskrfxbuofuj.space
-+.llrcuclntbhft.space
 +.lldmuevvzmefo.space
 +.lkrhxbrrztyfw.space
 +.lkqagavhhaqrp.space
@@ -7000,6 +6999,7 @@
 +.alxvuqwwywtbs.space
 +.altynnfxkfaal.space
 +.akupmhxbzdhau.space
++.akoxwanaydqya.space
 +.akjqasjvydlid.space
 +.akgpoauxieivj.space
 +.akfovwbrmflup.space
@@ -7615,6 +7615,7 @@
 +.loyalambach.click
 +.losf8uo304l.click
 +.linodippers.click
++.layupvenust.click
 +.killmalware.click
 +.jnkms0zfueh.click
 +.jeweleddees.click
@@ -8529,7 +8530,6 @@
 +.rmggipaazeupw.site
 +.rlrsfxkewwgww.site
 +.rlogcejfsgtar.site
-+.rliclcdbwdmsg.site
 +.rlgjhoighzfpf.site
 +.rkocuezkhfizy.site
 +.rjxczvecqiipf.site
@@ -10366,7 +10366,6 @@
 +.ng5rzxubc63fgpyy5iyi.rest
 +.o8ctkwu6r68z7mgft.rest
 +.nontraditionally.rest
-+.bxltulc7ezovker2.rest
 +.88c2xrjre76e76rv.rest
 +.vernagefiacres.rest
 +.touringfewsome.rest
@@ -10512,6 +10511,7 @@
 +.flueytantivy.rest
 +.erbiawerecat.rest
 +.diesesstrate.rest
++.darksisobath.rest
 +.clamoroarage.rest
 +.chymiatipple.rest
 +.chyaziclocks.rest
@@ -12799,7 +12799,6 @@
 +.prowerloungy.help
 +.pommytouzled.help
 +.pohnapriscan.help
-+.poaceaemilla.help
 +.plumiervills.help
 +.pittoidmisly.help
 +.pistickjoker.help
@@ -13171,7 +13170,6 @@
 +.tripcombest.deal
 +.statistic.date
 +.flightzy.date
-+.tzugpyowtnpkw4w.cyou
 +.zoisticdecuria.cyou
 +.yaffingunbegun.cyou
 +.whynessspriggy.cyou
@@ -13503,6 +13501,7 @@
 +.wettestprims.cyou
 +.weaverswince.cyou
 +.veniseroucou.cyou
++.vealskenlore.cyou
 +.variostoyons.cyou
 +.varifyfullom.cyou
 +.upgullypirns.cyou
@@ -16555,7 +16554,6 @@
 +.ayarkkbmakkja.top
 +.awkbkkqkqmmva.top
 +.awbrwrywkwqwj.top
-+.awbrwrywkomor.top
 +.awbrwrywkomma.top
 +.awavjblaaewba.top
 +.arbithitemise.top
@@ -16957,7 +16955,6 @@
 +.welldocumentedlock.pro
 +.welldocumentedexit.pro
 +.waterloggedstation.pro
-+.tatteredperception.pro
 +.tangible-guarantee.pro
 +.submissive-quarter.pro
 +.shimmering-concept.pro
@@ -17626,7 +17623,6 @@
 +.glassvisual.pro
 +.generoustry.pro
 +.generousbuy.pro
-+.frigid-wait.pro
 +.fresh-watch.pro
 +.freefromads.pro
 +.frayed-coat.pro
@@ -37463,7 +37459,6 @@ otn.samsungcloudcdn.com
 +.incomingnotice.com
 +.includingmeter.com
 +.imydreamsauknd.com
-+.imxoqvsfeteyyx.com
 +.improvedigital.com
 +.impresionesweb.com
 +.impossiblemove.com
@@ -40796,6 +40791,7 @@ otn.samsungcloudcdn.com
 +.yt-adblocker.com
 +.yowltrycloud.com
 +.yowiespopian.com
++.yovmdbaeqynr.com
 +.yourquickads.com
 +.yourgiftzone.com
 +.yourgascards.com
@@ -44491,6 +44487,7 @@ otn.samsungcloudcdn.com
 +.ontyrogueom.com
 +.onpolitoeda.com
 +.onpetropica.com
++.onmdamaxkcz.com
 +.onlinelease.com
 +.online-path.com
 +.onhamuadich.com
@@ -46179,7 +46176,6 @@ otn.samsungcloudcdn.com
 +.yvzgazds6d.com
 +.yummyzilla.com
 +.yukithedog.com
-+.yr2spd4ucy.com
 +.youwanthis.com
 +.yourdailytrailer.yournewtab.com
 +.youfiletor.com
@@ -51096,7 +51092,6 @@ samsungeurope.eu.qualtrics.com
 +.plarimocl.com
 +.plantchia.com
 +.ads.planet-f1.com
-+.pksumhbrf.com
 +.piximedia.com
 +.pixfuture.com
 +.pixeltrey.com
@@ -51911,7 +51906,6 @@ samsungeurope.eu.qualtrics.com
 +.grayswing.com
 +.grasshusk.com
 +.grafpedia.com
-+.gqnarvogh.com
 +.gqalqi656.com
 +.govmetric.com
 +.gotoyahoo.com
@@ -55050,7 +55044,6 @@ huawei.facebook.com
 +.daartads.com
 +.d-hiyori.com
 +.czilladx.com
-+.cywuqofp.com
 +.video.cynogage.com
 +.oascentral.cybereps.com
 +.images.cybereps.com
@@ -62240,7 +62233,6 @@ m.jr.mi.com
 +.valtrex.7h.com
 +.56.com
 +.cpanel12wh.bkk1.cloud.z.com
-+.u8wiw86hfn3f476fyi3n87pxbpryo627uc5hjk.cfd
 +.qg9unohql2223k2gikr8867ijnt6r82h8jihl.cfd
 +.uby9w6k4vjyf8ebinxq8zmk7wyimi81fyl.cfd
 +.17e3uu89ef7vb2v6l8q8nlfp9t4t6.cfd
@@ -62263,7 +62255,6 @@ m.jr.mi.com
 +.lv6ulyf7nmc7whvuuhrrn.cfd
 +.i4lx3jb2tpfrn751j8z12.cfd
 +.tzgwi3cw17pgjqx1ue6l.cfd
-+.chylespastoseobclude.cfd
 +.4kpuqcwu4tyqguktzkut.cfd
 +.ol4mpcypiiufz9wuxx4.cfd
 +.mo4tg5m16vrjwy4okrv.cfd
@@ -62491,6 +62482,7 @@ m.jr.mi.com
 +.outsertozonic.cfd
 +.outsaidvulvas.cfd
 +.ossificobeyer.cfd
++.okonitesetule.cfd
 +.notbeexcluded.cfd
 +.nappertroughy.cfd
 +.myricaempties.cfd
@@ -62746,6 +62738,7 @@ m.jr.mi.com
 +.aweelinwrapt.cfd
 +.aucubafixing.cfd
 +.auchletcecal.cfd
++.athinkgrange.cfd
 +.arcticsiters.cfd
 +.andslideasco.cfd
 +.amongfurfooz.cfd
