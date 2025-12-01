@@ -216,6 +216,7 @@
 +.sgn-nperf.verizon.net
 +.aus-nperf.verizon.net
 +.jp-nperf.verizon.net
++.speedtest.twerion.net
 +.speedtest.telstra.net
 +.speedtest.telerys.net
 +.st1.tbaytel.net

@@ -217,6 +217,7 @@ payload:
 - DOMAIN-SUFFIX,sgn-nperf.verizon.net
 - DOMAIN-SUFFIX,aus-nperf.verizon.net
 - DOMAIN-SUFFIX,jp-nperf.verizon.net
+- DOMAIN-SUFFIX,speedtest.twerion.net
 - DOMAIN-SUFFIX,speedtest.telstra.net
 - DOMAIN-SUFFIX,speedtest.telerys.net
 - DOMAIN-SUFFIX,st1.tbaytel.net
