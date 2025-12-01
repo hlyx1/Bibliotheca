@@ -12,15 +12,11 @@ permissions:
 
 env:
   MIHOMO_VERSION: Prerelease-Alpha
-  MIHOMO_PACKAGE_BASE: mihomo-linux-amd64
-  MIHOMO_COMMIT: a001b1b
+  MIHOMO_PACKAGE: mihomo-linux-amd64-alpha-a001b1b.gz
 
 jobs:
   compile:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        variant: ["", "-v1", "-v2", "-v3"]
     steps:
       - uses: actions/checkout@v6
       - shell: bash
@@ -37,52 +33,47 @@ jobs:
           python -Im pip install --requirement Ruleset/requirements.txt
       - shell: bash
         run: |
-          workdir="$(mktemp -d)"
-          trap 'rm -rf "$workdir"' EXIT
-          variant="${{ matrix.variant }}"
-          package_name="${{ env.MIHOMO_PACKAGE_BASE }}${variant}-alpha-${{ env.MIHOMO_COMMIT }}.gz"
-          uri="https://github.com/MetaCubeX/mihomo/releases/download/${{ env.MIHOMO_VERSION }}/${package_name}"
-          curl --fail --location --retry 5 --retry-delay 5 --retry-all-errors -o "$workdir/pkg.gz" "$uri"
-          gzip -d "$workdir/pkg.gz"
-          chmod +x "$workdir/pkg"
-          mv "$workdir/pkg" "$workdir/mihomo"
-      - shell: bash
-        run: |
-          python Ruleset/main.py
+          cd Ruleset
+          python main.py
       - shell: bash
         run: |
           workdir="$(mktemp -d)"
           trap 'rm -rf "$workdir"' EXIT
-          variant="${{ matrix.variant }}"
-          package_name="${{ env.MIHOMO_PACKAGE_BASE }}${variant}-alpha-${{ env.MIHOMO_COMMIT }}.gz"
-          uri="https://github.com/MetaCubeX/mihomo/releases/download/${{ env.MIHOMO_VERSION }}/${package_name}"
+          uri="https://github.com/MetaCubeX/mihomo/releases/download/${{ env.MIHOMO_VERSION }}/${{ env.MIHOMO_PACKAGE }}"
           curl --fail --location --retry 5 --retry-delay 5 --retry-all-errors -o "$workdir/pkg.gz" "$uri"
           gzip -d "$workdir/pkg.gz"
           chmod +x "$workdir/pkg"
           mv "$workdir/pkg" "$workdir/mihomo"
-
-          # Compile mihomo rulesets
+          
+          cd Ruleset/mihomo
+          shopt -s nullglob
           for category in domain ipcidr; do
-            find Ruleset/mihomo/text -name "*.${category}.txt" -type f | while read txt_file; do
-              basename_file=$(basename "$txt_file" .${category}.txt)
-              output_file="Ruleset/mihomo/mrs/${basename_file}.${category}.mrs"
-              mkdir -p "$(dirname "$output_file")"
-              "$workdir/mihomo" convert-ruleset "$category" text "$txt_file" "$output_file" || continue
-            done
-
-            find Ruleset/mihomo/yaml -name "*.${category}.yaml" -type f | while read yaml_file; do
-              basename_file=$(basename "$yaml_file" .${category}.yaml)
-              output_file="Ruleset/mihomo/mrs/${basename_file}.${category}.mrs"
-              [ -f "$output_file" ] || {
-                mkdir -p "$(dirname "$output_file")"
-                "$workdir/mihomo" convert-ruleset "$category" yaml "$yaml_file" "$output_file" || continue
-              }
-            done
+            text_path="text/$category"
+            yaml_path="yaml/$category"
+            mrs_path="mrs/$category"
+            [ -d "$text_path" ] || [ -d "$yaml_path" ] || continue
+            mkdir -p "$mrs_path"
+            
+            if [ -d "$text_path" ]; then
+              while IFS= read -r -d '' src; do
+                base="$(basename "${src%.txt}")"
+                "$workdir/mihomo" convert-ruleset "$category" text "$src" "$mrs_path/${base}.mrs" || continue
+              done < <(find "$text_path" -type f -name '*.txt' -print0)
+            fi
+            
+            if [ -d "$yaml_path" ]; then
+              while IFS= read -r -d '' src; do
+                base="$(basename "${src%.yaml}")"
+                [ -f "$mrs_path/${base}.mrs" ] || {
+                  "$workdir/mihomo" convert-ruleset "$category" yaml "$src" "$mrs_path/${base}.mrs" || continue
+                }
+              done < <(find "$yaml_path" -type f -name '*.yaml' -print0)
+            fi
           done
       - shell: bash
         run: |
           if [[ -n "$(git status --porcelain Ruleset/mihomo/mrs)" ]]; then
             git add Ruleset/mihomo/mrs
-            git commit -m "chore(mihomo): update compiled ruleset${{ matrix.variant }}"
+            git commit -m "feat(ruleset): mihomo bump [$(date -u +%FT%TZ)]"
             git push
           fi
