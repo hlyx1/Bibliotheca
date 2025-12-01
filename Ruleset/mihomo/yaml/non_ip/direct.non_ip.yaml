@@ -35,6 +35,15 @@ payload:
 - PROCESS-NAME,BaiduNetdisk_mac
 - PROCESS-NAME,Logi Options
 - PROCESS-NAME,Logi Options Daemon
+- DOMAIN-KEYWORD,cnki.net
+- DOMAIN-KEYWORD,wanfangdata
+- DOMAIN-KEYWORD,pkulaw
+- DOMAIN-KEYWORD,westlawchina
+- DOMAIN-KEYWORD,readcube
+- DOMAIN-KEYWORD,sciencedirect
+- DOMAIN-KEYWORD,elsevier
+- DOMAIN-KEYWORD,deepdyve
+- DOMAIN-KEYWORD,els-cdn
 - DOMAIN-SUFFIX,localdomain
 - DOMAIN-SUFFIX,internal
 - DOMAIN-SUFFIX,orpheus.network
@@ -204,12 +213,3 @@ payload:
 - DOMAIN,repeater.asus.com
 - DOMAIN,router.asus.com
 - DOMAIN,aterm.me
-- DOMAIN-KEYWORD,cnki.net
-- DOMAIN-KEYWORD,wanfangdata
-- DOMAIN-KEYWORD,pkulaw
-- DOMAIN-KEYWORD,westlawchina
-- DOMAIN-KEYWORD,readcube
-- DOMAIN-KEYWORD,sciencedirect
-- DOMAIN-KEYWORD,elsevier
-- DOMAIN-KEYWORD,deepdyve
-- DOMAIN-KEYWORD,els-cdn
