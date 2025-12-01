@@ -1,0 +1,7 @@
+payload:
+- DOMAIN-SUFFIX,mask.apple-dns.net
+- DOMAIN-SUFFIX,canary.mask.apple-dns.net
+- DOMAIN-SUFFIX,mask-canary.icloud.com
+- DOMAIN-SUFFIX,mask-api.icloud.com
+- DOMAIN-SUFFIX,mask-h2.icloud.com
+- DOMAIN-SUFFIX,mask.icloud.com

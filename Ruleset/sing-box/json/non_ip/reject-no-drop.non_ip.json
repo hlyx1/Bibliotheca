@@ -2,6 +2,18 @@
   "version": 4,
   "rules": [
     {
+      "type": "logical",
+      "mode": "and",
+      "rules": [
+        {
+          "domain_suffix": [
+            "googlevideo.com"
+          ]
+        }
+      ],
+      "invert": false
+    },
+    {
       "domain": [
         "qn-cdnfile1pcdn.msstatic.com",
         "livewebbs2pcdn.msstatic.com",
@@ -40,12 +52,12 @@
         "-p2p-v2.pull.yximgs.com"
       ],
       "domain_regex": [
-        "^p2p[\\w.-]*?\\.qq\\.com$",
-        "^p2p-[\\w.-]*?\\.douyucdn\\.cn$",
-        "^p2pchunk-[\\w.-]*?\\.douyucdn\\.cn$",
-        "^dyp2p-[\\w.-]*?\\.douyucdn\\.cn$",
-        "^p2plive-[\\w.-]*?\\.douyucdn\\.cn$",
-        "^stun[\\w.-]*?\\.douyucdn\\.cn$"
+        "p2p*.qq.com",
+        "p2p-*.douyucdn.cn",
+        "p2pchunk-*.douyucdn.cn",
+        "dyp2p-*.douyucdn.cn",
+        "p2plive-*.douyucdn.cn",
+        "stun*.douyucdn.cn"
       ]
     }
   ]

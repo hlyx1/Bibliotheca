@@ -2,6 +2,23 @@
   "version": 4,
   "rules": [
     {
+      "type": "logical",
+      "mode": "and",
+      "rules": [
+        {
+          "domain_keyword": [
+            "genuine"
+          ]
+        },
+        {
+          "domain_keyword": [
+            "autodesk"
+          ]
+        }
+      ],
+      "invert": false
+    },
+    {
       "domain": [
         "daisydiskapp.com",
         "userlocation.googleapis.com"
