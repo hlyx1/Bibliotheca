@@ -37,6 +37,24 @@ jobs:
           python main.py
       - shell: bash
         run: |
+          cd Ruleset/mihomo
+          
+          if [ -d "text/ip" ]; then
+            find "text/ip" -name "*.ip.txt" -type f -print0 | while IFS= read -r -d '' file; do
+              sed -i.bak 's/^IP-CIDR,//g; s/,no-resolve$//g' "$file" && rm "$file.bak"
+            done
+          fi
+          
+          if [ -d "yaml/ip" ]; then
+            find "yaml/ip" -name "*.ip.yaml" -type f -print0 | while IFS= read -r -d '' file; do
+              temp_file=$(mktemp)
+              echo "payload:" > "$temp_file"
+              grep "^IP-CIDR," "$file" | sed 's/^IP-CIDR,//g; s/,no-resolve$//g' | sed 's/^/  - '\''/g; s/$/'\''/g' >> "$temp_file"
+              mv "$temp_file" "$file"
+            done
+          fi
+      - shell: bash
+        run: |
           workdir="$(mktemp -d)"
           trap 'rm -rf "$workdir"' EXIT
           uri="https://github.com/MetaCubeX/mihomo/releases/download/${{ env.MIHOMO_VERSION }}/${{ env.MIHOMO_PACKAGE }}"
