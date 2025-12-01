@@ -701,7 +701,12 @@ def compose_singbox_json(frame: pl.DataFrame, cidrs: list[str]) -> dict[str, Any
     return {"version": 4, "rules": final_rules or []}
 
 
-def compose_mihomo_yaml(frame: pl.DataFrame, cidrs: list[str]) -> dict[str, Any] | None:  # noqa: C901, D103, PLR0912, PLR0915
+def compose_mihomo_yaml(  # noqa: C901, D103, PLR0912, PLR0915
+    frame: pl.DataFrame,
+    cidrs: list[str],
+    category: str,
+    filename: str = "",
+) -> dict[str, Any] | None:
     def _process_ports(addresses: list[str]) -> tuple[list[str], list[str]]:
         if not addresses:
             return [], []
@@ -739,24 +744,34 @@ def compose_mihomo_yaml(frame: pl.DataFrame, cidrs: list[str]) -> dict[str, Any]
             case "GEOSITE":
                 payload.extend([f"GEOSITE,{addr}" for addr in addresses])
             case "IP-CIDR":
-                payload.extend([
-                    f"IP-CIDR,{normalize_cidr(addr.rsplit(',', 1)[0])},no-resolve"
-                    if addr.endswith(",no-resolve")
-                    else f"IP-CIDR,{normalize_cidr(addr)}"
-                    for addr in addresses
-                ])
+                if category == "ip" and ("china-ip" in filename or "china-ip-ipv6" in filename):
+                    payload.extend(
+                        normalize_cidr(addr.removesuffix(",no-resolve") if addr.endswith(",no-resolve") else addr)
+                        for addr in addresses
+                    )
+                else:
+                    payload.extend(
+                        f"IP-CIDR,{normalize_cidr(addr.removesuffix(',no-resolve'))},no-resolve"
+                        if addr.endswith(",no-resolve")
+                        else f"IP-CIDR,{normalize_cidr(addr)}"
+                        for addr in addresses
+                    )
             case "IP-SUFFIX":
                 payload.extend([f"IP-SUFFIX,{addr}" for addr in addresses])
             case "IP-ASN":
-                payload.extend([
-                    f"IP-ASN,{addr.rsplit(',', 1)[0]},no-resolve" if addr.endswith(",no-resolve") else f"IP-ASN,{addr}"
+                payload.extend(
+                    f"IP-ASN,{addr.removesuffix(',no-resolve')},no-resolve"
+                    if addr.endswith(",no-resolve")
+                    else f"IP-ASN,{addr}"
                     for addr in addresses
-                ])
+                )
             case "GEOIP":
-                payload.extend([
-                    f"GEOIP,{addr.rsplit(',', 1)[0]},no-resolve" if addr.endswith(",no-resolve") else f"GEOIP,{addr}"
+                payload.extend(
+                    f"GEOIP,{addr.removesuffix(',no-resolve')},no-resolve"
+                    if addr.endswith(",no-resolve")
+                    else f"GEOIP,{addr}"
                     for addr in addresses
-                ])
+                )
             case "SRC-IP-CIDR":
                 payload.extend([f"SRC-IP-CIDR,{normalize_cidr(addr)}" for addr in addresses])
             case "SRC-IP-SUFFIX":
@@ -808,10 +823,15 @@ def compose_mihomo_yaml(frame: pl.DataFrame, cidrs: list[str]) -> dict[str, Any]
     if cidrs:
         payload.extend([f"IP-CIDR,{normalize_cidr(item)}" for item in cidrs])
 
+    if category == "ip" and ("china-ip" in filename or "china-ip-ipv6" in filename):
+        yaml_lines = ["payload:"]
+        yaml_lines.extend(f'- "{item}"' for item in payload)
+        return {"__custom_yaml__": "\n".join(yaml_lines)}
+
     return {"payload": payload} if payload else None
 
 
-def compose_mihomo_text(frame: pl.DataFrame, cidrs: list[str], category: str) -> list[str] | None:  # noqa: C901, D103, PLR0912, PLR0915
+def compose_mihomo_text(frame: pl.DataFrame, cidrs: list[str], category: str, filename: str = "") -> list[str] | None:  # noqa: C901, D103, PLR0912, PLR0915
     def _process_ports(addresses: list[str]) -> tuple[list[str], list[str]]:
         if not addresses:
             return [], []
@@ -869,28 +889,36 @@ def compose_mihomo_text(frame: pl.DataFrame, cidrs: list[str], category: str) ->
                 case "GEOSITE":
                     rules.extend([f"GEOSITE,{addr}" for addr in addresses])
                 case "IP-CIDR":
-                    rules.extend([
-                        f"IP-CIDR,{normalize_cidr(addr.rsplit(',', 1)[0])},no-resolve"
-                        if addr.endswith(",no-resolve")
-                        else f"IP-CIDR,{normalize_cidr(addr)}{',no-resolve' if category == 'ip' else ''}"
-                        for addr in addresses
-                    ])
+                    if category == "ip" and ("china-ip" in filename or "china-ip-ipv6" in filename):
+                        # For specific text IP files: remove prefix/suffix, use generator
+                        rules.extend(
+                            normalize_cidr(addr.removesuffix(",no-resolve") if addr.endswith(",no-resolve") else addr)
+                            for addr in addresses
+                        )
+                    else:
+                        # Standard format: use generator with conditional expression
+                        rules.extend(
+                            f"IP-CIDR,{normalize_cidr(addr.removesuffix(',no-resolve'))},no-resolve"
+                            if addr.endswith(",no-resolve")
+                            else f"IP-CIDR,{normalize_cidr(addr)}"
+                            for addr in addresses
+                        )
                 case "IP-SUFFIX":
                     rules.extend([f"IP-SUFFIX,{addr}" for addr in addresses])
                 case "IP-ASN":
-                    rules.extend([
-                        f"IP-ASN,{addr.rsplit(',', 1)[0]},no-resolve"
+                    rules.extend(
+                        f"IP-ASN,{addr.removesuffix(',no-resolve')},no-resolve"
                         if addr.endswith(",no-resolve")
                         else f"IP-ASN,{addr}{',no-resolve' if category == 'ip' else ''}"
                         for addr in addresses
-                    ])
+                    )
                 case "GEOIP":
-                    rules.extend([
-                        f"GEOIP,{addr.rsplit(',', 1)[0]},no-resolve"
+                    rules.extend(
+                        f"GEOIP,{addr.removesuffix(',no-resolve')},no-resolve"
                         if addr.endswith(",no-resolve")
                         else f"GEOIP,{addr}{',no-resolve' if category == 'ip' else ''}"
                         for addr in addresses
-                    ])
+                    )
                 case "SRC-IP-CIDR":
                     rules.extend([f"SRC-IP-CIDR,{normalize_cidr(addr)}" for addr in addresses])
                 case "SRC-IP-SUFFIX":
@@ -944,10 +972,10 @@ def compose_mihomo_text(frame: pl.DataFrame, cidrs: list[str], category: str) ->
                     rules.extend([f"MATCH,{addr}" for addr in addresses])
 
         if cidrs:
-            ip_rules = [f"IP-CIDR,{normalize_cidr(addr)}" for addr in cidrs]
-            if category == "ip":
-                rules.extend([f"{rule},no-resolve" for rule in ip_rules])
+            if category == "ip" and ("china-ip" in filename or "china-ip-ipv6" in filename):
+                rules.extend([normalize_cidr(addr) for addr in cidrs])
             else:
+                ip_rules = [f"IP-CIDR,{normalize_cidr(addr)}" for addr in cidrs]
                 rules.extend(ip_rules)
 
     return rules or None
@@ -981,13 +1009,16 @@ async def emit_mihomo_yaml(url: str, directory: str, category: str) -> anyio.Pat
 
     await anyio.Path(directory).mkdir(exist_ok=True, parents=True)
 
-    rules = compose_mihomo_yaml(frame, cidrs)
+    rules = compose_mihomo_yaml(frame, cidrs, category, anyio.Path(url).stem.replace("_", "-"))
     if not rules:
         return None
 
     file_name = anyio.Path(directory, f"{anyio.Path(url).stem.replace('_', '-')}.{category}.yaml")
     async with await anyio.Path(file_name).open("w", encoding="utf-8") as handle:
-        await handle.write(yaml.dump(rules, default_flow_style=False, sort_keys=False))
+        if "__custom_yaml__" in rules:
+            await handle.write(rules["__custom_yaml__"])
+        else:
+            await handle.write(yaml.dump(rules, default_flow_style=False, sort_keys=False))
 
     return file_name
 
@@ -1020,7 +1051,7 @@ async def emit_mihomo_text(url: str, directory: str, category: str) -> anyio.Pat
 
     await anyio.Path(directory).mkdir(exist_ok=True, parents=True)
 
-    rules = compose_mihomo_text(frame, cidrs, category)
+    rules = compose_mihomo_text(frame, cidrs, category, anyio.Path(url).stem.replace("_", "-"))
     if not rules:
         return None
 
