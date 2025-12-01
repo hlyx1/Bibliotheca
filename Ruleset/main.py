@@ -834,14 +834,14 @@ def compose_mihomo_text(frame: pl.DataFrame, cidrs: list[str], category: str) ->
         domain_rules = [
             addr
             for block in grouped.iter_rows(named=True)
-            if (pattern := block["pattern"]) == "domain"
+            if (pattern := block["pattern"]) == "DOMAIN"
             for addr in block["address"]
         ]
 
         suffix_rules = [
             f"+.{item}" if not item.startswith(".") else f"+{item}"
             for block in grouped.iter_rows(named=True)
-            if (pattern := block["pattern"]) == "domain-suffix"
+            if (pattern := block["pattern"]) == "DOMAIN-SUFFIX"
             for item in block["address"]
         ]
 

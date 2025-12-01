@@ -1,9 +1,4 @@
 payload:
-- PROCESS-NAME,Tencent Lemon
-- PROCESS-NAME,LemonMonitor
-- PROCESS-NAME,LemonDaemon
-- PROCESS-NAME,LemonAgent
-- PROCESS-NAME,LemonService
 - DOMAIN-KEYWORD,bahoom
 - DOMAIN-KEYWORD,-flv.meituan.net
 - DOMAIN-KEYWORD,-live.meituan.net
@@ -17,7 +12,12 @@ payload:
 - DOMAIN-SUFFIX,httpizza.ele.me
 - DOMAIN-SUFFIX,adobestats.io
 - DOMAIN-SUFFIX,adobe.io
+- PROCESS-NAME,Tencent Lemon
+- PROCESS-NAME,LemonMonitor
+- PROCESS-NAME,LemonDaemon
+- PROCESS-NAME,LemonAgent
+- PROCESS-NAME,LemonService
+- AND,((DOMAIN-KEYWORD,genuine),(DOMAIN-KEYWORD,autodesk))
 - DST-PORT,7680
 - DOMAIN,daisydiskapp.com
 - DOMAIN,userlocation.googleapis.com
-- AND,((DOMAIN-KEYWORD,genuine),(DOMAIN-KEYWORD,autodesk))
