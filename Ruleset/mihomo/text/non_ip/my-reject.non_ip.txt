@@ -1,4 +1,10 @@
 DST-PORT,7680
+PROCESS-NAME,Tencent Lemon
+PROCESS-NAME,LemonMonitor
+PROCESS-NAME,LemonDaemon
+PROCESS-NAME,LemonAgent
+PROCESS-NAME,LemonService
+AND,((DOMAIN-KEYWORD,genuine),(DOMAIN-KEYWORD,autodesk))
 DOMAIN,daisydiskapp.com
 DOMAIN,userlocation.googleapis.com
 DOMAIN-SUFFIX,0.0.198.in-addr.arpa
@@ -11,12 +17,6 @@ DOMAIN-SUFFIX,microfin.ele.me
 DOMAIN-SUFFIX,httpizza.ele.me
 DOMAIN-SUFFIX,adobestats.io
 DOMAIN-SUFFIX,adobe.io
-PROCESS-NAME,Tencent Lemon
-PROCESS-NAME,LemonMonitor
-PROCESS-NAME,LemonDaemon
-PROCESS-NAME,LemonAgent
-PROCESS-NAME,LemonService
 DOMAIN-KEYWORD,bahoom
 DOMAIN-KEYWORD,-flv.meituan.net
 DOMAIN-KEYWORD,-live.meituan.net
-AND,((DOMAIN-KEYWORD,genuine),(DOMAIN-KEYWORD,autodesk))
