@@ -81,35 +81,30 @@ jobs:
           token: "${{ secrets.PAT }}"
           ref: main
           submodules: recursive
+      - run: sudo apt-get update && sudo apt-get install -y rsync
+      - run: git submodule update --init --recursive
       - id: sync
         shell: bash
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global advice.detachedHead false
-          cd sing-box
-          git remote remove upstream 2>/dev/null || true
-          git remote add upstream "https://github.com/${{ env.UPSTREAM_REPO }}.git"
-          git fetch upstream "${{ env.UPSTREAM_BRANCH }}" --depth=1
-          cur_sha="$(git rev-parse HEAD)"
-          up_sha="$(git rev-parse "upstream/${{ env.UPSTREAM_BRANCH }}")"
-          if [[ "$cur_sha" == "$up_sha" ]]; then
-            printf 'changes=false\n' >> "$GITHUB_OUTPUT"
-            exit 0
+          TEMP_DIR=$(mktemp -d)
+          git clone --depth=1 --branch=dev-next https://github.com/SagerNet/sing-box.git "$TEMP_DIR"
+          up_sha="$(cd "$TEMP_DIR" && git rev-parse HEAD)"
+          rm -rf "$TEMP_DIR/.git" "$TEMP_DIR/.github"
+          rsync -av --delete --exclude='.git' --exclude='clients' "$TEMP_DIR/" "sing-box/"
+          rm -rf "$TEMP_DIR"
+          git submodule update --remote --recursive
+          git add .
+          if ! git diff-index --quiet HEAD --; then
+            git commit -m "feat(sing-box): bump ${up_sha:0:7} [$(date -u +%FT%TZ)]"
+            git remote set-url origin "https://user:${{ secrets.PAT }}@github.com/${{ github.repository }}.git"
+            git push --force-with-lease origin HEAD:main
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
           fi
-          git checkout "$up_sha"
-          cd ..
-          git add sing-box
-          if git diff --cached --quiet; then
-            printf 'changes=false\n' >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          git commit -m "feat(sing-box): bump ${up_sha:0:7} [$(date -u +%FT%TZ)]"
-          git remote set-url origin "https://user:${{ secrets.PAT }}@github.com/${{ github.repository }}.git"
-          git pull --rebase --autostash origin main
-          git push origin HEAD:main
-          printf 'changes=true\n' >> "$GITHUB_OUTPUT"
-          printf 'upstream_sha=%s\n' "$up_sha" >> "$GITHUB_ENV"
 
   build-binary:
     if: contains(needs.plan.outputs.build_types, 'binary') && needs.sync.outputs.changes == 'true'
