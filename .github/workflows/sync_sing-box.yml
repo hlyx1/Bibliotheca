@@ -168,7 +168,7 @@ jobs:
           cd clients/apple
           [ -f "sing-box.xcodeproj/project.pbxproj" ] || exit 0
           sed -i '' 's/CODE_SIGN_STYLE = Automatic/CODE_SIGN_STYLE = Manual/g; s/CODE_SIGN_IDENTITY = .*/CODE_SIGN_IDENTITY = "";/g; s/DEVELOPMENT_TEAM = .*/DEVELOPMENT_TEAM = "";/g' sing-box.xcodeproj/project.pbxproj
-          xcodebuild build -scheme SFM.System -configuration Release -destination "generic/platform=macOS" -derivedDataPath ./DD CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild build -scheme SFM.System -configuration Release -destination "generic/platform=macOS" -derivedDataPath ./DD CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO ONLY_ACTIVE_ARCH=NO -skipPackagePluginValidation
           APP=$(find . -name "*.app" -type d -print -quit)
           if [ -z "$APP" ]; then
             exit 0
