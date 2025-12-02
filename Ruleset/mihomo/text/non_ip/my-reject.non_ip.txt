@@ -8,6 +8,8 @@ DOMAIN-SUFFIX,microfin.ele.me
 DOMAIN-SUFFIX,httpizza.ele.me
 DOMAIN-SUFFIX,adobestats.io
 DOMAIN-SUFFIX,adobe.io
+DST-PORT,7680
+AND,((DOMAIN-KEYWORD,genuine),(DOMAIN-KEYWORD,autodesk))
 PROCESS-NAME,Tencent Lemon
 PROCESS-NAME,LemonMonitor
 PROCESS-NAME,LemonDaemon
@@ -15,8 +17,6 @@ PROCESS-NAME,LemonAgent
 PROCESS-NAME,LemonService
 DOMAIN,daisydiskapp.com
 DOMAIN,userlocation.googleapis.com
-DST-PORT,7680
 DOMAIN-KEYWORD,bahoom
 DOMAIN-KEYWORD,-flv.meituan.net
 DOMAIN-KEYWORD,-live.meituan.net
-AND,((DOMAIN-KEYWORD,genuine),(DOMAIN-KEYWORD,autodesk))

@@ -1,4 +1,6 @@
 payload:
+- DOMAIN,nom.telemetrydeck.com
+- DOMAIN,stat.youpin.mi.com
 - DOMAIN-SUFFIX,undefined
 - DOMAIN-SUFFIX,null
 - DOMAIN-SUFFIX,getui.net
@@ -12,5 +14,3 @@ payload:
 - DOMAIN-SUFFIX,beacon.qq.com
 - DOMAIN-SUFFIX,jpush.io
 - DOMAIN-SUFFIX,jpush.cn
-- DOMAIN,nom.telemetrydeck.com
-- DOMAIN,stat.youpin.mi.com
