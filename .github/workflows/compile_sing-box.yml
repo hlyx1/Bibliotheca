@@ -61,10 +61,11 @@ jobs:
           done
       - shell: bash
         run: |
-          git add Ruleset/sing-box/json Ruleset/sing-box/srs
-          if git diff --cached --quiet; then
-            exit 0
+          if [[ -n "$(git status --porcelain Ruleset/sing-box/json Ruleset/sing-box/srs)" ]]; then
+            git add Ruleset/sing-box/json Ruleset/sing-box/srs
+            git stash push --keep-index
+            git commit -m "feat(ruleset): sing-box bump [$(date -u +%FT%TZ)]"
+            git pull --rebase origin main
+            git stash pop || true
+            git push
           fi
-          git commit -m "feat(ruleset): sing-box bump [$(date -u +%FT%TZ)]"
-          git pull --rebase origin main
-          git push
