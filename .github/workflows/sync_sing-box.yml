@@ -137,6 +137,7 @@ jobs:
           name: binary
           path: sing-box/*.tar.zst
           retention-days: 7
+          if-no-files-found: ignore
 
   build-macos:
     if: contains(needs.plan.outputs.build_types, 'macos') && needs.sync.outputs.changes == 'true'
@@ -179,6 +180,7 @@ jobs:
           mv "$DMG" ../../
           cd ../..
           gtar --zstd -cf "$DMG.tar.zst" "$DMG"
+        continue-on-error: true
       - uses: actions/upload-artifact@v5
         with:
           name: macos
