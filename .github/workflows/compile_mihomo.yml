@@ -2,7 +2,7 @@ name: Compile mihomo
 
 on:
   workflow_run:
-    workflows: ["Sync Ruleset"]
+    workflows: ["Compile sing-box"]
     types: [completed]
     branches: [main]
   workflow_dispatch:
@@ -100,5 +100,6 @@ jobs:
           if [[ -n "$(git status --porcelain Ruleset/mihomo/mrs)" ]]; then
             git add Ruleset/mihomo/mrs Ruleset/mihomo/text Ruleset/mihomo/yaml
             git commit -m "feat(ruleset): mihomo bump [$(date -u +%FT%TZ)]"
+            git pull --rebase origin main
             git push
           fi

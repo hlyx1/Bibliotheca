@@ -66,4 +66,5 @@ jobs:
             exit 0
           fi
           git commit -m "feat(ruleset): sing-box bump [$(date -u +%FT%TZ)]"
+          git pull --rebase origin main
           git push
