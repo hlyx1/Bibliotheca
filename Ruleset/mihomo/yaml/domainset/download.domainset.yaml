@@ -14,6 +14,7 @@ payload:
 - DOMAIN-SUFFIX,mirror.jeonnam.school
 - DOMAIN-SUFFIX,mirrors.gethosted.online
 - DOMAIN-SUFFIX,mirror.kkg.berlin
+- DOMAIN-SUFFIX,gotest.tools
 - DOMAIN-SUFFIX,mirror.bgp.rodeo
 - DOMAIN-SUFFIX,dl.thorium.rocks
 - DOMAIN-SUFFIX,jing.rocks
@@ -142,7 +143,10 @@ payload:
 - DOMAIN-SUFFIX,mirrors.us.kernel.org
 - DOMAIN-SUFFIX,plugins-artifacts.gradle.org
 - DOMAIN-SUFFIX,repo.gradle.org
+- DOMAIN-SUFFIX,google.golang.org
 - DOMAIN-SUFFIX,proxy.golang.org
+- DOMAIN-SUFFIX,index.golang.org
+- DOMAIN-SUFFIX,sum.golang.org
 - DOMAIN-SUFFIX,mirror.faraso.org
 - DOMAIN-SUFFIX,mirrors.dotsrc.org
 - DOMAIN-SUFFIX,ftp-master.debian.org
@@ -1480,6 +1484,7 @@ payload:
 - DOMAIN-SUFFIX,repo.iut.ac.ir
 - DOMAIN-SUFFIX,ctan.um.ac.ir
 - DOMAIN-SUFFIX,download.projectbluefin.io
+- DOMAIN-SUFFIX,go.opentelemetry.io
 - DOMAIN-SUFFIX,packagecloud.io
 - DOMAIN-SUFFIX,assets-production.packagecloud.io
 - DOMAIN-SUFFIX,mirror.realcompute.io
@@ -1531,6 +1536,7 @@ payload:
 - DOMAIN-SUFFIX,mirror.del.albony.in
 - DOMAIN-SUFFIX,mirror.bom.albony.in
 - DOMAIN-SUFFIX,gopkg.in
+- DOMAIN-SUFFIX,go.yaml.in
 - DOMAIN-SUFFIX,ctan.imsc.res.in
 - DOMAIN-SUFFIX,ubuntu-mirror.snu.edu.in
 - DOMAIN-SUFFIX,mirror.ietlucknow.ac.in

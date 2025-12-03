@@ -1,3 +1,8 @@
+DOMAIN-KEYWORD,bahoom
+DOMAIN-KEYWORD,-flv.meituan.net
+DOMAIN-KEYWORD,-live.meituan.net
+AND,((DOMAIN-KEYWORD,genuine),(DOMAIN-KEYWORD,autodesk))
+DST-PORT,7680
 DOMAIN-SUFFIX,0.0.198.in-addr.arpa
 DOMAIN-SUFFIX,mtvod.meituan.net
 DOMAIN-SUFFIX,genuine.autodesk.com
@@ -8,8 +13,6 @@ DOMAIN-SUFFIX,microfin.ele.me
 DOMAIN-SUFFIX,httpizza.ele.me
 DOMAIN-SUFFIX,adobestats.io
 DOMAIN-SUFFIX,adobe.io
-DST-PORT,7680
-AND,((DOMAIN-KEYWORD,genuine),(DOMAIN-KEYWORD,autodesk))
 PROCESS-NAME,Tencent Lemon
 PROCESS-NAME,LemonMonitor
 PROCESS-NAME,LemonDaemon
@@ -17,6 +20,3 @@ PROCESS-NAME,LemonAgent
 PROCESS-NAME,LemonService
 DOMAIN,daisydiskapp.com
 DOMAIN,userlocation.googleapis.com
-DOMAIN-KEYWORD,bahoom
-DOMAIN-KEYWORD,-flv.meituan.net
-DOMAIN-KEYWORD,-live.meituan.net

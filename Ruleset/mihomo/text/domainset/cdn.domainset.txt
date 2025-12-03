@@ -668,6 +668,8 @@
 +.images1.vinted.net
 +.craftassets.unraid.net
 +.components.trynow.net
++.lzd-img-global.slatic.net
++.icms-image.slatic.net
 +.sftcdn.net
 +.rspcdn.net
 +.redcdn.net
@@ -2359,6 +2361,7 @@
 +.artworks.thetvdb.com
 +.cdn.termius.com
 +.nel.teo-rum.com
++.upload.teftera.com
 +.wpmedia.tealium.com
 +.cdn.svgator.com
 +.stripst.com
@@ -2852,6 +2855,7 @@
 +.locimg.com
 +.staging-pubfeed.linkby.com
 +.ledger-wp-website-s3-prd.ledger.com
++.lazcdn.com
 +.assets-cms.kraken.com
 +.assets.kraken.com
 +.public.komiic.com
