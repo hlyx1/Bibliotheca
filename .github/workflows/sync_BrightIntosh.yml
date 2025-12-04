@@ -96,8 +96,11 @@ jobs:
             printf 'changes=false\n' >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          git stash push --keep-index
           git commit -m "feat(BrightIntosh): bump ${up_sha:0:7} [$(date -u +%FT%TZ)]"
           git remote set-url origin "https://user:${{ secrets.PAT }}@github.com/${{ github.repository }}.git"
+          git pull --rebase origin main
+          git stash pop || true
           git push origin main
           printf 'changes=true\n' >> "$GITHUB_OUTPUT"
           printf 'upstream_sha=%s\n' "$up_sha" >> "$GITHUB_ENV"

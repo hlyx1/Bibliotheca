@@ -99,7 +99,9 @@ jobs:
         run: |
           if [[ -n "$(git status --porcelain Ruleset/mihomo/mrs)" ]]; then
             git add Ruleset/mihomo/mrs Ruleset/mihomo/text Ruleset/mihomo/yaml
+            git stash push --keep-index
             git commit -m "feat(ruleset): mihomo bump [$(date -u +%FT%TZ)]"
             git pull --rebase origin main
+            git stash pop || true
             git push
           fi
