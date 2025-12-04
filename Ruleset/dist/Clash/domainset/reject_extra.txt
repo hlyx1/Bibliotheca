@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Reject Extra
-# Last Updated: 2025-12-04T13:49:56.273Z
-# Size: 74593
+# Last Updated: 2025-12-04T14:35:43.111Z
+# Size: 74611
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -627,6 +627,7 @@
 +.pyswtbuakzcnm.website
 +.pykvbmltjxrgl.website
 +.pxjzwbzctenyf.website
++.pxavuanjmfygw.website
 +.pwlyfsjngswju.website
 +.pwlfdfxamwcmy.website
 +.pvtnlmysbeigh.website
@@ -2596,6 +2597,7 @@
 +.qvsimvenounsx.online
 +.qvrykgyestfdv.online
 +.qvafkzqojrhbl.online
++.qutpswdkdkhbx.online
 +.quatangshopee.online
 +.qtymgbybuxtfi.online
 +.qttktsllqbnpx.online
@@ -3271,6 +3273,7 @@
 +.hbhpjolxaizkz.online
 +.hbcusdwpikskh.online
 +.haxrkdicbviay.online
++.hauzrnifjfsgx.online
 +.hatqnnwgdxvkq.online
 +.hanypkwwltkhj.online
 +.hajfnkyzhvbqm.online
@@ -3296,6 +3299,7 @@
 +.grvegwmgldpsh.online
 +.grsrtkrnstcrl.online
 +.gqihdorufksiq.online
++.gqhnmdbllqkdy.online
 +.gqbzbszzbqsdi.online
 +.gqbkxohbonzxt.online
 +.gptzluojzguhq.online
@@ -3395,6 +3399,7 @@
 +.fhtpntevoiojz.online
 +.fgrdjauzcivht.online
 +.ffqumyjlunpga.online
++.ffihniqnwivzm.online
 +.fepqwzejwtlmx.online
 +.fepbjqnzphdxz.online
 +.feijsojvphjqh.online
@@ -6264,6 +6269,7 @@
 +.owxsolpqxqyiy.space
 +.owwqbgkedrqeh.space
 +.owtpooquoezgt.space
++.owjgjnuxhenge.space
 +.owgmsuvofbvtx.space
 +.owajwdyuesrbl.space
 +.ovkyjqwvvqosx.space
@@ -10265,6 +10271,7 @@
 +.nepoteincited.shop
 +.nematicanears.shop
 +.musivedeepish.shop
++.muggetroomily.shop
 +.muddlestheist.shop
 +.moversenwoven.shop
 +.motacileructs.shop
@@ -10686,6 +10693,7 @@
 +.ng5rzxubc63fgpyy5iyi.rest
 +.k7u6lrk7ju8qo9nc18u.rest
 +.b4f8bey4343cvmhftmc.rest
++.17tcoprj2fbxilqtym4.rest
 +.qlpuc8le9xn4etqx3t.rest
 +.o8ctkwu6r68z7mgft.rest
 +.hblrftplb5oqok91e.rest
@@ -11391,6 +11399,7 @@
 +.bournpilusli.qpon
 +.bonbomorpion.qpon
 +.bluelymisrun.qpon
++.berretoakums.qpon
 +.behavesyahan.qpon
 +.beeryfolding.qpon
 +.baleiseshews.qpon
@@ -13548,6 +13557,7 @@
 +.tripcombest.deal
 +.statistic.date
 +.flightzy.date
++.navitarponpicker.cyou
 +.zoisticdecuria.cyou
 +.yaffingunbegun.cyou
 +.whynessspriggy.cyou
@@ -14240,6 +14250,7 @@
 +.postal-at.cyou
 +.pinacaban.cyou
 +.pctrevoir.cyou
++.payenlore.cyou
 +.ogpoutful.cyou
 +.ocanybody.cyou
 +.obeygrush.cyou
@@ -16899,6 +16910,7 @@
 +.jkbewmebyqamb.top
 +.jkajyrkqaojzl.top
 +.jeoawamqybkeb.top
++.jelokerrvvwyw.top
 +.jekzyyowqvevz.top
 +.jbzmwqmwqyzaz.top
 +.jbzmwqmwqyejw.top
@@ -17784,6 +17796,7 @@
 +.gummy-ability.pro
 +.grim-election.pro
 +.great-nothing.pro
++.gracious-size.pro
 +.glorious-card.pro
 +.gleeful-metal.pro
 +.glasspressure.pro
@@ -36868,6 +36881,7 @@ otn.samsungcloudcdn.com
 +.zephyrprotocol.com
 +.refer.zentrointernet.com
 +.zealousquickly.com
++.yylocmbfkmymlg.com
 +.yourrewardzone.com
 +.adjuggler.yourdictionary.com
 +.rba-screen.yourdentalplan.com
@@ -37210,6 +37224,7 @@ otn.samsungcloudcdn.com
 +.stoolgeorgiana.com
 +.stionicgeodist.com
 +.stereotypeswig.com
++.steppesequence.com
 +.steelhorsecoin.com
 +.steelbitepro24.com
 +.steamcomnnuity.com
@@ -52208,6 +52223,7 @@ samsungeurope.eu.qualtrics.com
 +.leadboxer.com
 +.lead5beat.com
 +.l.le10sport.com
++.lccevcvzm.com
 +.lbbanners.com
 +.lazadaz17.com
 +.lazadax17.com
@@ -63112,6 +63128,7 @@ m.jr.mi.com
 +.sweetsbefouls.cfd
 +.suttenbattish.cfd
 +.suaverplenish.cfd
++.sravakaeastre.cfd
 +.sputrey567rik.cfd
 +.sonarsurveyof.cfd
 +.soaredcoolung.cfd
@@ -63553,6 +63570,7 @@ m.jr.mi.com
 +.baffetabyes.cfd
 +.atimyugrian.cfd
 +.appiusaware.cfd
++.aouldurenol.cfd
 +.amyrolrebob.cfd
 +.amortsouper.cfd
 +.aldealerret.cfd
