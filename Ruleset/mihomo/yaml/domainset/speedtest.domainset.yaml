@@ -1439,6 +1439,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest01.syd1.spintel.net.au
 - DOMAIN-SUFFIX,speedtest01.per1.spintel.net.au
 - DOMAIN-SUFFIX,speedtest01.mel1.spintel.net.au
+- DOMAIN-SUFFIX,speedtest01.bne1.spintel.net.au
 - DOMAIN-SUFFIX,ookla.sy1.neptune.net.au
 - DOMAIN-SUFFIX,ookla.me1.neptune.net.au
 - DOMAIN-SUFFIX,ookla.p2.neptune.net.au
@@ -1511,3 +1512,4 @@ payload:
 - DOMAIN-SUFFIX,speedtest1.sxbb.com.au
 - DOMAIN-SUFFIX,speedtest.58243.as
 - DOMAIN-SUFFIX,speedtest.angolacables.co.ao
+- DOMAIN-SUFFIX,speedtest-ams.baremetal.ae
