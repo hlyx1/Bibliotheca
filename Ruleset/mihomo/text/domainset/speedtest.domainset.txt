@@ -89,6 +89,7 @@
 +.speedtest.singapore.globalxtreme.net
 +.speedtest.webdiscount.net
 +.speedtest.ufinetlatam.net
++.qspt.technofiber.net
 +.speedtest-tr-bursa.servosphere.net
 +.txda.speedtest.pavlovmedia.net
 +.speedtest.packetworks.net
@@ -888,6 +889,7 @@
 +.hizgaziantep.durunet.com.tr
 +.hizbalikesir.durunet.com.tr
 +.hizaydin.durunet.com.tr
++.speedtest2.datafex.com.tr
 +.speedtest.datafex.com.tr
 +.izmit-speed.tbtnet.com.tr
 +.balikesirspeedtest.fixnet.com.tr
@@ -1361,6 +1363,7 @@
 +.uplinkfibra.brsserver.com.br
 +.lifitelecom.brsserver.com.br
 +.itanetwork.brsserver.com.br
++.mitelecom.brsserver.com.br
 +.lvconnect.brsserver.com.br
 +.glconnect.brsserver.com.br
 +.fwnetwork.brsserver.com.br

@@ -1,6 +1,4 @@
 payload:
-- DOMAIN,nom.telemetrydeck.com
-- DOMAIN,stat.youpin.mi.com
 - DOMAIN-SUFFIX,undefined
 - DOMAIN-SUFFIX,null
 - DOMAIN-SUFFIX,getui.net
@@ -15,3 +13,5 @@ payload:
 - DOMAIN-SUFFIX,f-log-extension.grammarly.io
 - DOMAIN-SUFFIX,jpush.io
 - DOMAIN-SUFFIX,jpush.cn
+- DOMAIN,nom.telemetrydeck.com
+- DOMAIN,stat.youpin.mi.com

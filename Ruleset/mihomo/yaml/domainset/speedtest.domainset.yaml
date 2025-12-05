@@ -90,6 +90,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.singapore.globalxtreme.net
 - DOMAIN-SUFFIX,speedtest.webdiscount.net
 - DOMAIN-SUFFIX,speedtest.ufinetlatam.net
+- DOMAIN-SUFFIX,qspt.technofiber.net
 - DOMAIN-SUFFIX,speedtest-tr-bursa.servosphere.net
 - DOMAIN-SUFFIX,txda.speedtest.pavlovmedia.net
 - DOMAIN-SUFFIX,speedtest.packetworks.net
@@ -889,6 +890,7 @@ payload:
 - DOMAIN-SUFFIX,hizgaziantep.durunet.com.tr
 - DOMAIN-SUFFIX,hizbalikesir.durunet.com.tr
 - DOMAIN-SUFFIX,hizaydin.durunet.com.tr
+- DOMAIN-SUFFIX,speedtest2.datafex.com.tr
 - DOMAIN-SUFFIX,speedtest.datafex.com.tr
 - DOMAIN-SUFFIX,izmit-speed.tbtnet.com.tr
 - DOMAIN-SUFFIX,balikesirspeedtest.fixnet.com.tr
@@ -1362,6 +1364,7 @@ payload:
 - DOMAIN-SUFFIX,uplinkfibra.brsserver.com.br
 - DOMAIN-SUFFIX,lifitelecom.brsserver.com.br
 - DOMAIN-SUFFIX,itanetwork.brsserver.com.br
+- DOMAIN-SUFFIX,mitelecom.brsserver.com.br
 - DOMAIN-SUFFIX,lvconnect.brsserver.com.br
 - DOMAIN-SUFFIX,glconnect.brsserver.com.br
 - DOMAIN-SUFFIX,fwnetwork.brsserver.com.br
