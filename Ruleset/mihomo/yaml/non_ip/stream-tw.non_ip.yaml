@@ -1,5 +1,4 @@
 payload:
-- PROCESS-NAME,com.linecorp.linetv
 - DOMAIN-SUFFIX,kk.stream
 - DOMAIN-SUFFIX,fanfox.net
 - DOMAIN-SUFFIX,hbogoasia.com
@@ -33,3 +32,4 @@ payload:
 - DOMAIN,video.friday.tw
 - DOMAIN,ana.video.friday.tw
 - DOMAIN,www.litv.tv
+- PROCESS-NAME,com.linecorp.linetv

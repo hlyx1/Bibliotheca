@@ -1,5 +1,3 @@
-DOMAIN-KEYWORD,openai
-DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
 DOMAIN-SUFFIX,generativeai.google
 DOMAIN-SUFFIX,notebooklm.google
 DOMAIN-SUFFIX,deepmind.google
@@ -32,6 +30,8 @@ DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,meta.ai
 DOMAIN-SUFFIX,dify.ai
 DOMAIN-SUFFIX,x.ai
+DOMAIN-KEYWORD,openai
+DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
 DOMAIN,antigravity.google
 DOMAIN,ai.google.dev
 DOMAIN,robinfrontend-pa.googleapis.com

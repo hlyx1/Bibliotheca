@@ -2425,6 +2425,7 @@ payload:
 - DOMAIN-SUFFIX,cdn.pixabay.com
 - DOMAIN-SUFFIX,static.pingcap.com
 - DOMAIN-SUFFIX,phprcdn.com
+- DOMAIN-SUFFIX,hawky.pcgamer.com
 - DOMAIN-SUFFIX,c17.patreon.com
 - DOMAIN-SUFFIX,c16.patreon.com
 - DOMAIN-SUFFIX,c14.patreon.com
@@ -3776,6 +3777,7 @@ payload:
 - DOMAIN-SUFFIX,widget.intercom.io
 - DOMAIN-SUFFIX,ik.imagekit.io
 - DOMAIN-SUFFIX,icon.icepanel.io
+- DOMAIN-SUFFIX,cdn.hackaday.io
 - DOMAIN-SUFFIX,ipfs.denarius.io
 - DOMAIN-SUFFIX,rum.cronitor.io
 - DOMAIN-SUFFIX,cdn.commento.io
