@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2025-12-07T13:16:15.187Z
-# Size: 1520
+# Last Updated: 2025-12-08T13:47:23.446Z
+# Size: 1521
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -90,6 +90,7 @@ speedtest.whiteprovider.net
 dllstx-ookla1.vyvebroadband.net
 hkthspeedtest02.telstraglobal.net
 speed.telcomnetwork.net
+nkf-ams.speedtest.royalehosting.net
 speedtest.provisiondata.net
 speedtest.cenosnetworks.net
 speedtest-rd-1.zoominternet.net
