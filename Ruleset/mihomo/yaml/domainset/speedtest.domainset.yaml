@@ -27,6 +27,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.mel.mhn.cloud
 - DOMAIN-SUFFIX,speedtest.p1.mhn.cloud
 - DOMAIN-SUFFIX,speedtest.b2.mhn.cloud
+- DOMAIN-SUFFIX,st.ruinet.work
 - DOMAIN-SUFFIX,st.bardia.tech
 - DOMAIN-SUFFIX,speedtest2.cfoc.tech
 - DOMAIN-SUFFIX,speedtest1.cfoc.tech
@@ -1334,6 +1335,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.coliseunet.com.br
 - DOMAIN-SUFFIX,speed.brandaonet.com.br
 - DOMAIN-SUFFIX,speedtest.ak4digital.com.br
+- DOMAIN-SUFFIX,teste2.4cjtelecom.com.br
 - DOMAIN-SUFFIX,teste.xtremenet.com.br
 - DOMAIN-SUFFIX,teste.xfconnect.com.br
 - DOMAIN-SUFFIX,teste.wspeednet.com.br

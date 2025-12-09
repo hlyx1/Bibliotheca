@@ -80,7 +80,7 @@ payload:
 - DOMAIN-SUFFIX,update.greasyfork.org
 - DOMAIN-SUFFIX,releases.grapheneos.org
 - DOMAIN-SUFFIX,dennou-k.gfd-dennou.org
-- DOMAIN-SUFFIX,gnu.freemirror.org
+- DOMAIN-SUFFIX,freemirror.org
 - DOMAIN-SUFFIX,repo.extreme-ix.org
 - DOMAIN-SUFFIX,repos.del.extreme-ix.org
 - DOMAIN-SUFFIX,artifacts.electronjs.org
@@ -1537,7 +1537,6 @@ payload:
 - DOMAIN-SUFFIX,mirror.bom.albony.in
 - DOMAIN-SUFFIX,gopkg.in
 - DOMAIN-SUFFIX,go.yaml.in
-- DOMAIN-SUFFIX,ctan.imsc.res.in
 - DOMAIN-SUFFIX,ubuntu-mirror.snu.edu.in
 - DOMAIN-SUFFIX,mirror.ietlucknow.ac.in
 - DOMAIN-SUFFIX,mirror.nitc.ac.in
