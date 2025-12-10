@@ -501,6 +501,7 @@ payload:
 - DOMAIN-SUFFIX,spd01-adl.au.superloop.com
 - DOMAIN-SUFFIX,st-jamestown.sumofiber.com
 - DOMAIN-SUFFIX,lax-st.sumofiber.com
+- DOMAIN-SUFFIX,ookla-anc.seroficom.com
 - DOMAIN-SUFFIX,speedtestus.pvdatanet.com
 - DOMAIN-SUFFIX,speedtestde.pvdatanet.com
 - DOMAIN-SUFFIX,speedtest.us.openinfra.com
