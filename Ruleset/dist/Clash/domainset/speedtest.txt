@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2025-12-09T13:48:40.668Z
-# Size: 1523
+# Last Updated: 2025-12-10T13:51:28.953Z
+# Size: 1524
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -512,6 +512,7 @@ spd01-bne.au.superloop.com
 spd01-adl.au.superloop.com
 st-jamestown.sumofiber.com
 lax-st.sumofiber.com
+ookla-anc.seroficom.com
 speedtestus.pvdatanet.com
 speedtestde.pvdatanet.com
 speedtest.us.openinfra.com
