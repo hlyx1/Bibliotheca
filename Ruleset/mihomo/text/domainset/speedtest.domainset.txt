@@ -62,6 +62,7 @@
 +.backend.librespeed.org
 +.hoshiyomi.ratatoskr.org
 +.finew.openspeed.org
++.speedtest.frankfurt-am-main.valtrix.org
 +.speedtest-wa.waveip.org
 +.speedtest.eidnet.org
 +.fla.brisanet.eu.org
@@ -1327,6 +1328,7 @@
 +.sp1.instalecom.com.br
 +.speedtest.ibltelecom.com.br
 +.velocidade.hnaconecta.com.br
++.speedtest.gabysantos.com.br
 +.speed.flttelecom.com.br
 +.velocidade.exytelecom.com.br
 +.teste.diotelecom.com.br

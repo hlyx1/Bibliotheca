@@ -63,6 +63,7 @@ payload:
 - DOMAIN-SUFFIX,backend.librespeed.org
 - DOMAIN-SUFFIX,hoshiyomi.ratatoskr.org
 - DOMAIN-SUFFIX,finew.openspeed.org
+- DOMAIN-SUFFIX,speedtest.frankfurt-am-main.valtrix.org
 - DOMAIN-SUFFIX,speedtest-wa.waveip.org
 - DOMAIN-SUFFIX,speedtest.eidnet.org
 - DOMAIN-SUFFIX,fla.brisanet.eu.org
@@ -1328,6 +1329,7 @@ payload:
 - DOMAIN-SUFFIX,sp1.instalecom.com.br
 - DOMAIN-SUFFIX,speedtest.ibltelecom.com.br
 - DOMAIN-SUFFIX,velocidade.hnaconecta.com.br
+- DOMAIN-SUFFIX,speedtest.gabysantos.com.br
 - DOMAIN-SUFFIX,speed.flttelecom.com.br
 - DOMAIN-SUFFIX,velocidade.exytelecom.com.br
 - DOMAIN-SUFFIX,teste.diotelecom.com.br
