@@ -572,6 +572,7 @@
 +.ookla-lax.extentit.com
 +.ookla.ddnsgeek.com
 +.babeltik.com
++.speedtest.0dayhost.com
 +.speedtest01.wowrack.com
 +.wifiman.com
 +.speedtest-nl.webdade.com

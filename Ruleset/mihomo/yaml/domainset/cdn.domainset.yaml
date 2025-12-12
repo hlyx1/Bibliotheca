@@ -726,6 +726,7 @@ payload:
 - DOMAIN-SUFFIX,jsdelivr.ioiox.net
 - DOMAIN-SUFFIX,static-act.imoim.net
 - DOMAIN-SUFFIX,imgix.net
+- DOMAIN-SUFFIX,hrcdn.net
 - DOMAIN-SUFFIX,file1.hkepc.net
 - DOMAIN-SUFFIX,i.hkepc.net
 - DOMAIN-SUFFIX,ftcdn.net
@@ -1150,6 +1151,7 @@ payload:
 - DOMAIN-SUFFIX,cdn.sunofbeaches.com
 - DOMAIN-SUFFIX,strpssts-ana.com
 - DOMAIN-SUFFIX,stripeassets.com
+- DOMAIN-SUFFIX,assets.streamlinehq.com
 - DOMAIN-SUFFIX,media.steampowered.com
 - DOMAIN-SUFFIX,staticflickr.com
 - DOMAIN-SUFFIX,cdn.staticdelivr.com
@@ -1617,6 +1619,9 @@ payload:
 - DOMAIN-SUFFIX,chart.googleapis.com
 - DOMAIN-SUFFIX,ajax.googleapis.com
 - DOMAIN-SUFFIX,sync.getpublica.com
+- DOMAIN-SUFFIX,identity-assets.getpostman.com
+- DOMAIN-SUFFIX,static.getpostman.com
+- DOMAIN-SUFFIX,assets.getpostman.com
 - DOMAIN-SUFFIX,connect.getflowbox.com
 - DOMAIN-SUFFIX,static-r2.gear4music.com
 - DOMAIN-SUFFIX,r2.gear4music.com
@@ -2872,6 +2877,7 @@ payload:
 - DOMAIN-SUFFIX,cdn.jitbit.com
 - DOMAIN-SUFFIX,jbkcdn.com
 - DOMAIN-SUFFIX,javtxt.com
+- DOMAIN-SUFFIX,cache.ip-api.com
 - DOMAIN-SUFFIX,imgtbl.com
 - DOMAIN-SUFFIX,imgbox.com
 - DOMAIN-SUFFIX,static.inferno.iheart.com
@@ -3080,6 +3086,7 @@ payload:
 - DOMAIN-SUFFIX,cdn.javmg.com
 - DOMAIN-SUFFIX,creator-image.javhd.com
 - DOMAIN-SUFFIX,static.javhd.com
+- DOMAIN-SUFFIX,assets.ipapi.com
 - DOMAIN-SUFFIX,i.ioiox.com
 - DOMAIN-SUFFIX,pim-media.intel.com
 - DOMAIN-SUFFIX,imgopt.infoq.com
@@ -3528,6 +3535,7 @@ payload:
 - DOMAIN-SUFFIX,assets-v2.super.so
 - DOMAIN-SUFFIX,sites.super.so
 - DOMAIN-SUFFIX,assets.cello.so
+- DOMAIN-SUFFIX,cdn.mida.so
 - DOMAIN-SUFFIX,images.spr.so
 - DOMAIN-SUFFIX,cdn-zlib.sk
 - DOMAIN-SUFFIX,registry.gitplac.si
@@ -3709,6 +3717,7 @@ payload:
 - DOMAIN-SUFFIX,combinatronics.io
 - DOMAIN-SUFFIX,edge.sitecorecloud.io
 - DOMAIN-SUFFIX,opentelemetry.io
+- DOMAIN-SUFFIX,static.ipgeolocation.io
 - DOMAIN-SUFFIX,local.webcontainer.io
 - DOMAIN-SUFFIX,telemetry.stepsecurity.io
 - DOMAIN-SUFFIX,ipfs.scalaproject.io
@@ -3773,6 +3782,7 @@ payload:
 - DOMAIN-SUFFIX,ipfs.namebase.io
 - DOMAIN-SUFFIX,cdn.metadata.io
 - DOMAIN-SUFFIX,cdn.jetboost.io
+- DOMAIN-SUFFIX,static.iplocate.io
 - DOMAIN-SUFFIX,widget.intercom.io
 - DOMAIN-SUFFIX,ik.imagekit.io
 - DOMAIN-SUFFIX,icon.icepanel.io
@@ -3864,6 +3874,7 @@ payload:
 - DOMAIN-SUFFIX,js.short.io
 - DOMAIN-SUFFIX,senja.io
 - DOMAIN-SUFFIX,seadn.io
+- DOMAIN-SUFFIX,documenter-assets.pstmn.io
 - DOMAIN-SUFFIX,skills-assets.pstmn.io
 - DOMAIN-SUFFIX,topbar-static.piano.io
 - DOMAIN-SUFFIX,experience-ap.piano.io
