@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2025-12-11T13:52:25.194Z
-# Size: 1526
+# Last Updated: 2025-12-12T13:48:03.330Z
+# Size: 1527
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -584,6 +584,7 @@ la-ookla.geolinks.com
 ookla-lax.extentit.com
 +.ookla.ddnsgeek.com
 babeltik.com
+speedtest.0dayhost.com
 speedtest01.wowrack.com
 +.wifiman.com
 speedtest-nl.webdade.com
