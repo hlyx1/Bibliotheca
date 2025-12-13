@@ -1,3 +1,4 @@
+DOMAIN-SUFFIX,cdn.hinet.net
 DOMAIN,av.jkforum.net
 DOMAIN,www.manhuagui.com
 DOMAIN,yymanhua.com
@@ -9,4 +10,3 @@ DOMAIN-WILDCARD,*.ffzy-online?.com
 DOMAIN-WILDCARD,*.ffzy-play?.com
 DOMAIN-WILDCARD,*.lz-cdn?.com
 DOMAIN-WILDCARD,*.lz-cdn??.com
-DOMAIN-SUFFIX,cdn.hinet.net

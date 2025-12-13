@@ -71,6 +71,8 @@ payload:
 - DOMAIN-SUFFIX,mirror.cyberchains.org
 - DOMAIN-SUFFIX,cpan.cpantesters.org
 - DOMAIN-SUFFIX,dl-cdn.alpinelinux.org
+- DOMAIN-SUFFIX,static.torproject.org
+- DOMAIN-SUFFIX,deb.torproject.org
 - DOMAIN-SUFFIX,mirror.team-cymru.org
 - DOMAIN-SUFFIX,mirror.stjschools.org
 - DOMAIN-SUFFIX,update.sleazyfork.org
@@ -126,6 +128,8 @@ payload:
 - DOMAIN-SUFFIX,distcache.freebsd.org
 - DOMAIN-SUFFIX,ftp.kr.freebsd.org
 - DOMAIN-SUFFIX,dl.flathub.org
+- DOMAIN-SUFFIX,f-droid.org
+- DOMAIN-SUFFIX,cloudflare.f-droid.org
 - DOMAIN-SUFFIX,archive.org
 - DOMAIN-SUFFIX,httpd-mirror.sergal.org
 - DOMAIN-SUFFIX,ftp-osl.osuosl.org
@@ -274,6 +278,7 @@ payload:
 - DOMAIN-SUFFIX,ubuntu.pishgaman.net
 - DOMAIN-SUFFIX,mirror.ossplanet.net
 - DOMAIN-SUFFIX,mirror.fi.ossplanet.net
+- DOMAIN-SUFFIX,mirror.eu.ossplanet.net
 - DOMAIN-SUFFIX,mirror.us.oneandone.net
 - DOMAIN-SUFFIX,mirror.eu.oneandone.net
 - DOMAIN-SUFFIX,mirror.olnevhost.net

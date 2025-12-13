@@ -1,6 +1,4 @@
 payload:
-- DOMAIN-REGEX,^http://www\.microsoft\.com/pki/
-- DOMAIN-REGEX,^http://www\.microsoft\.com/pkiops/
 - DOMAIN,res-h3.public.cdn.office.net
 - DOMAIN,statics.teams.cdn.office.net
 - DOMAIN,res-1.cdn.office.net
@@ -57,3 +55,5 @@ payload:
 - DOMAIN-SUFFIX,dl.delivery.mp.microsoft.com
 - DOMAIN-SUFFIX,storeedgefd.dsx.mp.microsoft.com
 - DOMAIN-SUFFIX,fs.microsoft.com
+- DOMAIN-REGEX,^http://www\.microsoft\.com/pki/
+- DOMAIN-REGEX,^http://www\.microsoft\.com/pkiops/
