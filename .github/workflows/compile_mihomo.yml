@@ -1,0 +1,107 @@
+name: Compile mihomo
+
+on:
+  workflow_run:
+    workflows: ["Compile sing-box"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  MIHOMO_VERSION: Prerelease-Alpha
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: "pip"
+      - shell: bash
+        run: |
+          python -Im pip install --upgrade pip
+          python -Im pip install --requirement Ruleset/requirements.txt
+      - shell: bash
+        run: |
+          cd Ruleset
+          python main.py
+      - shell: bash
+        run: |
+          workdir="$(mktemp -d)"
+          trap 'rm -rf "$workdir"' EXIT
+
+          MIHOMO_VERSION="Prerelease-Alpha"
+          PACKAGE_NAME=$(curl -s \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/MetaCubeX/mihomo/releases/tags/$MIHOMO_VERSION" | \
+            jq -r '.assets[] | select(.name | startswith("mihomo-linux-amd64-alpha-") and endswith(".gz")) | .name')
+
+          uri="https://github.com/MetaCubeX/mihomo/releases/download/$MIHOMO_VERSION/$PACKAGE_NAME"
+          curl --fail --location --retry 5 --retry-delay 5 --retry-all-errors -o "$workdir/pkg.gz" "$uri"
+          gzip -d "$workdir/pkg.gz"
+          chmod +x "$workdir/pkg"
+          mv "$workdir/pkg" "$workdir/mihomo"
+
+          cd Ruleset/mihomo
+          shopt -s nullglob
+
+          text_ip_path="text/ip"
+          mrs_ip_path="mrs/ipcidr"
+          if [ -d "$text_ip_path" ]; then
+            mkdir -p "$mrs_ip_path"
+            while IFS= read -r -d '' src; do
+              base="$(basename "${src%.ip.txt}")"
+              "$workdir/mihomo" convert-ruleset ipcidr text "$src" "$mrs_ip_path/${base}.ipcidr.mrs" || continue
+            done < <(find "$text_ip_path" -name 'china-ip*.ip.txt' -type f -print0)
+          fi
+
+          text_domainset_path="text/domainset"
+          mrs_domain_path="mrs/domain"
+          if [ -d "$text_domainset_path" ]; then
+            mkdir -p "$mrs_domain_path"
+            while IFS= read -r -d '' src; do
+              base="$(basename "${src%.txt}")"
+              "$workdir/mihomo" convert-ruleset domain text "$src" "$mrs_domain_path/${base}.domain.mrs" || continue
+            done < <(find "$text_domainset_path" -name '*.txt' -type f -print0)
+          fi
+
+          yaml_ip_path="yaml/ip"
+          if [ -d "$yaml_ip_path" ]; then
+            while IFS= read -r -d '' src; do
+              base="$(basename "${src%.ip.yaml}")"
+              [ -f "$mrs_ip_path/${base}.ipcidr.mrs" ] || {
+                "$workdir/mihomo" convert-ruleset ipcidr yaml "$src" "$mrs_ip_path/${base}.ipcidr.mrs" || continue
+              }
+            done < <(find "$yaml_ip_path" -name 'china-ip*.ip.yaml' -type f -print0)
+          fi
+
+          yaml_domainset_path="yaml/domainset"
+          if [ -d "$yaml_domainset_path" ]; then
+            while IFS= read -r -d '' src; do
+              base="$(basename "${src%.yaml}")"
+              [ -f "$mrs_domain_path/${base}.domain.mrs" ] || {
+                "$workdir/mihomo" convert-ruleset domain yaml "$src" "$mrs_domain_path/${base}.domain.mrs" || continue
+              }
+            done < <(find "$yaml_domainset_path" -name '*.yaml' -type f -print0)
+          fi
+      - shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain Ruleset/mihomo/mrs)" ]]; then
+            git add Ruleset/mihomo/mrs Ruleset/mihomo/text Ruleset/mihomo/yaml
+            git stash push --keep-index
+            git commit -m "feat(ruleset): mihomo bump [$(date -u +%FT%TZ)]"
+            git pull --rebase origin main
+            git stash pop || true
+            git push
+          fi

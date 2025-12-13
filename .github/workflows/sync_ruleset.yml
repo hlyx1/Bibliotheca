@@ -1,0 +1,126 @@
+name: Sync Ruleset
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - shell: bash
+        run: |
+          git config --global core.longpaths true
+          git config --global core.preloadindex true
+          git config --global core.fscache true
+          git config --global gc.auto 0
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: false
+          fetch-depth: 1
+      - shell: bash
+        run: |
+          git submodule sync --quiet --recursive
+          git submodule update --init --recursive --remote --force --depth=1 --single-branch "Ruleset/ruleset"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: "Ruleset/ruleset/.node-version"
+          cache: "pnpm"
+          cache-dependency-path: "Ruleset/ruleset/pnpm-lock.yaml"
+      - shell: bash
+        run: |
+          TZ='Asia/Shanghai' date +'cst_time=%Y-%m-%d %H:%M:%S' >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v5
+        id: cache-db-restore
+        with:
+          path: |
+            Ruleset/ruleset/.cache
+            Ruleset/ruleset/node_modules/.cache
+          key: ${{ runner.os }}-build-v2-${{ hashFiles('Ruleset/ruleset/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-build-v2-
+      - shell: bash
+        run: |
+          pnpm install --frozen-lockfile --prefer-offline
+        working-directory: Ruleset/ruleset
+      - id: paths
+        shell: bash
+        run: |
+          OUTPUT_DIR="./Ruleset/dist"
+          echo "output_dir=${OUTPUT_DIR}" >> "$GITHUB_OUTPUT"
+          mkdir -p "${OUTPUT_DIR}/List/domainset"
+          touch "${OUTPUT_DIR}/List/domainset/speedtest.conf"
+      - uses: nick-fields/retry@v3.0.2
+        with:
+          timeout_minutes: 15
+          max_attempts: 3
+          retry_wait_seconds: 30
+          command: bash -euo pipefail -c "cd Ruleset/ruleset && pnpm run build"
+        env:
+          PUBLIC_DIR: ${{ github.workspace }}/${{ steps.paths.outputs.output_dir }}
+          NODE_ENV: production
+      - shell: bash
+        run: |
+          OUTPUT_DIR="${{ steps.paths.outputs.output_dir }}"
+          [ -d "$OUTPUT_DIR" ]
+          [ "$(find "$OUTPUT_DIR" -type f | wc -l)" -gt 0 ]
+          [ -f Ruleset/ruleset/.BUILD_FINISHED ]
+      - shell: bash
+        run: |
+          cd "${{ steps.paths.outputs.output_dir }}"
+          rm -f 404.html _headers index.html README.md
+      - shell: bash
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -f "Ruleset/ruleset" "${{ steps.paths.outputs.output_dir }}"
+          if git diff --cached --quiet; then
+            echo "HAS_CHANGES=false" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          echo "HAS_CHANGES=true" >> "$GITHUB_ENV"
+          git commit -m "feat(ruleset): bump [$(date -u +%FT%TZ)]"
+      - name: Push
+        if: env.HAS_CHANGES == 'true'
+        shell: bash
+        run: |
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
+      - uses: actions/cache/save@v5
+        if: always()
+        with:
+          path: |
+            Ruleset/ruleset/.cache
+            Ruleset/ruleset/node_modules/.cache
+          key: ${{ steps.cache-db-restore.outputs.cache-primary-key || format('{0}-build-v2-{1}', runner.os, hashFiles('Ruleset/ruleset/pnpm-lock.yaml')) }}
+
+  diff:
+    if: github.event_name == 'pull_request'
+    needs: pipeline
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/download-artifact@v6
+        with:
+          name: build-artifact-${{ github.sha }}-${{ github.run_number }}
+          path: public
+      - shell: bash
+        run: |
+          git clone --sparse --filter=tree:0 --depth=1 --no-tags https://github.com/sonqyau/Bibliotheca.git ./deploy-git 2>/dev/null
+          cd ./deploy-git
+          git sparse-checkout set "Ruleset/dist"
+          git fetch --depth=1 origin main 2>/dev/null
+          rm -rf ./"Ruleset/dist"/*
+          cp -rf ../public/* ./"Ruleset/dist"/
+          git --no-pager diff --minimal --color=never

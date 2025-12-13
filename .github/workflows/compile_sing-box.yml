@@ -1,0 +1,71 @@
+name: Compile sing-box
+
+on:
+  workflow_run:
+    workflows: ["Sync Ruleset"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  SING_BOX_VERSION: 1.13.0-alpha.27
+  SING_BOX_PACKAGE: linux-amd64
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: "pip"
+      - shell: bash
+        run: |
+          python -Im pip install --upgrade pip
+          python -Im pip install --requirement Ruleset/requirements.txt
+      - shell: bash
+        run: |
+          workdir="$(mktemp -d)"
+          trap 'rm -rf "$workdir"' EXIT
+          archive="sing-box-${SING_BOX_VERSION}-${SING_BOX_PACKAGE}.tar.gz"
+          uri="https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/${archive}"
+          curl --fail --location --retry 5 --retry-delay 5 --retry-all-errors -o "$workdir/pkg.tgz" "$uri"
+          tar -xzf "$workdir/pkg.tgz" -C "$workdir"
+          sudo install -m 0755 "$workdir/sing-box-${SING_BOX_VERSION}-${SING_BOX_PACKAGE}/sing-box" /usr/local/bin/sing-box
+          sing-box version
+      - shell: bash
+        run: |
+          cd Ruleset
+          python main.py
+      - shell: bash
+        run: |
+          cd Ruleset/sing-box
+          shopt -s nullglob
+          for category in domainset ip non_ip dns; do
+            json_path="json/$category"
+            srs_path="srs/$category"
+            [ -d "$json_path" ] || continue
+            mkdir -p "$srs_path"
+            while IFS= read -r -d '' src; do
+              base="$(basename "${src%.json}")"
+              sing-box rule-set compile --output "$srs_path/${base}.srs" "$src"
+            done < <(find "$json_path" -type f -name '*.json' -print0)
+          done
+      - shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain Ruleset/sing-box/json Ruleset/sing-box/srs)" ]]; then
+            git add Ruleset/sing-box/json Ruleset/sing-box/srs
+            git stash push --keep-index
+            git commit -m "feat(ruleset): sing-box bump [$(date -u +%FT%TZ)]"
+            git pull --rebase origin main
+            git stash pop || true
+            git push
+          fi

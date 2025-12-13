@@ -1,0 +1,11 @@
+orjson
+requests
+python-docx
+urllib3
+beautifulsoup4
+playwright
+aiohttp
+anyio
+ujson
+aiofiles
+aiosqlite

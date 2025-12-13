@@ -1,0 +1,172 @@
+{
+  "version": 4,
+  "rules": [
+    {
+      "type": "logical",
+      "mode": "and",
+      "rules": [
+        {
+          "domain_suffix": [
+            "sharepoint.com),(PROCESS-NAME,*CloudMounter"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "sharepoint.com),(SRC-IP,10.0.0.0/8"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "sharepoint.com),(SRC-IP,172.16.0.0/12"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "sharepoint.com),(SRC-IP,192.168.0.0/16"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "graph.microsoft.com),(PROCESS-NAME,*CloudMounter"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "graph.microsoft.com),(SRC-IP,10.0.0.0/8"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "graph.microsoft.com),(SRC-IP,172.16.0.0/12"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "graph.microsoft.com),(SRC-IP,192.168.0.0/16"
+          ]
+        },
+        {
+          "domain": [
+            "www.googleapis.com),(PROCESS-NAME,*CloudMounter"
+          ]
+        },
+        {
+          "domain": [
+            "www.googleapis.com),(SRC-IP,10.0.0.0/8"
+          ]
+        },
+        {
+          "domain": [
+            "www.googleapis.com),(SRC-IP,172.16.0.0/12"
+          ]
+        },
+        {
+          "domain": [
+            "www.googleapis.com),(SRC-IP,192.168.0.0/16"
+          ]
+        },
+        {
+          "domain": [
+            "api.onedrive.com),(PROCESS-NAME,*CloudMounter"
+          ]
+        },
+        {
+          "domain": [
+            "api.onedrive.com),(SRC-IP,10.0.0.0/8"
+          ]
+        },
+        {
+          "domain": [
+            "api.onedrive.com),(SRC-IP,172.16.0.0/12"
+          ]
+        },
+        {
+          "domain": [
+            "api.onedrive.com),(SRC-IP,192.168.0.0/16"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "storage.live.com),(PROCESS-NAME,*CloudMounter"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "storage.live.com),(SRC-IP,10.0.0.0/8"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "storage.live.com),(SRC-IP,172.16.0.0/12"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "storage.live.com),(SRC-IP,192.168.0.0/16"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "files.1drv.com),(PROCESS-NAME,*CloudMounter"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "files.1drv.com),(SRC-IP,10.0.0.0/8"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "files.1drv.com),(SRC-IP,172.16.0.0/12"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "files.1drv.com),(SRC-IP,192.168.0.0/16"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "my.microsoftpersonalcontent.com),(PROCESS-NAME,*CloudMounter"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "my.microsoftpersonalcontent.com),(SRC-IP,10.0.0.0/8"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "my.microsoftpersonalcontent.com),(SRC-IP,172.16.0.0/12"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "my.microsoftpersonalcontent.com),(SRC-IP,192.168.0.0/16"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "upload.box.com),(PROCESS-NAME,*CloudMounter"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "upload.box.com),(SRC-IP,10.0.0.0/8"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "upload.box.com),(SRC-IP,172.16.0.0/12"
+          ]
+        },
+        {
+          "domain_suffix": [
+            "upload.box.com),(SRC-IP,192.168.0.0/16"
+          ]
+        }
+      ],
+      "invert": false
+    }
+  ]
+}

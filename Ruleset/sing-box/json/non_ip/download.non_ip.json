@@ -1,0 +1,16 @@
+{
+  "version": 4,
+  "rules": [
+    {
+      "domain_regex": [
+        "download*.mediafire.com",
+        "ftp.??.debian.org",
+        "ftp.??.freebsd.org",
+        "cdn-*.comaps.app",
+        "cdn-*.comaps.tech",
+        "cdn-*.organicmaps.app",
+        "^http://(.+)\\.gvt\\d\\.com/edgedl"
+      ]
+    }
+  ]
+}
