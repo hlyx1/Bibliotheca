@@ -21,6 +21,9 @@
     {
       "domain": [
         "daisydiskapp.com",
+        "locationhistoryplacedetails-pa.googleapis.com",
+        "locationhistoryaggregates-pa.googleapis.com",
+        "locationhistory-pa.googleapis.com",
         "userlocation.googleapis.com"
       ],
       "domain_suffix": [
