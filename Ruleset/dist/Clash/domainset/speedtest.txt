@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2025-12-12T13:48:03.330Z
-# Size: 1527
+# Last Updated: 2025-12-14T13:20:49.650Z
+# Size: 1529
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -769,6 +769,7 @@ speedtest.octaplus.uk
 speedtest-thn.krystal.uk
 speedtest2.lightningfibre.net.uk
 speedtest.cadence.net.uk
+speedtest-ookla-alpha.giant.net.uk
 speedtest-ookla-beta.giant.net.uk
 speedtest-lon1.elite.net.uk
 sp1.jump.net.uk
@@ -929,6 +930,7 @@ speedtest.myrepublic.com.sg
 +.speedtest.com.sg
 speedtest.axclusive.com.sg
 speedtest.singnet.com.sg
+pl.speedtest.singnet.com.sg
 m1speedtest1.m1net.com.sg
 lon-ix1-tptest1.31173.se
 fra-eq5-tptest1.31173.se
