@@ -4,6 +4,7 @@
     {
       "domain_suffix": [
         ".feishu.net",
+        ".bdurl.net",
         ".toutiaostatic.com",
         ".huoshanstatic.com",
         ".byteeffecttos.com",
@@ -46,7 +47,9 @@
         ".dcarvod.com",
         ".dcarimg.com",
         ".dcarapi.com",
+        ".bytetos.com",
         ".bytetcc.com",
+        ".bytescm.com",
         ".byteimg.com",
         ".wukong.com",
         ".volces.com",
