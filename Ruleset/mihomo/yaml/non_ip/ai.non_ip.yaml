@@ -1,4 +1,6 @@
 payload:
+- DOMAIN-KEYWORD,openai
+- DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
 - DOMAIN,antigravity.google
 - DOMAIN,ai.google.dev
 - DOMAIN,robinfrontend-pa.googleapis.com
@@ -9,8 +11,6 @@ payload:
 - DOMAIN,jules.google.com
 - DOMAIN,api.github.com
 - DOMAIN,api.jetbrains.ai
-- DOMAIN-KEYWORD,openai
-- DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
 - DOMAIN-SUFFIX,generativeai.google
 - DOMAIN-SUFFIX,notebooklm.google
 - DOMAIN-SUFFIX,deepmind.google

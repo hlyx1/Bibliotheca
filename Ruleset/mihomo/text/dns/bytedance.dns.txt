@@ -1,4 +1,5 @@
 DOMAIN-SUFFIX,feishu.net
+DOMAIN-SUFFIX,bdurl.net
 DOMAIN-SUFFIX,toutiaostatic.com
 DOMAIN-SUFFIX,huoshanstatic.com
 DOMAIN-SUFFIX,byteeffecttos.com
@@ -41,7 +42,9 @@ DOMAIN-SUFFIX,feiliao.com
 DOMAIN-SUFFIX,dcarvod.com
 DOMAIN-SUFFIX,dcarimg.com
 DOMAIN-SUFFIX,dcarapi.com
+DOMAIN-SUFFIX,bytetos.com
 DOMAIN-SUFFIX,bytetcc.com
+DOMAIN-SUFFIX,bytescm.com
 DOMAIN-SUFFIX,byteimg.com
 DOMAIN-SUFFIX,wukong.com
 DOMAIN-SUFFIX,volces.com

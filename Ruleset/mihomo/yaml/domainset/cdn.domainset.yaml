@@ -2827,6 +2827,7 @@ payload:
 - DOMAIN-SUFFIX,article-image-ix.nikkei.com
 - DOMAIN-SUFFIX,instafeed.nfcube.com
 - DOMAIN-SUFFIX,cdn.nfcube.com
+- DOMAIN-SUFFIX,images10.newegg.com
 - DOMAIN-SUFFIX,c1.newegg.com
 - DOMAIN-SUFFIX,nc-img.com
 - DOMAIN-SUFFIX,nbcnewsdigital-static.nbcuni.com

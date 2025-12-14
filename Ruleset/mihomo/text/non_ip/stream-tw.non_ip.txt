@@ -1,4 +1,3 @@
-PROCESS-NAME,com.linecorp.linetv
 DOMAIN,d3c7rimkq79yfu.cloudfront.net
 DOMAIN,players.brightcove.net
 DOMAIN,manifest.prod.boltdns.net
@@ -32,3 +31,4 @@ DOMAIN-SUFFIX,mangafox.me
 DOMAIN-SUFFIX,kktv.me
 DOMAIN-SUFFIX,hbogoasia.id
 DOMAIN-SUFFIX,hbogoasia.hk
+PROCESS-NAME,com.linecorp.linetv

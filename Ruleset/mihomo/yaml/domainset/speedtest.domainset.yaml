@@ -758,6 +758,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest-thn.krystal.uk
 - DOMAIN-SUFFIX,speedtest2.lightningfibre.net.uk
 - DOMAIN-SUFFIX,speedtest.cadence.net.uk
+- DOMAIN-SUFFIX,speedtest-ookla-alpha.giant.net.uk
 - DOMAIN-SUFFIX,speedtest-ookla-beta.giant.net.uk
 - DOMAIN-SUFFIX,speedtest-lon1.elite.net.uk
 - DOMAIN-SUFFIX,sp1.jump.net.uk
@@ -918,6 +919,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.com.sg
 - DOMAIN-SUFFIX,speedtest.axclusive.com.sg
 - DOMAIN-SUFFIX,speedtest.singnet.com.sg
+- DOMAIN-SUFFIX,pl.speedtest.singnet.com.sg
 - DOMAIN-SUFFIX,m1speedtest1.m1net.com.sg
 - DOMAIN-SUFFIX,lon-ix1-tptest1.31173.se
 - DOMAIN-SUFFIX,fra-eq5-tptest1.31173.se
