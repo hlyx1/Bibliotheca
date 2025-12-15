@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2025-12-14T13:20:49.650Z
-# Size: 1529
+# Last Updated: 2025-12-15T13:53:38.248Z
+# Size: 1531
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -25,6 +25,7 @@ mia-eqx1-ookla-1.99.network
 ewr-csq2-ookla-1.99.network
 speedtest-de.pq.hosting
 speedtest-ca.pq.hosting
+speedtest.nyc.elcro.digital
 speed.riverside.rocks
 de-lg.h2.nexus
 speedtest.fra01.fusionflare.cloud
@@ -1235,6 +1236,7 @@ aragonnetspeedtest.com.br
 sp1.superlinkprovedor.com.br
 speedtestspeednet.com.br
 sp1.redenettelecom-ce.com.br
+teste.redefinitytelecom.com.br
 sp.provedordantasnet.com.br
 speedtest1.nossanetfortaleza.com.br
 teste.mundialnettelecom.com.br
