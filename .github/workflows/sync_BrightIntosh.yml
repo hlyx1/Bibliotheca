@@ -127,7 +127,7 @@ jobs:
           dmg="BrightIntosh-${ver}.dmg"
           create-dmg --volname BrightIntosh --app-drop-link 200 200 --skip-jenkins "$dmg" "$app_path"
           gtar --zstd -cf "$dmg.tar.zst" "$dmg"
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: macos
           path: BrightIntosh/*.tar.zst

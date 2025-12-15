@@ -132,7 +132,7 @@ jobs:
             brew install zstd gnu-tar
           fi
           gtar --zstd -cf "$PKG.tar.zst" "$PKG"
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: binary
           path: sing-box/*.tar.zst
@@ -181,7 +181,7 @@ jobs:
           cd ../..
           gtar --zstd -cf "$DMG.tar.zst" "$DMG"
         continue-on-error: true
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: macos
           path: sing-box/*.tar.zst
