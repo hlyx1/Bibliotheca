@@ -587,6 +587,7 @@ payload:
 - DOMAIN-SUFFIX,mirror.thegigabit.com
 - DOMAIN-SUFFIX,mirror.pit.teraswitch.com
 - DOMAIN-SUFFIX,mirror.team-cymru.com
+- DOMAIN-SUFFIX,downloads.slack-edge.com
 - DOMAIN-SUFFIX,mirror.plusserver.com
 - DOMAIN-SUFFIX,pixeldrain.com
 - DOMAIN-SUFFIX,mirror.pilotfiber.com
@@ -1108,6 +1109,7 @@ payload:
 - DOMAIN-SUFFIX,iterm2.com
 - DOMAIN-SUFFIX,ubuntu.ipacct.com
 - DOMAIN-SUFFIX,debian.ipacct.com
+- DOMAIN-SUFFIX,dl.imobie.com
 - DOMAIN-SUFFIX,mirror.ubuntu.ikoula.com
 - DOMAIN-SUFFIX,mirror.debian.ikoula.com
 - DOMAIN-SUFFIX,mirrors.hoobly.com
@@ -1215,6 +1217,7 @@ payload:
 - DOMAIN-SUFFIX,espejito.fder.edu.uy
 - DOMAIN-SUFFIX,ubuntu.repo.cure.edu.uy
 - DOMAIN-SUFFIX,debian.repo.cure.edu.uy
+- DOMAIN-SUFFIX,cdn.electronic.us
 - DOMAIN-SUFFIX,mirror.timkevin.us
 - DOMAIN-SUFFIX,cdn.zoom.us
 - DOMAIN-SUFFIX,mirrors.xtom.us

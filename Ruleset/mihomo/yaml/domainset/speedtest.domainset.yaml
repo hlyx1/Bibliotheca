@@ -15,6 +15,7 @@ payload:
 - DOMAIN-SUFFIX,ewr-csq2-ookla-1.99.network
 - DOMAIN-SUFFIX,speedtest-de.pq.hosting
 - DOMAIN-SUFFIX,speedtest-ca.pq.hosting
+- DOMAIN-SUFFIX,speedtest.nyc.elcro.digital
 - DOMAIN-SUFFIX,speed.riverside.rocks
 - DOMAIN-SUFFIX,de-lg.h2.nexus
 - DOMAIN-SUFFIX,speedtest.fra01.fusionflare.cloud
@@ -1224,6 +1225,7 @@ payload:
 - DOMAIN-SUFFIX,sp1.superlinkprovedor.com.br
 - DOMAIN-SUFFIX,speedtestspeednet.com.br
 - DOMAIN-SUFFIX,sp1.redenettelecom-ce.com.br
+- DOMAIN-SUFFIX,teste.redefinitytelecom.com.br
 - DOMAIN-SUFFIX,sp.provedordantasnet.com.br
 - DOMAIN-SUFFIX,speedtest1.nossanetfortaleza.com.br
 - DOMAIN-SUFFIX,teste.mundialnettelecom.com.br
