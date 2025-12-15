@@ -5,7 +5,6 @@
       "domain_suffix": [
         ".localdomain",
         ".internal",
-        ".local",
         ".home.arpa",
         ".127.atlas.skk.moe",
         ".lan",
