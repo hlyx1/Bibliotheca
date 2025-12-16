@@ -4,5 +4,5 @@ payload:
 - DOMAIN-SUFFIX,download.555mac.com
 - PROCESS-NAME,AdGuardHome
 - PROCESS-NAME,nmap
-- DOMAIN,mirrorbits.lineageos.org
 - DOMAIN-KEYWORD,mac-torrent-download
+- DOMAIN,mirrorbits.lineageos.org
