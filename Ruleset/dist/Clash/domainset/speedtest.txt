@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2025-12-16T13:51:16.938Z
-# Size: 1533
+# Last Updated: 2025-12-17T13:45:42.799Z
+# Size: 1535
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -323,6 +323,7 @@ speedtest.inoc.net
 st1.htva.net
 speedtest1c.hkix.net
 speedtest21.hkbn.net
+dpac-la.guam.net
 speedtest.moscow.gldn.net
 speedtest.fiuc.net
 sqaookla.ddns.net
@@ -562,6 +563,7 @@ speedtest.pingless.com
 speed.navegalo.com
 speedtest.micron21.com
 speedcumra.lodosnet.com
+speedbursa.lodosnet.com
 speedtest-1.litfibre.com
 speedtest.komogoto.com
 +.speedtest.kansuiun.com
