@@ -1,4 +1,7 @@
 payload:
+- DOMAIN-KEYWORD,1drv
+- DOMAIN-KEYWORD,microsoft
+- DOMAIN-KEYWORD,hotmail
 - DOMAIN-SUFFIX,trafficmanager.net
 - DOMAIN-SUFFIX,msftauthimages.net
 - DOMAIN-SUFFIX,virtualearth.net
@@ -78,6 +81,3 @@ payload:
 - DOMAIN-SUFFIX,sfx.ms
 - DOMAIN-SUFFIX,gfx.ms
 - DOMAIN-SUFFIX,aka.ms
-- DOMAIN-KEYWORD,1drv
-- DOMAIN-KEYWORD,microsoft
-- DOMAIN-KEYWORD,hotmail

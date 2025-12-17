@@ -41,4 +41,5 @@ DOMAIN,gateway.ai.cloudflare.com
 DOMAIN,alkalicore-pa.clients6.google.com
 DOMAIN,jules.google.com
 DOMAIN,api.github.com
+DOMAIN,openrouter.ai
 DOMAIN,api.jetbrains.ai

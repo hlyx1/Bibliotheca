@@ -313,6 +313,7 @@ payload:
 - DOMAIN-SUFFIX,st1.htva.net
 - DOMAIN-SUFFIX,speedtest1c.hkix.net
 - DOMAIN-SUFFIX,speedtest21.hkbn.net
+- DOMAIN-SUFFIX,dpac-la.guam.net
 - DOMAIN-SUFFIX,speedtest.moscow.gldn.net
 - DOMAIN-SUFFIX,speedtest.fiuc.net
 - DOMAIN-SUFFIX,sqaookla.ddns.net
@@ -551,6 +552,7 @@ payload:
 - DOMAIN-SUFFIX,speed.navegalo.com
 - DOMAIN-SUFFIX,speedtest.micron21.com
 - DOMAIN-SUFFIX,speedcumra.lodosnet.com
+- DOMAIN-SUFFIX,speedbursa.lodosnet.com
 - DOMAIN-SUFFIX,speedtest-1.litfibre.com
 - DOMAIN-SUFFIX,speedtest.komogoto.com
 - DOMAIN-SUFFIX,speedtest.kansuiun.com
