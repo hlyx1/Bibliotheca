@@ -15,6 +15,7 @@ payload:
 - DOMAIN-SUFFIX,ewr-csq2-ookla-1.99.network
 - DOMAIN-SUFFIX,speedtest-de.pq.hosting
 - DOMAIN-SUFFIX,speedtest-ca.pq.hosting
+- DOMAIN-SUFFIX,t-moni.nebulax.digital
 - DOMAIN-SUFFIX,speedtest.nyc.elcro.digital
 - DOMAIN-SUFFIX,speed.riverside.rocks
 - DOMAIN-SUFFIX,de-lg.h2.nexus
@@ -958,6 +959,7 @@ payload:
 - DOMAIN-SUFFIX,msk3.companion.t2.ru
 - DOMAIN-SUFFIX,speedtest.rt.ru
 - DOMAIN-SUFFIX,speedtest2.sox.rs
+- DOMAIN-SUFFIX,nl.itdatatelecom.ro
 - DOMAIN-SUFFIX,speedtest.byteshield.ro
 - DOMAIN-SUFFIX,speed.uk.lon.m247.ro
 - DOMAIN-SUFFIX,speed2.fiberlink.pl
