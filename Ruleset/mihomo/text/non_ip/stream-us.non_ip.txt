@@ -1,3 +1,4 @@
+PROCESS-NAME,com.hulu.plus
 DOMAIN,staticasiafox.akamaized.net
 DOMAIN,dashasiafox.akamaized.net
 DOMAIN,bcbolt446c5271-a.akamaihd.net
@@ -12,7 +13,6 @@ DOMAIN,cbsi.live.ott.irdeto.com
 DOMAIN,vudu.com
 DOMAIN,tubi.tv
 DOMAIN,www.tubi.tv
-PROCESS-NAME,com.hulu.plus
 DOMAIN-SUFFIX,paramountplus.com
 DOMAIN-SUFFIX,discoveryplus.com
 DOMAIN-SUFFIX,theplatform.com

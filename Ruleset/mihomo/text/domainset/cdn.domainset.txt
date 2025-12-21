@@ -514,6 +514,7 @@
 +.intuitcdn.net
 +.img.imoutomoe.net
 +.image8899.net
++.reload.getsentry.net
 +.futurecdn.net
 +.flagpedia.net
 +.cache-05.filehippo.net
@@ -1429,6 +1430,7 @@
 +.cloudatacdn.com
 +.cdn-website.com
 +.events.ld.catamorphic.com
++.cartastatic.com
 +.cdn.calibermind.com
 +.e.calibermind.com
 +.bstarstatic.com
@@ -2767,6 +2769,7 @@
 +.web-assets.strava.com
 +.content-a.strava.com
 +.cdn-1.strava.com
++.cdn.stonly.com
 +.ss-cdn.com
 +.sndimg.com
 +.sndcdn.com

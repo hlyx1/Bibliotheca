@@ -515,6 +515,7 @@ payload:
 - DOMAIN-SUFFIX,intuitcdn.net
 - DOMAIN-SUFFIX,img.imoutomoe.net
 - DOMAIN-SUFFIX,image8899.net
+- DOMAIN-SUFFIX,reload.getsentry.net
 - DOMAIN-SUFFIX,futurecdn.net
 - DOMAIN-SUFFIX,flagpedia.net
 - DOMAIN-SUFFIX,cache-05.filehippo.net
@@ -1430,6 +1431,7 @@ payload:
 - DOMAIN-SUFFIX,cloudatacdn.com
 - DOMAIN-SUFFIX,cdn-website.com
 - DOMAIN-SUFFIX,events.ld.catamorphic.com
+- DOMAIN-SUFFIX,cartastatic.com
 - DOMAIN-SUFFIX,cdn.calibermind.com
 - DOMAIN-SUFFIX,e.calibermind.com
 - DOMAIN-SUFFIX,bstarstatic.com
@@ -2768,6 +2770,7 @@ payload:
 - DOMAIN-SUFFIX,web-assets.strava.com
 - DOMAIN-SUFFIX,content-a.strava.com
 - DOMAIN-SUFFIX,cdn-1.strava.com
+- DOMAIN-SUFFIX,cdn.stonly.com
 - DOMAIN-SUFFIX,ss-cdn.com
 - DOMAIN-SUFFIX,sndimg.com
 - DOMAIN-SUFFIX,sndcdn.com
