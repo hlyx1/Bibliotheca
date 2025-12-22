@@ -1,15 +1,4 @@
 payload:
-- DOMAIN,mobile.hotspot
-- DOMAIN,unifi
-- DOMAIN,ntt.setup
-- DOMAIN,pi.hole
-- DOMAIN,homerouter.cpe
-- DOMAIN,setmeup.arubanetworks.com
-- DOMAIN,instant.arubanetworks.com
-- DOMAIN,console.gl-inet.com
-- DOMAIN,repeater.asus.com
-- DOMAIN,router.asus.com
-- DOMAIN,aterm.me
 - DOMAIN-SUFFIX,router
 - DOMAIN-SUFFIX,plex.direct
 - DOMAIN-SUFFIX,ui.direct
@@ -24,3 +13,14 @@ payload:
 - DOMAIN-SUFFIX,routerlogin.com
 - DOMAIN-SUFFIX,asusrouter.com
 - DOMAIN-SUFFIX,tplogin.cn
+- DOMAIN,mobile.hotspot
+- DOMAIN,unifi
+- DOMAIN,ntt.setup
+- DOMAIN,pi.hole
+- DOMAIN,homerouter.cpe
+- DOMAIN,setmeup.arubanetworks.com
+- DOMAIN,instant.arubanetworks.com
+- DOMAIN,console.gl-inet.com
+- DOMAIN,repeater.asus.com
+- DOMAIN,router.asus.com
+- DOMAIN,aterm.me

@@ -83,7 +83,7 @@
 +.dllstx-ookla1.vyvebroadband.net
 +.hkthspeedtest02.telstraglobal.net
 +.speed.telcomnetwork.net
-+.nkf-ams.speedtest.royalehosting.net
++.speedtest.royalehosting.net
 +.speedtest.provisiondata.net
 +.speedtest.cenosnetworks.net
 +.speedtest-rd-1.zoominternet.net
@@ -96,7 +96,7 @@
 +.speedtest.ufinetlatam.net
 +.qspt.technofiber.net
 +.speedtest-tr-bursa.servosphere.net
-+.txda.speedtest.pavlovmedia.net
++.speedtest.pavlovmedia.net
 +.speedtest.packetworks.net
 +.ooklaserver.net
 +.speedtest.nftctelecom.net
@@ -303,6 +303,7 @@
 +.ny3-speedtest.tier.net
 +.ny2-speedtest.tier.net
 +.speedtest-fkt-eqx.retn.net
++.speedtest-tpe.retn.net
 +.speedtest-msk.retn.net
 +.speedtest-lon.retn.net
 +.speedtest-hkg.retn.net
@@ -468,7 +469,7 @@
 +.speedtestlon.telefonica.com
 +.speedtest-dallas.swyftfiber.com
 +.speedtest.solutechzk.com
-+.ams.speedtest.serverside.com
++.speedtest.serverside.com
 +.speedtest.serveroyun.com
 +.speed.serveroyun.com
 +.speedtest.pilotfiber.com
@@ -531,7 +532,7 @@
 +.trtspeedtest.altimatel.com
 +.speedtest.altimatel.com
 +.tsdvuspeedtest01p.allstream.com
-+.us.speedtest.airlinkdc.com
++.speedtest.airlinkdc.com
 +.speedtest-1.london.network.youfibre.com
 +.sp-thn2.wildanet.com
 +.speedtest.wilcasji.com
@@ -590,7 +591,7 @@
 +.speed.turbodc.com
 +.speedtestmiabr.telxius.com
 +.speedtest.starhub.com
-+.dfw01.speedtest.soraxus.com
++.speedtest.soraxus.com
 +.speedtest.sercomm.com
 +.sydspeedtest.rackdog.com
 +.ldnspeedtest.rackdog.com
@@ -923,7 +924,6 @@
 +.speedtest.com.sg
 +.speedtest.axclusive.com.sg
 +.speedtest.singnet.com.sg
-+.pl.speedtest.singnet.com.sg
 +.m1speedtest1.m1net.com.sg
 +.lon-ix1-tptest1.31173.se
 +.fra-eq5-tptest1.31173.se
@@ -1122,6 +1122,7 @@
 +.speedtest.te.citywest.ca
 +.speedtest.pr.citywest.ca
 +.speedtest.blacksun.ca
++.t4y-toronto-ca-osts1.ser.tek4you.ca
 +.t4y-tor-sts1.ser.tek4you.ca
 +.speedtest.cooptel.ca
 +.speedtest.lsvl.cooptel.ca

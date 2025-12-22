@@ -84,7 +84,7 @@ payload:
 - DOMAIN-SUFFIX,dllstx-ookla1.vyvebroadband.net
 - DOMAIN-SUFFIX,hkthspeedtest02.telstraglobal.net
 - DOMAIN-SUFFIX,speed.telcomnetwork.net
-- DOMAIN-SUFFIX,nkf-ams.speedtest.royalehosting.net
+- DOMAIN-SUFFIX,speedtest.royalehosting.net
 - DOMAIN-SUFFIX,speedtest.provisiondata.net
 - DOMAIN-SUFFIX,speedtest.cenosnetworks.net
 - DOMAIN-SUFFIX,speedtest-rd-1.zoominternet.net
@@ -97,7 +97,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.ufinetlatam.net
 - DOMAIN-SUFFIX,qspt.technofiber.net
 - DOMAIN-SUFFIX,speedtest-tr-bursa.servosphere.net
-- DOMAIN-SUFFIX,txda.speedtest.pavlovmedia.net
+- DOMAIN-SUFFIX,speedtest.pavlovmedia.net
 - DOMAIN-SUFFIX,speedtest.packetworks.net
 - DOMAIN-SUFFIX,ooklaserver.net
 - DOMAIN-SUFFIX,speedtest.nftctelecom.net
@@ -304,6 +304,7 @@ payload:
 - DOMAIN-SUFFIX,ny3-speedtest.tier.net
 - DOMAIN-SUFFIX,ny2-speedtest.tier.net
 - DOMAIN-SUFFIX,speedtest-fkt-eqx.retn.net
+- DOMAIN-SUFFIX,speedtest-tpe.retn.net
 - DOMAIN-SUFFIX,speedtest-msk.retn.net
 - DOMAIN-SUFFIX,speedtest-lon.retn.net
 - DOMAIN-SUFFIX,speedtest-hkg.retn.net
@@ -469,7 +470,7 @@ payload:
 - DOMAIN-SUFFIX,speedtestlon.telefonica.com
 - DOMAIN-SUFFIX,speedtest-dallas.swyftfiber.com
 - DOMAIN-SUFFIX,speedtest.solutechzk.com
-- DOMAIN-SUFFIX,ams.speedtest.serverside.com
+- DOMAIN-SUFFIX,speedtest.serverside.com
 - DOMAIN-SUFFIX,speedtest.serveroyun.com
 - DOMAIN-SUFFIX,speed.serveroyun.com
 - DOMAIN-SUFFIX,speedtest.pilotfiber.com
@@ -532,7 +533,7 @@ payload:
 - DOMAIN-SUFFIX,trtspeedtest.altimatel.com
 - DOMAIN-SUFFIX,speedtest.altimatel.com
 - DOMAIN-SUFFIX,tsdvuspeedtest01p.allstream.com
-- DOMAIN-SUFFIX,us.speedtest.airlinkdc.com
+- DOMAIN-SUFFIX,speedtest.airlinkdc.com
 - DOMAIN-SUFFIX,speedtest-1.london.network.youfibre.com
 - DOMAIN-SUFFIX,sp-thn2.wildanet.com
 - DOMAIN-SUFFIX,speedtest.wilcasji.com
@@ -591,7 +592,7 @@ payload:
 - DOMAIN-SUFFIX,speed.turbodc.com
 - DOMAIN-SUFFIX,speedtestmiabr.telxius.com
 - DOMAIN-SUFFIX,speedtest.starhub.com
-- DOMAIN-SUFFIX,dfw01.speedtest.soraxus.com
+- DOMAIN-SUFFIX,speedtest.soraxus.com
 - DOMAIN-SUFFIX,speedtest.sercomm.com
 - DOMAIN-SUFFIX,sydspeedtest.rackdog.com
 - DOMAIN-SUFFIX,ldnspeedtest.rackdog.com
@@ -924,7 +925,6 @@ payload:
 - DOMAIN-SUFFIX,speedtest.com.sg
 - DOMAIN-SUFFIX,speedtest.axclusive.com.sg
 - DOMAIN-SUFFIX,speedtest.singnet.com.sg
-- DOMAIN-SUFFIX,pl.speedtest.singnet.com.sg
 - DOMAIN-SUFFIX,m1speedtest1.m1net.com.sg
 - DOMAIN-SUFFIX,lon-ix1-tptest1.31173.se
 - DOMAIN-SUFFIX,fra-eq5-tptest1.31173.se
@@ -1123,6 +1123,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.te.citywest.ca
 - DOMAIN-SUFFIX,speedtest.pr.citywest.ca
 - DOMAIN-SUFFIX,speedtest.blacksun.ca
+- DOMAIN-SUFFIX,t4y-toronto-ca-osts1.ser.tek4you.ca
 - DOMAIN-SUFFIX,t4y-tor-sts1.ser.tek4you.ca
 - DOMAIN-SUFFIX,speedtest.cooptel.ca
 - DOMAIN-SUFFIX,speedtest.lsvl.cooptel.ca
