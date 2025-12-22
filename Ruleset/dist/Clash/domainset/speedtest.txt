@@ -1,6 +1,6 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2025-12-19T13:45:12.462Z
+# Last Updated: 2025-12-22T13:47:03.522Z
 # Size: 1538
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
@@ -94,7 +94,7 @@ speedtest.whiteprovider.net
 dllstx-ookla1.vyvebroadband.net
 hkthspeedtest02.telstraglobal.net
 speed.telcomnetwork.net
-nkf-ams.speedtest.royalehosting.net
++.speedtest.royalehosting.net
 speedtest.provisiondata.net
 speedtest.cenosnetworks.net
 speedtest-rd-1.zoominternet.net
@@ -107,7 +107,7 @@ speedtest.webdiscount.net
 speedtest.ufinetlatam.net
 qspt.technofiber.net
 speedtest-tr-bursa.servosphere.net
-txda.speedtest.pavlovmedia.net
++.speedtest.pavlovmedia.net
 speedtest.packetworks.net
 +.ooklaserver.net
 speedtest.nftctelecom.net
@@ -314,6 +314,7 @@ speedtest.lon1.edgoo.net
 ny3-speedtest.tier.net
 ny2-speedtest.tier.net
 speedtest-fkt-eqx.retn.net
+speedtest-tpe.retn.net
 speedtest-msk.retn.net
 speedtest-lon.retn.net
 speedtest-hkg.retn.net
@@ -480,7 +481,7 @@ beijing.unicomtest.com
 speedtestlon.telefonica.com
 speedtest-dallas.swyftfiber.com
 speedtest.solutechzk.com
-ams.speedtest.serverside.com
++.speedtest.serverside.com
 speedtest.serveroyun.com
 speed.serveroyun.com
 speedtest.pilotfiber.com
@@ -543,7 +544,7 @@ vanspeedtest.altimatel.com
 trtspeedtest.altimatel.com
 speedtest.altimatel.com
 tsdvuspeedtest01p.allstream.com
-us.speedtest.airlinkdc.com
++.speedtest.airlinkdc.com
 speedtest-1.london.network.youfibre.com
 sp-thn2.wildanet.com
 speedtest.wilcasji.com
@@ -602,7 +603,7 @@ speedtest-de.unihost.com
 speed.turbodc.com
 speedtestmiabr.telxius.com
 +.speedtest.starhub.com
-dfw01.speedtest.soraxus.com
++.speedtest.soraxus.com
 speedtest.sercomm.com
 sydspeedtest.rackdog.com
 ldnspeedtest.rackdog.com
@@ -934,8 +935,7 @@ speedtest-sg1.simba.sg
 speedtest.myrepublic.com.sg
 +.speedtest.com.sg
 speedtest.axclusive.com.sg
-speedtest.singnet.com.sg
-pl.speedtest.singnet.com.sg
++.speedtest.singnet.com.sg
 m1speedtest1.m1net.com.sg
 lon-ix1-tptest1.31173.se
 fra-eq5-tptest1.31173.se
@@ -1134,7 +1134,7 @@ speedtest.connexio.ca
 speedtest.te.citywest.ca
 speedtest.pr.citywest.ca
 speedtest.blacksun.ca
-
+t4y-toronto-ca-osts1.ser.tek4you.ca
 t4y-tor-sts1.ser.tek4you.ca
 speedtest.cooptel.ca
 speedtest.lsvl.cooptel.ca
