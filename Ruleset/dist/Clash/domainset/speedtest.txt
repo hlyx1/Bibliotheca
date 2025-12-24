@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2025-12-22T13:47:03.522Z
-# Size: 1538
+# Last Updated: 2025-12-24T12:43:48.431Z
+# Size: 1539
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -787,6 +787,7 @@ speedtest2.voicehost.co.uk
 speedtest-london-east.vodafone.co.uk
 speedtest.redactus.co.uk
 speedtest.scotnet.co.uk
+speedtestvol.optinet.co.uk
 speedtest.toob.co.uk
 speedtest.brsk.co.uk
 ookla.4g5g.co.uk
