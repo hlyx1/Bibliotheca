@@ -775,6 +775,7 @@
 +.speedtest-london-east.vodafone.co.uk
 +.speedtest.redactus.co.uk
 +.speedtest.scotnet.co.uk
++.speedtestvol.optinet.co.uk
 +.speedtest.toob.co.uk
 +.speedtest.brsk.co.uk
 +.ookla.4g5g.co.uk

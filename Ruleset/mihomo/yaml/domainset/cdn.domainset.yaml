@@ -93,6 +93,7 @@ payload:
 - DOMAIN-SUFFIX,js.txxx.tube
 - DOMAIN-SUFFIX,ipfs.d.tube
 - DOMAIN-SUFFIX,media.remax-prod.eng.remax.tech
+- DOMAIN-SUFFIX,static.pepy.tech
 - DOMAIN-SUFFIX,packages.jetbrains.team
 - DOMAIN-SUFFIX,pkg-cdn.jetbrains.team
 - DOMAIN-SUFFIX,zenwave56.site
@@ -799,6 +800,7 @@ payload:
 - DOMAIN-SUFFIX,cdnjs.cat.net
 - DOMAIN-SUFFIX,ajax.cat.net
 - DOMAIN-SUFFIX,static.bangumi.moe
+- DOMAIN-SUFFIX,r2.dejavu.moe
 - DOMAIN-SUFFIX,static.chaika.moe
 - DOMAIN-SUFFIX,pic.cangku.moe
 - DOMAIN-SUFFIX,touchgal-image.moyu.moe

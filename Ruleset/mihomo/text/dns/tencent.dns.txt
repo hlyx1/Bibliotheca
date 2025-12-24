@@ -1,3 +1,5 @@
+DOMAIN,tx-safety-video.acfun.cn
+DOMAIN,url.cn
 DOMAIN-SUFFIX,tencent-cloud.net
 DOMAIN-SUFFIX,smtcdns.net
 DOMAIN-SUFFIX,coding.net
@@ -44,5 +46,3 @@ DOMAIN-SUFFIX,tencent.com.cn
 DOMAIN-SUFFIX,wegame.com.cn
 DOMAIN-SUFFIX,gtimg.com.cn
 DOMAIN-SUFFIX,qq.com.cn
-DOMAIN,tx-safety-video.acfun.cn
-DOMAIN,url.cn
