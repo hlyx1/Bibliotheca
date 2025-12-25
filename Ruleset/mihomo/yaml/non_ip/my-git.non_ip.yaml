@@ -1,7 +1,7 @@
 payload:
+- DOMAIN-SUFFIX,githubcopilot.com
+- DOMAIN-SUFFIX,huggingface.co
 - DOMAIN,github.dev
 - DOMAIN,github.com
 - DOMAIN,alive.github.com
 - DOMAIN,api.github.com
-- DOMAIN-SUFFIX,githubcopilot.com
-- DOMAIN-SUFFIX,huggingface.co
