@@ -1,4 +1,5 @@
 payload:
+- DOMAIN-SUFFIX,cdn.hinet.net
 - DOMAIN,av.jkforum.net
 - DOMAIN,www.manhuagui.com
 - DOMAIN,yymanhua.com
@@ -6,7 +7,6 @@ payload:
 - DOMAIN,avbebe.com
 - DOMAIN,mhgui.com
 - DOMAIN,hanime1.me
-- DOMAIN-SUFFIX,cdn.hinet.net
 - DOMAIN-WILDCARD,*.ffzy-online?.com
 - DOMAIN-WILDCARD,*.ffzy-play?.com
 - DOMAIN-WILDCARD,*.lz-cdn?.com
