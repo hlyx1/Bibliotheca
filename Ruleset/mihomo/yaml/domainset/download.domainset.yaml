@@ -377,6 +377,7 @@ payload:
 - DOMAIN-SUFFIX,mirror.as35701.net
 - DOMAIN-SUFFIX,mirror.as29550.net
 - DOMAIN-SUFFIX,mirror.as24220.net
+- DOMAIN-SUFFIX,download.amelabs.net
 - DOMAIN-SUFFIX,mirror.alwyzon.net
 - DOMAIN-SUFFIX,mirrors.zagrio.net
 - DOMAIN-SUFFIX,mirror.xenyth.net
@@ -551,6 +552,7 @@ payload:
 - DOMAIN-SUFFIX,www2.aomeisoftware.com
 - DOMAIN-SUFFIX,vultrobjects.com
 - DOMAIN-SUFFIX,update.code.visualstudio.com
+- DOMAIN-SUFFIX,download.sysinternals.com
 - DOMAIN-SUFFIX,content-origin.steampowered.com
 - DOMAIN-SUFFIX,content.steampowered.com
 - DOMAIN-SUFFIX,steamcontent.com
@@ -1868,6 +1870,7 @@ payload:
 - DOMAIN-SUFFIX,apache.mesi.com.ar
 - DOMAIN-SUFFIX,mirrors.teamcloud.am
 - DOMAIN-SUFFIX,mirrors.asnet.am
+- DOMAIN-SUFFIX,updates.64gr.am
 - DOMAIN-SUFFIX,mirror.gnc.am
 - DOMAIN-SUFFIX,mirror.homacloud.ai
 - DOMAIN-SUFFIX,mirror.host.ag
