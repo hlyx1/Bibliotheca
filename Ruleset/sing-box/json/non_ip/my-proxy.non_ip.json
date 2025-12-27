@@ -3,6 +3,9 @@
   "rules": [
     {
       "domain": [
+        "sgminorshort.wechat.com",
+        "sgshort.wechat.com",
+        "sglong.wechat.com",
         "fonts.googleapis.cn",
         "fonts.gstatic.cn",
         "ip.cn"
