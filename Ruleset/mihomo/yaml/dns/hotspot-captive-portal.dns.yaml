@@ -1,4 +1,4 @@
 payload:
-- DOMAIN-SUFFIX,securelogin.com.cn
 - DOMAIN,hotspot.cslwifi.com
 - DOMAIN,captive.apple.com
+- DOMAIN-SUFFIX,securelogin.com.cn
