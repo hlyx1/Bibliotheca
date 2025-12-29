@@ -13,6 +13,7 @@ payload:
 - DOMAIN-SUFFIX,dfw-eqx11-ookla-1.99.network
 - DOMAIN-SUFFIX,mia-eqx1-ookla-1.99.network
 - DOMAIN-SUFFIX,ewr-csq2-ookla-1.99.network
+- DOMAIN-SUFFIX,speedtest-kr.the.hosting
 - DOMAIN-SUFFIX,speedtest-de.pq.hosting
 - DOMAIN-SUFFIX,speedtest-ca.pq.hosting
 - DOMAIN-SUFFIX,t-moni.nebulax.digital

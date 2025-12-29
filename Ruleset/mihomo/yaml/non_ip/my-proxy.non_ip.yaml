@@ -1,4 +1,10 @@
 payload:
+- DOMAIN,sgminorshort.wechat.com
+- DOMAIN,sgshort.wechat.com
+- DOMAIN,sglong.wechat.com
+- DOMAIN,fonts.googleapis.cn
+- DOMAIN,fonts.gstatic.cn
+- DOMAIN,ip.cn
 - DOMAIN-SUFFIX,ipstack.com
 - DOMAIN-SUFFIX,ip-api.com
 - DOMAIN-SUFFIX,db-ip.com
@@ -9,9 +15,3 @@ payload:
 - DOMAIN-SUFFIX,ipregistry.co
 - DOMAIN-SUFFIX,ipdata.co
 - DOMAIN-SUFFIX,services.googleapis.cn
-- DOMAIN,sgminorshort.wechat.com
-- DOMAIN,sgshort.wechat.com
-- DOMAIN,sglong.wechat.com
-- DOMAIN,fonts.googleapis.cn
-- DOMAIN,fonts.gstatic.cn
-- DOMAIN,ip.cn

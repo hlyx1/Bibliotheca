@@ -1,4 +1,5 @@
 payload:
+- DOMAIN,ds-linear-abematv.akamaized.net
 - DOMAIN-SUFFIX,hayabusa.media
 - DOMAIN-SUFFIX,dmc.nico
 - DOMAIN-SUFFIX,hayabusa.dev
@@ -23,4 +24,3 @@ payload:
 - DOMAIN-SUFFIX,dmm.co.jp
 - DOMAIN-SUFFIX,hayabusa.io
 - DOMAIN-SUFFIX,abema.io
-- DOMAIN,ds-linear-abematv.akamaized.net
