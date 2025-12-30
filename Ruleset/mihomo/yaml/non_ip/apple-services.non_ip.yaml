@@ -1,13 +1,4 @@
 payload:
-- PROCESS-NAME,netbiosd
-- PROCESS-NAME,com.apple.geod
-- PROCESS-NAME,mapspushd
-- PROCESS-NAME,com.apple.Maps
-- PROCESS-NAME,apsd
-- PROCESS-NAME,fmfd
-- PROCESS-NAME,findmydevice-user-agent
-- PROCESS-NAME,CoreLocationAgent
-- PROCESS-NAME,WeatherWidget
 - DOMAIN-SUFFIX,apple.news
 - DOMAIN-SUFFIX,apple-dns.net
 - DOMAIN-SUFFIX,push-apple.com.akadns.net
@@ -24,3 +15,12 @@ payload:
 - DOMAIN-SUFFIX,me.com
 - DOMAIN-SUFFIX,appsto.re
 - DOMAIN-SUFFIX,apple.co
+- PROCESS-NAME,netbiosd
+- PROCESS-NAME,com.apple.geod
+- PROCESS-NAME,mapspushd
+- PROCESS-NAME,com.apple.Maps
+- PROCESS-NAME,apsd
+- PROCESS-NAME,fmfd
+- PROCESS-NAME,findmydevice-user-agent
+- PROCESS-NAME,CoreLocationAgent
+- PROCESS-NAME,WeatherWidget
