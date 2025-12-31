@@ -1049,6 +1049,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.berlin.jonasdevries.de
 - DOMAIN-SUFFIX,speedtest.ip-projects.de
 - DOMAIN-SUFFIX,speedtest.fra01.datascheune.de
+- DOMAIN-SUFFIX,ookla.fra-01.testpub.telefonica.de
 - DOMAIN-SUFFIX,speed2.netlixor.de
 - DOMAIN-SUFFIX,speed.netlixor.de
 - DOMAIN-SUFFIX,speedtest1.synlinq.de
