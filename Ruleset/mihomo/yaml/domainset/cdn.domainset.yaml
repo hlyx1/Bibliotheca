@@ -18,6 +18,7 @@ payload:
 - DOMAIN-SUFFIX,bcdn.starapps.studio
 - DOMAIN-SUFFIX,cdn.starapps.studio
 - DOMAIN-SUFFIX,public.flourish.studio
+- DOMAIN-SUFFIX,assets.unicorn.studio
 - DOMAIN-SUFFIX,static.zenn.studio
 - DOMAIN-SUFFIX,embed.zenn.studio
 - DOMAIN-SUFFIX,mstdn-s3.o3o.studio

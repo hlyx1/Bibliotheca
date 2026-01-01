@@ -1,10 +1,10 @@
 payload:
+- DOMAIN-KEYWORD,-p2p.pull.yximgs.com
+- DOMAIN-KEYWORD,-p2p-v2.pull.yximgs.com
 - DOMAIN,qn-cdnfile1pcdn.msstatic.com
 - DOMAIN,livewebbs2pcdn.msstatic.com
 - DOMAIN,stun1.douyucdn.cn
 - DOMAIN,stun.douyucdn.cn
-- DOMAIN-KEYWORD,-p2p.pull.yximgs.com
-- DOMAIN-KEYWORD,-p2p-v2.pull.yximgs.com
 - DOMAIN-SUFFIX,ppio.cloud
 - DOMAIN-SUFFIX,yfp2p.net
 - DOMAIN-SUFFIX,yfcdn.net

@@ -871,6 +871,7 @@ payload:
 - DOMAIN-SUFFIX,bur1speedtest.turktelekom.com.tr
 - DOMAIN-SUFFIX,ant1speedtest.turktelekom.com.tr
 - DOMAIN-SUFFIX,adn1speedtest.turktelekom.com.tr
+- DOMAIN-SUFFIX,ookla.besttelekom.com.tr
 - DOMAIN-SUFFIX,speedtest1.atlantisnet.com.tr
 - DOMAIN-SUFFIX,speedtest-tr.atakanozban.com.tr
 - DOMAIN-SUFFIX,test.turuncunet.com.tr
