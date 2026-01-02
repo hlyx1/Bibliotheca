@@ -1,4 +1,5 @@
 payload:
+- DOMAIN-WILDCARD,*.qhimgs?.com
 - DOMAIN-SUFFIX,c-t.work
 - DOMAIN-SUFFIX,mijia.tech
 - DOMAIN-SUFFIX,xunyou.mobi
@@ -811,7 +812,6 @@ payload:
 - DOMAIN-SUFFIX,t.cn
 - DOMAIN-SUFFIX,6.cn
 - DOMAIN-SUFFIX,3.cn
-- DOMAIN-WILDCARD,*.qhimgs?.com
 - DOMAIN,dot.pub
 - DOMAIN,doh.pub
 - DOMAIN,dns.pub

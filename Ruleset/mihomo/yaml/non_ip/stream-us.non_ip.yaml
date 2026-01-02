@@ -1,4 +1,5 @@
 payload:
+- PROCESS-NAME,com.hulu.plus
 - DOMAIN-SUFFIX,paramountplus.com
 - DOMAIN-SUFFIX,discoveryplus.com
 - DOMAIN-SUFFIX,theplatform.com
@@ -41,4 +42,3 @@ payload:
 - DOMAIN,vudu.com
 - DOMAIN,tubi.tv
 - DOMAIN,www.tubi.tv
-- PROCESS-NAME,com.hulu.plus

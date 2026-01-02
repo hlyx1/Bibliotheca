@@ -450,7 +450,6 @@ payload:
 - DOMAIN-SUFFIX,chnroutes2.cdn.skk.moe
 - DOMAIN-SUFFIX,filters.cdn.skk.moe
 - DOMAIN-SUFFIX,mirror.gsl.icu
-- DOMAIN-SUFFIX,ftp.cc.uoc.grs
 - DOMAIN-SUFFIX,linux-mirrors.fnal.gov
 - DOMAIN-SUFFIX,maven.is-quite.gay
 - DOMAIN-SUFFIX,ctan.math.washington.edu
@@ -1062,7 +1061,6 @@ payload:
 - DOMAIN-SUFFIX,desktop.wifiman.com
 - DOMAIN-SUFFIX,mirror.virtury.com
 - DOMAIN-SUFFIX,autoupdate.termius.com
-- DOMAIN-SUFFIX,mirrors.eze.sysarmy.com
 - DOMAIN-SUFFIX,enterprise.proxmox.com
 - DOMAIN-SUFFIX,ubuntu.parsvds.com
 - DOMAIN-SUFFIX,mirrors.nxthost.com
@@ -1840,8 +1838,7 @@ payload:
 - DOMAIN-SUFFIX,ctan.space-pro.be
 - DOMAIN-SUFFIX,ftp.belnet.be
 - DOMAIN-SUFFIX,lib.ugent.be
-- DOMAIN-SUFFIX,apache.cu.be
-- DOMAIN-SUFFIX,kde.cu.be
+- DOMAIN-SUFFIX,mirrors.cu.be
 - DOMAIN-SUFFIX,mirror.visiontech.com.bd
 - DOMAIN-SUFFIX,mirror.amberit.com.bd
 - DOMAIN-SUFFIX,ubuntu-mirror.bhtelecom.ba
@@ -1876,7 +1873,6 @@ payload:
 - DOMAIN-SUFFIX,ubuntu.uni-klu.ac.at
 - DOMAIN-SUFFIX,ftp.tu-graz.ac.at
 - DOMAIN-SUFFIX,mirrors.sarak.as
-- DOMAIN-SUFFIX,mirrors.dc.clear.net.ar
 - DOMAIN-SUFFIX,debian.unnoba.edu.ar
 - DOMAIN-SUFFIX,ubuntu.unc.edu.ar
 - DOMAIN-SUFFIX,cpan.mmgdesigns.com.ar
