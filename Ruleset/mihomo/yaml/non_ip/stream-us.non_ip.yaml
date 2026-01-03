@@ -1,5 +1,4 @@
 payload:
-- PROCESS-NAME,com.hulu.plus
 - DOMAIN-SUFFIX,paramountplus.com
 - DOMAIN-SUFFIX,discoveryplus.com
 - DOMAIN-SUFFIX,theplatform.com
@@ -28,6 +27,7 @@ payload:
 - DOMAIN-SUFFIX,hulu.jp
 - DOMAIN-SUFFIX,production-public.tubi.io
 - DOMAIN-SUFFIX,discoveryplus.in
+- PROCESS-NAME,com.hulu.plus
 - DOMAIN,staticasiafox.akamaized.net
 - DOMAIN,dashasiafox.akamaized.net
 - DOMAIN,bcbolt446c5271-a.akamaihd.net

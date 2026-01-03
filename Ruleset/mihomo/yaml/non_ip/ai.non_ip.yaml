@@ -31,8 +31,12 @@ payload:
 - DOMAIN-SUFFIX,meta.ai
 - DOMAIN-SUFFIX,dify.ai
 - DOMAIN-SUFFIX,x.ai
+- DOMAIN-KEYWORD,openai
+- DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
 - DOMAIN,antigravity.google
+- DOMAIN,antigravity-unleash.goog
 - DOMAIN,ai.google.dev
+- DOMAIN,daily-cloudcode-pa.googleapis.com
 - DOMAIN,robinfrontend-pa.googleapis.com
 - DOMAIN,aisandbox-pa.googleapis.com
 - DOMAIN,aida.googleapis.com
@@ -42,5 +46,3 @@ payload:
 - DOMAIN,api.github.com
 - DOMAIN,openrouter.ai
 - DOMAIN,api.jetbrains.ai
-- DOMAIN-KEYWORD,openai
-- DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
