@@ -203,6 +203,7 @@ payload:
 - DOMAIN-SUFFIX,lg-sin.fdcservers.net
 - DOMAIN-SUFFIX,lg-sea.fdcservers.net
 - DOMAIN-SUFFIX,lg-mia.fdcservers.net
+- DOMAIN-SUFFIX,lg-mad.fdcservers.net
 - DOMAIN-SUFFIX,lg-lon.fdcservers.net
 - DOMAIN-SUFFIX,lg-lax.fdcservers.net
 - DOMAIN-SUFFIX,lg-hnd.fdcservers.net
@@ -550,6 +551,7 @@ payload:
 - DOMAIN-SUFFIX,d-pcommunications.com
 - DOMAIN-SUFFIX,cugspeed.chinaunicomglobal.com
 - DOMAIN-SUFFIX,sgspeed.chinaunicomglobal.com
+- DOMAIN-SUFFIX,speedtest.acrospirenetworks.com
 - DOMAIN-SUFFIX,stmum.tatatelebusiness.com
 - DOMAIN-SUFFIX,stdel.tatatelebusiness.com
 - DOMAIN-SUFFIX,suntechspeedtest.com
@@ -620,6 +622,7 @@ payload:
 - DOMAIN-SUFFIX,speedtestmoga.angelbroadband.com
 - DOMAIN-SUFFIX,speedtestss2.angelbroadband.com
 - DOMAIN-SUFFIX,speedtestsrs.angelbroadband.com
+- DOMAIN-SUFFIX,speedtestjbd.angelbroadband.com
 - DOMAIN-SUFFIX,speedtestfzk.angelbroadband.com
 - DOMAIN-SUFFIX,speedtestfdk.angelbroadband.com
 - DOMAIN-SUFFIX,speedtestbti.angelbroadband.com
@@ -684,6 +687,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.n4ubroadband.com
 - DOMAIN-SUFFIX,speedtest.multicablehn.com
 - DOMAIN-SUFFIX,ookla-in.mercuryfiber.com
+- DOMAIN-SUFFIX,sp1.jdmbroadband.com
 - DOMAIN-SUFFIX,speedtest.jcnettelecom.com
 - DOMAIN-SUFFIX,hizinitestet.com
 - DOMAIN-SUFFIX,stdal.highlinefast.com
@@ -719,6 +723,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest-stm.redeconecta.com
 - DOMAIN-SUFFIX,speedtest-obd.redeconecta.com
 - DOMAIN-SUFFIX,ooklaspeedtest-cdv.quebeccloud.com
+- DOMAIN-SUFFIX,speedtest.plasmanodes.com
 - DOMAIN-SUFFIX,speedtest.nxt-telecom.com
 - DOMAIN-SUFFIX,ookla.mthnetworks.com
 - DOMAIN-SUFFIX,speed.mpvnetworks.com
@@ -1503,6 +1508,7 @@ payload:
 - DOMAIN-SUFFIX,speedtest.ot01.zaq.ad.jp
 - DOMAIN-SUFFIX,speed.coe.ad.jp
 - DOMAIN-SUFFIX,speedtest2.dolomitesnetwork.it
+- DOMAIN-SUFFIX,massarosa-1.speedtest.welcomeitalia.it
 - DOMAIN-SUFFIX,speedtestto1.telecomitalia.it
 - DOMAIN-SUFFIX,speedtesttn1.telecomitalia.it
 - DOMAIN-SUFFIX,speedtestrm1.telecomitalia.it

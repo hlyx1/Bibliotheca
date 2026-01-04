@@ -1,13 +1,4 @@
 payload:
-- DOMAIN-KEYWORD,google
-- DOMAIN-KEYWORD,blogspot
-- DOMAIN-KEYWORD,facebook
-- DOMAIN-KEYWORD,whatsapp
-- DOMAIN-KEYWORD,discord
-- DOMAIN-KEYWORD,sci-hub
-- DOMAIN-KEYWORD,browserleaks
-- DOMAIN-KEYWORD,dropbox
-- DOMAIN-KEYWORD,pinterest
 - DOMAIN-SUFFIX,community
 - DOMAIN-SUFFIX,network
 - DOMAIN-SUFFIX,x.company
@@ -430,6 +421,7 @@ payload:
 - DOMAIN-SUFFIX,crashlytics.com
 - DOMAIN-SUFFIX,cosplay-jav.com
 - DOMAIN-SUFFIX,voachinese.com
+- DOMAIN-SUFFIX,vanityfair.com
 - DOMAIN-SUFFIX,majsoul.union-game.com
 - DOMAIN-SUFFIX,trustpilot.com
 - DOMAIN-SUFFIX,tokyonline.com
@@ -1225,6 +1217,15 @@ payload:
 - DOMAIN-SUFFIX,instagr.am
 - DOMAIN-SUFFIX,ai
 - DOMAIN-SUFFIX,ac
+- DOMAIN-KEYWORD,google
+- DOMAIN-KEYWORD,blogspot
+- DOMAIN-KEYWORD,facebook
+- DOMAIN-KEYWORD,whatsapp
+- DOMAIN-KEYWORD,discord
+- DOMAIN-KEYWORD,sci-hub
+- DOMAIN-KEYWORD,browserleaks
+- DOMAIN-KEYWORD,dropbox
+- DOMAIN-KEYWORD,pinterest
 - DOMAIN,news.ycombinator.com
 - DOMAIN,ees.elsevier.com
 - DOMAIN,community.oneplus.com

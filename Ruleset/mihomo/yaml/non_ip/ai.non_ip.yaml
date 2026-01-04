@@ -1,4 +1,6 @@
 payload:
+- DOMAIN-KEYWORD,openai
+- DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
 - DOMAIN-SUFFIX,generativeai.google
 - DOMAIN-SUFFIX,notebooklm.google
 - DOMAIN-SUFFIX,deepmind.google
@@ -31,8 +33,6 @@ payload:
 - DOMAIN-SUFFIX,meta.ai
 - DOMAIN-SUFFIX,dify.ai
 - DOMAIN-SUFFIX,x.ai
-- DOMAIN-KEYWORD,openai
-- DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
 - DOMAIN,antigravity.google
 - DOMAIN,antigravity-unleash.goog
 - DOMAIN,ai.google.dev

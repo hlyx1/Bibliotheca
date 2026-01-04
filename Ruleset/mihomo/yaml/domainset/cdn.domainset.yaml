@@ -325,6 +325,7 @@ payload:
 - DOMAIN-SUFFIX,demotiles.maplibre.org
 - DOMAIN-SUFFIX,lichess1.org
 - DOMAIN-SUFFIX,design.keyoxide.org
+- DOMAIN-SUFFIX,modules.kernelsu.org
 - DOMAIN-SUFFIX,api.indexnow.org
 - DOMAIN-SUFFIX,assets.exercism.org
 - DOMAIN-SUFFIX,david-dm.org
