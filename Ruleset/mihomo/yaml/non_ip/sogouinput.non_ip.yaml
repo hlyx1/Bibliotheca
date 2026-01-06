@@ -1,7 +1,4 @@
 payload:
-- PROCESS-NAME,SogouInput
-- PROCESS-NAME,SogouTaskManager
-- PROCESS-NAME,SogouServices
 - DOMAIN,oth.str.mdt.qq.com
 - DOMAIN-SUFFIX,account.sogou.com
 - DOMAIN-SUFFIX,shouji.sogou.com
@@ -11,3 +8,6 @@ payload:
 - DOMAIN-SUFFIX,get.sogou.com
 - DOMAIN-SUFFIX,sginput.qq.com
 - DOMAIN-SUFFIX,beacon.qq.com
+- PROCESS-NAME,SogouInput
+- PROCESS-NAME,SogouTaskManager
+- PROCESS-NAME,SogouServices
