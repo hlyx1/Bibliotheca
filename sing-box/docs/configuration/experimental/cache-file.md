@@ -2,7 +2,7 @@
 
 !!! quote "Changes in sing-box 1.9.0"
 
-    :material-plus: [store_rdrc](#store_rdrc)  
+    :material-plus: [store_rdrc](#store_rdrc)
     :material-plus: [rdrc_timeout](#rdrc_timeout)
 
 ### Structure
@@ -44,8 +44,7 @@ Store fakeip in the cache file
 
 Store rejected DNS response cache in the cache file
 
-The check results of [Address filter DNS rule items](/configuration/dns/rule/#address-filter-fields)
-will be cached until expiration.
+The check results of [Address filter DNS rule items](/configuration/dns/rule/#address-filter-fields) will be cached until expiration.
 
 #### rdrc_timeout
 

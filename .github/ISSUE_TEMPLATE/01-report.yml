@@ -7,7 +7,6 @@ body:
     attributes:
       value: |
         Thank you for contributing! Please provide sufficient detail to help us address your issue effectively.
-
   - type: dropdown
     id: issue_type
     attributes:
@@ -22,7 +21,6 @@ body:
         - "Other"
     validations:
       required: true
-
   - type: textarea
     id: description
     attributes:
@@ -30,7 +28,6 @@ body:
       description: Provide a clear description of your issue, proposal, or question.
     validations:
       required: true
-
   - type: dropdown
     id: severity
     attributes:
@@ -44,7 +41,6 @@ body:
         - "Low – Cosmetic issue, typo, or minimal impact"
     validations:
       required: false
-
   - type: textarea
     id: steps-to-reproduce
     attributes:
@@ -53,7 +49,6 @@ body:
       render: bash
     validations:
       required: true
-
   - type: textarea
     id: expected-behavior
     attributes:
@@ -61,7 +56,6 @@ body:
       description: Describe the expected outcome. For other issue types, enter "N/A".
     validations:
       required: true
-
   - type: textarea
     id: actual-behavior
     attributes:
@@ -69,7 +63,6 @@ body:
       description: Describe what occurred, including error messages (in code blocks), relevant logs, and links to screenshots or screencasts if applicable. For non-bug reports, enter "N/A".
     validations:
       required: true
-
   - type: input
     id: version
     attributes:
@@ -77,16 +70,13 @@ body:
       description: Specify the version, branch, or commit hash where the issue occurs.
     validations:
       required: false
-
   - type: textarea
     id: context
     attributes:
       label: Environment & System Context
       description: Provide relevant details about your system and environment (recommended for Bugs).
-
     validations:
       required: false
-
   - type: textarea
     id: possible-solution
     attributes:
@@ -94,7 +84,6 @@ body:
       description: If you have suggestions for resolving the issue or implementing the feature, describe them here. Code snippets are welcome.
     validations:
       required: false
-
   - type: textarea
     id: additional-info
     attributes:
@@ -102,7 +91,6 @@ body:
       description: Include any other relevant details, related issue links, mockups, or supporting context.
     validations:
       required: false
-
   - type: checkboxes
     id: checklist
     attributes:
@@ -114,7 +102,6 @@ body:
           required: false
         - label: I am willing to contribute a pull request to resolve this issue (if applicable).
           required: false
-
   - type: markdown
     attributes:
       value: |

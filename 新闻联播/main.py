@@ -72,7 +72,11 @@ async def pull_bytes(  # noqa: D103
             response = await client.get(url, headers={"Referer": url})
             response.raise_for_status()
             return response.content  # noqa: TRY300
-        except (httpx.TimeoutException, httpx.RequestError, httpx.HTTPStatusError) as exc:  # noqa: PERF203
+        except (
+            httpx.TimeoutException,
+            httpx.RequestError,
+            httpx.HTTPStatusError,
+        ) as exc:  # noqa: PERF203
             if attempt == retries:
                 msg = f"Acquisition failure: {exc}"
                 raise RuntimeError(msg) from exc
@@ -131,7 +135,9 @@ async def pull_batch(client: httpx.AsyncClient, links: list[str]) -> list[ItemEn
         async with gate:
             return await pull_item(client, link)
 
-    return await asyncio.gather(*(worker(link) for link in links), return_exceptions=False)
+    return await asyncio.gather(
+        *(worker(link) for link in links), return_exceptions=False
+    )
 
 
 def render_markdown(items: list[ItemEntry]) -> str:  # noqa: D103

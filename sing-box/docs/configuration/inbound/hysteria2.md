@@ -4,7 +4,7 @@ icon: material/alert-decagram
 
 !!! quote "Changes in sing-box 1.11.0"
 
-    :material-alert: [masquerade](#masquerade)  
+    :material-alert: [masquerade](#masquerade)
     :material-alert: [ignore_client_bandwidth](#ignore_client_bandwidth)
 
 ### Structure
@@ -13,7 +13,7 @@ icon: material/alert-decagram
 {
   "type": "hysteria2",
   "tag": "hy2-in",
-  
+
   ... // Listen Fields
 
   "up_mbps": 100,
@@ -76,11 +76,11 @@ Authentication password
 
 #### ignore_client_bandwidth
 
-*When `up_mbps` and `down_mbps` are not set*:
+_When `up_mbps` and `down_mbps` are not set_:
 
 Commands clients to use the BBR CC instead of Hysteria CC.
 
-*When `up_mbps` and `down_mbps` are set*:
+_When `up_mbps` and `down_mbps` are set_:
 
 Deny clients to use the BBR CC.
 
@@ -95,7 +95,7 @@ TLS configuration, see [TLS](/configuration/shared/tls/#inbound).
 HTTP3 server behavior (URL string configuration) when authentication fails.
 
 | Scheme       | Example                 | Description        |
-|--------------|-------------------------|--------------------|
+| ------------ | ----------------------- | ------------------ |
 | `file`       | `file:///var/www`       | As a file server   |
 | `http/https` | `http://127.0.0.1:8080` | As a reverse proxy |
 
@@ -108,7 +108,7 @@ A 404 page will be returned if masquerade is not configured.
 HTTP3 server behavior (Object configuration) when authentication fails.
 
 | Type     | Description                 | Fields                              |
-|----------|-----------------------------|-------------------------------------|
+| -------- | --------------------------- | ----------------------------------- |
 | `file`   | As a file server            | `directory`                         |
 | `proxy`  | As a reverse proxy          | `url`, `rewrite_host`               |
 | `string` | Reply with a fixed response | `status_code`, `headers`, `content` |

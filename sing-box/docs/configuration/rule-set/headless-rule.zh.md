@@ -4,13 +4,13 @@ icon: material/new-box
 
 !!! quote "sing-box 1.13.0 中的更改"
 
-    :material-plus: [network_interface_address](#network_interface_address)  
+    :material-plus: [network_interface_address](#network_interface_address)
     :material-plus: [default_interface_address](#default_interface_address)
 
 !!! quote "sing-box 1.11.0 中的更改"
 
-    :material-plus: [network_type](#network_type)  
-    :material-alert: [network_is_expensive](#network_is_expensive)  
+    :material-plus: [network_type](#network_type)
+    :material-alert: [network_is_expensive](#network_is_expensive)
     :material-alert: [network_is_constrained](#network_is_constrained)
 
 ### 结构
@@ -21,82 +21,31 @@ icon: material/new-box
 {
   "rules": [
     {
-      "query_type": [
-        "A",
-        "HTTPS",
-        32768
-      ],
-      "network": [
-        "tcp"
-      ],
-      "domain": [
-        "test.com"
-      ],
-      "domain_suffix": [
-        ".cn"
-      ],
-      "domain_keyword": [
-        "test"
-      ],
-      "domain_regex": [
-        "^stun\\..+"
-      ],
-      "source_ip_cidr": [
-        "10.0.0.0/24",
-        "192.168.0.1"
-      ],
-      "ip_cidr": [
-        "10.0.0.0/24",
-        "192.168.0.1"
-      ],
-      "source_port": [
-        12345
-      ],
-      "source_port_range": [
-        "1000:2000",
-        ":3000",
-        "4000:"
-      ],
-      "port": [
-        80,
-        443
-      ],
-      "port_range": [
-        "1000:2000",
-        ":3000",
-        "4000:"
-      ],
-      "process_name": [
-        "curl"
-      ],
-      "process_path": [
-        "/usr/bin/curl"
-      ],
-      "process_path_regex": [
-        "^/usr/bin/.+"
-      ],
-      "package_name": [
-        "com.termux"
-      ],
-      "network_type": [
-        "wifi"
-      ],
+      "query_type": ["A", "HTTPS", 32768],
+      "network": ["tcp"],
+      "domain": ["test.com"],
+      "domain_suffix": [".cn"],
+      "domain_keyword": ["test"],
+      "domain_regex": ["^stun\\..+"],
+      "source_ip_cidr": ["10.0.0.0/24", "192.168.0.1"],
+      "ip_cidr": ["10.0.0.0/24", "192.168.0.1"],
+      "source_port": [12345],
+      "source_port_range": ["1000:2000", ":3000", "4000:"],
+      "port": [80, 443],
+      "port_range": ["1000:2000", ":3000", "4000:"],
+      "process_name": ["curl"],
+      "process_path": ["/usr/bin/curl"],
+      "process_path_regex": ["^/usr/bin/.+"],
+      "package_name": ["com.termux"],
+      "network_type": ["wifi"],
       "network_is_expensive": false,
       "network_is_constrained": false,
       "network_interface_address": {
-        "wifi": [
-          "2000::/3"
-        ]
+        "wifi": ["2000::/3"]
       },
-      "default_interface_address": [
-        "2000::/3"
-      ],
-      "wifi_ssid": [
-        "My WIFI"
-      ],
-      "wifi_bssid": [
-        "00:00:00:00:00:00"
-      ],
+      "default_interface_address": ["2000::/3"],
+      "wifi_ssid": ["My WIFI"],
+      "wifi_bssid": ["00:00:00:00:00:00"],
       "invert": false
     },
     {
@@ -117,10 +66,10 @@ icon: material/new-box
 
 !!! note ""
 
-    默认规则使用以下匹配逻辑:  
-    (`domain` || `domain_suffix` || `domain_keyword` || `domain_regex` || `ip_cidr`) &&  
-    (`port` || `port_range`) &&  
-    (`source_port` || `source_port_range`) &&  
+    默认规则使用以下匹配逻辑:
+    (`domain` || `domain_suffix` || `domain_keyword` || `domain_regex` || `ip_cidr`) &&
+    (`port` || `port_range`) &&
+    (`source_port` || `source_port_range`) &&
     `other fields`
 
 #### query_type
@@ -221,8 +170,7 @@ Available values: `wifi`, `cellular`, `ethernet` and `other`.
 
     仅在 Android 与 Apple 平台图形客户端中支持。
 
-匹配如果网络被视为计费 (在 Android) 或被视为昂贵，
-像蜂窝网络或个人热点 (在 Apple 平台)。
+匹配如果网络被视为计费 (在 Android) 或被视为昂贵， 像蜂窝网络或个人热点 (在 Apple 平台)。
 
 #### network_is_constrained
 

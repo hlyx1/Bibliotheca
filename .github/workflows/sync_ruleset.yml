@@ -1,17 +1,13 @@
 name: Sync Ruleset
-
 on:
   schedule:
     - cron: "0 12 * * *"
   workflow_dispatch:
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
 permissions:
   contents: write
-
 jobs:
   pipeline:
     runs-on: ubuntu-24.04-arm
@@ -105,7 +101,6 @@ jobs:
             Ruleset/ruleset/.cache
             Ruleset/ruleset/node_modules/.cache
           key: ${{ steps.cache-db-restore.outputs.cache-primary-key || format('{0}-build-v2-{1}', runner.os, hashFiles('Ruleset/ruleset/pnpm-lock.yaml')) }}
-
   diff:
     if: github.event_name == 'pull_request'
     needs: pipeline

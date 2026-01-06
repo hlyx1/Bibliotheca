@@ -146,7 +146,9 @@ LAW_CLASS_MAP: Final[dict[str, int]] = {
     "地方法规_浦东新区法规": 295,
     "地方法规_海南自由贸易港法规": 300,
 }
-LAW_CATEGORY_CODES: Final[tuple[str, ...]] = tuple(details[0] for details in LAW_TYPE_MAP.values())
+LAW_CATEGORY_CODES: Final[tuple[str, ...]] = tuple(
+    details[0] for details in LAW_TYPE_MAP.values()
+)
 LEGACY_TYPE_MAP: dict[str, int] = {
     "宪法": 1,
     "法律": 7,
@@ -295,7 +297,9 @@ def random_delay(min_delay: float = MIN_DELAY, max_delay: float = MAX_DELAY) -> 
     return secrets.randbelow(int((max_delay - min_delay) * 1000)) / 1000.0 + min_delay
 
 
-async def async_random_delay(min_delay: float = MIN_DELAY, max_delay: float = MAX_DELAY) -> None:  # noqa: D103
+async def async_random_delay(
+    min_delay: float = MIN_DELAY, max_delay: float = MAX_DELAY
+) -> None:  # noqa: D103
     delay = secrets.randbelow(int((max_delay - min_delay) * 1000)) / 1000.0 + min_delay
     await asyncio.sleep(delay)
 
@@ -332,7 +336,9 @@ async def fetch_api_page_async(  # noqa: C901, D103, PLR0911, PLR0912
     if type_id == 0:
         payload.update({"searchRange": 0, "searchType": 1, "flfgCodeId": []})
     else:
-        payload.update({"searchRange": 1, "searchType": 2, "flfgCodeId": get_class_codes(type_id)})
+        payload.update(
+            {"searchRange": 1, "searchType": 2, "flfgCodeId": get_class_codes(type_id)}
+        )
 
     headers = {
         **get_random_headers(),
@@ -349,25 +355,39 @@ async def fetch_api_page_async(  # noqa: C901, D103, PLR0911, PLR0912
         attempt += 1
         try:
             await limiter.acquire()
-            async with session.post(SEARCH_API_URL, json=payload, headers=headers, timeout=sum(HTTP_TIMEOUT)) as resp:
+            async with session.post(
+                SEARCH_API_URL, json=payload, headers=headers, timeout=sum(HTTP_TIMEOUT)
+            ) as resp:
                 if resp.status >= 400:  # noqa: PLR2004
                     text = await resp.text(errors="ignore")
-                    if any(code in text for code in ("401", "403", "Unauthorized")) or resp.status in {401, 403}:
+                    if any(
+                        code in text for code in ("401", "403", "Unauthorized")
+                    ) or resp.status in {401, 403}:
                         clear_cookies()
                     if attempt >= HTTP_RETRIES:
-                        return {"result": {"totalSizes": 0, "data": []}, "error": f"HTTP {resp.status}"}
+                        return {
+                            "result": {"totalSizes": 0, "data": []},
+                            "error": f"HTTP {resp.status}",
+                        }
                     backoff = HTTP_BACKOFF * (2 ** (attempt - 1))
                     await asyncio.sleep(min(backoff, BOT_DELAY))
                     continue
 
                 content = (await resp.read()).strip()
                 if not content:
-                    return {"result": {"totalSizes": 0, "data": []}, "error": "Empty response"}
+                    return {
+                        "result": {"totalSizes": 0, "data": []},
+                        "error": "Empty response",
+                    }
 
-                text = content.decode(resp.get_encoding() or "utf-8", errors="ignore").strip()
+                text = content.decode(
+                    resp.get_encoding() or "utf-8", errors="ignore"
+                ).strip()
 
                 if text.startswith(HTML_PATTERNS):
-                    if "function(" in text and any(pattern in text for pattern in BOT_JS_PATTERNS):
+                    if "function(" in text and any(
+                        pattern in text for pattern in BOT_JS_PATTERNS
+                    ):
                         clear_cookies()
                         if attempt >= HTTP_RETRIES:
                             return {
@@ -376,7 +396,10 @@ async def fetch_api_page_async(  # noqa: C901, D103, PLR0911, PLR0912
                             }
                         await asyncio.sleep(BOT_DELAY)
                         continue
-                    return {"result": {"totalSizes": 0, "data": []}, "error": "HTML response instead of JSON"}
+                    return {
+                        "result": {"totalSizes": 0, "data": []},
+                        "error": "HTML response instead of JSON",
+                    }
 
                 try:
                     result = _json_lib.loads(content)
@@ -387,7 +410,9 @@ async def fetch_api_page_async(  # noqa: C901, D103, PLR0911, PLR0912
                             "result": {"totalSizes": 0, "data": []},
                             "error": f"JSON decode error: {e}",
                         }
-                    await asyncio.sleep(min(HTTP_BACKOFF * (2 ** (attempt - 1)), BOT_DELAY))
+                    await asyncio.sleep(
+                        min(HTTP_BACKOFF * (2 ** (attempt - 1)), BOT_DELAY)
+                    )
                     continue
 
                 if "rows" in result:
@@ -405,7 +430,12 @@ async def fetch_api_page_async(  # noqa: C901, D103, PLR0911, PLR0912
                         }
                         for item in result.get("rows", [])
                     ]
-                    return {"result": {"data": data_items, "totalSizes": result.get("total", 0)}}
+                    return {
+                        "result": {
+                            "data": data_items,
+                            "totalSizes": result.get("total", 0),
+                        }
+                    }
                 if "result" in result:
                     return result
                 return {"result": {"data": [], "totalSizes": 0}}
@@ -454,7 +484,11 @@ def _match_api_type_to_flfg(api_type: str) -> str:
     if not api_type:
         return ""
 
-    api_lower = api_type.rsplit("_", maxsplit=1)[-1].lower() if "_" in api_type else api_type.lower()
+    api_lower = (
+        api_type.rsplit("_", maxsplit=1)[-1].lower()
+        if "_" in api_type
+        else api_type.lower()
+    )
 
     for flfg_name in LAW_CLASS_MAP:
         flfg_lower = flfg_name.lower()
@@ -485,9 +519,18 @@ def get_path(  # noqa: D103
         else:
             sanitized = _sanitize_folder_name(folder_name)
 
-        target_dir = base_dir if not sanitized or sanitized == type_name else base_dir / sanitized
+        target_dir = (
+            base_dir
+            if not sanitized or sanitized == type_name
+            else base_dir / sanitized
+        )
 
-        if main_type_id == 6 and office and "地方" in folder_name and (region := extract_region_from_office(office)):  # noqa: PLR2004
+        if (
+            main_type_id == 6
+            and office
+            and "地方" in folder_name
+            and (region := extract_region_from_office(office))
+        ):  # noqa: PLR2004
             return target_dir / region
 
         return target_dir
@@ -497,14 +540,24 @@ def get_path(  # noqa: D103
         type_name = get_type_name(main_type_id)
 
         if matched_folder.endswith(f"_{type_name}") or matched_folder == type_name:
-            sub_folder = matched_folder.split("_", 1)[1] if "_" in matched_folder else ""
+            sub_folder = (
+                matched_folder.split("_", 1)[1] if "_" in matched_folder else ""
+            )
             sanitized = _sanitize_folder_name(sub_folder)
         else:
             sanitized = _sanitize_folder_name(matched_folder)
 
-        target_dir = base_dir if not sanitized or sanitized == type_name else base_dir / sanitized
+        target_dir = (
+            base_dir
+            if not sanitized or sanitized == type_name
+            else base_dir / sanitized
+        )
 
-        if main_type_id == 6 and office and (region := extract_region_from_office(office)):  # noqa: PLR2004
+        if (
+            main_type_id == 6
+            and office
+            and (region := extract_region_from_office(office))
+        ):  # noqa: PLR2004
             return target_dir / region
 
         return target_dir
@@ -554,7 +607,10 @@ async def init_async_database() -> None:  # noqa: D103
     await exec_async_db_transaction(
         lambda c: (
             c.executescript(build_schema_sql()),
-            c.executemany("INSERT OR IGNORE INTO info (key, value) VALUES (?, ?)", build_metadata()),
+            c.executemany(
+                "INSERT OR IGNORE INTO info (key, value) VALUES (?, ?)",
+                build_metadata(),
+            ),
         ),
         "Database initialization",
     )
@@ -564,7 +620,10 @@ async def init_database() -> None:  # noqa: D103
     await exec_db_transaction(
         lambda c: (
             c.executescript(build_schema_sql()),
-            c.executemany("INSERT OR IGNORE INTO info (key, value) VALUES (?, ?)", build_metadata()),
+            c.executemany(
+                "INSERT OR IGNORE INTO info (key, value) VALUES (?, ?)",
+                build_metadata(),
+            ),
         ),
         "Database initialization",
     )
@@ -587,7 +646,9 @@ async def update_schema_async() -> None:  # noqa: D103
 async def exec_async_db_transaction(operation, operation_name: str) -> None:  # noqa: ANN001, D103
     logger.info("Starting async operation: %s", operation_name.lower())
     try:
-        async with aiosqlite.connect(DB_FILE, isolation_level=None, timeout=10.0) as conn:
+        async with aiosqlite.connect(
+            DB_FILE, isolation_level=None, timeout=10.0
+        ) as conn:
             await conn.executescript(get_pragma())
             async with conn:
                 await operation(conn.cursor())
@@ -619,14 +680,7 @@ async def exec_db_transaction(operation, operation_name: str) -> None:  # noqa: 
 
 
 def get_pragma() -> str:  # noqa: D103
-    return (
-        "PRAGMA journal_mode=MEMORY;"
-        "PRAGMA synchronous=OFF;"
-        "PRAGMA cache_size=-10000;"
-        "PRAGMA temp_store=MEMORY;"
-        "PRAGMA foreign_keys=ON;"
-        "PRAGMA busy_timeout=5000;"
-    )
+    return "PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA cache_size=-10000;PRAGMA temp_store=MEMORY;PRAGMA foreign_keys=ON;PRAGMA busy_timeout=5000;"
 
 
 def build_schema_sql() -> str:  # noqa: D103
@@ -651,10 +705,15 @@ def update_schema_columns(cursor) -> None:  # noqa: ANN001, D103
     nullable_columns = {"url", "office", "type", "status", "publish", "expiry"}
 
     for table_name in LAW_CATEGORY_CODES:
-        if not cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,)).fetchone():
+        if not cursor.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+            (table_name,),
+        ).fetchone():
             continue
 
-        existing_cols = {row[1]: row for row in cursor.execute(f"PRAGMA table_info({table_name})")}
+        existing_cols = {
+            row[1]: row for row in cursor.execute(f"PRAGMA table_info({table_name})")
+        }
 
         needs_recreation = False
         for col_name in nullable_columns:
@@ -669,10 +728,14 @@ def update_schema_columns(cursor) -> None:  # noqa: ANN001, D103
             try:
                 cursor.execute(f"CREATE TABLE {temp_table} ({col_defs})")
 
-                old_cols = [row[1] for row in cursor.execute(f"PRAGMA table_info({table_name})")]
+                old_cols = [
+                    row[1] for row in cursor.execute(f"PRAGMA table_info({table_name})")
+                ]
                 common_cols = [col for col in old_cols if col in LAW_TABLE_SCHEMA]
                 cols_str = ", ".join(common_cols)
-                cursor.execute(f"INSERT INTO {temp_table} ({cols_str}) SELECT {cols_str} FROM {table_name}")  # noqa: S608
+                cursor.execute(
+                    f"INSERT INTO {temp_table} ({cols_str}) SELECT {cols_str} FROM {table_name}"
+                )  # noqa: S608
 
                 cursor.execute(f"DROP TABLE {table_name}")
                 cursor.execute(f"ALTER TABLE {temp_table} RENAME TO {table_name}")
@@ -687,9 +750,13 @@ def update_schema_columns(cursor) -> None:  # noqa: ANN001, D103
         for col_name, col_def in new_columns:
             if col_name not in existing_col_names:
                 try:
-                    cursor.execute(f"ALTER TABLE {table_name} ADD COLUMN {col_name} {col_def}")
+                    cursor.execute(
+                        f"ALTER TABLE {table_name} ADD COLUMN {col_name} {col_def}"
+                    )
                 except aiosqlite.Error as e:
-                    logger.warning("Failed to add column %s to %s: %s", col_name, table_name, e)
+                    logger.warning(
+                        "Failed to add column %s to %s: %s", col_name, table_name, e
+                    )
 
     cursor.executemany(
         "INSERT OR REPLACE INTO info (key, value) VALUES (?, ?)",
@@ -705,7 +772,9 @@ def get_cookies(*, force_refresh: bool = False) -> dict[str, str]:  # noqa: D103
     global cookie_cache  # noqa: PLW0603
 
     with COOKIE_LOCK:
-        if force_refresh or (cookie_cache and secrets.randbelow(100) / 100.0 < COOKIE_REFRESH_PROBABILITY):
+        if force_refresh or (
+            cookie_cache and secrets.randbelow(100) / 100.0 < COOKIE_REFRESH_PROBABILITY
+        ):
             logger.info("Refreshing cookies due to probability or force refresh")
             cookie_cache.clear()
 
@@ -766,11 +835,13 @@ def create_session() -> requests.Session:  # noqa: D103
         )
         session.mount("http://", adapter)
         session.mount("https://", adapter)
-        session.headers.update({
-            **HEADERS_TEMPLATE,
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
-        })
+        session.headers.update(
+            {
+                **HEADERS_TEMPLATE,
+                "Accept-Encoding": "gzip, deflate, br",
+                "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
+            }
+        )
         session.trust_env = False
         session.verify = True
         return session
@@ -787,7 +858,11 @@ def request(method: str, url: str, **kwargs: Any) -> requests.Response | None:  
             if attempt == HTTP_RETRIES:
                 msg = f"Failed to {method.upper()} {url} after {HTTP_RETRIES} attempts"
                 raise ConnectionError(msg) from e
-            backoff = HTTP_BACKOFF * (2 ** (attempt - 1)) * (0.7 + 0.6 * (secrets.randbelow(60) / 100.0))
+            backoff = (
+                HTTP_BACKOFF
+                * (2 ** (attempt - 1))
+                * (0.7 + 0.6 * (secrets.randbelow(60) / 100.0))
+            )
             time.sleep(min(backoff, BOT_DELAY))
     return None
 
@@ -801,7 +876,10 @@ def fetch_api(type_id: int, page: int) -> API_RESULT:  # noqa: D103
             clear_cookies()
             time.sleep(BOT_DELAY * (attempt + 1))
         else:
-            return {"result": {"totalSizes": 0, "data": []}, "error": "Anti-bot detection, max retries exceeded"}
+            return {
+                "result": {"totalSizes": 0, "data": []},
+                "error": "Anti-bot detection, max retries exceeded",
+            }
     return {"result": {"totalSizes": 0, "data": []}, "error": "Max retries exceeded"}
 
 
@@ -811,7 +889,9 @@ def _fetch_api(type_id: int, page: int) -> API_RESULT:  # noqa: C901, PLR0911
     if type_id == 0:
         payload.update({"searchRange": 0, "searchType": 1, "flfgCodeId": []})
     else:
-        payload.update({"searchRange": 1, "searchType": 2, "flfgCodeId": get_class_codes(type_id)})
+        payload.update(
+            {"searchRange": 1, "searchType": 2, "flfgCodeId": get_class_codes(type_id)}
+        )
 
     headers = {
         **get_random_headers(),
@@ -831,15 +911,26 @@ def _fetch_api(type_id: int, page: int) -> API_RESULT:  # noqa: C901, PLR0911
 
         text = response.text.strip()
         if text.startswith(HTML_PATTERNS):
-            if "function(" in text and any(pattern in text for pattern in BOT_JS_PATTERNS):
-                return {"result": {"totalSizes": 0, "data": []}, "error": "Anti-bot detection"}
-            return {"result": {"totalSizes": 0, "data": []}, "error": "HTML response instead of JSON"}
+            if "function(" in text and any(
+                pattern in text for pattern in BOT_JS_PATTERNS
+            ):
+                return {
+                    "result": {"totalSizes": 0, "data": []},
+                    "error": "Anti-bot detection",
+                }
+            return {
+                "result": {"totalSizes": 0, "data": []},
+                "error": "HTML response instead of JSON",
+            }
 
         try:
             result = _json_lib.loads(content)
         except _JSONDecodeError as e:
             clear_cookies()
-            return {"result": {"totalSizes": 0, "data": []}, "error": f"JSON decode error: {e}"}
+            return {
+                "result": {"totalSizes": 0, "data": []},
+                "error": f"JSON decode error: {e}",
+            }
 
         if "rows" in result:
             data_items = [
@@ -856,7 +947,9 @@ def _fetch_api(type_id: int, page: int) -> API_RESULT:  # noqa: C901, PLR0911
                 }
                 for item in result.get("rows", [])
             ]
-            return {"result": {"data": data_items, "totalSizes": result.get("total", 0)}}
+            return {
+                "result": {"data": data_items, "totalSizes": result.get("total", 0)}
+            }
         if "result" in result:
             return result
         return {"result": {"data": [], "totalSizes": 0}}  # noqa: TRY300
@@ -868,7 +961,10 @@ def _fetch_api(type_id: int, page: int) -> API_RESULT:  # noqa: C901, PLR0911
 
 
 def fetch_url(bbbs_id: str, format_type: str = "docx") -> str | None:  # noqa: D103, PLR0911
-    headers = {**get_random_headers(), "Referer": f"https://flk.npc.gov.cn/detail?id={bbbs_id}"}
+    headers = {
+        **get_random_headers(),
+        "Referer": f"https://flk.npc.gov.cn/detail?id={bbbs_id}",
+    }
 
     if session_cookies := get_cookies():
         headers["Cookie"] = "; ".join(f"{k}={v}" for k, v in session_cookies.items())
@@ -887,7 +983,11 @@ def fetch_url(bbbs_id: str, format_type: str = "docx") -> str | None:  # noqa: D
             except _JSONDecodeError:
                 return None
 
-            if isinstance(result, dict) and result.get("code") == 200 and result.get("msg") == "Success":  # noqa: PLR2004
+            if (
+                isinstance(result, dict)
+                and result.get("code") == 200
+                and result.get("msg") == "Success"
+            ):  # noqa: PLR2004
                 if data := result.get("data", {}):
                     return data.get("url")
                 return None
@@ -974,7 +1074,11 @@ class ContentFormatter:  # noqa: D101
             if menu_index >= 0 and i == menu_index + 1:
                 pattern = processed_line
                 pattern_regex = next(
-                    (r.replace(number_pattern, "一") for r in indent_patterns if re.match(r, processed_line)),
+                    (
+                        r.replace(number_pattern, "一")
+                        for r in indent_patterns
+                        if re.match(r, processed_line)
+                    ),
                     None,
                 )
                 continue
@@ -1089,7 +1193,9 @@ class ContentFormatter:  # noqa: D101
             if line.strip().lower() != title_lower
         ]
 
-        final_output: list[str] = [line for line in [*output, *processed_lines] if line.strip()]
+        final_output: list[str] = [
+            line for line in [*output, *processed_lines] if line.strip()
+        ]
 
         if len(final_output) < 2:  # noqa: PLR2004
             logger.warning("Minimal markdown output generated for: %s", title)
@@ -1140,11 +1246,21 @@ class HtmlParser(DocumentParser):  # noqa: D101
             title: str = getattr(soup.title, "text", "") or title_hint
 
             content_div: Tag | None = soup.find("div", class_="law-content")
-            paragraphs: list[Tag] = content_div.find_all("p") if content_div else soup.find_all("p")
+            paragraphs: list[Tag] = (
+                content_div.find_all("p") if content_div else soup.find_all("p")
+            )
 
-            content: list[str] = [p.get_text().replace("\xa0", " ").strip() for p in paragraphs if p.get_text().strip()]
+            content: list[str] = [
+                p.get_text().replace("\xa0", " ").strip()
+                for p in paragraphs
+                if p.get_text().strip()
+            ]
 
-            content = [text for text in content if not (title and (title.startswith(text) or title.endswith(text)))]
+            content = [
+                text
+                for text in content
+                if not (title and (title.startswith(text) or title.endswith(text)))
+            ]
 
             if not title and content and re.match(r"^中华人民共和国", content[0]):
                 title, content = content[0], content[1:]
@@ -1232,7 +1348,10 @@ class WordParser(DocumentParser):  # noqa: D101
         description_parts: list[str] = []
 
         def _format_table(row: _Row) -> int:
-            cells_text: list[str] = ["\n".join(p.text.strip() for p in cell.paragraphs).strip() for cell in row.cells]
+            cells_text: list[str] = [
+                "\n".join(p.text.strip() for p in cell.paragraphs).strip()
+                for cell in row.cells
+            ]
             row_text = f"| {' | '.join(cells_text)} |"
             content.append(row_text)
             return len(cells_text)
@@ -1264,11 +1383,17 @@ class WordParser(DocumentParser):  # noqa: D101
                 is_description = (
                     False
                     if is_description
-                    and (re.search(r"[）)]$", text) or re.search(r"目.*录", text) or self.is_start_line(text))  # noqa: RUF001
+                    and (
+                        re.search(r"[）)]$", text)
+                        or re.search(r"目.*录", text)
+                        or self.is_start_line(text)
+                    )  # noqa: RUF001
                     else is_description
                 )
             else:
-                logger.warning("Unexpected content block type: %s", type(block).__name__)
+                logger.warning(
+                    "Unexpected content block type: %s", type(block).__name__
+                )
 
         description = "\n".join(description_parts).strip()
         return title, description, content
@@ -1309,7 +1434,9 @@ async def async_atomic_write_bytes(path: pathlib.Path, data: bytes) -> None:  # 
     try:
 
         def create_temp_file() -> tuple[BinaryIO, pathlib.Path]:
-            with tempfile.NamedTemporaryFile(mode="wb", delete=False, dir=path.parent) as tmp:
+            with tempfile.NamedTemporaryFile(
+                mode="wb", delete=False, dir=path.parent
+            ) as tmp:
                 return cast("BinaryIO", cast(Any, tmp)), pathlib.Path(tmp.name)  # noqa: TC006
 
         tmp, tmp_path = await asyncio.to_thread(create_temp_file)
@@ -1351,7 +1478,9 @@ def atomic_write_bytes(path: pathlib.Path, data: bytes) -> None:  # noqa: D103
         raise
 
 
-async def async_persist_payload(target_path: pathlib.Path, payload: bytes, *, label: str) -> bool:  # noqa: D103
+async def async_persist_payload(
+    target_path: pathlib.Path, payload: bytes, *, label: str
+) -> bool:  # noqa: D103
     try:
         await async_atomic_write_bytes(target_path, payload)
     except OSError:
@@ -1376,16 +1505,22 @@ def _persist_payload(target_path: pathlib.Path, payload: bytes, *, label: str) -
 FORMATTER = ContentFormatter()
 
 
-def find_doc(legal_title: str, table_name: str, office: str | None = None) -> pathlib.Path | None:  # noqa: C901, D103, PLR0912, PLR0914
+def find_doc(
+    legal_title: str, table_name: str, office: str | None = None
+) -> pathlib.Path | None:  # noqa: C901, D103, PLR0912, PLR0914
     sanitize_re = re.compile(r'[/\\:*?"<>|]')
     ascii_re = re.compile(r"[^\w\s\-_]")
 
-    type_id = next((tid for tid, (code, _) in LAW_TYPE_MAP.items() if code == table_name), None)
+    type_id = next(
+        (tid for tid, (code, _) in LAW_TYPE_MAP.items() if code == table_name), None
+    )
 
     api_type = flfg_code_id = None
     if type_id is not None:
         try:
-            with contextlib.closing(aiosqlite.connect(f"file:{DB_FILE}?mode=ro", uri=True, timeout=5.0)) as conn:
+            with contextlib.closing(
+                aiosqlite.connect(f"file:{DB_FILE}?mode=ro", uri=True, timeout=5.0)
+            ) as conn:
                 conn.executescript("PRAGMA query_only=1; PRAGMA temp_store=MEMORY;")
                 row = conn.execute(
                     f'SELECT type, flfgCodeId FROM "{table_name}" WHERE title = ? LIMIT 1',  # noqa: S608
@@ -1408,7 +1543,9 @@ def find_doc(legal_title: str, table_name: str, office: str | None = None) -> pa
         if type_id in frozenset({7, 8, 9, 10}):
             parent_name = get_type_name(2)
             target_dirs.append(
-                BASE_DIR / (parent_name or type_name) / type_name if parent_name else BASE_DIR / type_name,
+                BASE_DIR / (parent_name or type_name) / type_name
+                if parent_name
+                else BASE_DIR / type_name,
             )
         else:
             base_dir = BASE_DIR / type_name
@@ -1417,14 +1554,18 @@ def find_doc(legal_title: str, table_name: str, office: str | None = None) -> pa
             if type_id == 6 and office:  # noqa: PLR2004
                 region = extract_region_from_office(office)
                 if region:
-                    target_dirs.extend([
-                        base_dir / region,
-                        *(
-                            base_dir / sanitize_re.sub("_", folder).strip() / region
-                            for folder, code in LAW_CLASS_MAP.items()
-                            if "地方" in folder and code in frozenset({230, 260, 270, 290, 295, 300, 305, 310})
-                        ),
-                    ])
+                    target_dirs.extend(
+                        [
+                            base_dir / region,
+                            *(
+                                base_dir / sanitize_re.sub("_", folder).strip() / region
+                                for folder, code in LAW_CLASS_MAP.items()
+                                if "地方" in folder
+                                and code
+                                in frozenset({230, 260, 270, 290, 295, 300, 305, 310})
+                            ),
+                        ]
+                    )
 
     safe_title = sanitize_re.sub("_", legal_title).strip()
     ascii_title = ascii_re.sub("_", legal_title).strip("_ ")
@@ -1436,7 +1577,9 @@ def find_doc(legal_title: str, table_name: str, office: str | None = None) -> pa
             continue
 
         candidates = (
-            target_dir / f"{variant}{ext}" for variant in filter(None, (safe_title, ascii_title)) for ext in extensions
+            target_dir / f"{variant}{ext}"
+            for variant in filter(None, (safe_title, ascii_title))
+            for ext in extensions
         )
 
         for path in candidates:
@@ -1465,7 +1608,9 @@ def parse_doc(  # noqa: D103, PLR0911
 
     parser = resolve_parser_by_suffix(local_path.suffix.lower())
     if not parser:
-        logger.warning("Unsupported file format - %s: %s", legal_title, local_path.suffix.lower())
+        logger.warning(
+            "Unsupported file format - %s: %s", legal_title, local_path.suffix.lower()
+        )
         return None
 
     parsed_data: tuple[str, str, list[str]] = parser.parse(local_path, legal_title)
@@ -1474,7 +1619,9 @@ def parse_doc(  # noqa: D103, PLR0911
         return None
 
     title, description, content_list = parsed_data
-    markdown_lines: list[str] = FORMATTER.format_markdown(title, description, content_list)
+    markdown_lines: list[str] = FORMATTER.format_markdown(
+        title, description, content_list
+    )
     if not markdown_lines:
         logger.error("No formatted output generated - %s", legal_title)
         return None
@@ -1522,7 +1669,9 @@ def download_doc(  # noqa: C901, D103, PLR0911, PLR0912, PLR0914, PLR0915
         bbbs_id = legal_id
         if "%" in legal_id:
             try:
-                bbbs_id = base64.b64decode(urllib.parse.unquote(legal_id)).decode("utf-8")
+                bbbs_id = base64.b64decode(urllib.parse.unquote(legal_id)).decode(
+                    "utf-8"
+                )
                 logger.debug("Decoded ID: %s -> %s", legal_id, bbbs_id)
             except Exception:  # noqa: BLE001, S110
                 pass
@@ -1531,17 +1680,23 @@ def download_doc(  # noqa: C901, D103, PLR0911, PLR0912, PLR0914, PLR0915
             logger.warning("API request failed - %s (ID: %s)", legal_title, legal_id)
             return None
 
-        ext = pathlib.Path(urllib.parse.urlparse(doc_url).path).suffix.lower() or ".docx"
+        ext = (
+            pathlib.Path(urllib.parse.urlparse(doc_url).path).suffix.lower() or ".docx"
+        )
         if ext == ".cnnone":
             logger.warning("Invalid file extension %s - ID: %s", ext, legal_id)
             return legal_id
 
-        type_id = next((tid for tid, (code, _) in LAW_TYPE_MAP.items() if code == table_name), None)
+        type_id = next(
+            (tid for tid, (code, _) in LAW_TYPE_MAP.items() if code == table_name), None
+        )
         api_type = flfg_code_id = None
 
         if type_id:
             try:
-                with contextlib.closing(aiosqlite.connect(DB_FILE, timeout=10.0)) as conn:
+                with contextlib.closing(
+                    aiosqlite.connect(DB_FILE, timeout=10.0)
+                ) as conn:
                     conn.row_factory = aiosqlite.Row
                     if row := conn.execute(
                         f'SELECT type, flfgCodeId FROM "{table_name}" WHERE id = ? LIMIT 1',  # noqa: S608
@@ -1580,7 +1735,10 @@ def download_doc(  # noqa: C901, D103, PLR0911, PLR0912, PLR0914, PLR0915
 
         sanitized_title = re.sub(r'[/\\:*?"<>|]', "_", legal_title).strip()
         ascii_title = (
-            "".join(c if c.isascii() and (c.isalnum() or c in " -_") else "_" for c in legal_title).strip("_ ")
+            "".join(
+                c if c.isascii() and (c.isalnum() or c in " -_") else "_"
+                for c in legal_title
+            ).strip("_ ")
             if legal_title
             else ""
         )
@@ -1631,7 +1789,11 @@ def download_doc(  # noqa: C901, D103, PLR0911, PLR0912, PLR0914, PLR0915
                 continue
 
         if existing_path:
-            logger.info("File exists - %s (%d bytes)", existing_path.name, existing_path.stat().st_size)
+            logger.info(
+                "File exists - %s (%d bytes)",
+                existing_path.name,
+                existing_path.stat().st_size,
+            )
             return legal_id
 
         response = request("GET", doc_url, stream=True, verify=True)
@@ -1641,13 +1803,17 @@ def download_doc(  # noqa: C901, D103, PLR0911, PLR0912, PLR0914, PLR0915
         for name in candidate_names:
             write_path = _safe_join(target_dir, f"{name}{ext}")
             try:
-                with tempfile.NamedTemporaryFile("wb", delete=False, dir=target_dir) as tmp:
+                with tempfile.NamedTemporaryFile(
+                    "wb", delete=False, dir=target_dir
+                ) as tmp:
                     for chunk in response.iter_content(8192):
                         tmp.write(chunk)
                     tmp_path = pathlib.Path(tmp.name)
                 tmp_path.replace(write_path)
                 tmp_path = None
-                logger.info("Downloaded: %s (%d bytes)", write_path, write_path.stat().st_size)
+                logger.info(
+                    "Downloaded: %s (%d bytes)", write_path, write_path.stat().st_size
+                )
                 time.sleep(request_delay)
                 return legal_id  # noqa: TRY300
             except OSError as e:
@@ -1682,7 +1848,9 @@ async def async_download_doc(  # noqa: C901, D103, PLR0911, PLR0913, PLR0915, PL
         bbbs_id_local = legal_id
         if "%" in legal_id:
             try:
-                bbbs_id_local = base64.b64decode(urllib.parse.unquote(legal_id)).decode("utf-8")
+                bbbs_id_local = base64.b64decode(urllib.parse.unquote(legal_id)).decode(
+                    "utf-8"
+                )
                 logger.debug("[async] Decoded %s -> %s", legal_id, bbbs_id_local)
             except Exception:  # noqa: BLE001, S110
                 pass
@@ -1702,13 +1870,17 @@ async def async_download_doc(  # noqa: C901, D103, PLR0911, PLR0913, PLR0915, PL
         return legal_id
 
     def _resolve_target_dir() -> tuple[pathlib.Path, pathlib.Path]:
-        type_id = next((tid for tid, (code, _) in LAW_TYPE_MAP.items() if code == table_name), None)
+        type_id = next(
+            (tid for tid, (code, _) in LAW_TYPE_MAP.items() if code == table_name), None
+        )
         api_type = None
         flfg_code_id = None
 
         if type_id:
             try:
-                with contextlib.closing(aiosqlite.connect(DB_FILE, timeout=10.0)) as conn:
+                with contextlib.closing(
+                    aiosqlite.connect(DB_FILE, timeout=10.0)
+                ) as conn:
                     conn.row_factory = aiosqlite.Row
                     row = conn.execute(
                         f'SELECT type, flfgCodeId FROM "{table_name}" WHERE id = ? LIMIT 1',  # noqa: S608
@@ -1728,7 +1900,8 @@ async def async_download_doc(  # noqa: C901, D103, PLR0911, PLR0913, PLR0915, PL
 
         for attempt_dir in [
             target_dir_local,
-            target_dir_local.parent / (get_type_code(type_id) if type_id else table_name),
+            target_dir_local.parent
+            / (get_type_code(type_id) if type_id else table_name),
             BASE_DIR,
         ]:
             try:
@@ -1749,7 +1922,10 @@ async def async_download_doc(  # noqa: C901, D103, PLR0911, PLR0913, PLR0915, PL
 
     sanitized_title = re.sub(r"[/\\:*?\"<>|]", "_", legal_title).strip()
     ascii_title = (
-        "".join(c if c.isascii() and (c.isalnum() or c in " -_") else "_" for c in legal_title).strip("_ ")
+        "".join(
+            c if c.isascii() and (c.isalnum() or c in " -_") else "_"
+            for c in legal_title
+        ).strip("_ ")
         if legal_title
         else ""
     )
@@ -1794,13 +1970,17 @@ async def async_download_doc(  # noqa: C901, D103, PLR0911, PLR0913, PLR0915, PL
                 if path_candidate.exists() and path_candidate.stat().st_size > 0:
                     return path_candidate
             except OSError as e:
-                logger.debug("[async] Skipping inaccessible path %s: %s", path_candidate, e)
+                logger.debug(
+                    "[async] Skipping inaccessible path %s: %s", path_candidate, e
+                )
                 continue
         return None
 
     existing_path = await asyncio.to_thread(_check_existing)
     if existing_path:
-        logger.info("[async] Exists: %s (%d bytes)", existing_path, existing_path.stat().st_size)
+        logger.info(
+            "[async] Exists: %s (%d bytes)", existing_path, existing_path.stat().st_size
+        )
         return legal_id
 
     await limiter.acquire()
@@ -1819,11 +1999,17 @@ async def async_download_doc(  # noqa: C901, D103, PLR0911, PLR0913, PLR0915, PL
                     for name in candidate_names:
                         write_path = _safe_join(target_dir, f"{name}{ext}")
                         try:
-                            with tempfile.NamedTemporaryFile("wb", delete=False, dir=target_dir) as tmp:
+                            with tempfile.NamedTemporaryFile(
+                                "wb", delete=False, dir=target_dir
+                            ) as tmp:
                                 tmp.write(content)
                                 tmp_path_local = pathlib.Path(tmp.name)
                             tmp_path_local.replace(write_path)
-                            logger.info("[async] Downloaded: %s (%d bytes)", write_path, write_path.stat().st_size)
+                            logger.info(
+                                "[async] Downloaded: %s (%d bytes)",
+                                write_path,
+                                write_path.stat().st_size,
+                            )
                         except OSError as e:
                             logger.warning("[async] Write failed %s: %s", write_path, e)
                             if tmp_path_local is not None:
@@ -1861,7 +2047,11 @@ def reset_state_flags(mode: str, target_type_id: int, *, keep_parsed: bool) -> N
         logger.error("Unknown type_id %s for state reset", target_type_id)
         return
 
-    selected_types = LAW_TYPE_MAP.items() if not target_type_id else [(target_type_id, LAW_TYPE_MAP[target_type_id])]
+    selected_types = (
+        LAW_TYPE_MAP.items()
+        if not target_type_id
+        else [(target_type_id, LAW_TYPE_MAP[target_type_id])]
+    )
 
     logger.info(
         "State reset requested: mode=%s, keep_parsed=%s, type=%s",
@@ -1947,7 +2137,9 @@ def download_docs(type_id: int, request_delay: float, auto_parse: bool = False) 
 
     try:  # noqa: PLR1702
         with contextlib.closing(aiosqlite.connect(DB_FILE, timeout=10.0)) as conn:
-            conn.executescript("PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000")
+            conn.executescript(
+                "PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000"
+            )
             conn.row_factory = aiosqlite.Row
 
             pending = [
@@ -2003,7 +2195,10 @@ def download_docs(type_id: int, request_delay: float, auto_parse: bool = False) 
                 return
 
             with conn:
-                conn.executemany(f'UPDATE "{table_name}" SET saved = 1 WHERE id = ?', [(i,) for i in completed])  # noqa: S608
+                conn.executemany(
+                    f'UPDATE "{table_name}" SET saved = 1 WHERE id = ?',
+                    [(i,) for i in completed],
+                )  # noqa: S608
 
                 if auto_parse:
                     parse_targets = [
@@ -2026,7 +2221,9 @@ def download_docs(type_id: int, request_delay: float, auto_parse: bool = False) 
                             f'UPDATE "{table_name}" SET parsed = 1 WHERE id = ?',  # noqa: S608
                             [(i,) for i in parsed],
                         )
-                        logger.info("Parsed: %d/%d documents", len(parsed), len(parse_targets))
+                        logger.info(
+                            "Parsed: %d/%d documents", len(parsed), len(parse_targets)
+                        )
 
     except aiosqlite.Error:
         logger.exception("Database operation failed: %s", table_name)
@@ -2034,7 +2231,9 @@ def download_docs(type_id: int, request_delay: float, auto_parse: bool = False) 
         logger.exception("Download process failed: %s", type_name)
 
 
-async def async_download_docs_wrapper(type_id: int, request_delay: float, auto_parse: bool = False) -> None:  # noqa: C901, D103, FBT001, FBT002
+async def async_download_docs_wrapper(
+    type_id: int, request_delay: float, auto_parse: bool = False
+) -> None:  # noqa: C901, D103, FBT001, FBT002
     if not type_id:
         for tid in LAW_TYPE_MAP:
             await async_download_docs_wrapper(tid, request_delay, auto_parse)
@@ -2068,7 +2267,9 @@ async def async_download_docs_wrapper(type_id: int, request_delay: float, auto_p
 
     logger.info("[async] Processing %d items: %s", len(pending), get_type_name(type_id))
 
-    timeout = aiohttp.ClientTimeout(total=None, connect=HTTP_TIMEOUT[0], sock_read=HTTP_TIMEOUT[1])
+    timeout = aiohttp.ClientTimeout(
+        total=None, connect=HTTP_TIMEOUT[0], sock_read=HTTP_TIMEOUT[1]
+    )
     connector = aiohttp.TCPConnector(limit=ASYNC_CONCURRENCY, ssl=True)
     limiter = Async(ASYNC_QPS)
 
@@ -2101,7 +2302,9 @@ async def async_download_docs_wrapper(type_id: int, request_delay: float, auto_p
     def _postprocess(ids: list[str]) -> None:
         try:
             with aiosqlite.connect(DB_FILE, isolation_level=None, timeout=10.0) as conn:
-                conn.executescript("PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000")
+                conn.executescript(
+                    "PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000"
+                )
                 with conn:
                     conn.executemany(
                         f'UPDATE "{table_name}" SET saved = 1 WHERE id = ?',  # noqa: S608
@@ -2112,7 +2315,12 @@ async def async_download_docs_wrapper(type_id: int, request_delay: float, auto_p
 
     await asyncio.to_thread(_postprocess, results)
 
-    logger.info("[async] %s: %d/%d succeeded", get_type_name(type_id), len(results), len(pending))
+    logger.info(
+        "[async] %s: %d/%d succeeded",
+        get_type_name(type_id),
+        len(results),
+        len(pending),
+    )
 
     if auto_parse:
         await async_parse_docs_wrapper(type_id, request_delay)
@@ -2155,7 +2363,9 @@ def parse_docs(type_id: int, request_delay: float) -> None:  # noqa: D103
 
     with ThreadPoolExecutor(worker_count) as executor:
         futures = {
-            executor.submit(parse_doc, doc_id, title, table_name, office or None): doc_id
+            executor.submit(
+                parse_doc, doc_id, title, table_name, office or None
+            ): doc_id
             for doc_id, title, office in rows
         }
 
@@ -2176,11 +2386,22 @@ def parse_docs(type_id: int, request_delay: float) -> None:  # noqa: D103
 
     if success_ids:
         try:
-            with contextlib.closing(aiosqlite.connect(DB_FILE, isolation_level=None, timeout=10.0)) as conn:
-                conn.executescript("PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000")
+            with contextlib.closing(
+                aiosqlite.connect(DB_FILE, isolation_level=None, timeout=10.0)
+            ) as conn:
+                conn.executescript(
+                    "PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000"
+                )
                 with conn:
-                    conn.executemany(f'UPDATE "{table_name}" SET parsed = 1 WHERE id = ?', [(i,) for i in success_ids])  # noqa: S608
-                logger.info("DB updated: %d docs marked parsed (%s)", len(success_ids), type_name)
+                    conn.executemany(
+                        f'UPDATE "{table_name}" SET parsed = 1 WHERE id = ?',
+                        [(i,) for i in success_ids],
+                    )  # noqa: S608
+                logger.info(
+                    "DB updated: %d docs marked parsed (%s)",
+                    len(success_ids),
+                    type_name,
+                )
         except aiosqlite.Error:
             logger.exception("DB update failed (%s): %s", table_name, success_ids)
 
@@ -2199,7 +2420,9 @@ def crawl_type(  # noqa: C901, D103, PLR0911, PLR0912, PLR0913, PLR0914, PLR0915
     parse_enabled: bool = False,  # noqa: FBT001, FBT002
 ) -> None:
     if not type_id:
-        return crawl_types(download_enabled, initial_delay, request_delay, parse_enabled)
+        return crawl_types(
+            download_enabled, initial_delay, request_delay, parse_enabled
+        )
 
     type_meta = LAW_TYPE_MAP.get(type_id)
     if not type_meta:
@@ -2211,7 +2434,11 @@ def crawl_type(  # noqa: C901, D103, PLR0911, PLR0912, PLR0913, PLR0914, PLR0915
 
     initial_resp = fetch_api(type_id, 1)
     if "error" in initial_resp or not (result := initial_resp.get("result")):
-        logger.error("Initial fetch failed for %s: %s", type_name, initial_resp.get("error", "No result"))
+        logger.error(
+            "Initial fetch failed for %s: %s",
+            type_name,
+            initial_resp.get("error", "No result"),
+        )
         return None
 
     total_count = result.get("totalSizes", 0)
@@ -2224,10 +2451,14 @@ def crawl_type(  # noqa: C901, D103, PLR0911, PLR0912, PLR0913, PLR0914, PLR0915
     last_page = min(end_page, page_count) if end_page > 0 else page_count
 
     if first_page > last_page:
-        logger.warning("Invalid page range [%d:%d] for %s", first_page, last_page, type_name)
+        logger.warning(
+            "Invalid page range [%d:%d] for %s", first_page, last_page, type_name
+        )
         return None
 
-    logger.info("Processing %d items (%d pages) for %s", total_count, page_count, type_name)
+    logger.info(
+        "Processing %d items (%d pages) for %s", total_count, page_count, type_name
+    )
 
     all_data = result.get("data", []) if first_page == 1 else []
     total_pages = last_page - first_page + 1
@@ -2250,7 +2481,9 @@ def crawl_type(  # noqa: C901, D103, PLR0911, PLR0912, PLR0913, PLR0914, PLR0915
         progress_interval = max(1, total_pages // 20)
 
         with ThreadPoolExecutor(worker_count) as executor:
-            futures = {executor.submit(fetch_api, type_id, page): page for page in page_queue}
+            futures = {
+                executor.submit(fetch_api, type_id, page): page for page in page_queue
+            }
 
             for future in concurrent.futures.as_completed(futures):
                 try:
@@ -2259,12 +2492,20 @@ def crawl_type(  # noqa: C901, D103, PLR0911, PLR0912, PLR0913, PLR0914, PLR0915
                         all_data.extend(resp_result.get("data", []))
                         time.sleep(delay_between)
                     else:
-                        logger.error("Page %d failed: %s", futures[future], resp.get("error", "No result"))
+                        logger.error(
+                            "Page %d failed: %s",
+                            futures[future],
+                            resp.get("error", "No result"),
+                        )
                 except Exception:  # noqa: PERF203
                     logger.exception("Page %d exception", futures[future])
                 finally:
                     processed_pages += 1
-                    if processed_pages == total_pages or processed_pages % progress_interval == 0 or not all_data:
+                    if (
+                        processed_pages == total_pages
+                        or processed_pages % progress_interval == 0
+                        or not all_data
+                    ):
                         logger.info(
                             "%s progress: %d/%d pages fetched (%.1f%%, %d records)",
                             type_name,
@@ -2289,7 +2530,9 @@ def crawl_type(  # noqa: C901, D103, PLR0911, PLR0912, PLR0913, PLR0914, PLR0915
 
     try:
         with sqlite3.connect(DB_FILE, isolation_level=None, timeout=10.0) as conn:
-            conn.executescript("PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000;")
+            conn.executescript(
+                "PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000;"
+            )
             cursor = conn.cursor()
             cursor.executemany(sql, db_records)
             changes = conn.total_changes
@@ -2334,7 +2577,11 @@ async def _async_crawl_type_single(  # noqa: C901, PLR0913, PLR0915, PLR0917
 
     initial_resp = await fetch_api_page_async(session, limiter, type_id, 1)
     if "error" in initial_resp or not (result := initial_resp.get("result")):
-        logger.error("[async] Initial fetch failed for %s: %s", type_name, initial_resp.get("error", "No result"))
+        logger.error(
+            "[async] Initial fetch failed for %s: %s",
+            type_name,
+            initial_resp.get("error", "No result"),
+        )
         return
 
     total_count = result.get("totalSizes", 0)
@@ -2345,7 +2592,12 @@ async def _async_crawl_type_single(  # noqa: C901, PLR0913, PLR0915, PLR0917
     page_count = (total_count + PAGE_SIZE - 1) // PAGE_SIZE
     last_page = page_count
 
-    logger.info("[async] Processing %d items (%d pages) for %s", total_count, page_count, type_name)
+    logger.info(
+        "[async] Processing %d items (%d pages) for %s",
+        total_count,
+        page_count,
+        type_name,
+    )
 
     all_data = list(result.get("data", []) or [])
 
@@ -2363,12 +2615,21 @@ async def _async_crawl_type_single(  # noqa: C901, PLR0913, PLR0915, PLR0917
                 if "error" not in resp and (resp_result := resp.get("result")):
                     all_data.extend(resp_result.get("data", []) or [])
                 else:
-                    logger.error("[async] Page %d failed for %s: %s", page, type_name, resp.get("error", "No result"))
+                    logger.error(
+                        "[async] Page %d failed for %s: %s",
+                        page,
+                        type_name,
+                        resp.get("error", "No result"),
+                    )
             except Exception:
                 logger.exception("[async] Page %d exception for %s", page, type_name)
             finally:
                 processed_pages += 1
-                if processed_pages == total_pages or processed_pages % progress_interval == 0 or not all_data:
+                if (
+                    processed_pages == total_pages
+                    or processed_pages % progress_interval == 0
+                    or not all_data
+                ):
                     logger.info(
                         "[async] %s progress: %d/%d pages fetched (%.1f%%, %d records)",
                         type_name,
@@ -2412,7 +2673,11 @@ async def _async_crawl_type_single(  # noqa: C901, PLR0913, PLR0915, PLR0917
                 cursor = conn.cursor()
                 cursor.executemany(sql, db_records)
                 changes = conn.total_changes
-                logger.info("[async] DB operation complete for %s: %d changes", table_name, changes)
+                logger.info(
+                    "[async] DB operation complete for %s: %d changes",
+                    table_name,
+                    changes,
+                )
         except sqlite3.Error:
             logger.exception("[async] DB error for %s", table_name)
             return
@@ -2437,7 +2702,9 @@ async def async_crawl_all_types(  # noqa: D103
 ) -> None:
     logger.info("[async] Crawling all types")
 
-    timeout = aiohttp.ClientTimeout(total=None, connect=HTTP_TIMEOUT[0], sock_read=HTTP_TIMEOUT[1])
+    timeout = aiohttp.ClientTimeout(
+        total=None, connect=HTTP_TIMEOUT[0], sock_read=HTTP_TIMEOUT[1]
+    )
     connector = aiohttp.TCPConnector(limit=ASYNC_CONCURRENCY, ssl=True)
     limiter = Async(ASYNC_QPS)
 
@@ -2466,7 +2733,9 @@ async def async_crawl_type_single_entry(  # noqa: D103
     request_delay: float,
     parse_enabled: bool = False,  # noqa: FBT001, FBT002
 ) -> None:
-    timeout = aiohttp.ClientTimeout(total=None, connect=HTTP_TIMEOUT[0], sock_read=HTTP_TIMEOUT[1])
+    timeout = aiohttp.ClientTimeout(
+        total=None, connect=HTTP_TIMEOUT[0], sock_read=HTTP_TIMEOUT[1]
+    )
     connector = aiohttp.TCPConnector(limit=ASYNC_CONCURRENCY, ssl=True)
     limiter = Async(ASYNC_QPS)
 
@@ -2522,13 +2791,19 @@ def get_type_id_from_code(type_code: str) -> int | None:  # noqa: D103
         return type_id
     type_code_lower = type_code.lower()
     return next(
-        (tid for tid, (_, name) in LAW_TYPE_MAP.items() if name.lower() == type_code_lower),
+        (
+            tid
+            for tid, (_, name) in LAW_TYPE_MAP.items()
+            if name.lower() == type_code_lower
+        ),
         None,
     )
 
 
 def check_items(enable_title_check: bool = True) -> dict[int, list[LAW_DATA]]:  # noqa: D103, FBT001, FBT002
-    logger.info("Checking new items, title_check=%s", "on" if enable_title_check else "off")
+    logger.info(
+        "Checking new items, title_check=%s", "on" if enable_title_check else "off"
+    )
 
     if not LAW_CATEGORY_CODES:
         logger.warning("LAW_CATEGORY_CODES empty, aborting check")
@@ -2547,7 +2822,9 @@ def check_items(enable_title_check: bool = True) -> dict[int, list[LAW_DATA]]:  
 def _build(enable_title_check: bool) -> tuple[set[str], set[str]] | None:  # noqa: FBT001
     try:
         with sqlite3.connect(f"file:{DB_FILE}?mode=ro", uri=True, timeout=10.0) as conn:
-            conn.executescript("PRAGMA temp_store=MEMORY;PRAGMA cache_size=-20000;PRAGMA query_only=1")
+            conn.executescript(
+                "PRAGMA temp_store=MEMORY;PRAGMA cache_size=-20000;PRAGMA query_only=1"
+            )
             cursor = conn.cursor()
 
             cursor.execute(
@@ -2569,17 +2846,21 @@ def _build(enable_title_check: bool) -> tuple[set[str], set[str]] | None:  # noq
             id_queries = []
             for cat in valid_categories:
                 if "bbbs_id" in schema_map[cat]:
-                    id_queries.extend([
-                        f'SELECT id FROM "{cat}" WHERE id IS NOT NULL',  # noqa: S608
-                        f'SELECT bbbs_id FROM "{cat}" WHERE bbbs_id IS NOT NULL',  # noqa: S608
-                    ])
+                    id_queries.extend(
+                        [
+                            f'SELECT id FROM "{cat}" WHERE id IS NOT NULL',  # noqa: S608
+                            f'SELECT bbbs_id FROM "{cat}" WHERE bbbs_id IS NOT NULL',  # noqa: S608
+                        ]
+                    )
                 else:
                     id_queries.append(f'SELECT id FROM "{cat}" WHERE id IS NOT NULL')  # noqa: S608
 
             existing_ids = set()
             if id_queries:
                 unified_query = " UNION ALL ".join(id_queries)
-                existing_ids = {row[0] for row in cursor.execute(unified_query) if row[0]}
+                existing_ids = {
+                    row[0] for row in cursor.execute(unified_query) if row[0]
+                }
 
             existing_titles = set()
             if enable_title_check and valid_categories:
@@ -2587,7 +2868,11 @@ def _build(enable_title_check: bool) -> tuple[set[str], set[str]] | None:  # noq
                     f'SELECT title FROM "{cat}" WHERE title IS NOT NULL AND title != ""'  # noqa: S608
                     for cat in valid_categories
                 )
-                existing_titles = {row[0].strip() for row in cursor.execute(title_query) if row[0] and row[0].strip()}
+                existing_titles = {
+                    row[0].strip()
+                    for row in cursor.execute(title_query)
+                    if row[0] and row[0].strip()
+                }
 
             return existing_ids, existing_titles
 
@@ -2697,7 +2982,13 @@ def _page(
         page_new[type_id].append(item)
         found_new = True
 
-        logger.debug("New: %s [%s] type=%d (primary_id: %s)", item_id, item.get("title", "")[:30], type_id, primary_id)
+        logger.debug(
+            "New: %s [%s] type=%d (primary_id: %s)",
+            item_id,
+            item.get("title", "")[:30],
+            type_id,
+            primary_id,
+        )
 
     return page_new, existing_count, invalid_count, found_new
 
@@ -2749,13 +3040,19 @@ def process_items(  # noqa: D103
             try:
                 future.result()
             except Exception:  # noqa: PERF203
-                logger.exception("Failed processing type %d (%s)", futures[future], get_type_name(futures[future]))
+                logger.exception(
+                    "Failed processing type %d (%s)",
+                    futures[future],
+                    get_type_name(futures[future]),
+                )
 
     logger.info("Processing complete")
     return None
 
 
-def process_existing_items(type_id: int, download_enabled: bool = True, parse_enabled: bool = True) -> None:  # noqa: D103, FBT001, FBT002
+def process_existing_items(
+    type_id: int, download_enabled: bool = True, parse_enabled: bool = True
+) -> None:  # noqa: D103, FBT001, FBT002
     if not (table_name := get_type_code(type_id)):
         return logger.error("Invalid type_id %d", type_id)
 
@@ -2773,8 +3070,17 @@ def process_existing_items(type_id: int, download_enabled: bool = True, parse_en
                 ]
 
                 if to_download:
-                    logger.info("Found %d items to download for %s", len(to_download), get_type_name(type_id))
-                    download_items(type_id, [item[0] for item in to_download], REQUEST_DELAY, auto_parse=parse_enabled)
+                    logger.info(
+                        "Found %d items to download for %s",
+                        len(to_download),
+                        get_type_name(type_id),
+                    )
+                    download_items(
+                        type_id,
+                        [item[0] for item in to_download],
+                        REQUEST_DELAY,
+                        auto_parse=parse_enabled,
+                    )
                     return None
 
             if parse_enabled:
@@ -2787,7 +3093,11 @@ def process_existing_items(type_id: int, download_enabled: bool = True, parse_en
                 ]
 
                 if to_parse:
-                    logger.info("Found %d items to parse for %s", len(to_parse), get_type_name(type_id))
+                    logger.info(
+                        "Found %d items to parse for %s",
+                        len(to_parse),
+                        get_type_name(type_id),
+                    )
                     parse_items(type_id, [item[0] for item in to_parse], REQUEST_DELAY)
                     return None
 
@@ -2815,7 +3125,9 @@ def process_type(  # noqa: D103, PLR0913, PLR0917
     logger.info("Processing %d items for %s", len(items), get_type_name(type_id))
 
     try:
-        with sqlite3.connect(DB_FILE, isolation_level=None, timeout=10.0, check_same_thread=False) as conn:
+        with sqlite3.connect(
+            DB_FILE, isolation_level=None, timeout=10.0, check_same_thread=False
+        ) as conn:
             conn.executescript(";".join(db_pragmas))
 
             try:
@@ -2831,7 +3143,9 @@ def process_type(  # noqa: D103, PLR0913, PLR0917
                 )
 
                 if not changes:
-                    logger.info("No new records inserted - all items already exist in database")
+                    logger.info(
+                        "No new records inserted - all items already exist in database"
+                    )
                     existing_unprocessed = cursor.execute(
                         f'SELECT id, title, office FROM "{type_code}" WHERE (saved = 0 OR parsed = 0) AND title IS NOT NULL LIMIT 50',  # noqa: E501, S608
                     ).fetchall()
@@ -2842,7 +3156,12 @@ def process_type(  # noqa: D103, PLR0913, PLR0917
                             "Found %d existing unprocessed items, attempting download/parse",
                             len(unprocessed_ids),
                         )
-                        download_items(type_id, unprocessed_ids, request_delay, auto_parse=parse_enabled)
+                        download_items(
+                            type_id,
+                            unprocessed_ids,
+                            request_delay,
+                            auto_parse=parse_enabled,
+                        )
                     elif existing_unprocessed and parse_enabled:
                         unprocessed_ids = [r[0] for r in existing_unprocessed if r[0]]
                         logger.info(
@@ -2852,23 +3171,38 @@ def process_type(  # noqa: D103, PLR0913, PLR0917
                         parse_items(type_id, unprocessed_ids, request_delay)
                 else:
                     inserted_ids = [r[0] for r in db_records if r[0]]
-                    logger.info("Database operation complete: %d/%d records inserted", changes, len(db_records))
+                    logger.info(
+                        "Database operation complete: %d/%d records inserted",
+                        changes,
+                        len(db_records),
+                    )
 
                     if download_enabled:
-                        logger.info("Initiating downloads for %d items", len(inserted_ids))
-                        download_items(type_id, inserted_ids, request_delay, auto_parse=parse_enabled)
+                        logger.info(
+                            "Initiating downloads for %d items", len(inserted_ids)
+                        )
+                        download_items(
+                            type_id,
+                            inserted_ids,
+                            request_delay,
+                            auto_parse=parse_enabled,
+                        )
                     elif parse_enabled:
                         logger.info("Parse-only mode for previously downloaded items")
                         parse_items(type_id, inserted_ids, request_delay)
 
             except Exception:
-                logger.exception("Failed database operation for type %s", get_type_name(type_id))
+                logger.exception(
+                    "Failed database operation for type %s", get_type_name(type_id)
+                )
                 raise
     except sqlite3.Error:
         logger.exception("DB error for type %s", get_type_name(type_id))
 
 
-def download_items(type_id: int, item_ids: list[str], request_delay: float, auto_parse: bool = False) -> None:  # noqa: D103, FBT001, FBT002
+def download_items(
+    type_id: int, item_ids: list[str], request_delay: float, auto_parse: bool = False
+) -> None:  # noqa: D103, FBT001, FBT002
     if not (table_name := get_type_code(type_id)):
         return logger.error("Invalid type_id %d", type_id)
 
@@ -2903,15 +3237,24 @@ def download_items(type_id: int, item_ids: list[str], request_delay: float, auto
             ): item[0]
             for item in items
         }
-        success_ids = [futures[f] for f in concurrent.futures.as_completed(futures) if f.result()]
+        success_ids = [
+            futures[f] for f in concurrent.futures.as_completed(futures) if f.result()
+        ]
 
-    logger.info("%s: %d/%d succeeded", get_type_name(type_id), len(success_ids), len(items))
+    logger.info(
+        "%s: %d/%d succeeded", get_type_name(type_id), len(success_ids), len(items)
+    )
 
     if success_ids:
         try:
             with sqlite3.connect(DB_FILE, isolation_level=None, timeout=10.0) as conn:
-                conn.executescript("PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000")
-                conn.executemany(f'UPDATE "{table_name}" SET saved = 1 WHERE id = ?', [(i,) for i in success_ids])  # noqa: S608
+                conn.executescript(
+                    "PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000"
+                )
+                conn.executemany(
+                    f'UPDATE "{table_name}" SET saved = 1 WHERE id = ?',
+                    [(i,) for i in success_ids],
+                )  # noqa: S608
                 auto_parse and parse_items(type_id, success_ids, request_delay)
         except sqlite3.Error:
             logger.exception("DB update failed for %s: %s", table_name, success_ids)
@@ -2952,7 +3295,9 @@ def parse_items(type_id: int, item_ids: list[str], request_delay: float) -> None
 
     with ThreadPoolExecutor(worker_count) as executor:
         futures = {
-            executor.submit(parse_doc, item_id, title, table_name, office or None): item_id
+            executor.submit(
+                parse_doc, item_id, title, table_name, office or None
+            ): item_id
             for item_id, title, office in items_to_parse
         }
 
@@ -2974,13 +3319,19 @@ def parse_items(type_id: int, item_ids: list[str], request_delay: float) -> None
     if successful_ids:
         try:
             with aiosqlite.connect(DB_FILE, isolation_level=None, timeout=10.0) as conn:
-                conn.executescript("PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000")
+                conn.executescript(
+                    "PRAGMA journal_mode=MEMORY;PRAGMA synchronous=OFF;PRAGMA busy_timeout=5000"
+                )
                 with conn:
                     conn.executemany(
                         f'UPDATE "{table_name}" SET parsed = 1 WHERE id = ?',  # noqa: S608
                         [(i,) for i in successful_ids],
                     )
-                logger.info("DB updated: %d docs marked parsed for %s", len(successful_ids), type_name)
+                logger.info(
+                    "DB updated: %d docs marked parsed for %s",
+                    len(successful_ids),
+                    type_name,
+                )
         except aiosqlite.Error:
             logger.exception("DB update failed for %s: %s", table_name, successful_ids)
 
@@ -3033,7 +3384,9 @@ def sync_db() -> None:  # noqa: C901, D103
             table_name, type_name = table_data
 
             try:
-                with contextlib.closing(aiosqlite.connect(DB_FILE, isolation_level=None, timeout=15.0)) as conn:
+                with contextlib.closing(
+                    aiosqlite.connect(DB_FILE, isolation_level=None, timeout=15.0)
+                ) as conn:
                     conn.row_factory = aiosqlite.Row
                     conn.executescript(pragmas)
 
@@ -3057,16 +3410,25 @@ def sync_db() -> None:  # noqa: C901, D103
                             if not target_dir:
                                 continue
 
-                            clean_title = sanitize_pattern.sub("_", record["title"]).strip()
+                            clean_title = sanitize_pattern.sub(
+                                "_", record["title"]
+                            ).strip()
 
-                            paths = (target_dir / f"{clean_title}.md", target_dir / f"{record['id']}.md")
-                            md_exists = any(p.exists() and p.stat().st_size > 0 for p in paths)
+                            paths = (
+                                target_dir / f"{clean_title}.md",
+                                target_dir / f"{record['id']}.md",
+                            )
+                            md_exists = any(
+                                p.exists() and p.stat().st_size > 0 for p in paths
+                            )
 
                             target_state = 1 if md_exists else 0
                             current_state = (record["saved"], record["parsed"])
 
                             if (target_state, target_state) != current_state:
-                                batch_updates.append((target_state, target_state, record["id"]))
+                                batch_updates.append(
+                                    (target_state, target_state, record["id"])
+                                )
 
                         updates.extend(batch_updates)
 
@@ -3084,7 +3446,10 @@ def sync_db() -> None:  # noqa: C901, D103
                 logger.exception("Sync error for %s", type_name)
                 return type_name, -1
 
-        futures = {executor.submit(sync_table, table_data): table_data for table_data in LAW_TYPE_MAP.values()}
+        futures = {
+            executor.submit(sync_table, table_data): table_data
+            for table_data in LAW_TYPE_MAP.values()
+        }
 
         total_updates = 0
         for future in concurrent.futures.as_completed(futures):
@@ -3103,10 +3468,17 @@ def sync_db() -> None:  # noqa: C901, D103
 def reorg_files() -> None:  # noqa: D103
     logger.info("Starting file reorganization with classification")
 
-    valid_types = [(tid, tn, tt) for tid, (tn, tt) in LAW_TYPE_MAP.items() if tid not in {7, 8, 9, 10}]
+    valid_types = [
+        (tid, tn, tt)
+        for tid, (tn, tt) in LAW_TYPE_MAP.items()
+        if tid not in {7, 8, 9, 10}
+    ]
 
     with ThreadPoolExecutor(max_workers=min(len(valid_types), CPU_COUNT)) as executor:
-        futures = [executor.submit(reorg_files_by_type, tid, tn, tt) for tid, tn, tt in valid_types]
+        futures = [
+            executor.submit(reorg_files_by_type, tid, tn, tt)
+            for tid, tn, tt in valid_types
+        ]
         concurrent.futures.wait(futures)
 
     logger.info("File reorganization complete")
@@ -3124,7 +3496,9 @@ def reorg_files_by_type(type_id: int, table_name: str, type_name: str) -> None: 
                 f'SELECT title, type, flfgCodeId, office FROM "{table_name}" WHERE saved = 1 AND title IS NOT NULL',  # noqa: S608
             ).fetchall()
         except aiosqlite.Error:
-            logger.exception("Database error fetching information for type %s", type_name)
+            logger.exception(
+                "Database error fetching information for type %s", type_name
+            )
             return
 
     if not rows:
@@ -3143,7 +3517,9 @@ def reorg_files_by_type(type_id: int, table_name: str, type_name: str) -> None: 
         entry = (api_type, flfg_code_id, office)
         file_map[safe_title] = entry
 
-        ascii_title = "".join(c if c.isascii() and (c.isalnum() or c in " -_") else "_" for c in title).strip("_ ")
+        ascii_title = "".join(
+            c if c.isascii() and (c.isalnum() or c in " -_") else "_" for c in title
+        ).strip("_ ")
         if ascii_title and ascii_title != safe_title:
             file_map[ascii_title] = entry
 
@@ -3306,7 +3682,10 @@ if __name__ == "__main__":
             },
         ),
     ]
-    [parser.add_argument(*(opt[:2] if opt[1] else (opt[0],)), **opt[2]) for opt in options]
+    [
+        parser.add_argument(*(opt[:2] if opt[1] else (opt[0],)), **opt[2])
+        for opt in options
+    ]
 
     args = parser.parse_args()
     start_time = time.monotonic()
@@ -3355,7 +3734,9 @@ if __name__ == "__main__":
 
             if not mode_executed and args.reset_state:
                 logger.info("Mode: Reset state flags")
-                reset_state_flags(args.reset_state, args.law_type, keep_parsed=args.keep_parsed)
+                reset_state_flags(
+                    args.reset_state, args.law_type, keep_parsed=args.keep_parsed
+                )
             elif not mode_executed and args.check_workflow:
                 logger.info("Mode: Complete workflow")
                 steps = [
@@ -3371,12 +3752,18 @@ if __name__ == "__main__":
                     (
                         "Downloading remaining documents",
                         lambda: [
-                            process_existing_items(tid, download_enabled=True, parse_enabled=True)
-                            for tid in (LAW_TYPE_MAP if args.law_type == 0 else [args.law_type])
+                            process_existing_items(
+                                tid, download_enabled=True, parse_enabled=True
+                            )
+                            for tid in (
+                                LAW_TYPE_MAP if args.law_type == 0 else [args.law_type]
+                            )
                         ][-1]
                         if args.law_type != 0
                         else [
-                            process_existing_items(tid, download_enabled=True, parse_enabled=True)
+                            process_existing_items(
+                                tid, download_enabled=True, parse_enabled=True
+                            )
                             for tid in LAW_TYPE_MAP
                         ][-1]
                         if LAW_TYPE_MAP
@@ -3385,12 +3772,18 @@ if __name__ == "__main__":
                     (
                         "Parsing remaining documents",
                         lambda: [
-                            process_existing_items(tid, download_enabled=False, parse_enabled=True)
-                            for tid in (LAW_TYPE_MAP if args.law_type == 0 else [args.law_type])
+                            process_existing_items(
+                                tid, download_enabled=False, parse_enabled=True
+                            )
+                            for tid in (
+                                LAW_TYPE_MAP if args.law_type == 0 else [args.law_type]
+                            )
                         ][-1]
                         if args.law_type != 0
                         else [
-                            process_existing_items(tid, download_enabled=False, parse_enabled=True)
+                            process_existing_items(
+                                tid, download_enabled=False, parse_enabled=True
+                            )
                             for tid in LAW_TYPE_MAP
                         ][-1]
                         if LAW_TYPE_MAP
@@ -3401,20 +3794,42 @@ if __name__ == "__main__":
                 for i, (desc, step) in enumerate(steps):
                     logger.info("Step %d: %s", i + 1, desc)
                     step()
-            elif not mode_executed and (args.download_documents, args.parse_documents) == (True, False):
-                logger.info("Mode: Download only%s", " (async)" if getattr(args, "async", False) else "")
+            elif not mode_executed and (
+                args.download_documents,
+                args.parse_documents,
+            ) == (True, False):
+                logger.info(
+                    "Mode: Download only%s",
+                    " (async)" if getattr(args, "async", False) else "",
+                )
                 if getattr(args, "async", False):
                     asyncio.run(download_docs_async())
                 else:
                     download_docs(type_id=args.law_type, request_delay=REQUEST_DELAY)
-            elif not mode_executed and (args.download_documents, args.parse_documents) == (False, True):
-                logger.info("Mode: Parse only%s", " (async)" if getattr(args, "async", False) else "")
+            elif not mode_executed and (
+                args.download_documents,
+                args.parse_documents,
+            ) == (False, True):
+                logger.info(
+                    "Mode: Parse only%s",
+                    " (async)" if getattr(args, "async", False) else "",
+                )
                 if getattr(args, "async", False):
-                    asyncio.run(async_parse_docs_wrapper(type_id=args.law_type, request_delay=REQUEST_DELAY))
+                    asyncio.run(
+                        async_parse_docs_wrapper(
+                            type_id=args.law_type, request_delay=REQUEST_DELAY
+                        )
+                    )
                 else:
                     parse_docs(type_id=args.law_type, request_delay=REQUEST_DELAY)
-            elif not mode_executed and (args.download_documents, args.parse_documents) == (True, True):
-                logger.info("Mode: Download and parse%s", " (async)" if getattr(args, "async", False) else "")
+            elif not mode_executed and (
+                args.download_documents,
+                args.parse_documents,
+            ) == (True, True):
+                logger.info(
+                    "Mode: Download and parse%s",
+                    " (async)" if getattr(args, "async", False) else "",
+                )
                 if getattr(args, "async", False):
                     asyncio.run(
                         async_download_docs_wrapper(
@@ -3424,9 +3839,16 @@ if __name__ == "__main__":
                         ),
                     )
                 else:
-                    download_docs(type_id=args.law_type, request_delay=REQUEST_DELAY, auto_parse=True)
+                    download_docs(
+                        type_id=args.law_type,
+                        request_delay=REQUEST_DELAY,
+                        auto_parse=True,
+                    )
             elif not mode_executed:
-                logger.info("Mode: Metadata crawl%s", " (async)" if getattr(args, "async", False) else "")
+                logger.info(
+                    "Mode: Metadata crawl%s",
+                    " (async)" if getattr(args, "async", False) else "",
+                )
                 if getattr(args, "async", False):
                     if args.law_type == 0:
                         asyncio.run(

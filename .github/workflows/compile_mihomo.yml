@@ -1,18 +1,14 @@
 name: Compile mihomo
-
 on:
   workflow_run:
     workflows: ["Compile sing-box"]
     types: [completed]
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: write
-
 env:
   MIHOMO_VERSION: Prerelease-Alpha
-
 jobs:
   compile:
     runs-on: ubuntu-latest

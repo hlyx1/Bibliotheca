@@ -1,6 +1,6 @@
 !!! quote "Changes in sing-box 1.11.0"
 
-    :material-plus: [server_ports](#server_ports)  
+    :material-plus: [server_ports](#server_ports)
     :material-plus: [hop_interval](#hop_interval)
 
 ### Structure
@@ -9,7 +9,7 @@
 {
   "type": "hysteria2",
   "tag": "hy2-out",
-  
+
   "server": "127.0.0.1",
   "server_port": 1080,
   "server_ports": [
@@ -26,7 +26,7 @@
   "network": "tcp",
   "tls": {},
   "brutal_debug": false,
-  
+
   ... // Dial Fields
 }
 ```

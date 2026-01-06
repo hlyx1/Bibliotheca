@@ -64,7 +64,7 @@
     s.style.marginRight = "4px";
     s.id = S.i.slice(1);
     s.innerHTML =
-      '<path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C12.5523 4 13 4.44772 13 5V13.5858L15.2929 11.2929C15.6834 10.9024 16.3166 10.9024 16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929C7.68342 10.9024 8.31658 10.9024 8.70711 11.2929L11 13.5858V5C11 4.44772 11.4477 4 12 4ZM4 14C4.55228 14 5 14.4477 5 15V17C5 17.5523 5.44772 18 6 18H18C18.5523 18 19 17.5523 19 17V15C19 14.4477 19.4477 14 20 14C20.5523 14 21 14.4477 21 15V17C21 18.6569 19.6569 20 18 20H6C4.34315 20 3 18.6569 3 17V15C3 14.4477 3.44772 14 4 14Z" fill="white"/>';
+      "<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 4C12.5523 4 13 4.44772 13 5V13.5858L15.2929 11.2929C15.6834 10.9024 16.3166 10.9024 16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929C7.68342 10.9024 8.31658 10.9024 8.70711 11.2929L11 13.5858V5C11 4.44772 11.4477 4 12 4ZM4 14C4.55228 14 5 14.4477 5 15V17C5 17.5523 5.44772 18 6 18H18C18.5523 18 19 17.5523 19 17V15C19 14.4477 19.4477 14 20 14C20.5523 14 21 14.4477 21 15V17C21 18.6569 19.6569 20 18 20H6C4.34315 20 3 18.6569 3 17V15C3 14.4477 3.44772 14 4 14Z\" fill=\"white\"/>";
     T = document.createElement("span");
     T.textContent = "Extract";
     T.style.fontSize = "12px";
@@ -85,8 +85,7 @@
     if (!I) {
       I = document.createElement("style");
       I.id = S.s.slice(1);
-      I.textContent =
-        "@keyframes p{0%{opacity:.2}50%{opacity:1}100%{opacity:.2}}";
+      I.textContent = "@keyframes p{0%{opacity:.2}50%{opacity:1}100%{opacity:.2}}";
       document.head.appendChild(I);
     }
     if (!L) {
@@ -141,7 +140,7 @@
   }
   function G() {
     const r = [];
-    let e = document.querySelectorAll('[class*="time"],[class*="Time"]');
+    let e = document.querySelectorAll("[class*=\"time\"],[class*=\"Time\"]");
     e.forEach((t) => {
       if (R.test(t.textContent.trim())) {
         const s = t.nextElementSibling;
@@ -150,31 +149,32 @@
     });
     if (r.length) return r;
     e = document.querySelectorAll(
-      '[class*="subtitle"],[class*="Part"],[class*="Line"]'
+      "[class*=\"subtitle\"],[class*=\"Part\"],[class*=\"Line\"]",
     );
     e.forEach((t) => {
       const s = t.children;
       if (s.length >= 2) {
         const n = s[0],
           l = s[1];
-        n &&
-          R.test(n.textContent.trim()) &&
-          r.push(`${n.textContent}:${l.textContent}`);
+        n
+          && R.test(n.textContent.trim())
+          && r.push(`${n.textContent}:${l.textContent}`);
       }
     });
     if (r.length) return r;
     e = document.querySelectorAll("span");
-    for (let t = 0; t < e.length - 1; t++)
-      R.test(e[t].textContent.trim()) &&
-        r.push(`${e[t].textContent}:${e[t + 1].textContent}`);
+    for (let t = 0; t < e.length - 1; t++) {
+      R.test(e[t].textContent.trim())
+        && r.push(`${e[t].textContent}:${e[t + 1].textContent}`);
+    }
     return r.length
       ? r
       : (document
-          .querySelectorAll('[class*="text"],[class*="content"]')
-          .forEach((t) => {
-            const s = t.textContent.trim();
-            s.length && r.push(s);
-          }),
+        .querySelectorAll("[class*=\"text\"],[class*=\"content\"]")
+        .forEach((t) => {
+          const s = t.textContent.trim();
+          s.length && r.push(s);
+        }),
         r);
   }
   function A() {
@@ -182,7 +182,7 @@
     if (r?.textContent === "字幕列表") return r;
     const e = document.querySelectorAll("span,button,div");
     for (let t of e) if (t.textContent === "字幕列表") return t;
-    const s = document.querySelectorAll('[class*="Label"],[class*="btn"]');
+    const s = document.querySelectorAll("[class*=\"Label\"],[class*=\"btn\"]");
     for (let t of s) if (t.textContent === "字幕列表") return t;
     return null;
   }

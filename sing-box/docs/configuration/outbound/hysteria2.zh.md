@@ -1,6 +1,6 @@
 !!! quote "sing-box 1.11.0 中的更改"
 
-    :material-plus: [server_ports](#server_ports)  
+    :material-plus: [server_ports](#server_ports)
     :material-plus: [hop_interval](#hop_interval)
 
 ### 结构
@@ -26,7 +26,7 @@
   "network": "tcp",
   "tls": {},
   "brutal_debug": false,
-  
+
   ... // 拨号字段
 }
 ```

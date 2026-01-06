@@ -6,7 +6,7 @@
 {
   "type": "direct",
   "tag": "direct-in",
-  
+
   ... // Listen Fields
 
   "network": "udp",

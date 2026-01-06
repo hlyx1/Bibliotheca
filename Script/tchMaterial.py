@@ -54,11 +54,13 @@ DOWNLOAD_TIMEOUT = 60
 CHUNK_BYTES = 131072
 PROGRESS_DELAY = 0.25
 
-CLIENT.headers.update({
-    AUTH_HEADER: 'MAC id="0",nonce="0",mac="0"',
-    "Accept": "application/json",
-    "Connection": "keep-alive",
-})
+CLIENT.headers.update(
+    {
+        AUTH_HEADER: 'MAC id="0",nonce="0",mac="0"',
+        "Accept": "application/json",
+        "Connection": "keep-alive",
+    }
+)
 
 TOKEN: str | None = None
 
@@ -104,7 +106,9 @@ def resolve_asset(url: str) -> Asset | None:  # noqa: C901, D103
         if not resource_url:
             return None
         if not TOKEN:
-            resource_url = PDF_REWRITER(r"https://c1.ykt.cbern.com.cn/\1/\2.pkg/\3.pdf", resource_url)
+            resource_url = PDF_REWRITER(
+                r"https://c1.ykt.cbern.com.cn/\1/\2.pkg/\3.pdf", resource_url
+            )
         return Asset(url=resource_url, cid=cid, title=payload.get("title"))
     except (requests.RequestException, ValueError, KeyError, TypeError):
         return None
@@ -133,7 +137,11 @@ def download(url: str, dest: pathlib.Path, *, progress: bool = True) -> None:  #
     resp = CLIENT.get(url, stream=True, timeout=DOWNLOAD_TIMEOUT)
     try:  # noqa: PLR1702
         if resp.status_code >= 400:  # noqa: PLR2004
-            hint = " Access token might be invalid." if resp.status_code in {401, 403} else ""
+            hint = (
+                " Access token might be invalid."
+                if resp.status_code in {401, 403}
+                else ""
+            )
             msg = f"HTTP {resp.status_code}.{hint}"
             raise requests.HTTPError(msg)
 
@@ -145,7 +153,9 @@ def download(url: str, dest: pathlib.Path, *, progress: bool = True) -> None:  #
         next_emit = time.monotonic()
 
         try:
-            with tempfile.NamedTemporaryFile("wb", delete=False, dir=str(dest.parent)) as f:
+            with tempfile.NamedTemporaryFile(
+                "wb", delete=False, dir=str(dest.parent)
+            ) as f:
                 tmp = pathlib.Path(f.name)
                 buf = memoryview(bytearray(CHUNK_BYTES))
                 write, readinto = f.write, resp.raw.readinto
@@ -165,7 +175,9 @@ def download(url: str, dest: pathlib.Path, *, progress: bool = True) -> None:  #
                                 sys.stdout.flush()
                                 next_emit = now + PROGRESS_DELAY
                         elif now >= next_emit:
-                            sys.stdout.write(f"\r>> {dest.name}: {format_bytes(dl)} transferred")
+                            sys.stdout.write(
+                                f"\r>> {dest.name}: {format_bytes(dl)} transferred"
+                            )
                             sys.stdout.flush()
                             next_emit = now + PROGRESS_DELAY
             pathlib.Path(tmp).replace(dest)
@@ -195,7 +207,11 @@ def collect_urls(pos: Iterable[str], source: str | None) -> list[str]:  # noqa: 
             if not path.exists():
                 msg = f"URL source unavailable: {source}"
                 raise FileNotFoundError(msg)
-            urls.extend(line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+            urls.extend(
+                line.strip()
+                for line in path.read_text(encoding="utf-8").splitlines()
+                if line.strip()
+            )
     return list(dict.fromkeys(urls))
 
 
@@ -212,8 +228,13 @@ def resolve_all(urls: Iterable[str]) -> tuple[list[Asset], list[str]]:  # noqa: 
     success = [None] * total
     failure = []
 
-    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="asset") as executor:
-        future_map = {executor.submit(resolve_asset, url): (index, url) for index, url in enumerate(ordered)}
+    with ThreadPoolExecutor(
+        max_workers=workers, thread_name_prefix="asset"
+    ) as executor:
+        future_map = {
+            executor.submit(resolve_asset, url): (index, url)
+            for index, url in enumerate(ordered)
+        }
         for future in as_completed(future_map):
             index, url = future_map[future]
             try:
@@ -225,7 +246,9 @@ def resolve_all(urls: Iterable[str]) -> tuple[list[Asset], list[str]]:  # noqa: 
             else:
                 success[index] = asset
 
-    return [item for item in success if item], [url for _, url in sorted(failure, key=operator.itemgetter(0))]
+    return [item for item in success if item], [
+        url for _, url in sorted(failure, key=operator.itemgetter(0))
+    ]
 
 
 def make_name(asset: Asset) -> str:  # noqa: D103
@@ -282,7 +305,10 @@ def run_download(args: argparse.Namespace) -> int:  # noqa: C901, D103, PLR0912
         target_dir.mkdir(parents=True, exist_ok=True)
 
     if multiple and not target_dir:
-        print("--output-dir is mandatory when downloading multiple files.", file=sys.stderr)  # noqa: T201
+        print(
+            "--output-dir is mandatory when downloading multiple files.",
+            file=sys.stderr,
+        )  # noqa: T201
         return 1
 
     if args.output and multiple:
@@ -303,7 +329,11 @@ def run_download(args: argparse.Namespace) -> int:  # noqa: C901, D103, PLR0912
         destination = (
             target_dir / make_name(asset)
             if target_dir
-            else (pathlib.Path(args.output).expanduser() if args.output else pathlib.Path(make_name(asset)))
+            else (
+                pathlib.Path(args.output).expanduser()
+                if args.output
+                else pathlib.Path(make_name(asset))
+            )
         )
 
         try:
@@ -339,25 +369,45 @@ def build_cli() -> argparse.ArgumentParser:  # noqa: D103
         description="SmartEdu resource parser and downloader (CLI)",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("--token", help="Access token applied before executing commands.")
+    parser.add_argument(
+        "--token", help="Access token applied before executing commands."
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    parse_parser = subparsers.add_parser("parse", help="Resolve resource URLs to downloadable endpoints.")
+    parse_parser = subparsers.add_parser(
+        "parse", help="Resolve resource URLs to downloadable endpoints."
+    )
     parse_parser.add_argument("urls", nargs="*", help="Resource page URLs.")
-    parse_parser.add_argument("-f", "--from-file", help="Read URLs from file or '-' for stdin.")
+    parse_parser.add_argument(
+        "-f", "--from-file", help="Read URLs from file or '-' for stdin."
+    )
     parse_parser.add_argument("-o", "--output", help="Write resolved URLs to file.")
     parse_parser.set_defaults(func=run_parse)
 
-    download_parser = subparsers.add_parser("download", help="Resolve and download PDF payloads.")
+    download_parser = subparsers.add_parser(
+        "download", help="Resolve and download PDF payloads."
+    )
     download_parser.add_argument("urls", nargs="*", help="Resource page URLs.")
-    download_parser.add_argument("-f", "--from-file", help="Read URLs from file or '-' for stdin.")
-    download_parser.add_argument("-o", "--output", help="Target path (single download mode).")
-    download_parser.add_argument("-d", "--output-dir", help="Target directory for batch downloads.")
-    download_parser.add_argument("--overwrite", action="store_true", help="Allow overwriting outputs.")
-    download_parser.add_argument("-q", "--quiet", action="store_true", help="Suppress progress output.")
+    download_parser.add_argument(
+        "-f", "--from-file", help="Read URLs from file or '-' for stdin."
+    )
+    download_parser.add_argument(
+        "-o", "--output", help="Target path (single download mode)."
+    )
+    download_parser.add_argument(
+        "-d", "--output-dir", help="Target directory for batch downloads."
+    )
+    download_parser.add_argument(
+        "--overwrite", action="store_true", help="Allow overwriting outputs."
+    )
+    download_parser.add_argument(
+        "-q", "--quiet", action="store_true", help="Suppress progress output."
+    )
     download_parser.set_defaults(func=run_download)
 
-    token_parser = subparsers.add_parser("set-token", help="Apply access token for current session only.")
+    token_parser = subparsers.add_parser(
+        "set-token", help="Apply access token for current session only."
+    )
     token_parser.add_argument("token", help="Access token value.")
     token_parser.set_defaults(func=run_token)
 

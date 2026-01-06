@@ -44,10 +44,7 @@ hosts 文件路径列表。
 {
   // "path": "/etc/hosts"
 
-  "path": [
-    "/etc/hosts",
-    "$HOME/.hosts"
-  ]
+  "path": ["/etc/hosts", "$HOME/.hosts"]
 }
 ```
 
@@ -61,10 +58,7 @@ hosts 文件路径列表。
 {
   "predefined": {
     "www.google.com": "127.0.0.1",
-    "localhost": [
-      "127.0.0.1",
-      "::1"
-    ]
+    "localhost": ["127.0.0.1", "::1"]
   }
 }
 ```

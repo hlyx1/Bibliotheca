@@ -9,10 +9,7 @@
         "javdb.com",
         "cableav.tv"
       ],
-      "domain_suffix": [
-        ".crunchyroll.com",
-        ".mandaom.com"
-      ]
+      "domain_suffix": [".crunchyroll.com", ".mandaom.com"]
     }
   ]
 }

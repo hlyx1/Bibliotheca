@@ -43,11 +43,8 @@ Example:
 ```json
 {
   // "path": "/etc/hosts"
-  
-  "path": [
-    "/etc/hosts",
-    "$HOME/.hosts"
-  ]
+
+  "path": ["/etc/hosts", "$HOME/.hosts"]
 }
 ```
 
@@ -61,10 +58,7 @@ Example:
 {
   "predefined": {
     "www.google.com": "127.0.0.1",
-    "localhost": [
-      "127.0.0.1",
-      "::1"
-    ]
+    "localhost": ["127.0.0.1", "::1"]
   }
 }
 ```

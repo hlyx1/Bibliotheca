@@ -1,5 +1,44 @@
-# ----- Python Specific -----
-# Byte-compiled and cached files
+# Created by https://www.toptal.com/developers/gitignore/api/macos
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### macOS Patch ###
+# iCloud generated files
+*.icloud
+
+# End of https://www.toptal.com/developers/gitignore/api/macos
+
+# Created by https://www.toptal.com/developers/gitignore/api/python
+
+### Python ###
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -7,7 +46,7 @@ __pycache__/
 # C extensions
 *.so
 
-# Distribution and packaging
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -27,18 +66,100 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Installer logs and dependency files
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-Pipfile.lock
-poetry.lock
-pdm.lock
-.pdm.toml
-.pdm-python
-.pdm-build/
-uv.lock
 
-# Virtual environments
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
 .env
 .venv
 env/
@@ -47,146 +168,45 @@ ENV/
 env.bak/
 venv.bak/
 
-# ----- Testing and Coverage -----
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
-coverage/
+# Spyder project settings
+.spyderproject
+.spyproject
 
-# ----- IDEs and Editors -----
-# PyCharm
-.idea/
-# VSCode
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
-# History
-.history/
+# Rope project settings
+.ropeproject
 
-# ----- Static Analysis -----
+# mkdocs documentation
+/site
+
+# mypy
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# Pyre type checker
 .pyre/
+
+# pytype static type analyzer
 .pytype/
-.ruff_cache/
 
-# ----- Jupyter/IPython -----
-.ipynb_checkpoints
-profile_default/
-ipython_config.py
-
-# ----- Version Management -----
-.python-version
-
-# ----- Frameworks -----
-# Django
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-# Flask
-instance/
-.webassets-cache
-# Scrapy
-.scrapy
-# Celery
-celerybeat-schedule
-celerybeat.pid
-
-# ----- Documentation -----
-# Sphinx
-docs/_build/
-# MkDocs
-/site
-
-# ----- Build Systems -----
-# PyBuilder
-.pybuilder/
-target/
-# PyInstaller
-*.manifest
-*.spec
-.BUILD_FINISHED
-.output/
-.astro/
-
-# ----- Node.js/NPM -----
-node_modules/
-.clinic
-.wireit
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# ----- Temporary Files -----
-.cache/
-.temp/
-tmp.*
-public/
-public/pagefind/
-
-# ----- PEP 582 -----
-__pypackages__/
-
-# ----- Translations -----
-*.mo
-*.pot
-
-# ----- Cython Debug -----
+# Cython debug symbols
 cython_debug/
 
-# ----- Project Settings -----
-# Spyder
-.spyderproject
-.spyproject
-# Rope
-.ropeproject
+# PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+.idea/
 
-# ----- OS Specific -----
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
+### Python Patch ###
+# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
+poetry.toml
 
-# ----- Database -----
-database.db-shm
-database.db-wal
-database.db-journal
+# ruff
+.ruff_cache/
 
-# ----- Document Files -----
-*.pdf
-*.doc
-*.docx
-*.htm
-*.html
-!docs/**/*.html
+# LSP config files
+pyrightconfig.json
 
-# ----- Miscellaneous -----
-.pypirc
-*.sage.py
-
-# ----- Ruleset Build Output -----
-!Ruleset/dist/
-Ruleset/dist/404.html
-Ruleset/dist/_headers
-Ruleset/dist/index.html
-Ruleset/dist/README.md
+# End of https://www.toptal.com/developers/gitignore/api/python

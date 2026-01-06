@@ -6,14 +6,10 @@
       "mode": "and",
       "rules": [
         {
-          "domain_keyword": [
-            "genuine"
-          ]
+          "domain_keyword": ["genuine"]
         },
         {
-          "domain_keyword": [
-            "autodesk"
-          ]
+          "domain_keyword": ["autodesk"]
         }
       ],
       "invert": false
@@ -38,14 +34,8 @@
         ".adobestats.io",
         ".adobe.io"
       ],
-      "domain_keyword": [
-        "bahoom",
-        "-flv.meituan.net",
-        "-live.meituan.net"
-      ],
-      "port": [
-        7680
-      ],
+      "domain_keyword": ["bahoom", "-flv.meituan.net", "-live.meituan.net"],
+      "port": [7680],
       "process_name": [
         "Tencent Lemon",
         "LemonMonitor",

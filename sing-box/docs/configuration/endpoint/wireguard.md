@@ -6,7 +6,7 @@
 {
   "type": "wireguard",
   "tag": "wg-ep",
-  
+
   "system": false,
   "name": "",
   "mtu": 1408,
@@ -26,7 +26,7 @@
   ],
   "udp_timeout": "",
   "workers": 0,
- 
+
   ... // Dial Fields
 }
 ```

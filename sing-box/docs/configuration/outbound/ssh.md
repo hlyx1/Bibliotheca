@@ -4,7 +4,7 @@
 {
   "type": "ssh",
   "tag": "ssh-out",
-  
+
   "server": "127.0.0.1",
   "server_port": 22,
   "user": "root",

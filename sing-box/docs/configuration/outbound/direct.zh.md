@@ -4,7 +4,7 @@ icon: material/alert-decagram
 
 !!! quote "sing-box 1.11.0 中的更改"
 
-    :material-alert-decagram: [override_address](#override_address)  
+    :material-alert-decagram: [override_address](#override_address)
     :material-alert-decagram: [override_port](#override_port)
 
 `direct` 出站直接发送请求。
@@ -15,7 +15,7 @@ icon: material/alert-decagram
 {
   "type": "direct",
   "tag": "direct-out",
-  
+
   "override_address": "1.0.0.1",
   "override_port": 53,
 

@@ -13,11 +13,10 @@
     "server": "time.apple.com",
     "server_port": 123,
     "interval": "30m",
-    
+
     ... // 拨号字段
   }
 }
-
 ```
 
 ### 字段

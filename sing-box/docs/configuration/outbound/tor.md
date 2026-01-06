@@ -4,7 +4,7 @@
 {
   "type": "tor",
   "tag": "tor-out",
-  
+
   "executable_path": "/usr/bin/tor",
   "extra_args": [],
   "data_directory": "$HOME/.cache/tor",

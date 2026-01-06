@@ -4,7 +4,7 @@ icon: material/new-box
 
 !!! quote "sing-box 1.12.0 中的更改"
 
-    :material-plus: [strategy](#strategy)  
+    :material-plus: [strategy](#strategy)
     :material-plus: [predefined](#predefined)
 
 !!! question "自 sing-box 1.11.0 起"
@@ -112,14 +112,14 @@ icon: material/new-box
 
 响应码。
 
-| 值          | 旧 rcode DNS 服务器中的值 | 描述              |
-|------------|--------------------|-----------------|
-| `NOERROR`  | `success`          | Ok              |
-| `FORMERR`  | `format_error`     | Bad request     |
-| `SERVFAIL` | `server_failure`   | Server failure  |
-| `NXDOMAIN` | `name_error`       | Not found       |
-| `NOTIMP`   | `not_implemented`  | Not implemented |
-| `REFUSED`  | `refused`          | Refused         |
+| 值         | 旧 rcode DNS 服务器中的值 | 描述            |
+| ---------- | ------------------------- | --------------- |
+| `NOERROR`  | `success`                 | Ok              |
+| `FORMERR`  | `format_error`            | Bad request     |
+| `SERVFAIL` | `server_failure`          | Server failure  |
+| `NXDOMAIN` | `name_error`              | Not found       |
+| `NOTIMP`   | `not_implemented`         | Not implemented |
+| `REFUSED`  | `refused`                 | Refused         |
 
 默认使用 `NOERROR`。
 
@@ -129,11 +129,11 @@ icon: material/new-box
 
 例子:
 
-| 记录类型   | 例子                            |
-|--------|-------------------------------|
-| `A`    | `localhost. IN A 127.0.0.1`   |
-| `AAAA` | `localhost. IN AAAA ::1`      |
-| `TXT`  | `localhost. IN TXT \"Hello\"` |
+| 记录类型 | 例子                          |
+| -------- | ----------------------------- |
+| `A`      | `localhost. IN A 127.0.0.1`   |
+| `AAAA`   | `localhost. IN AAAA ::1`      |
+| `TXT`    | `localhost. IN TXT \"Hello\"` |
 
 #### ns
 

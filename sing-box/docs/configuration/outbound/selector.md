@@ -4,12 +4,8 @@
 {
   "type": "selector",
   "tag": "select",
-  
-  "outbounds": [
-    "proxy-a",
-    "proxy-b",
-    "proxy-c"
-  ],
+
+  "outbounds": ["proxy-a", "proxy-b", "proxy-c"],
   "default": "proxy-c",
   "interrupt_exist_connections": false
 }

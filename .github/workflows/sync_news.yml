@@ -1,13 +1,10 @@
 name: Sync News
-
 on:
   workflow_dispatch:
   schedule:
     - cron: "0 14 * * *"
-
 permissions:
   contents: write
-
 jobs:
   update-news:
     runs-on: ubuntu-latest
@@ -34,11 +31,6 @@ jobs:
         run: |
           cd 新闻联播
           python main.py
-      - uses: DavidAnson/markdownlint-cli2-action@v22.0.0
-        with:
-          globs: "新闻联播/**/*.md"
-          fix: true
-          config: ".markdownlint.json"
         continue-on-error: true
       - shell: bash
         run: |

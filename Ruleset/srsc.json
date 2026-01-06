@@ -1,0 +1,70 @@
+{
+  "log": {
+    "level": "debug"
+  },
+  "listen": "127.0.0.1",
+  "listen_port": 8080,
+  "endpoints": {
+    "/ruleset/domainset/{name}": {
+      "type": "file",
+      "source": "local",
+      "path": "./dist/Clash/domainset/{name}.txt",
+      "source_type": "clash",
+      "source_format": "text",
+      "source_behavior": "domain",
+      "target_type": "source"
+    },
+    "/ruleset/ip/{name}": {
+      "type": "file",
+      "source": "local",
+      "path": "./dist/Clash/ip/{name}.txt",
+      "source_type": "clash",
+      "source_format": "text",
+      "source_behavior": "classical",
+      "target_type": "source"
+    },
+    "/ruleset/ip/china_ip": {
+      "type": "file",
+      "source": "local",
+      "path": "./dist/Clash/ip/china_ip.txt",
+      "source_type": "clash",
+      "source_format": "text",
+      "source_behavior": "ipcidr",
+      "target_type": "source"
+    },
+    "/ruleset/ip/china_ip_ipv6": {
+      "type": "file",
+      "source": "local",
+      "path": "./dist/Clash/ip/china_ip_ipv6.txt",
+      "source_type": "clash",
+      "source_format": "text",
+      "source_behavior": "ipcidr",
+      "target_type": "source"
+    },
+    "/ruleset/non_ip/{name}": {
+      "type": "file",
+      "source": "local",
+      "path": "./dist/Clash/non_ip/{name}.txt",
+      "source_type": "clash",
+      "source_format": "text",
+      "source_behavior": "classical",
+      "target_type": "source"
+    },
+    "/ruleset/dns/{name}": {
+      "type": "file",
+      "source": "local",
+      "path": "./dist/Internal/mihomo_nameserver_policy/{name}.txt",
+      "source_type": "clash",
+      "source_format": "text",
+      "source_behavior": "classical",
+      "target_type": "source"
+    }
+  },
+  "resources": {
+    "cache_dir": "./cache"
+  },
+  "cache": {
+    "type": "memory",
+    "ttl": "5m"
+  }
+}

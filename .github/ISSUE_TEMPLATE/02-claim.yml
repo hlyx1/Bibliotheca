@@ -10,7 +10,6 @@ body:
         > This form is exclusively for submitting legal claims, including copyright infringement notices under the DMCA or Copyright Law of the People's Republic of China, and trademark/IP disputes. Use for legal purposes only.
         ---
         ### Complainant Information
-
   - type: input
     id: contact_name
     attributes:
@@ -18,7 +17,6 @@ body:
       description: Provide the full name of the individual or entity submitting this claim, or the authorized representative.
     validations:
       required: true
-
   - type: input
     id: contact_organization
     attributes:
@@ -26,7 +24,6 @@ body:
       description: If acting on behalf of an organization, provide its full legal name.
     validations:
       required: false
-
   - type: input
     id: contact_email
     attributes:
@@ -34,7 +31,6 @@ body:
       description: Provide a valid email address actively monitored for official correspondence.
     validations:
       required: true
-
   - type: input
     id: contact_phone
     attributes:
@@ -42,7 +38,6 @@ body:
       description: Provide a daytime telephone number with country and area code.
     validations:
       required: false
-
   - type: textarea
     id: contact_address
     attributes:
@@ -50,7 +45,6 @@ body:
       description: Provide your full mailing address for legal correspondence.
     validations:
       required: true
-
   - type: dropdown
     id: relationship
     attributes:
@@ -64,13 +58,11 @@ body:
         - "Other"
     validations:
       required: true
-
   - type: markdown
     attributes:
       value: |
         ---
         ### Claim Details
-
   - type: textarea
     id: copyrighted_work
     attributes:
@@ -78,7 +70,6 @@ body:
       description: Provide sufficient detail to identify the copyrighted work, trademark, or other protected subject matter. Include registration numbers, authorized URLs, or other identifying information.
     validations:
       required: true
-
   - type: textarea
     id: infringing_material
     attributes:
@@ -86,7 +77,6 @@ body:
       description: Identify the specific infringing content and its precise location, including URLs, file paths, line numbers, or descriptions sufficient for us to locate and evaluate it.
     validations:
       required: true
-
   - type: textarea
     id: legal_basis
     attributes:
@@ -94,13 +84,11 @@ body:
       description: Briefly state the specific legal basis for your claim.
     validations:
       required: false
-
   - type: markdown
     attributes:
       value: |
         ---
         ### Declarations
-
   - type: checkboxes
     id: declarations
     attributes:
@@ -113,7 +101,6 @@ body:
           required: true
         - label: I am the owner or an authorized agent of the owner of the allegedly infringed right.
           required: true
-
   - type: markdown
     attributes:
       value: |

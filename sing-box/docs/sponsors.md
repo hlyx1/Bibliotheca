@@ -6,8 +6,7 @@ icon: material/hand-coin
 
 Do you or your friends use sing-box?
 
-You can help keep the project bug-free and feature rich by sponsoring
-the project maintainer via [GitHub Sponsors](https://github.com/sponsors/nekohasekai).
+You can help keep the project bug-free and feature rich by sponsoring the project maintainer via [GitHub Sponsors](https://github.com/sponsors/nekohasekai).
 
 ![](https://nekohasekai.github.io/sponsor-images/sponsors.svg)
 

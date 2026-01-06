@@ -4,7 +4,7 @@
 {
   "type": "tuic",
   "tag": "tuic-out",
-  
+
   "server": "127.0.0.1",
   "server_port": 1080,
   "uuid": "2DD61D93-75D8-4DA4-AC0E-6AECE7EAC365",
@@ -16,7 +16,7 @@
   "heartbeat": "10s",
   "network": "tcp",
   "tls": {},
-  
+
   ... // 拨号字段
 }
 ```
@@ -57,9 +57,9 @@ QUIC 拥塞控制算法
 
 UDP 包中继模式
 
-| 模式     | 描述                           |
-|--------|------------------------------|
-| native | 原生 UDP                       |
+| 模式   | 描述                                          |
+| ------ | --------------------------------------------- |
+| native | 原生 UDP                                      |
 | quic   | 使用 QUIC 流的无损 UDP 中继，引入了额外的开销 |
 
 与 `udp_over_stream` 冲突。
@@ -74,12 +74,9 @@ UDP 包中继模式
 
 #### zero_rtt_handshake
 
-在客户端启用 0-RTT QUIC 连接握手
-这对性能影响不大，因为协议是完全复用的
+在客户端启用 0-RTT QUIC 连接握手 这对性能影响不大，因为协议是完全复用的
 
-!!! warning ""
-强烈建议禁用此功能，因为它容易受到重放攻击。
-请参阅 [Attack of the clones](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/#attack-of-the-clones)
+!!! warning "" 强烈建议禁用此功能，因为它容易受到重放攻击。 请参阅 [Attack of the clones](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/#attack-of-the-clones)
 
 #### heartbeat
 

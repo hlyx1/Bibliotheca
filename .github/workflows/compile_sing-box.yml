@@ -1,24 +1,26 @@
 name: Compile sing-box
-
 on:
   workflow_run:
     workflows: ["Sync Ruleset"]
     types: [completed]
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: write
-
 env:
-  SING_BOX_VERSION: 1.13.0-alpha.27
   SING_BOX_PACKAGE: linux-amd64
-
 jobs:
   compile:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
       - uses: actions/checkout@v6
+      - id: version
+        shell: bash
+        run: |
+          version=$(curl -sL https://api.github.com/repos/SagerNet/sing-box/releases | jq -r '.[0].tag_name[1:]')
+          echo "version=$version" >> $GITHUB_OUTPUT
       - shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -27,6 +29,9 @@ jobs:
         with:
           python-version: "3.13"
           cache: "pip"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ^1.24
       - shell: bash
         run: |
           python -Im pip install --upgrade pip
@@ -35,12 +40,25 @@ jobs:
         run: |
           workdir="$(mktemp -d)"
           trap 'rm -rf "$workdir"' EXIT
-          archive="sing-box-${SING_BOX_VERSION}-${SING_BOX_PACKAGE}.tar.gz"
-          uri="https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/${archive}"
+          archive="sing-box-${{ steps.version.outputs.version }}-${{ env.SING_BOX_PACKAGE }}.tar.gz"
+          uri="https://github.com/SagerNet/sing-box/releases/download/v${{ steps.version.outputs.version }}/${archive}"
           curl --fail --location --retry 5 --retry-delay 5 --retry-all-errors -o "$workdir/pkg.tgz" "$uri"
           tar -xzf "$workdir/pkg.tgz" -C "$workdir"
-          sudo install -m 0755 "$workdir/sing-box-${SING_BOX_VERSION}-${SING_BOX_PACKAGE}/sing-box" /usr/local/bin/sing-box
+          sudo install -m 0755 "$workdir/sing-box-${{ steps.version.outputs.version }}-${{ env.SING_BOX_PACKAGE }}/sing-box" /usr/local/bin/sing-box
           sing-box version
+      - shell: bash
+        run: |
+          cd Ruleset
+          if [ ! -d "srsc" ]; then
+            git submodule add https://github.com/SagerNet/srsc.git srsc
+          fi
+          git submodule update --init --recursive srsc
+          cd srsc
+          go clean -modcache
+          go get github.com/sagernet/sing-box@v${{ steps.version.outputs.version }}
+          go mod tidy
+          go build -o srsc ./cmd/srsc
+          cd ..
       - shell: bash
         run: |
           cd Ruleset
@@ -59,10 +77,59 @@ jobs:
               sing-box rule-set compile --output "$srs_path/${base}.srs" "$src"
             done < <(find "$json_path" -type f -name '*.json' -print0)
           done
-      - shell: bash
+      - name: Start srsc server
+        shell: bash
         run: |
-          if [[ -n "$(git status --porcelain Ruleset/sing-box/json Ruleset/sing-box/srs)" ]]; then
-            git add Ruleset/sing-box/json Ruleset/sing-box/srs
+          cd Ruleset
+          ./srsc/srsc run -c srsc.json &
+          sleep 5
+          curl -s http://127.0.0.1:8080/ruleset/domainset/alibaba || (exit 1)
+      - name: Compile srsc rules
+        shell: bash
+        run: |
+          cd Ruleset
+          mkdir -p sing-box/srsc/srs/domainset sing-box/srsc/srs/ip sing-box/srsc/srs/non_ip sing-box/srsc/srs/dns
+          for category in domainset non_ip; do
+            for file in dist/Clash/$category/*.txt; do
+              [ -f "$file" ] || continue
+              name="$(basename "$file" .txt)"
+              curl -s "http://127.0.0.1:8080/ruleset/$category/$name/source" > "sing-box/srsc/srs/$category/$name.json"
+              sing-box rule-set compile --output "sing-box/srsc/srs/$category/$name.srs" "sing-box/srsc/srs/$category/$name.json"
+              rm -f "sing-box/srsc/srs/$category/$name.json"
+            done
+          done
+          for file in dist/Clash/ip/*.txt; do
+            [ -f "$file" ] || continue
+            name="$(basename "$file" .txt)"
+            case "$name" in
+              china_ip)
+                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip/source" > "sing-box/srsc/srs/ip/$name.json"
+                ;;
+              china_ip_ipv6)
+                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip_ipv6/source" > "sing-box/srsc/srs/ip/$name.json"
+                ;;
+              *)
+                curl -s "http://127.0.0.1:8080/ruleset/ip/$name/source" > "sing-box/srsc/srs/ip/$name.json"
+                ;;
+            esac
+            sing-box rule-set compile --output "sing-box/srsc/srs/ip/$name.srs" "sing-box/srsc/srs/ip/$name.json"
+            rm -f "sing-box/srsc/srs/ip/$name.json"
+          done
+          for file in dist/Internal/mihomo_nameserver_policy/*.txt; do
+            [ -f "$file" ] || continue
+            name="$(basename "$file" .txt)"
+            curl -s "http://127.0.0.1:8080/ruleset/dns/$name/source" > "sing-box/srsc/srs/dns/$name.json"
+            sing-box rule-set compile --output "sing-box/srsc/srs/dns/$name.srs" "sing-box/srsc/srs/dns/$name.json"
+            rm -f "sing-box/srsc/srs/dns/$name.json"
+          done
+      - name: Stop srsc server
+        shell: bash
+        run: |
+          pkill -f "srsc run" || true
+      - shell: bash
+        run: |-
+          if [[ -n "$(git status --porcelain Ruleset/sing-box/json Ruleset/sing-box/srs Ruleset/sing-box/srsc)" ]]; then
+            git add Ruleset/sing-box/json Ruleset/sing-box/srs Ruleset/sing-box/srsc
             git stash push --keep-index
             git commit -m "feat(ruleset): sing-box bump [$(date -u +%FT%TZ)]"
             git pull --rebase origin main
