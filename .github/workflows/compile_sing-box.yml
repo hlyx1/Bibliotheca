@@ -77,25 +77,23 @@ jobs:
               sing-box rule-set compile --output "$srs_path/${base}.srs" "$src"
             done < <(find "$json_path" -type f -name '*.json' -print0)
           done
-      - name: Start srsc server
-        shell: bash
+      - shell: bash
         run: |
           cd Ruleset
           ./srsc/srsc run -c srsc.json &
           sleep 5
-          curl -s http://127.0.0.1:8080/ruleset/domainset/alibaba || (exit 1)
-      - name: Compile srsc rules
-        shell: bash
+          curl -s http://127.0.0.1:8080/ruleset/domainset/reject/source || (exit 1)
+      - shell: bash
         run: |
           cd Ruleset
-          mkdir -p sing-box/srsc/srs/domainset sing-box/srsc/srs/ip sing-box/srsc/srs/non_ip sing-box/srsc/srs/dns
+          mkdir -p sing-box/srsc/source/domainset sing-box/srsc/source/ip sing-box/srsc/source/non_ip sing-box/srsc/source/dns
+          mkdir -p sing-box/srsc/binary/domainset sing-box/srsc/binary/ip sing-box/srsc/binary/non_ip sing-box/srsc/binary/dns
           for category in domainset non_ip; do
             for file in dist/Clash/$category/*.txt; do
               [ -f "$file" ] || continue
               name="$(basename "$file" .txt)"
-              curl -s "http://127.0.0.1:8080/ruleset/$category/$name/source" > "sing-box/srsc/srs/$category/$name.json"
-              sing-box rule-set compile --output "sing-box/srsc/srs/$category/$name.srs" "sing-box/srsc/srs/$category/$name.json"
-              rm -f "sing-box/srsc/srs/$category/$name.json"
+              curl -s "http://127.0.0.1:8080/ruleset/$category/$name/source" > "sing-box/srsc/source/$category/$name.json"
+              curl -s "http://127.0.0.1:8080/ruleset/$category/$name/binary" > "sing-box/srsc/binary/$category/$name.srs"
             done
           done
           for file in dist/Clash/ip/*.txt; do
@@ -103,33 +101,32 @@ jobs:
             name="$(basename "$file" .txt)"
             case "$name" in
               china_ip)
-                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip/source" > "sing-box/srsc/srs/ip/$name.json"
+                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip/source" > "sing-box/srsc/source/ip/$name.json"
+                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip/binary" > "sing-box/srsc/binary/ip/$name.srs"
                 ;;
               china_ip_ipv6)
-                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip_ipv6/source" > "sing-box/srsc/srs/ip/$name.json"
+                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip_ipv6/source" > "sing-box/srsc/source/ip/$name.json"
+                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip_ipv6/binary" > "sing-box/srsc/binary/ip/$name.srs"
                 ;;
               *)
-                curl -s "http://127.0.0.1:8080/ruleset/ip/$name/source" > "sing-box/srsc/srs/ip/$name.json"
+                curl -s "http://127.0.0.1:8080/ruleset/ip/$name/source" > "sing-box/srsc/source/ip/$name.json"
+                curl -s "http://127.0.0.1:8080/ruleset/ip/$name/binary" > "sing-box/srsc/binary/ip/$name.srs"
                 ;;
             esac
-            sing-box rule-set compile --output "sing-box/srsc/srs/ip/$name.srs" "sing-box/srsc/srs/ip/$name.json"
-            rm -f "sing-box/srsc/srs/ip/$name.json"
           done
           for file in dist/Internal/mihomo_nameserver_policy/*.txt; do
             [ -f "$file" ] || continue
             name="$(basename "$file" .txt)"
-            curl -s "http://127.0.0.1:8080/ruleset/dns/$name/source" > "sing-box/srsc/srs/dns/$name.json"
-            sing-box rule-set compile --output "sing-box/srsc/srs/dns/$name.srs" "sing-box/srsc/srs/dns/$name.json"
-            rm -f "sing-box/srsc/srs/dns/$name.json"
+            curl -s "http://127.0.0.1:8080/ruleset/dns/$name/source" > "sing-box/srsc/source/dns/$name.json"
+            curl -s "http://127.0.0.1:8080/ruleset/dns/$name/binary" > "sing-box/srsc/binary/dns/$name.srs"
           done
-      - name: Stop srsc server
-        shell: bash
+      - shell: bash
         run: |
           pkill -f "srsc run" || true
       - shell: bash
         run: |-
-          if [[ -n "$(git status --porcelain Ruleset/sing-box/json Ruleset/sing-box/srs Ruleset/sing-box/srsc)" ]]; then
-            git add Ruleset/sing-box/json Ruleset/sing-box/srs Ruleset/sing-box/srsc
+          if [[ -n "$(git status --porcelain Ruleset/sing-box)" ]]; then
+            git add Ruleset/sing-box
             git stash push --keep-index
             git commit -m "feat(ruleset): sing-box bump [$(date -u +%FT%TZ)]"
             git pull --rebase origin main
