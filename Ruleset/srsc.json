@@ -61,10 +61,5 @@
     }
   },
   "resources": {
-    "cache_dir": "./cache"
-  },
-  "cache": {
-    "type": "memory",
-    "ttl": "5m"
   }
 }
