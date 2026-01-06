@@ -86,8 +86,6 @@ jobs:
       - shell: bash
         run: |
           cd Ruleset
-          jq_filter='if .rules then .rules |= map(if .domain_suffix then .domain_suffix |= map(select(. | IN("th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe", "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe") | not)) elif .domain then .domain |= map(select(. | IN("th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe", "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe") | not)) elif .ip_cidr then .ip_cidr |= map(select(. | IN("th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe", "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe") | not)) else . end) else . end'
-          
           mkdir -p sing-box/srsc/{source,binary}/{domainset,ip,non_ip,dns}
           
           for category in domainset non_ip; do
@@ -95,7 +93,7 @@ jobs:
               [ -f "$file" ] || continue
               name="$(basename "$file" .txt | sed 's/_/-/g')"
               api_name="$(echo "$name" | sed 's/-/_/g')"
-              curl -s "http://127.0.0.1:8080/ruleset/$category/$api_name/source" | jq "$jq_filter" > "sing-box/srsc/source/$category/$name.$category.json"
+              curl -s "http://127.0.0.1:8080/ruleset/$category/$api_name/source" > "sing-box/srsc/source/$category/$name.$category.json"
               curl -s "http://127.0.0.1:8080/ruleset/$category/$api_name/binary" > "sing-box/srsc/binary/$category/$name.$category.srs"
             done
           done
@@ -109,7 +107,7 @@ jobs:
               china-ip-ipv6) api_path="china_ip_ipv6" ;;
               *) api_path="$api_name" ;;
             esac
-            curl -s "http://127.0.0.1:8080/ruleset/ip/$api_path/source" | jq "$jq_filter" > "sing-box/srsc/source/ip/$name.ip.json"
+            curl -s "http://127.0.0.1:8080/ruleset/ip/$api_path/source" > "sing-box/srsc/source/ip/$name.ip.json"
             curl -s "http://127.0.0.1:8080/ruleset/ip/$api_path/binary" > "sing-box/srsc/binary/ip/$name.ip.srs"
           done
           
@@ -117,7 +115,7 @@ jobs:
             [ -f "$file" ] || continue
             name="$(basename "$file" .txt | sed 's/_/-/g')"
             api_name="$(echo "$name" | sed 's/-/_/g')"
-            curl -s "http://127.0.0.1:8080/ruleset/dns/$api_name/source" | jq "$jq_filter" > "sing-box/srsc/source/dns/$name.dns.json"
+            curl -s "http://127.0.0.1:8080/ruleset/dns/$api_name/source" > "sing-box/srsc/source/dns/$name.dns.json"
             curl -s "http://127.0.0.1:8080/ruleset/dns/$api_name/binary" > "sing-box/srsc/binary/dns/$name.dns.srs"
           done
       - shell: bash
