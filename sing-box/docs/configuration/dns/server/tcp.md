@@ -15,9 +15,10 @@ icon: material/new-box
       {
         "type": "tcp",
         "tag": "",
-
+        
         "server": "",
-        "server_port": 53
+        "server_port": 53,
+        
         // Dial Fields
       }
     ]

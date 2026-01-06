@@ -4,7 +4,7 @@ icon: material/new-box
 
 !!! quote "sing-box 1.12.0 中的更改"
 
-    :material-plus: [server_ports](#server_ports)
+    :material-plus: [server_ports](#server_ports)  
     :material-plus: [hop_interval](#hop_interval)
 
 ### 结构
@@ -13,7 +13,7 @@ icon: material/new-box
 {
   "type": "hysteria",
   "tag": "hysteria-out",
-
+  
   "server": "127.0.0.1",
   "server_port": 1080,
   "server_ports": [
@@ -32,7 +32,7 @@ icon: material/new-box
   "disable_mtu_discovery": false,
   "network": "tcp",
   "tls": {},
-
+  
   ... // 拨号字段
 }
 ```
@@ -135,6 +135,7 @@ base64 编码的认证密码。
 ==必填==
 
 TLS 配置, 参阅 [TLS](/zh/configuration/shared/tls/#outbound)。
+
 
 ### 拨号字段
 

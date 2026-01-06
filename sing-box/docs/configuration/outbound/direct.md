@@ -4,7 +4,7 @@ icon: material/alert-decagram
 
 !!! quote "Changes in sing-box 1.11.0"
 
-    :material-delete-clock: [override_address](#override_address)
+    :material-delete-clock: [override_address](#override_address)  
     :material-delete-clock: [override_port](#override_port)
 
 `direct` outbound send requests directly.
@@ -15,10 +15,10 @@ icon: material/alert-decagram
 {
   "type": "direct",
   "tag": "direct-out",
-
+  
   "override_address": "1.0.0.1",
   "override_port": 53,
-
+  
   ... // Dial Fields
 }
 ```

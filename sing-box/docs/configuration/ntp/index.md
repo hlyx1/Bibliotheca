@@ -2,7 +2,8 @@
 
 Built-in NTP client service.
 
-If enabled, it will provide time for protocols like TLS/Shadowsocks/VMess, which is useful for environments where time synchronization is not possible.
+If enabled, it will provide time for protocols like TLS/Shadowsocks/VMess, which is useful for environments where time
+synchronization is not possible.
 
 ### Structure
 
@@ -13,10 +14,11 @@ If enabled, it will provide time for protocols like TLS/Shadowsocks/VMess, which
     "server": "time.apple.com",
     "server_port": 123,
     "interval": "30m",
-
+    
     ... // Dial Fields
   }
 }
+
 ```
 
 ### Fields

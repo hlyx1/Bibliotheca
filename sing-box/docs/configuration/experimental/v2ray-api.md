@@ -9,9 +9,16 @@
   "listen": "127.0.0.1:8080",
   "stats": {
     "enabled": true,
-    "inbounds": ["socks-in"],
-    "outbounds": ["proxy", "direct"],
-    "users": ["sekai"]
+    "inbounds": [
+      "socks-in"
+    ],
+    "outbounds": [
+      "proxy",
+      "direct"
+    ],
+    "users": [
+      "sekai"
+    ]
   }
 }
 ```

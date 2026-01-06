@@ -4,7 +4,7 @@ icon: material/alert-decagram
 
 !!! quote "sing-box 1.11.0 中的更改"
 
-    :material-alert: [masquerade](#masquerade)
+    :material-alert: [masquerade](#masquerade)  
     :material-alert: [ignore_client_bandwidth](#ignore_client_bandwidth)
 
 ### 结构
@@ -13,7 +13,7 @@ icon: material/alert-decagram
 {
   "type": "hysteria2",
   "tag": "hy2-in",
-
+  
   ... // 监听字段
 
   "up_mbps": 100,
@@ -73,11 +73,11 @@ Hysteria 用户
 
 #### ignore_client_bandwidth
 
-_当 `up_mbps` 和 `down_mbps` 未设定时_:
+*当 `up_mbps` 和 `down_mbps` 未设定时*:
 
 命令客户端使用 BBR 拥塞控制算法而不是 Hysteria CC。
 
-_当 `up_mbps` 和 `down_mbps` 已设定时_:
+*当 `up_mbps` 和 `down_mbps` 已设定时*:
 
 禁止客户端使用 BBR 拥塞控制算法。
 
@@ -91,10 +91,10 @@ TLS 配置, 参阅 [TLS](/zh/configuration/shared/tls/#inbound)。
 
 HTTP3 服务器认证失败时的行为 （URL 字符串配置）。
 
-| Scheme       | 示例                    | 描述           |
-| ------------ | ----------------------- | -------------- |
+| Scheme       | 示例                      | 描述      |
+|--------------|-------------------------|---------|
 | `file`       | `file:///var/www`       | 作为文件服务器 |
-| `http/https` | `http://127.0.0.1:8080` | 作为反向代理   |
+| `http/https` | `http://127.0.0.1:8080` | 作为反向代理  |
 
 如果 masquerade 未配置，则返回 404 页。
 
@@ -104,11 +104,11 @@ HTTP3 服务器认证失败时的行为 （URL 字符串配置）。
 
 HTTP3 服务器认证失败时的行为 （对象配置）。
 
-| Type     | 描述           | 字段                                |
-| -------- | -------------- | ----------------------------------- |
+| Type     | 描述      | 字段                                  |
+|----------|---------|-------------------------------------|
 | `file`   | 作为文件服务器 | `directory`                         |
-| `proxy`  | 作为反向代理   | `url`, `rewrite_host`               |
-| `string` | 返回固定响应   | `status_code`, `headers`, `content` |
+| `proxy`  | 作为反向代理  | `url`, `rewrite_host`               |
+| `string` | 返回固定响应  | `status_code`, `headers`, `content` |
 
 如果 masquerade 未配置，则返回 404 页。
 

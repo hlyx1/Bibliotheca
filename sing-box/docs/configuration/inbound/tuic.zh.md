@@ -58,9 +58,12 @@ QUIC 拥塞控制算法
 
 #### zero_rtt_handshake
 
-在客户端启用 0-RTT QUIC 连接握手 这对性能影响不大，因为协议是完全复用的
+在客户端启用 0-RTT QUIC 连接握手
+这对性能影响不大，因为协议是完全复用的
 
-!!! warning "" 强烈建议禁用此功能，因为它容易受到重放攻击。 请参阅 [Attack of the clones](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/#attack-of-the-clones)
+!!! warning ""
+强烈建议禁用此功能，因为它容易受到重放攻击。
+请参阅 [Attack of the clones](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/#attack-of-the-clones)
 
 #### heartbeat
 

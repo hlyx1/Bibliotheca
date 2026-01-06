@@ -20,7 +20,7 @@ An endpoint is a protocol with inbound and outbound behavior.
 ### Fields
 
 | Type        | Format                    |
-| ----------- | ------------------------- |
+|-------------|---------------------------|
 | `wireguard` | [WireGuard](./wireguard/) |
 | `tailscale` | [Tailscale](./tailscale/) |
 

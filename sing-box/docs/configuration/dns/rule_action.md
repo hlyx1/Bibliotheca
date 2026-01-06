@@ -4,7 +4,7 @@ icon: material/new-box
 
 !!! quote "Changes in sing-box 1.12.0"
 
-    :material-plus: [strategy](#strategy)
+    :material-plus: [strategy](#strategy)  
     :material-plus: [predefined](#predefined)
 
 !!! question "Since sing-box 1.11.0"
@@ -13,7 +13,7 @@ icon: material/new-box
 
 ```json
 {
-  "action": "route", // default
+  "action": "route",  // default
   "server": "",
   "strategy": "",
   "disable_cache": false,
@@ -113,7 +113,7 @@ Not available when `method` is set to drop.
 The response code.
 
 | Value      | Value in the legacy rcode server | Description     |
-| ---------- | -------------------------------- | --------------- |
+|------------|----------------------------------|-----------------|
 | `NOERROR`  | `success`                        | Ok              |
 | `FORMERR`  | `format_error`                   | Bad request     |
 | `SERVFAIL` | `server_failure`                 | Server failure  |
@@ -130,7 +130,7 @@ List of text DNS record to respond as answers.
 Examples:
 
 | Record Type | Example                       |
-| ----------- | ----------------------------- |
+|-------------|-------------------------------|
 | `A`         | `localhost. IN A 127.0.0.1`   |
 | `AAAA`      | `localhost. IN AAAA ::1`      |
 | `TXT`       | `localhost. IN TXT \"Hello\"` |

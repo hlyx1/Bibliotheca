@@ -4,22 +4,22 @@ icon: material/new-box
 
 !!! quote "sing-box 1.13.0 中的更改"
 
-    :material-plus: [disable_tcp_keep_alive](#disable_tcp_keep_alive)
+    :material-plus: [disable_tcp_keep_alive](#disable_tcp_keep_alive)  
     :material-alert: [tcp_keep_alive](#tcp_keep_alive)
 
 !!! quote "sing-box 1.12.0 中的更改"
 
-    :material-plus: [netns](#netns)
-    :material-plus: [bind_interface](#bind_interface)
-    :material-plus: [routing_mark](#routing_mark)
+    :material-plus: [netns](#netns)  
+    :material-plus: [bind_interface](#bind_interface)  
+    :material-plus: [routing_mark](#routing_mark)  
     :material-plus: [reuse_addr](#reuse_addr)
 
 !!! quote "sing-box 1.11.0 中的更改"
 
-    :material-delete-clock: [sniff](#sniff)
-    :material-delete-clock: [sniff_override_destination](#sniff_override_destination)
-    :material-delete-clock: [sniff_timeout](#sniff_timeout)
-    :material-delete-clock: [domain_strategy](#domain_strategy)
+    :material-delete-clock: [sniff](#sniff)  
+    :material-delete-clock: [sniff_override_destination](#sniff_override_destination)  
+    :material-delete-clock: [sniff_timeout](#sniff_timeout)  
+    :material-delete-clock: [domain_strategy](#domain_strategy)  
     :material-delete-clock: [udp_disable_domain_unmapping](#udp_disable_domain_unmapping)
 
 ### 结构
@@ -42,7 +42,7 @@ icon: material/new-box
   "detour": "",
 
   // 废弃的
-
+  
   "sniff": false,
   "sniff_override_destination": false,
   "sniff_timeout": "",

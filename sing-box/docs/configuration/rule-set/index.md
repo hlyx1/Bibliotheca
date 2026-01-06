@@ -34,7 +34,7 @@
 === "Remote File"
 
     !!! info ""
-
+    
         Remote rule-set will be cached if `experimental.cache_file.enabled`.
 
     ```json

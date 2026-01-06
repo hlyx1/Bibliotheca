@@ -6,21 +6,21 @@ icon: material/alert-decagram
 
 !!! quote "sing-box 1.12.0 中的更改"
 
-    :material-plus: [default_domain_resolver](#default_domain_resolver)
-    :material-note-remove: [geoip](#geoip)
+    :material-plus: [default_domain_resolver](#default_domain_resolver)  
+    :material-note-remove: [geoip](#geoip)  
     :material-note-remove: [geosite](#geosite)
 
 !!! quote "sing-box 1.11.0 中的更改"
 
-    :material-plus: [network_strategy](#network_strategy)
-    :material-plus: [default_network_type](#default_network_type)
-    :material-plus: [default_fallback_network_type](#default_fallback_network_type)
+    :material-plus: [network_strategy](#network_strategy)  
+    :material-plus: [default_network_type](#default_network_type)  
+    :material-plus: [default_fallback_network_type](#default_fallback_network_type)  
     :material-plus: [default_fallback_delay](#default_fallback_delay)
 
 !!! quote "sing-box 1.8.0 中的更改"
 
-    :material-plus: [rule_set](#rule_set)
-    :material-delete-clock: [geoip](#geoip)
+    :material-plus: [rule_set](#rule_set)  
+    :material-delete-clock: [geoip](#geoip)  
     :material-delete-clock: [geosite](#geosite)
 
 ### 结构
@@ -49,14 +49,14 @@ icon: material/alert-decagram
 
 ### 字段
 
-| 键        | 格式                  |
-| --------- | --------------------- |
+| 键         | 格式                    |
+|-----------|-----------------------|
 | `geoip`   | [GeoIP](./geoip/)     |
 | `geosite` | [Geosite](./geosite/) |
 
 #### rule
 
-一组 [路由规则](./rule/) 。
+一组 [路由规则](./rule/)    。
 
 #### rule_set
 

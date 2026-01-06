@@ -22,7 +22,7 @@ sing-box uses JSON for configuration files.
 ### Fields
 
 | Key            | Format                          |
-| -------------- | ------------------------------- |
+|----------------|---------------------------------|
 | `log`          | [Log](./log/)                   |
 | `dns`          | [DNS](./dns/)                   |
 | `ntp`          | [NTP](./ntp/)                   |

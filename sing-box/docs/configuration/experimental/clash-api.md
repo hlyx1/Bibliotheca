@@ -1,14 +1,14 @@
 !!! quote "Changes in sing-box 1.10.0"
 
-    :material-plus: [access_control_allow_origin](#access_control_allow_origin)
+    :material-plus: [access_control_allow_origin](#access_control_allow_origin)  
     :material-plus: [access_control_allow_private_network](#access_control_allow_private_network)
 
 !!! quote "Changes in sing-box 1.8.0"
 
-    :material-delete-alert: [store_mode](#store_mode)
-    :material-delete-alert: [store_selected](#store_selected)
-    :material-delete-alert: [store_fakeip](#store_fakeip)
-    :material-delete-alert: [cache_file](#cache_file)
+    :material-delete-alert: [store_mode](#store_mode)  
+    :material-delete-alert: [store_selected](#store_selected)  
+    :material-delete-alert: [store_fakeip](#store_fakeip)  
+    :material-delete-alert: [cache_file](#cache_file)  
     :material-delete-alert: [cache_id](#cache_id)
 
 ### Structure
@@ -25,9 +25,9 @@
       "default_mode": "",
       "access_control_allow_origin": [],
       "access_control_allow_private_network": false,
-
+      
       // Deprecated
-
+      
       "store_mode": false,
       "store_selected": false,
       "store_fakeip": false,
@@ -75,7 +75,9 @@ RESTful web API listening address. Clash API will be disabled if empty.
 
 #### external_ui
 
-A relative path to the configuration directory or an absolute path to a directory in which you put some static web resource. sing-box will then serve it at `http://{{external-controller}}/ui`.
+A relative path to the configuration directory or an absolute path to a
+directory in which you put some static web resource. sing-box will then
+serve it at `http://{{external-controller}}/ui`.
 
 #### external_ui_download_url
 
@@ -91,7 +93,9 @@ Default outbound will be used if empty.
 
 #### secret
 
-Secret for the RESTful API (optional) Authenticate by spedifying HTTP header `Authorization: Bearer ${secret}` ALWAYS set a secret if RESTful API is listening on 0.0.0.0
+Secret for the RESTful API (optional)
+Authenticate by spedifying HTTP header `Authorization: Bearer ${secret}`
+ALWAYS set a secret if RESTful API is listening on 0.0.0.0
 
 #### default_mode
 

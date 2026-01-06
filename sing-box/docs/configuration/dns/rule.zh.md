@@ -4,46 +4,46 @@ icon: material/alert-decagram
 
 !!! quote "sing-box 1.13.0 中的更改"
 
-    :material-plus: [interface_address](#interface_address)
-    :material-plus: [network_interface_address](#network_interface_address)
+    :material-plus: [interface_address](#interface_address)  
+    :material-plus: [network_interface_address](#network_interface_address)  
     :material-plus: [default_interface_address](#default_interface_address)
 
 !!! quote "sing-box 1.12.0 中的更改"
 
-    :material-plus: [ip_accept_any](#ip_accept_any)
+    :material-plus: [ip_accept_any](#ip_accept_any)  
     :material-delete-clock: [outbound](#outbound)
 
 !!! quote "sing-box 1.11.0 中的更改"
 
-    :material-plus: [action](#action)
-    :material-alert: [server](#server)
-    :material-alert: [disable_cache](#disable_cache)
-    :material-alert: [rewrite_ttl](#rewrite_ttl)
-    :material-alert: [client_subnet](#client_subnet)
-    :material-plus: [network_type](#network_type)
-    :material-plus: [network_is_expensive](#network_is_expensive)
+    :material-plus: [action](#action)  
+    :material-alert: [server](#server)  
+    :material-alert: [disable_cache](#disable_cache)  
+    :material-alert: [rewrite_ttl](#rewrite_ttl)  
+    :material-alert: [client_subnet](#client_subnet)  
+    :material-plus: [network_type](#network_type)  
+    :material-plus: [network_is_expensive](#network_is_expensive)  
     :material-plus: [network_is_constrained](#network_is_constrained)
 
 !!! quote "sing-box 1.10.0 中的更改"
 
-    :material-delete-clock: [rule_set_ipcidr_match_source](#rule_set_ipcidr_match_source)
-    :material-plus: [rule_set_ip_cidr_match_source](#rule_set_ip_cidr_match_source)
-    :material-plus: [rule_set_ip_cidr_accept_empty](#rule_set_ip_cidr_accept_empty)
+    :material-delete-clock: [rule_set_ipcidr_match_source](#rule_set_ipcidr_match_source)  
+    :material-plus: [rule_set_ip_cidr_match_source](#rule_set_ip_cidr_match_source)  
+    :material-plus: [rule_set_ip_cidr_accept_empty](#rule_set_ip_cidr_accept_empty)  
     :material-plus: [process_path_regex](#process_path_regex)
 
 !!! quote "sing-box 1.9.0 中的更改"
 
-    :material-plus: [geoip](#geoip)
-    :material-plus: [ip_cidr](#ip_cidr)
-    :material-plus: [ip_is_private](#ip_is_private)
-    :material-plus: [client_subnet](#client_subnet)
+    :material-plus: [geoip](#geoip)  
+    :material-plus: [ip_cidr](#ip_cidr)  
+    :material-plus: [ip_is_private](#ip_is_private)  
+    :material-plus: [client_subnet](#client_subnet)  
     :material-plus: [rule_set_ipcidr_match_source](#rule_set_ipcidr_match_source)
 
 !!! quote "sing-box 1.8.0 中的更改"
 
-    :material-plus: [rule_set](#rule_set)
-    :material-plus: [source_ip_is_private](#source_ip_is_private)
-    :material-delete-clock: [geoip](#geoip)
+    :material-plus: [rule_set](#rule_set)  
+    :material-plus: [source_ip_is_private](#source_ip_is_private)  
+    :material-delete-clock: [geoip](#geoip)  
     :material-delete-clock: [geosite](#geosite)
 
 ### 结构
@@ -53,57 +53,132 @@ icon: material/alert-decagram
   "dns": {
     "rules": [
       {
-        "inbound": ["mixed-in"],
+        "inbound": [
+          "mixed-in"
+        ],
         "ip_version": 6,
-        "query_type": ["A", "HTTPS", 32768],
+        "query_type": [
+          "A",
+          "HTTPS",
+          32768
+        ],
         "network": "tcp",
-        "auth_user": ["usera", "userb"],
-        "protocol": ["tls", "http", "quic"],
-        "domain": ["test.com"],
-        "domain_suffix": [".cn"],
-        "domain_keyword": ["test"],
-        "domain_regex": ["^stun\\..+"],
-        "source_ip_cidr": ["10.0.0.0/24", "192.168.0.1"],
+        "auth_user": [
+          "usera",
+          "userb"
+        ],
+        "protocol": [
+          "tls",
+          "http",
+          "quic"
+        ],
+        "domain": [
+          "test.com"
+        ],
+        "domain_suffix": [
+          ".cn"
+        ],
+        "domain_keyword": [
+          "test"
+        ],
+        "domain_regex": [
+          "^stun\\..+"
+        ],
+        "source_ip_cidr": [
+          "10.0.0.0/24",
+          "192.168.0.1"
+        ],
         "source_ip_is_private": false,
-        "ip_cidr": ["10.0.0.0/24", "192.168.0.1"],
+        "ip_cidr": [
+          "10.0.0.0/24",
+          "192.168.0.1"
+        ],
         "ip_is_private": false,
         "ip_accept_any": false,
-        "source_port": [12345],
-        "source_port_range": ["1000:2000", ":3000", "4000:"],
-        "port": [80, 443],
-        "port_range": ["1000:2000", ":3000", "4000:"],
-        "process_name": ["curl"],
-        "process_path": ["/usr/bin/curl"],
-        "process_path_regex": ["^/usr/bin/.+"],
-        "package_name": ["com.termux"],
-        "user": ["sekai"],
-        "user_id": [1000],
+        "source_port": [
+          12345
+        ],
+        "source_port_range": [
+          "1000:2000",
+          ":3000",
+          "4000:"
+        ],
+        "port": [
+          80,
+          443
+        ],
+        "port_range": [
+          "1000:2000",
+          ":3000",
+          "4000:"
+        ],
+        "process_name": [
+          "curl"
+        ],
+        "process_path": [
+          "/usr/bin/curl"
+        ],
+        "process_path_regex": [
+          "^/usr/bin/.+"
+        ],
+        "package_name": [
+          "com.termux"
+        ],
+        "user": [
+          "sekai"
+        ],
+        "user_id": [
+          1000
+        ],
         "clash_mode": "direct",
-        "network_type": ["wifi"],
+        "network_type": [
+          "wifi"
+        ],
         "network_is_expensive": false,
         "network_is_constrained": false,
         "interface_address": {
-          "en0": ["2000::/3"]
+          "en0": [
+            "2000::/3"
+          ]
         },
         "network_interface_address": {
-          "wifi": ["2000::/3"]
+          "wifi": [
+            "2000::/3"
+          ]
         },
-        "default_interface_address": ["2000::/3"],
-        "wifi_ssid": ["My WIFI"],
-        "wifi_bssid": ["00:00:00:00:00:00"],
-        "rule_set": ["geoip-cn", "geosite-cn"],
+        "default_interface_address": [
+          "2000::/3"
+        ],
+        "wifi_ssid": [
+          "My WIFI"
+        ],
+        "wifi_bssid": [
+          "00:00:00:00:00:00"
+        ],
+        "rule_set": [
+          "geoip-cn",
+          "geosite-cn"
+        ],
         "rule_set_ip_cidr_match_source": false,
         "rule_set_ip_cidr_accept_empty": false,
         "invert": false,
-        "outbound": ["direct"],
+        "outbound": [
+          "direct"
+        ],
         "action": "route",
         "server": "local",
 
         // 已弃用
         "rule_set_ipcidr_match_source": false,
-        "geosite": ["cn"],
-        "source_geoip": ["private"],
-        "geoip": ["cn"]
+        "geosite": [
+          "cn"
+        ],
+        "source_geoip": [
+          "private"
+        ],
+        "geoip": [
+          "cn"
+        ]
       },
       {
         "type": "logical",
@@ -115,6 +190,7 @@ icon: material/alert-decagram
     ]
   }
 }
+
 ```
 
 !!! note ""
@@ -125,11 +201,11 @@ icon: material/alert-decagram
 
 !!! note ""
 
-    默认规则使用以下匹配逻辑:
-    (`domain` || `domain_suffix` || `domain_keyword` || `domain_regex` || `geosite`) &&
-    (`port` || `port_range`) &&
-    (`source_geoip` || `source_ip_cidr` || `source_ip_is_private`) &&
-    (`source_port` || `source_port_range`) &&
+    默认规则使用以下匹配逻辑:  
+    (`domain` || `domain_suffix` || `domain_keyword` || `domain_regex` || `geosite`) &&  
+    (`port` || `port_range`) &&  
+    (`source_geoip` || `source_ip_cidr` || `source_ip_is_private`) &&  
+    (`source_port` || `source_port_range`) &&  
     `other fields`
 
     另外，引用的规则集可视为被合并，而不是作为一个单独的规则子项。
@@ -288,7 +364,8 @@ Available values: `wifi`, `cellular`, `ethernet` and `other`.
 
     仅在 Android 与 Apple 平台图形客户端中支持。
 
-匹配如果网络被视为计费 (在 Android) 或被视为昂贵， 像蜂窝网络或个人热点 (在 Apple 平台)。
+匹配如果网络被视为计费 (在 Android) 或被视为昂贵，
+像蜂窝网络或个人热点 (在 Apple 平台)。
 
 #### network_is_constrained
 
@@ -429,6 +506,7 @@ Available values: `wifi`, `cellular`, `ethernet` and `other`.
 !!! failure "已在 sing-box 1.12.0 中被移除"
 
     GeoIP 已在 sing-box 1.8.0 废弃且在 sing-box 1.12.0 中被移除，参阅 [迁移指南](/zh/migration/#geoip)。
+
 
 与查询响应匹配 GeoIP。
 

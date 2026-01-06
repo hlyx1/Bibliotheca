@@ -6,7 +6,7 @@
 {
   "type": "http",
   "tag": "http-out",
-
+  
   "server": "127.0.0.1",
   "server_port": 1080,
   "username": "sekai",

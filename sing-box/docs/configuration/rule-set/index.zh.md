@@ -34,7 +34,7 @@
 === "远程文件"
 
     !!! info ""
-
+    
         远程规则集将被缓存如果 `experimental.cache_file.enabled` 已启用。
 
     ```json

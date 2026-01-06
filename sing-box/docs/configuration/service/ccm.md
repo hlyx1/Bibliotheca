@@ -38,7 +38,6 @@ See [Listen Fields](/configuration/shared/listen/) for details.
 Path to the Claude Code OAuth credentials file.
 
 If not specified, defaults to:
-
 - `$CLAUDE_CONFIG_DIR/.credentials.json` if `CLAUDE_CONFIG_DIR` environment variable is set
 - `~/.claude/.credentials.json` otherwise
 
@@ -53,7 +52,6 @@ Path to the file for storing aggregated API usage statistics.
 Usage tracking is disabled if not specified.
 
 When enabled, the service tracks and saves comprehensive statistics including:
-
 - Request counts
 - Token usage (input, output, cache read, cache creation)
 - Calculated costs in USD based on Claude API pricing

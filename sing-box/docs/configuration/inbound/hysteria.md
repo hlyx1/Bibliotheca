@@ -4,7 +4,7 @@
 {
   "type": "hysteria",
   "tag": "hysteria-in",
-
+  
   ... // Listen Fields
 
   "up": "100 Mbps",
@@ -20,7 +20,7 @@
       "auth_str": "password"
     }
   ],
-
+  
   "recv_window_conn": 0,
   "recv_window_client": 0,
   "max_conn_client": 0,

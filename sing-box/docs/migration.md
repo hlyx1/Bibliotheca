@@ -16,7 +16,7 @@ DNS servers are refactored for better performance and scalability.
 === "Local"
 
     === ":material-card-remove: Deprecated"
-
+        
         ```json
         {
           "dns": {
@@ -28,9 +28,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -46,7 +46,7 @@ DNS servers are refactored for better performance and scalability.
 === "TCP"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "dns": {
@@ -58,9 +58,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -77,7 +77,7 @@ DNS servers are refactored for better performance and scalability.
 === "UDP"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "dns": {
@@ -89,9 +89,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -108,7 +108,7 @@ DNS servers are refactored for better performance and scalability.
 === "TLS"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "dns": {
@@ -120,9 +120,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -139,7 +139,7 @@ DNS servers are refactored for better performance and scalability.
 === "HTTPS"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "dns": {
@@ -151,9 +151,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -170,7 +170,7 @@ DNS servers are refactored for better performance and scalability.
 === "QUIC"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "dns": {
@@ -182,9 +182,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -201,7 +201,7 @@ DNS servers are refactored for better performance and scalability.
 === "HTTP3"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "dns": {
@@ -213,9 +213,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -232,7 +232,7 @@ DNS servers are refactored for better performance and scalability.
 === "DHCP"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "dns": {
@@ -247,9 +247,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -269,7 +269,7 @@ DNS servers are refactored for better performance and scalability.
 === "FakeIP"
 
     === ":material-card-remove: Deprecated"
-
+        
         ```json
         {
           "dns": {
@@ -299,9 +299,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -333,7 +333,7 @@ DNS servers are refactored for better performance and scalability.
 === "RCode"
 
     === ":material-card-remove: Deprecated"
-
+        
         ```json
         {
           "dns": {
@@ -345,9 +345,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+        
         ```json
         {
           "dns": {
@@ -357,7 +357,7 @@ DNS servers are refactored for better performance and scalability.
                   "example.com"
                 ],
                 // other rules
-
+                
                 "action": "predefined",
                 "rcode": "REFUSED"
               }
@@ -369,7 +369,7 @@ DNS servers are refactored for better performance and scalability.
 === "Servers with domain address"
 
     === ":material-card-remove: Deprecated"
-
+        
         ```json
         {
           "dns": {
@@ -386,9 +386,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -411,7 +411,7 @@ DNS servers are refactored for better performance and scalability.
 === "Servers with strategy"
 
     === ":material-card-remove: Deprecated"
-
+            
         ```json
         {
           "dns": {
@@ -435,9 +435,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -467,7 +467,7 @@ DNS servers are refactored for better performance and scalability.
 === "Servers with client subnet"
 
     === ":material-card-remove: Deprecated"
-
+        
         ```json
         {
           "dns": {
@@ -484,9 +484,9 @@ DNS servers are refactored for better performance and scalability.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "dns": {
@@ -575,9 +575,9 @@ The legacy outbound DNS rules are deprecated and can be replaced by new domain r
           // or "domain_resolver": "local",
         }
       ],
-
+      
       // or
-
+    
       "route": {
         "default_domain_resolver": {
           "server": "local",
@@ -596,7 +596,8 @@ The legacy outbound DNS rules are deprecated and can be replaced by new domain r
 
 The `domain_strategy` option in Dial Fields has been deprecated and can be replaced with the new domain resolver option.
 
-Note that due to the use of Dial Fields by some of the new DNS servers introduced in sing-box 1.12, some people mistakenly believe that `domain_strategy` is the same feature as in the legacy DNS servers.
+Note that due to the use of Dial Fields by some of the new DNS servers introduced in sing-box 1.12,
+some people mistakenly believe that `domain_strategy` is the same feature as in the legacy DNS servers.
 
 === ":material-card-remove: Deprecated"
 
@@ -647,14 +648,14 @@ Legacy special outbounds are deprecated and can be replaced by rule actions.
 
 !!! info "References"
 
-    [Rule Action](/configuration/route/rule_action/) /
-    [Block](/configuration/outbound/block/) /
+    [Rule Action](/configuration/route/rule_action/) / 
+    [Block](/configuration/outbound/block/) / 
     [DNS](/configuration/outbound/dns)
 
 === "Block"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "outbounds": [
@@ -667,7 +668,7 @@ Legacy special outbounds are deprecated and can be replaced by rule actions.
             "rules": [
               {
                 ...,
-
+                
                 "outbound": "block"
               }
             ]
@@ -676,14 +677,14 @@ Legacy special outbounds are deprecated and can be replaced by rule actions.
         ```
 
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "route": {
             "rules": [
               {
                 ...,
-
+                
                 "action": "reject"
               }
             ]
@@ -694,13 +695,13 @@ Legacy special outbounds are deprecated and can be replaced by rule actions.
 === "DNS"
 
     === ":material-card-remove: Deprecated"
-
+    
         ```json
         {
           "inbound": [
             {
               ...,
-
+              
               "sniff": true
             }
           ],
@@ -720,9 +721,9 @@ Legacy special outbounds are deprecated and can be replaced by rule actions.
           }
         }
         ```
-
+    
     === ":material-card-multiple: New"
-
+    
         ```json
         {
           "route": {
@@ -746,9 +747,9 @@ Inbound fields are deprecated and can be replaced by rule actions.
 !!! info "References"
 
     [Listen Fields](/configuration/shared/listen/) /
-    [Rule](/configuration/route/rule/) /
-    [Rule Action](/configuration/route/rule_action/) /
-    [DNS Rule](/configuration/dns/rule/) /
+    [Rule](/configuration/route/rule/) / 
+    [Rule Action](/configuration/route/rule_action/) / 
+    [DNS Rule](/configuration/dns/rule/) / 
     [DNS Rule Action](/configuration/dns/rule_action/)
 
 === ":material-card-remove: Deprecated"
@@ -906,7 +907,9 @@ WireGuard outbound is deprecated and can be replaced by endpoint.
 
 ### TUN address fields are merged
 
-`inet4_address` and `inet6_address` are merged into `address`, `inet4_route_address` and `inet6_route_address` are merged into `route_address`, `inet4_route_exclude_address` and `inet6_route_exclude_address` are merged into `route_exclude_address`.
+`inet4_address` and `inet6_address` are merged into `address`,
+`inet4_route_address` and `inet6_route_address` are merged into `route_address`,
+`inet4_route_exclude_address` and `inet6_route_exclude_address` are merged into `route_exclude_address`.
 
 !!! info "References"
 
@@ -970,14 +973,16 @@ WireGuard outbound is deprecated and can be replaced by endpoint.
 
 ### Bundle Identifier updates in Apple platform clients
 
-Due to problems with our old Apple developer account, we can only change Bundle Identifiers to re-list sing-box apps, which means the data will not be automatically inherited.
+Due to problems with our old Apple developer account,
+we can only change Bundle Identifiers to re-list sing-box apps,
+which means the data will not be automatically inherited.
 
-For iOS, you need to back up your old data yourself (if you still have access to it);\
-for tvOS, you need to re-import profiles from your iPhone or iPad or create it manually;\
+For iOS, you need to back up your old data yourself (if you still have access to it);  
+for tvOS, you need to re-import profiles from your iPhone or iPad or create it manually;  
 for macOS, you can migrate the data folder using the following command:
 
 ```bash
-cd ~/Library/Group\ Containers && \
+cd ~/Library/Group\ Containers && \ 
   mv group.io.nekohasekai.sfa group.io.nekohasekai.sfavt
 ```
 
@@ -987,13 +992,17 @@ cd ~/Library/Group\ Containers && \
 
 For historical reasons, sing-box's `domain_suffix` rule matches literal prefixes instead of the same as other projects.
 
-sing-box 1.9.0 modifies the behavior of `domain_suffix`: If the rule value is prefixed with `.`, the behavior is unchanged, otherwise it matches `(domain|.+\.domain)` instead.
+sing-box 1.9.0 modifies the behavior of `domain_suffix`: If the rule value is prefixed with `.`,
+the behavior is unchanged, otherwise it matches `(domain|.+\.domain)` instead.
 
 ### `process_path` format update on Windows
 
-The `process_path` rule of sing-box is inherited from Clash, the original code uses the local system's path format (e.g. `\Device\HarddiskVolume1\folder\program.exe`), but when the device has multiple disks, the HarddiskVolume serial number is not stable.
+The `process_path` rule of sing-box is inherited from Clash,
+the original code uses the local system's path format (e.g. `\Device\HarddiskVolume1\folder\program.exe`),
+but when the device has multiple disks, the HarddiskVolume serial number is not stable.
 
-sing-box 1.9.0 make QueryFullProcessImageNameW output a Win32 path (such as `C:\folder\program.exe`), which will disrupt the existing `process_path` use cases in Windows.
+sing-box 1.9.0 make QueryFullProcessImageNameW output a Win32 path (such as `C:\folder\program.exe`),
+which will disrupt the existing `process_path` use cases in Windows.
 
 ## 1.8.0
 
@@ -1001,7 +1010,7 @@ sing-box 1.9.0 make QueryFullProcessImageNameW output a Win32 path (such as `C:\
 
 !!! info "References"
 
-    [Clash API](/configuration/experimental/clash-api/) /
+    [Clash API](/configuration/experimental/clash-api/) / 
     [Cache File](/configuration/experimental/cache-file/)
 
 === ":material-card-remove: Deprecated"
@@ -1039,10 +1048,10 @@ sing-box 1.9.0 make QueryFullProcessImageNameW output a Win32 path (such as `C:\
 
 !!! info "References"
 
-    [GeoIP](/configuration/route/geoip/) /
-    [Route](/configuration/route/) /
-    [Route Rule](/configuration/route/rule/) /
-    [DNS Rule](/configuration/dns/rule/) /
+    [GeoIP](/configuration/route/geoip/) / 
+    [Route](/configuration/route/) / 
+    [Route Rule](/configuration/route/rule/) / 
+    [DNS Rule](/configuration/dns/rule/) / 
     [rule-set](/configuration/rule-set/)
 
 !!! tip
@@ -1124,10 +1133,10 @@ sing-box 1.9.0 make QueryFullProcessImageNameW output a Win32 path (such as `C:\
 
 !!! info "References"
 
-    [Geosite](/configuration/route/geosite/) /
-    [Route](/configuration/route/) /
-    [Route Rule](/configuration/route/rule/) /
-    [DNS Rule](/configuration/dns/rule/) /
+    [Geosite](/configuration/route/geosite/) / 
+    [Route](/configuration/route/) / 
+    [Route Rule](/configuration/route/rule/) / 
+    [DNS Rule](/configuration/dns/rule/) / 
     [rule-set](/configuration/rule-set/)
 
 !!! tip

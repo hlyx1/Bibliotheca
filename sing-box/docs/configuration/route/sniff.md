@@ -1,10 +1,10 @@
 !!! quote "Changes in sing-box 1.10.0"
 
-    :material-plus: QUIC client type detect support for QUIC
-    :material-plus: Chromium support for QUIC
-    :material-plus: BitTorrent support
-    :material-plus: DTLS support
-    :material-plus: SSH support
+    :material-plus: QUIC client type detect support for QUIC  
+    :material-plus: Chromium support for QUIC  
+    :material-plus: BitTorrent support  
+    :material-plus: DTLS support  
+    :material-plus: SSH support  
     :material-plus: RDP support
 
 If enabled in the inbound, the protocol and domain name (if present) of by the connection can be sniffed.
@@ -12,7 +12,7 @@ If enabled in the inbound, the protocol and domain name (if present) of by the c
 #### Supported Protocols
 
 | Network |   Protocol   | Domain Name |      Client      |
-| :-----: | :----------: | :---------: | :--------------: |
+|:-------:|:------------:|:-----------:|:----------------:|
 |   TCP   |    `http`    |    Host     |        /         |
 |   TCP   |    `tls`     | Server Name |        /         |
 |   UDP   |    `quic`    | Server Name | QUIC Client Type |
@@ -25,7 +25,7 @@ If enabled in the inbound, the protocol and domain name (if present) of by the c
 |   UDP   |    `ntp`     |      /      |        /         |
 
 |       QUIC Client        |    Type    |
-| :----------------------: | :--------: |
+|:------------------------:|:----------:|
 |     Chromium/Cronet      | `chromium` |
 | Safari/Apple Network API |  `safari`  |
 | Firefox / uquic firefox  | `firefox`  |

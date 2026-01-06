@@ -357,7 +357,7 @@ DNS 服务器已经重构。
                   "example.com"
                 ],
                 // 其它规则
-
+                
                 "action": "predefined",
                 "rcode": "REFUSED"
               }
@@ -648,7 +648,7 @@ DNS 服务器已经重构。
 !!! info "参考"
 
     [规则动作](/zh/configuration/route/rule_action/) /
-    [Block](/zh/configuration/outbound/block/) /
+    [Block](/zh/configuration/outbound/block/) / 
     [DNS](/zh/configuration/outbound/dns)
 
 === "Block"
@@ -839,7 +839,7 @@ WireGuard 出站已被弃用，且可以被端点替代。
 !!! info "参考"
 
     [端点](/zh/configuration/endpoint/) /
-    [WireGuard 端点](/zh/configuration/endpoint/wireguard/) /
+    [WireGuard 端点](/zh/configuration/endpoint/wireguard/) / 
     [WireGuard 出站](/zh/configuration/outbound/wireguard/)
 
 === ":material-card-remove: 弃用的"
@@ -907,7 +907,9 @@ WireGuard 出站已被弃用，且可以被端点替代。
 
 ### TUN 地址字段已合并
 
-`inet4_address` 和 `inet6_address` 已合并为 `address`， `inet4_route_address` 和 `inet6_route_address` 已合并为 `route_address`， `inet4_route_exclude_address` 和 `inet6_route_exclude_address` 已合并为 `route_exclude_address`。
+`inet4_address` 和 `inet6_address` 已合并为 `address`，
+`inet4_route_address` 和 `inet6_route_address` 已合并为 `route_address`，
+`inet4_route_exclude_address` 和 `inet6_route_exclude_address` 已合并为 `route_exclude_address`。
 
 !!! info "参考"
 
@@ -971,14 +973,15 @@ WireGuard 出站已被弃用，且可以被端点替代。
 
 ### Apple 平台客户端的 Bundle Identifier 更新
 
-由于我们旧的苹果开发者账户存在问题，我们只能通过更新 Bundle Identifiers 来重新上架 sing-box 应用， 这意味着数据不会自动继承。
+由于我们旧的苹果开发者账户存在问题，我们只能通过更新 Bundle Identifiers
+来重新上架 sing-box 应用， 这意味着数据不会自动继承。
 
-对于 iOS，您需要自行备份旧的数据（如果您仍然可以访问）；\
-对于 Apple tvOS，您需要从 iPhone 或 iPad 重新导入配置或者手动创建；\
+对于 iOS，您需要自行备份旧的数据（如果您仍然可以访问）；  
+对于 Apple tvOS，您需要从 iPhone 或 iPad 重新导入配置或者手动创建；  
 对于 macOS，您可以使用以下命令迁移数据文件夹：
 
 ```bash
-cd ~/Library/Group\ Containers && \
+cd ~/Library/Group\ Containers && \ 
   mv group.io.nekohasekai.sfa group.io.nekohasekai.sfavt
 ```
 
@@ -992,9 +995,12 @@ sing-box 1.9.0 修改了 `domain_suffix` 的行为：如果规则值以 `.` 为�
 
 ### 对 Windows 上 `process_path` 格式的更新
 
-sing-box 的 `process_path` 规则继承自Clash， 原始代码使用本地系统的路径格式（例如 `\Device\HarddiskVolume1\folder\program.exe`）， 但是当设备有多个硬盘时，该 HarddiskVolume 系列号并不稳定。
+sing-box 的 `process_path` 规则继承自Clash，
+原始代码使用本地系统的路径格式（例如 `\Device\HarddiskVolume1\folder\program.exe`），
+但是当设备有多个硬盘时，该 HarddiskVolume 系列号并不稳定。
 
-sing-box 1.9.0 使 QueryFullProcessImageNameW 输出 Win32 路径（如 `C:\folder\program.exe`）， 这将会破坏现有的 Windows `process_path` 用例。
+sing-box 1.9.0 使 QueryFullProcessImageNameW 输出 Win32 路径（如 `C:\folder\program.exe`），
+这将会破坏现有的 Windows `process_path` 用例。
 
 ## 1.8.0
 
@@ -1002,7 +1008,7 @@ sing-box 1.9.0 使 QueryFullProcessImageNameW 输出 Win32 路径（如 `C:\fold
 
 !!! info "参考"
 
-    [Clash API](/zh/configuration/experimental/clash-api/) /
+    [Clash API](/zh/configuration/experimental/clash-api/) / 
     [Cache File](/zh/configuration/experimental/cache-file/)
 
 === ":material-card-remove: 弃用的"
@@ -1040,10 +1046,10 @@ sing-box 1.9.0 使 QueryFullProcessImageNameW 输出 Win32 路径（如 `C:\fold
 
 !!! info "参考"
 
-    [GeoIP](/zh/configuration/route/geoip/) /
-    [路由](/zh/configuration/route/) /
-    [路由规则](/zh/configuration/route/rule/) /
-    [DNS 规则](/zh/configuration/dns/rule/) /
+    [GeoIP](/zh/configuration/route/geoip/) / 
+    [路由](/zh/configuration/route/) / 
+    [路由规则](/zh/configuration/route/rule/) / 
+    [DNS 规则](/zh/configuration/dns/rule/) / 
     [规则集](/zh/configuration/rule-set/)
 
 !!! tip
@@ -1125,10 +1131,10 @@ sing-box 1.9.0 使 QueryFullProcessImageNameW 输出 Win32 路径（如 `C:\fold
 
 !!! info "参考"
 
-    [Geosite](/zh/configuration/route/geosite/) /
-    [路由](/zh/configuration/route/) /
-    [路由规则](/zh/configuration/route/rule/) /
-    [DNS 规则](/zh/configuration/dns/rule/) /
+    [Geosite](/zh/configuration/route/geosite/) / 
+    [路由](/zh/configuration/route/) / 
+    [路由规则](/zh/configuration/route/rule/) / 
+    [DNS 规则](/zh/configuration/dns/rule/) / 
     [规则集](/zh/configuration/rule-set/)
 
 !!! tip

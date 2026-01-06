@@ -4,7 +4,7 @@
 {
   "type": "hysteria",
   "tag": "hysteria-in",
-
+  
   ... // 监听字段
 
   "up": "100 Mbps",

@@ -4,7 +4,7 @@ icon: material/new-box
 
 !!! quote "Changes in sing-box 1.12.0"
 
-    :material-plus: [server_ports](#server_ports)
+    :material-plus: [server_ports](#server_ports)  
     :material-plus: [hop_interval](#hop_interval)
 
 ### Structure
@@ -13,7 +13,7 @@ icon: material/new-box
 {
   "type": "hysteria",
   "tag": "hysteria-out",
-
+  
   "server": "127.0.0.1",
   "server_port": 1080,
   "server_ports": [
@@ -32,7 +32,7 @@ icon: material/new-box
   "disable_mtu_discovery": false,
   "network": "tcp",
   "tls": {},
-
+  
   ... // Dial Fields
 }
 ```

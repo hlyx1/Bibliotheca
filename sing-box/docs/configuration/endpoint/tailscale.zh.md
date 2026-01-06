@@ -4,7 +4,7 @@ icon: material/new-box
 
 !!! quote "sing-box 1.13.0 中的更改"
 
-    :material-plus: [relay_server_port](#relay_server_port)
+    :material-plus: [relay_server_port](#relay_server_port)  
     :material-plus: [relay_server_static_endpoints](#relay_server_static_endpoints)
 
 !!! question "自 sing-box 1.12.0 起"

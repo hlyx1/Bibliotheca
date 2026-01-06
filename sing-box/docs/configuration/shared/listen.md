@@ -4,22 +4,22 @@ icon: material/new-box
 
 !!! quote "Changes in sing-box 1.13.0"
 
-    :material-plus: [disable_tcp_keep_alive](#disable_tcp_keep_alive)
+    :material-plus: [disable_tcp_keep_alive](#disable_tcp_keep_alive)  
     :material-alert: [tcp_keep_alive](#tcp_keep_alive)
 
 !!! quote "Changes in sing-box 1.12.0"
 
-    :material-plus: [netns](#netns)
-    :material-plus: [bind_interface](#bind_interface)
-    :material-plus: [routing_mark](#routing_mark)
+    :material-plus: [netns](#netns)  
+    :material-plus: [bind_interface](#bind_interface)  
+    :material-plus: [routing_mark](#routing_mark)  
     :material-plus: [reuse_addr](#reuse_addr)
 
 !!! quote "Changes in sing-box 1.11.0"
 
-    :material-delete-clock: [sniff](#sniff)
-    :material-delete-clock: [sniff_override_destination](#sniff_override_destination)
-    :material-delete-clock: [sniff_timeout](#sniff_timeout)
-    :material-delete-clock: [domain_strategy](#domain_strategy)
+    :material-delete-clock: [sniff](#sniff)  
+    :material-delete-clock: [sniff_override_destination](#sniff_override_destination)  
+    :material-delete-clock: [sniff_timeout](#sniff_timeout)  
+    :material-delete-clock: [domain_strategy](#domain_strategy)  
     :material-delete-clock: [udp_disable_domain_unmapping](#udp_disable_domain_unmapping)
 
 ### Structure
@@ -42,7 +42,7 @@ icon: material/new-box
   "detour": "",
 
   // Deprecated
-
+  
   "sniff": false,
   "sniff_override_destination": false,
   "sniff_timeout": "",
@@ -195,6 +195,8 @@ If `sniff_override_destination` is in effect, its value will be taken as a fallb
 
     Inbound fields are deprecated and will be removed in sing-box 1.13.0, check [Migration](/migration/#migrate-legacy-inbound-fields-to-rule-actions).
 
-If enabled, for UDP proxy requests addressed to a domain, the original packet address will be sent in the response instead of the mapped domain.
+If enabled, for UDP proxy requests addressed to a domain, 
+the original packet address will be sent in the response instead of the mapped domain.
 
-This option is used for compatibility with clients that do not support receiving UDP packets with domain addresses, such as Surge.
+This option is used for compatibility with clients that 
+do not support receiving UDP packets with domain addresses, such as Surge.

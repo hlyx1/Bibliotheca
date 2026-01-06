@@ -11,7 +11,7 @@ icon: material/delete-clock
     :material-delete-alert: [gso](#gso)
 
 !!! quote "Changes in sing-box 1.8.0"
-
+    
     :material-plus: [gso](#gso)
 
 ### Structure
@@ -20,7 +20,7 @@ icon: material/delete-clock
 {
   "type": "wireguard",
   "tag": "wireguard-out",
-
+  
   "server": "127.0.0.1",
   "server_port": 1080,
   "system_interface": false,
@@ -49,7 +49,7 @@ icon: material/delete-clock
   "network": "tcp",
 
   // Deprecated
-
+  
   "gso": false,
 
   ... // Dial Fields
@@ -115,7 +115,7 @@ echo "private key" || wg pubkey
 
 #### peers
 
-Multi-peer support.
+Multi-peer support. 
 
 If enabled, `server, server_port, peer_public_key, pre_shared_key` will be ignored.
 

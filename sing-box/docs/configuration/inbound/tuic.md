@@ -4,7 +4,7 @@
 {
   "type": "tuic",
   "tag": "tuic-in",
-
+  
   ... // Listen Fields
 
   "users": [
@@ -58,10 +58,12 @@ How long the server should wait for the client to send the authentication comman
 
 #### zero_rtt_handshake
 
-Enable 0-RTT QUIC connection handshake on the client side\
-This is not impacting much on the performance, as the protocol is fully multiplexed
+Enable 0-RTT QUIC connection handshake on the client side  
+This is not impacting much on the performance, as the protocol is fully multiplexed  
 
-!!! warning "" Disabling this is highly recommended, as it is vulnerable to replay attacks. See [Attack of the clones](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/#attack-of-the-clones)
+!!! warning ""
+    Disabling this is highly recommended, as it is vulnerable to replay attacks.
+    See [Attack of the clones](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/#attack-of-the-clones)
 
 #### heartbeat
 

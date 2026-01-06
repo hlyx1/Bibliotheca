@@ -31,12 +31,12 @@ icon: material/new-box
 
 默认的 X509 受信任 CA 证书列表。
 
-| 类型             | 描述                                                                                        |
-| ---------------- | ------------------------------------------------------------------------------------------- |
-| `system`（默认） | 系统受信任的 CA 证书                                                                        |
-| `mozilla`        | [Mozilla 包含列表](https://wiki.mozilla.org/CA/Included_Certificates)（已移除中国 CA 证书） |
-| `chrome`         | [Chrome Root Store](https://g.co/chrome/root-policy)（已移除中国 CA 证书）                  |
-| `none`           | 空列表                                                                                      |
+| 类型              | 描述                                                                                       |
+|-------------------|--------------------------------------------------------------------------------------------|
+| `system`（默认）   | 系统受信任的 CA 证书                                                                        |
+| `mozilla`         | [Mozilla 包含列表](https://wiki.mozilla.org/CA/Included_Certificates)（已移除中国 CA 证书） |
+| `chrome`          | [Chrome Root Store](https://g.co/chrome/root-policy)（已移除中国 CA 证书）                  |
+| `none`            | 空列表                                                                                     |
 
 #### certificate
 

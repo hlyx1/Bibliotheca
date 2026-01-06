@@ -4,8 +4,12 @@
 {
   "type": "urltest",
   "tag": "auto",
-
-  "outbounds": ["proxy-a", "proxy-b", "proxy-c"],
+  
+  "outbounds": [
+    "proxy-a",
+    "proxy-b",
+    "proxy-c"
+  ],
   "url": "",
   "interval": "",
   "tolerance": 50,

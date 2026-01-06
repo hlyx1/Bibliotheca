@@ -35,9 +35,9 @@ icon: material/delete-clock
   "workers": 4,
   "mtu": 1408,
   "network": "tcp",
-
+  
   // 废弃的
-
+  
   "gso": false,
 
   ... // 拨号字段

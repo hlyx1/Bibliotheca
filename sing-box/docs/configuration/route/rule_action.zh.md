@@ -4,16 +4,16 @@ icon: material/new-box
 
 !!! quote "sing-box 1.13.0 中的更改"
 
-    :material-plus: [bypass](#bypass)
+    :material-plus: [bypass](#bypass)  
     :material-alert: [reject](#reject)
 
 !!! quote "sing-box 1.12.0 中的更改"
 
-    :material-plus: [tls_fragment](#tls_fragment)
-    :material-plus: [tls_fragment_fallback_delay](#tls_fragment_fallback_delay)
-    :material-plus: [tls_record_fragment](#tls_record_fragment)
-    :material-plus: [resolve.disable_cache](#disable_cache)
-    :material-plus: [resolve.rewrite_ttl](#rewrite_ttl)
+    :material-plus: [tls_fragment](#tls_fragment)  
+    :material-plus: [tls_fragment_fallback_delay](#tls_fragment_fallback_delay)  
+    :material-plus: [tls_record_fragment](#tls_record_fragment)  
+    :material-plus: [resolve.disable_cache](#disable_cache)  
+    :material-plus: [resolve.rewrite_ttl](#rewrite_ttl)  
     :material-plus: [resolve.client_subnet](#client_subnet)
 
 ## 最终动作
@@ -24,7 +24,7 @@ icon: material/new-box
 {
   "action": "route", // 默认
   "outbound": "",
-
+  
   ... // route-options 字段
 }
 ```
@@ -81,7 +81,7 @@ icon: material/new-box
 ```json
 {
   "action": "reject",
-  "method": "default", // 默认
+  "method": "default",  // 默认
   "no_drop": false
 }
 ```
@@ -156,7 +156,8 @@ icon: material/new-box
 
 详情参阅 [拨号字段](/configuration/shared/dial/#network_strategy)。
 
-仅当出站为 `direct` 且 `outbound.bind_interface`, `outbound.inet4_bind_address` 且 `outbound.inet6_bind_address` 未设置时生效。
+仅当出站为 `direct` 且 `outbound.bind_interface`, `outbound.inet4_bind_address`
+且 `outbound.inet6_bind_address` 未设置时生效。
 
 #### network_type
 
@@ -188,15 +189,15 @@ UDP 连接超时时间。
 
 已探测协议连接的默认值：
 
-| 超时  | 协议                 |
-| ----- | -------------------- |
+| 超时    | 协议                   |
+|-------|----------------------|
 | `10s` | `dns`, `ntp`, `stun` |
 | `30s` | `quic`, `dtls`       |
 
 如果没有探测到协议，以下端口将默认识别为协议：
 
-| 端口 | 协议   |
-| ---- | ------ |
+| 端口   | 协议     |
+|------|--------|
 | 53   | `dns`  |
 | 123  | `ntp`  |
 | 443  | `quic` |
@@ -212,7 +213,8 @@ UDP 连接超时时间。
 
 由于性能不佳，请首先尝试 `tls_record_fragment`，且仅应用于已知被阻止的服务器名称。
 
-在 Linux、Apple 平台和需要管理员权限的 Windows 系统上，可自动检测等待时间。 若无法自动检测，将回退使用 `tls_fragment_fallback_delay` 指定的固定等待时间。
+在 Linux、Apple 平台和需要管理员权限的 Windows 系统上，可自动检测等待时间。
+若无法自动检测，将回退使用 `tls_fragment_fallback_delay` 指定的固定等待时间。
 
 此外，若实际等待时间小于 20 毫秒，同样会回退至固定等待时间模式，因为此时判定目标处于本地或透明代理之后。
 

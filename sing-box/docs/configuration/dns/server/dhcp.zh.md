@@ -16,7 +16,8 @@ icon: material/new-box
         "type": "dhcp",
         "tag": "",
 
-        "interface": ""
+        "interface": "",
+
         // 拨号字段
       }
     ]

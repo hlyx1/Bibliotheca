@@ -13,7 +13,7 @@ DERP service is a Tailscale DERP server, similar to [derper](https://pkg.go.dev/
 ```json
 {
   "type": "derp",
-
+  
   ... // Listen Fields
 
   "tls": {},
@@ -59,7 +59,7 @@ Object format:
 ```json
 {
   "url": "https://my-headscale.com/verify",
-
+  
   ... // Dial Fields
 }
 ```
@@ -86,7 +86,7 @@ Object format:
   "server_port": "",
   "host": "",
   "tls": {},
-
+  
   ... // Dial Fields
 }
 ```
@@ -116,7 +116,7 @@ Object format:
 ```json
 {
   "enabled": true,
-
+  
   ... // Listen Fields
 }
 ```
