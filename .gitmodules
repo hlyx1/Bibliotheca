@@ -21,4 +21,4 @@
 	branch = dev
 [submodule "Ruleset/srsc"]
 	path = Ruleset/srsc
-	url = https://github.com/SagerNet/srsc.git
+	url = https://github.com/sonqyau/sing-rule.git
