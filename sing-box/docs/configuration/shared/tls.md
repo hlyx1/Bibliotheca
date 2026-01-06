@@ -139,30 +139,30 @@ icon: material/new-box
 
 TLS version values:
 
-* `1.0`
-* `1.1`
-* `1.2`
-* `1.3`
+- `1.0`
+- `1.1`
+- `1.2`
+- `1.3`
 
 Cipher suite values:
 
-* `TLS_RSA_WITH_AES_128_CBC_SHA`
-* `TLS_RSA_WITH_AES_256_CBC_SHA`
-* `TLS_RSA_WITH_AES_128_GCM_SHA256`
-* `TLS_RSA_WITH_AES_256_GCM_SHA384`
-* `TLS_AES_128_GCM_SHA256`
-* `TLS_AES_256_GCM_SHA384`
-* `TLS_CHACHA20_POLY1305_SHA256`
-* `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`
-* `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`
-* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
-* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
-* `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
-* `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
-* `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
-* `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-* `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256`
-* `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_RSA_WITH_AES_128_CBC_SHA`
+- `TLS_RSA_WITH_AES_256_CBC_SHA`
+- `TLS_RSA_WITH_AES_128_GCM_SHA256`
+- `TLS_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_AES_128_GCM_SHA256`
+- `TLS_AES_256_GCM_SHA384`
+- `TLS_CHACHA20_POLY1305_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`
+- `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+- `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+- `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+- `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
 
 !!! note ""
 
@@ -196,8 +196,7 @@ Accepts any server certificate.
 
 List of supported application level protocols, in order of preference.
 
-If both peers support ALPN, the selected protocol will be one from this list, and the connection will fail if there is
-no mutually supported protocol.
+If both peers support ALPN, the selected protocol will be one from this list, and the connection will fail if there is no mutually supported protocol.
 
 See [Application-Layer Protocol Negotiation](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation).
 
@@ -205,8 +204,7 @@ See [Application-Layer Protocol Negotiation](https://en.wikipedia.org/wiki/Appli
 
 The minimum TLS version that is acceptable.
 
-By default, TLS 1.2 is currently used as the minimum when acting as a
-client, and TLS 1.0 when acting as a server.
+By default, TLS 1.2 is currently used as the minimum when acting as a client, and TLS 1.0 when acting as a server.
 
 #### max_version
 
@@ -216,8 +214,7 @@ By default, the maximum version is currently TLS 1.3.
 
 #### cipher_suites
 
-List of enabled TLS 1.0–1.2 cipher suites. The order of the list is ignored.
-Note that TLS 1.3 cipher suites are not configurable.
+List of enabled TLS 1.0–1.2 cipher suites. The order of the list is ignored. Note that TLS 1.3 cipher suites are not configurable.
 
 If empty, a safe default list is used. The default cipher suites might change over time.
 
@@ -225,16 +222,15 @@ If empty, a safe default list is used. The default cipher suites might change ov
 
 !!! question "Since sing-box 1.13.0"
 
-Set of supported key exchange mechanisms. The order of the list is ignored, and key exchange mechanisms are chosen
-from this list using an internal preference order by Golang.
+Set of supported key exchange mechanisms. The order of the list is ignored, and key exchange mechanisms are chosen from this list using an internal preference order by Golang.
 
 Available values, also the default list:
 
-* `P256`
-* `P384`
-* `P521`
-* `X25519`
-* `X25519MLKEM768`
+- `P256`
+- `P384`
+- `P521`
+- `X25519`
+- `X25519MLKEM768`
 
 #### certificate
 
@@ -247,7 +243,6 @@ Server certificates chain line array, in PEM format.
     Will be automatically reloaded if file modified.
 
 The path to server certificate chain, in PEM format.
-
 
 #### certificate_public_key_sha256
 
@@ -325,14 +320,13 @@ The type of client authentication to use.
 
 Available values:
 
-* `no` (default)
-* `request`
-* `require-any`
-* `verify-if-given`
-* `require-and-verify`
+- `no` (default)
+- `request`
+- `require-any`
+- `verify-if-given`
+- `require-and-verify`
 
-One of `client_certificate`, `client_certificate_path`, or `client_certificate_public_key_sha256` is required
-if this option is set to `verify-if-given`, or `require-and-verify`.
+One of `client_certificate`, `client_certificate_path`, or `client_certificate_public_key_sha256` is required if this option is set to `verify-if-given`, or `require-and-verify`.
 
 #### client_certificate
 
@@ -419,7 +413,7 @@ Enable kernel TLS receive support.
 ==Client only==
 
 !!! failure ""
-    
+
     There is no evidence that GFW detects and blocks servers based on TLS client fingerprinting, and using an imperfect emulation that has not been security reviewed could pose security risks.
 
 uTLS is a fork of "crypto/tls", which provides ClientHello fingerprinting resistance.
@@ -436,23 +430,22 @@ Available fingerprint values:
     :material-close: chrome_pq  
     :material-close: chrome_pq_psk
 
-* chrome
-* firefox
-* edge
-* safari
-* 360
-* qq
-* ios
-* android
-* random
-* randomized
+- chrome
+- firefox
+- edge
+- safari
+- 360
+- qq
+- ios
+- android
+- random
+- randomized
 
 Chrome fingerprint will be used if empty.
 
 ### ECH Fields
 
-ECH (Encrypted Client Hello) is a TLS extension that allows a client to encrypt the first part of its ClientHello
-message.
+ECH (Encrypted Client Hello) is a TLS extension that allows a client to encrypt the first part of its ClientHello message.
 
 The ECH key and configuration can be generated by `sing-box generate ech-keypair`.
 
@@ -472,7 +465,7 @@ Enable support for post-quantum peer certificate signature schemes.
 
 Disables adaptive sizing of TLS records.
 
-When true, the largest possible TLS record size is always used.  
+When true, the largest possible TLS record size is always used.\
 When false, the size of TLS records may be adjusted in an attempt to improve latency.
 
 #### key
@@ -525,17 +518,13 @@ If empty, `server_name` is used for queries.
 
 Fragment TLS handshakes to bypass firewalls.
 
-This feature is intended to circumvent simple firewalls based on **plaintext packet matching**,
-and should not be used to circumvent real censorship.
+This feature is intended to circumvent simple firewalls based on **plaintext packet matching**, and should not be used to circumvent real censorship.
 
 Due to poor performance, try `record_fragment` first, and only apply to server names known to be blocked.
 
-On Linux, Apple platforms, (administrator privileges required) Windows,
-the wait time can be automatically detected. Otherwise, it will fall back to
-waiting for a fixed time specified by `fragment_fallback_delay`.
+On Linux, Apple platforms, (administrator privileges required) Windows, the wait time can be automatically detected. Otherwise, it will fall back to waiting for a fixed time specified by `fragment_fallback_delay`.
 
-In addition, if the actual wait time is less than 20ms, it will also fall back to waiting for a fixed time,
-because the target is considered to be local or behind a transparent proxy.
+In addition, if the actual wait time is less than 20ms, it will also fall back to waiting for a fixed time, because the target is considered to be local or behind a transparent proxy.
 
 #### fragment_fallback_delay
 
@@ -582,7 +571,7 @@ The email address to use when creating or selecting an existing ACME server acco
 The ACME CA provider to use.
 
 | Value                   | Provider      |
-|-------------------------|---------------|
+| ----------------------- | ------------- |
 | `letsencrypt (default)` | Let's Encrypt |
 | `zerossl`               | ZeroSSL       |
 | `https://...`           | Custom        |
@@ -597,24 +586,19 @@ Disable all TLS-ALPN challenges
 
 #### alternative_http_port
 
-The alternate port to use for the ACME HTTP challenge; if non-empty, this port will be used instead of 80 to spin up a
-listener for the HTTP challenge.
+The alternate port to use for the ACME HTTP challenge; if non-empty, this port will be used instead of 80 to spin up a listener for the HTTP challenge.
 
 #### alternative_tls_port
 
-The alternate port to use for the ACME TLS-ALPN challenge; the system must forward 443 to this port for challenge to
-succeed.
+The alternate port to use for the ACME TLS-ALPN challenge; the system must forward 443 to this port for challenge to succeed.
 
 #### external_account
 
-EAB (External Account Binding) contains information necessary to bind or map an ACME account to some other account known
-by the CA.
+EAB (External Account Binding) contains information necessary to bind or map an ACME account to some other account known by the CA.
 
-External account bindings are "used to associate an ACME account with an existing account in a non-ACME system, such as
-a CA customer database.
+External account bindings are "used to associate an ACME account with an existing account in a non-ACME system, such as a CA customer database.
 
-To enable ACME account binding, the CA operating the ACME server needs to provide the ACME client with a MAC key and a
-key identifier, using some mechanism outside of ACME. §7.3.4
+To enable ACME account binding, the CA operating the ACME server needs to provide the ACME client with a MAC key and a key identifier, using some mechanism outside of ACME. §7.3.4
 
 #### external_account.key_id
 

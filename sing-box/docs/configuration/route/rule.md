@@ -181,7 +181,6 @@ icon: material/new-box
     ]
   }
 }
-
 ```
 
 !!! note ""
@@ -230,7 +229,7 @@ Sniffed client type, see [Protocol Sniff](/configuration/route/sniff/) for detai
 !!! quote "Changes in sing-box 1.13.0"
 
     Since sing-box 1.13.0, you can match ICMP echo (ping) requests via the new `icmp` network.
-    
+
     Such traffic originates from `TUN`, `WireGuard`, and `Tailscale` inbounds and can be routed to `Direct`, `WireGuard`, and `Tailscale` outbounds.
 
 Match network type.
@@ -383,8 +382,7 @@ Available values: `wifi`, `cellular`, `ethernet` and `other`.
 
     Only supported in graphical clients on Android and Apple platforms.
 
-Match if network is considered Metered (on Android) or considered expensive,
-such as Cellular or a Personal Hotspot (on Apple platforms).
+Match if network is considered Metered (on Android) or considered expensive, such as Cellular or a Personal Hotspot (on Apple platforms).
 
 #### network_is_constrained
 
@@ -445,7 +443,7 @@ See [Wi-Fi State](/configuration/shared/wifi-state/) for details.
 Match specified outbounds' preferred routes.
 
 | Type        | Match                                         |
-|-------------|-----------------------------------------------|
+| ----------- | --------------------------------------------- |
 | `tailscale` | Match MagicDNS domains and peers' allowed IPs |
 | `wireguard` | Match peers's allowed IPs                     |
 

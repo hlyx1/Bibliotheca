@@ -12,6 +12,7 @@
   ... // 监听字段
 }
 ```
+
 ### 监听字段
 
 参阅 [监听字段](/zh/configuration/shared/listen/)。

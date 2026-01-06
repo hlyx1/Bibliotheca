@@ -87,7 +87,7 @@ jobs:
         run: |
           cd Ruleset
           mkdir -p sing-box/srsc/{source,binary}/{domainset,ip,non_ip,dns}
-          
+
           for category in domainset non_ip; do
             for file in dist/Clash/$category/*.txt; do
               [ -f "$file" ] || continue
@@ -97,7 +97,7 @@ jobs:
               curl -s "http://127.0.0.1:8080/ruleset/$category/$api_name/binary" > "sing-box/srsc/binary/$category/$name.$category.srs"
             done
           done
-          
+
           for file in dist/Clash/ip/*.txt; do
             [ -f "$file" ] || continue
             name="$(basename "$file" .txt | sed 's/_/-/g')"
@@ -110,7 +110,7 @@ jobs:
             curl -s "http://127.0.0.1:8080/ruleset/ip/$api_path/source" > "sing-box/srsc/source/ip/$name.ip.json"
             curl -s "http://127.0.0.1:8080/ruleset/ip/$api_path/binary" > "sing-box/srsc/binary/ip/$name.ip.srs"
           done
-          
+
           for file in dist/Internal/mihomo_nameserver_policy/*.txt; do
             [ -f "$file" ] || continue
             name="$(basename "$file" .txt | sed 's/_/-/g')"

@@ -10,4 +10,3 @@ icon: material/forum
 | Telegram 通知频道 | https://t.me/yapnc                          |
 | Telegram 用户组   | https://t.me/yapug                          |
 | 邮件              | contact@sagernet.org                        |
-
