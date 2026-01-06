@@ -3,7 +3,6 @@
   "rules": [
     {
       "domain_suffix": [
-        ".website-media",
         ".static.microsoft",
         ".cdn.arcade.software",
         ".media.infosec.exchange",
@@ -3316,6 +3315,7 @@
         ".image.goat.com",
         ".fsdn.com",
         ".images.dmca.com",
+        ".website-media.deel.com",
         ".sf-coze-web-cdn.coze.com",
         ".zephr-templates.cnbc.com",
         ".production-cmp.isgprivacy.cbsi.com",
@@ -3404,6 +3404,7 @@
         ".cdn.ecomm.ui.com",
         ".net-fe-static-assets.network-controller.svc.ui.com",
         ".uos-support-files.svc.ui.com",
+        ".content-cdn.svc.ui.com",
         ".account-cdn.svc.ui.com",
         ".images.svc.ui.com",
         ".fonts.svc.ui.com",
@@ -3830,6 +3831,7 @@
         ".static.getbutton.io",
         ".crossbell.io",
         ".corsproxy.io",
+        ".static.corespeed.io",
         ".r2cdn.corespeed.io",
         ".assets.mcp.corespeed.io",
         ".sandpack-cdn-staging.blazingly.io",
