@@ -86,39 +86,40 @@ jobs:
       - shell: bash
         run: |
           cd Ruleset
-          mkdir -p sing-box/srsc/source/domainset sing-box/srsc/source/ip sing-box/srsc/source/non_ip sing-box/srsc/source/dns
-          mkdir -p sing-box/srsc/binary/domainset sing-box/srsc/binary/ip sing-box/srsc/binary/non_ip sing-box/srsc/binary/dns
+          marker_filter='select(. | IN("th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe", "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe") | not)'
+          jq_filter="if .rules then .rules |= map(if .domain_suffix then .domain_suffix |= map($marker_filter) elif .domain then .domain |= map($marker_filter) elif .ip_cidr then .ip_cidr |= map($marker_filter) else . end) else . end"
+          
+          mkdir -p sing-box/srsc/{source,binary}/{domainset,ip,non_ip,dns}
+          
           for category in domainset non_ip; do
             for file in dist/Clash/$category/*.txt; do
               [ -f "$file" ] || continue
-              name="$(basename "$file" .txt)"
-              curl -s "http://127.0.0.1:8080/ruleset/$category/$name/source" > "sing-box/srsc/source/$category/$name.json"
-              curl -s "http://127.0.0.1:8080/ruleset/$category/$name/binary" > "sing-box/srsc/binary/$category/$name.srs"
+              name="$(basename "$file" .txt | sed 's/_/-/g')"
+              api_name="$(echo "$name" | sed 's/-/_/g')"
+              curl -s "http://127.0.0.1:8080/ruleset/$category/$api_name/source" | jq --arg marker_filter "$marker_filter" "$jq_filter" > "sing-box/srsc/source/$category/$name.$category.json"
+              curl -s "http://127.0.0.1:8080/ruleset/$category/$api_name/binary" > "sing-box/srsc/binary/$category/$name.$category.srs"
             done
           done
+          
           for file in dist/Clash/ip/*.txt; do
             [ -f "$file" ] || continue
-            name="$(basename "$file" .txt)"
+            name="$(basename "$file" .txt | sed 's/_/-/g')"
+            api_name="$(echo "$name" | sed 's/-/_/g')"
             case "$name" in
-              china_ip)
-                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip/source" > "sing-box/srsc/source/ip/$name.json"
-                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip/binary" > "sing-box/srsc/binary/ip/$name.srs"
-                ;;
-              china_ip_ipv6)
-                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip_ipv6/source" > "sing-box/srsc/source/ip/$name.json"
-                curl -s "http://127.0.0.1:8080/ruleset/ip/china_ip_ipv6/binary" > "sing-box/srsc/binary/ip/$name.srs"
-                ;;
-              *)
-                curl -s "http://127.0.0.1:8080/ruleset/ip/$name/source" > "sing-box/srsc/source/ip/$name.json"
-                curl -s "http://127.0.0.1:8080/ruleset/ip/$name/binary" > "sing-box/srsc/binary/ip/$name.srs"
-                ;;
+              china-ip) api_path="china_ip" ;;
+              china-ip-ipv6) api_path="china_ip_ipv6" ;;
+              *) api_path="$api_name" ;;
             esac
+            curl -s "http://127.0.0.1:8080/ruleset/ip/$api_path/source" | jq --arg marker_filter "$marker_filter" "$jq_filter" > "sing-box/srsc/source/ip/$name.ip.json"
+            curl -s "http://127.0.0.1:8080/ruleset/ip/$api_path/binary" > "sing-box/srsc/binary/ip/$name.ip.srs"
           done
+          
           for file in dist/Internal/mihomo_nameserver_policy/*.txt; do
             [ -f "$file" ] || continue
-            name="$(basename "$file" .txt)"
-            curl -s "http://127.0.0.1:8080/ruleset/dns/$name/source" > "sing-box/srsc/source/dns/$name.json"
-            curl -s "http://127.0.0.1:8080/ruleset/dns/$name/binary" > "sing-box/srsc/binary/dns/$name.srs"
+            name="$(basename "$file" .txt | sed 's/_/-/g')"
+            api_name="$(echo "$name" | sed 's/-/_/g')"
+            curl -s "http://127.0.0.1:8080/ruleset/dns/$api_name/source" | jq --arg marker_filter "$marker_filter" "$jq_filter" > "sing-box/srsc/source/dns/$name.dns.json"
+            curl -s "http://127.0.0.1:8080/ruleset/dns/$api_name/binary" > "sing-box/srsc/binary/dns/$name.dns.srs"
           done
       - shell: bash
         run: |

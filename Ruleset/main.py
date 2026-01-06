@@ -1160,7 +1160,7 @@ async def emit_mihomo_yaml(  # noqa: D103
 
     frame = frame.filter(
         ~pl.col("pattern").str.contains("#")
-        & ~pl.col("address").str.ends_with("-ruleset.skk.moe")
+        & ~pl.col("address").is_in(["th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe", "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe"])
         & pl.col("pattern").is_in(MIHOMO_ALIASES),
     )
     if frame.height == 0:
@@ -1216,7 +1216,7 @@ async def emit_mihomo_text(  # noqa: D103
 
     frame = frame.filter(
         ~pl.col("pattern").str.contains("#")
-        & ~pl.col("address").str.ends_with("-ruleset.skk.moe")
+        & ~pl.col("address").is_in(["th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe", "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe"])
         & pl.col("pattern").is_in(MIHOMO_ALIASES),
     )
     if frame.height == 0:
@@ -1267,7 +1267,7 @@ async def emit_singbox_json(  # noqa: D103
 
     frame = frame.filter(
         ~pl.col("pattern").str.contains("#")
-        & ~pl.col("address").str.ends_with("-ruleset.skk.moe")
+        & ~pl.col("address").is_in(["th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe", "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe"])
         & pl.col("pattern").is_in(SINGBOX_ALIASES),
     )
     if frame.height == 0:
