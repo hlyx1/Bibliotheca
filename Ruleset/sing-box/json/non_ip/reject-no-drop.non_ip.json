@@ -6,7 +6,9 @@
       "mode": "and",
       "rules": [
         {
-          "domain_suffix": ["googlevideo.com"]
+          "domain_suffix": [
+            "googlevideo.com"
+          ]
         }
       ],
       "invert": false
@@ -45,7 +47,10 @@
         ".p2perrorlog.douyucdn.cn",
         ".p2plog.douyucdn.cn"
       ],
-      "domain_keyword": ["-p2p.pull.yximgs.com", "-p2p-v2.pull.yximgs.com"],
+      "domain_keyword": [
+        "-p2p.pull.yximgs.com",
+        "-p2p-v2.pull.yximgs.com"
+      ],
       "domain_regex": [
         "p2p*.qq.com",
         "p2p-*.douyucdn.cn",

@@ -83,7 +83,11 @@
         ".gfx.ms",
         ".aka.ms"
       ],
-      "domain_keyword": ["1drv", "microsoft", "hotmail"]
+      "domain_keyword": [
+        "1drv",
+        "microsoft",
+        "hotmail"
+      ]
     }
   ]
 }

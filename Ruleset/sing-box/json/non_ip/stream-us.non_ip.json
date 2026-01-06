@@ -48,7 +48,9 @@
         ".production-public.tubi.io",
         ".discoveryplus.in"
       ],
-      "process_name": ["com.hulu.plus"]
+      "process_name": [
+        "com.hulu.plus"
+      ]
     }
   ]
 }
