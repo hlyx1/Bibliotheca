@@ -13,6 +13,7 @@ The software herein is licensed under the [MIT](./LICENSE) by [@sonqyau](https:/
 ## Schedule
 
 <!-- INSERT -->
+- [20260106](./2026/20260106.md)
 
 - [20260105](./2026/20260105.md)
 - [20260104](./2026/20260104.md)
