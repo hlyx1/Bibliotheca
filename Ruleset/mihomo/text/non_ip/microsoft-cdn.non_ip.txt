@@ -1,3 +1,7 @@
+DOMAIN,res-h3.public.cdn.office.net
+DOMAIN,statics.teams.cdn.office.net
+DOMAIN,res-1.cdn.office.net
+DOMAIN,res.cdn.office.net
 DOMAIN-SUFFIX,download.windowsupdate.com
 DOMAIN-SUFFIX,ctldl.windowsupdate.com
 DOMAIN-SUFFIX,cn.windowssearch.com
@@ -50,7 +54,3 @@ DOMAIN-SUFFIX,storeedgefd.dsx.mp.microsoft.com
 DOMAIN-SUFFIX,fs.microsoft.com
 DOMAIN-REGEX,^http://www\.microsoft\.com/pki/
 DOMAIN-REGEX,^http://www\.microsoft\.com/pkiops/
-DOMAIN,res-h3.public.cdn.office.net
-DOMAIN,statics.teams.cdn.office.net
-DOMAIN,res-1.cdn.office.net
-DOMAIN,res.cdn.office.net
