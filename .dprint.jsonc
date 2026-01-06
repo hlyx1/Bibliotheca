@@ -20,8 +20,13 @@
   ],
   "excludes": [
     "**/node_modules",
-    "**/*-lock.yaml",
-    "**/*-lock.json"
+    "Ruleset/parser/**",
+    "Ruleset/chnroutes/**",
+    "Ruleset/ruleset/**",
+    "BrightIntosh/**",
+    "sing-box/clients/apple/**",
+    "sing-box/clients/android/**",
+    "Ruleset/srsc/**"
   ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.95.13.wasm",
