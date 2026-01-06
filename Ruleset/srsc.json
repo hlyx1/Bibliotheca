@@ -8,7 +8,7 @@
     "/ruleset/domainset/{name}": {
       "type": "file",
       "source": "local",
-      "path": "./dist/Clash/domainset/{name}.txt",
+      "path": "./dist/Clash/domainset/{{ .name }}.txt",
       "source_type": "clash",
       "source_format": "text",
       "source_behavior": "domain",
@@ -17,7 +17,7 @@
     "/ruleset/ip/{name}": {
       "type": "file",
       "source": "local",
-      "path": "./dist/Clash/ip/{name}.txt",
+      "path": "./dist/Clash/ip/{{ .name }}.txt",
       "source_type": "clash",
       "source_format": "text",
       "source_behavior": "classical",
@@ -44,7 +44,7 @@
     "/ruleset/non_ip/{name}": {
       "type": "file",
       "source": "local",
-      "path": "./dist/Clash/non_ip/{name}.txt",
+      "path": "./dist/Clash/non_ip/{{ .name }}.txt",
       "source_type": "clash",
       "source_format": "text",
       "source_behavior": "classical",
@@ -53,7 +53,7 @@
     "/ruleset/dns/{name}": {
       "type": "file",
       "source": "local",
-      "path": "./dist/Internal/mihomo_nameserver_policy/{name}.txt",
+      "path": "./dist/Internal/mihomo_nameserver_policy/{{ .name }}.txt",
       "source_type": "clash",
       "source_format": "text",
       "source_behavior": "classical",
