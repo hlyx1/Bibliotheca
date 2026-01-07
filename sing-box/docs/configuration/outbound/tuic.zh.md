@@ -57,9 +57,9 @@ QUIC 拥塞控制算法
 
 UDP 包中继模式
 
-| 模式   | 描述                                          |
-| ------ | --------------------------------------------- |
-| native | 原生 UDP                                      |
+| 模式     | 描述                           |
+|--------|------------------------------|
+| native | 原生 UDP                       |
 | quic   | 使用 QUIC 流的无损 UDP 中继，引入了额外的开销 |
 
 与 `udp_over_stream` 冲突。
@@ -74,9 +74,12 @@ UDP 包中继模式
 
 #### zero_rtt_handshake
 
-在客户端启用 0-RTT QUIC 连接握手 这对性能影响不大，因为协议是完全复用的
+在客户端启用 0-RTT QUIC 连接握手
+这对性能影响不大，因为协议是完全复用的
 
-!!! warning "" 强烈建议禁用此功能，因为它容易受到重放攻击。 请参阅 [Attack of the clones](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/#attack-of-the-clones)
+!!! warning ""
+强烈建议禁用此功能，因为它容易受到重放攻击。
+请参阅 [Attack of the clones](https://blog.cloudflare.com/even-faster-connection-establishment-with-quic-0-rtt-resumption/#attack-of-the-clones)
 
 #### heartbeat
 

@@ -27,8 +27,8 @@ icon: material/alert-decagram
 
 DNS 服务器的类型。
 
-| 类型            | 格式                      |
-| --------------- | ------------------------- |
+| 类型              | 格式                        |
+|-----------------|---------------------------|
 | empty (default) | [Legacy](./legacy/)       |
 | `local`         | [Local](./local/)         |
 | `hosts`         | [Hosts](./hosts/)         |

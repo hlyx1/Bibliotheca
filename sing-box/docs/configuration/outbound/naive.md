@@ -91,11 +91,11 @@ Use QUIC instead of HTTP/2.
 QUIC congestion control algorithm.
 
 | Algorithm | Description |
-| --------- | ----------- |
-| `bbr`     | BBR         |
-| `bbr2`    | BBRv2       |
-| `cubic`   | CUBIC       |
-| `reno`    | New Reno    |
+|-----------|-------------|
+| `bbr` | BBR |
+| `bbr2` | BBRv2 |
+| `cubic` | CUBIC |
+| `reno` | New Reno |
 
 `bbr` is used by default (the default of QUICHE, used by Chromium which NaiveProxy is based on).
 

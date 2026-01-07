@@ -58,7 +58,7 @@ One of: `cubic`, `new_reno`, `bbr`
 UDP packet relay mode
 
 | Mode   | Description                                                              |
-| :----- | :----------------------------------------------------------------------- |
+|:-------|:-------------------------------------------------------------------------|
 | native | native UDP characteristics                                               |
 | quic   | lossless UDP relay using QUIC streams, additional overhead is introduced |
 
@@ -68,9 +68,12 @@ Conflict with `udp_over_stream`.
 
 #### udp_over_stream
 
-This is the TUIC port of the [UDP over TCP protocol](/configuration/shared/udp-over-tcp/), designed to provide a QUIC stream based UDP relay mode that TUIC does not provide. Since it is an add-on protocol, you will need to use sing-box or another program compatible with the protocol as a server.
+This is the TUIC port of the [UDP over TCP protocol](/configuration/shared/udp-over-tcp/), designed to provide a QUIC
+stream based UDP relay mode that TUIC does not provide. Since it is an add-on protocol, you will need to use sing-box or
+another program compatible with the protocol as a server.
 
-This mode has no positive effect in a proper UDP proxy scenario and should only be applied to relay streaming UDP traffic (basically QUIC streams).
+This mode has no positive effect in a proper UDP proxy scenario and should only be applied to relay streaming UDP
+traffic (basically QUIC streams).
 
 Conflict with `udp_relay_mode`.
 
