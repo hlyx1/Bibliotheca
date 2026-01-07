@@ -48,6 +48,7 @@ Path to the file for storing aggregated API usage statistics.
 Usage tracking is disabled if not specified.
 
 When enabled, the service tracks and saves comprehensive statistics including:
+
 - Request counts
 - Token usage (input, output, cached)
 - Calculated costs in USD based on OpenAI API pricing

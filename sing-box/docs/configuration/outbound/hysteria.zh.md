@@ -136,7 +136,6 @@ base64 编码的认证密码。
 
 TLS 配置, 参阅 [TLS](/zh/configuration/shared/tls/#outbound)。
 
-
 ### 拨号字段
 
 参阅 [拨号字段](/zh/configuration/shared/dial/)。

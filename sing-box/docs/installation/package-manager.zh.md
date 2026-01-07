@@ -99,12 +99,12 @@ curl -fsSL https://sing-box.app/install.sh | sh -s -- --version <version>
 
 ## :material-alert: 存在问题的源
 
-| 类型         | 平台      | 链接                                                                                        | 原因              |
-|------------|---------|-------------------------------------------------------------------------------------------|-----------------|
-| DEB        | AOSC    | [aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs/tree/stable/app-network/sing-box) | 存在问题的构建标志列表修改   |
-| Homebrew   | /       | [homebrew-core][brew]                                                                     | 存在问题的构建标志列表修改   |
-| Termux     | Android | [termux-packages][termux]                                                                 | 存在问题的构建标志列表修改   |
-| FreshPorts | FreeBSD | [FreeBSD ports][ports]                                                                    | 太旧的 Go (go1.20) |
+| 类型       | 平台    | 链接                                                                                      | 原因                       |
+| ---------- | ------- | ----------------------------------------------------------------------------------------- | -------------------------- |
+| DEB        | AOSC    | [aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs/tree/stable/app-network/sing-box) | 存在问题的构建标志列表修改 |
+| Homebrew   | /       | [homebrew-core][brew]                                                                     | 存在问题的构建标志列表修改 |
+| Termux     | Android | [termux-packages][termux]                                                                 | 存在问题的构建标志列表修改 |
+| FreshPorts | FreeBSD | [FreeBSD ports][ports]                                                                    | 太旧的 Go (go1.20)         |
 
 如果您是其用户，请向他们报告问题：
 
@@ -113,38 +113,27 @@ curl -fsSL https://sing-box.app/install.sh | sh -s -- --version <version>
 
 ## :material-book-multiple: 服务管理
 
-对于带有 [systemd][systemd] 的 Linux 系统，通常安装已经包含 sing-box 服务，
-您可以使用以下命令管理服务：
+对于带有 [systemd][systemd] 的 Linux 系统，通常安装已经包含 sing-box 服务， 您可以使用以下命令管理服务：
 
-| 行动   | 命令                                            |
-|------|-----------------------------------------------|
-| 启用   | `sudo systemctl enable sing-box`              |
-| 禁用   | `sudo systemctl disable sing-box`             |
-| 启动   | `sudo systemctl start sing-box`               |
-| 停止   | `sudo systemctl stop sing-box`                |
+| 行动     | 命令                                          |
+| -------- | --------------------------------------------- |
+| 启用     | `sudo systemctl enable sing-box`              |
+| 禁用     | `sudo systemctl disable sing-box`             |
+| 启动     | `sudo systemctl start sing-box`               |
+| 停止     | `sudo systemctl stop sing-box`                |
 | 强行停止 | `sudo systemctl kill sing-box`                |
 | 重新启动 | `sudo systemctl restart sing-box`             |
 | 查看日志 | `sudo journalctl -u sing-box --output cat -e` |
 | 实时日志 | `sudo journalctl -u sing-box --output cat -f` |
 
 [alpine]: https://pkgs.alpinelinux.org/packages?name=sing-box
-
 [aur]: https://aur.archlinux.org/packages/sing-box
-
 [nixpkgs]: https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/tools/networking/sing-box/default.nix
-
 [brew]: https://formulae.brew.sh/formula/sing-box
-
 [choco]: https://chocolatey.org/packages/sing-box
-
 [scoop]: https://github.com/ScoopInstaller/Main/blob/master/bucket/sing-box.json
-
 [winget]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/s/SagerNet/sing-box
-
 [termux]: https://github.com/termux/termux-packages/tree/master/packages/sing-box
-
 [ports]: https://www.freshports.org/net/sing-box
-
 [aosc]: https://packages.aosc.io/packages/sing-box
-
 [systemd]: https://systemd.io/

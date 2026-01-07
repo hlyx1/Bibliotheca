@@ -169,7 +169,7 @@ icon: material/alert-decagram
         "server": "local",
 
         // Deprecated
-        
+
         "rule_set_ipcidr_match_source": false,
         "geosite": [
           "cn"
@@ -191,7 +191,6 @@ icon: material/alert-decagram
     ]
   }
 }
-
 ```
 
 !!! note ""
@@ -365,8 +364,7 @@ Available values: `wifi`, `cellular`, `ethernet` and `other`.
 
     Only supported in graphical clients on Android and Apple platforms.
 
-Match if network is considered Metered (on Android) or considered expensive,
-such as Cellular or a Personal Hotspot (on Apple platforms).
+Match if network is considered Metered (on Android) or considered expensive, such as Cellular or a Personal Hotspot (on Apple platforms).
 
 #### network_is_constrained
 
@@ -435,7 +433,7 @@ Match [rule-set](/configuration/route/#rule_set).
 !!! question "Since sing-box 1.9.0"
 
 !!! failure "Deprecated in sing-box 1.10.0"
-    
+
     `rule_set_ipcidr_match_source` is renamed to `rule_set_ip_cidr_match_source` and will be remove in sing-box 1.11.0.
 
 Make `ip_cidr` rule items in rule-sets match the source IP.
@@ -454,7 +452,7 @@ Invert match result.
 
 !!! failure "Deprecated in sing-box 1.12.0"
 
-    `outbound` rule items are deprecated and will be removed in sing-box 1.14.0, check [Migration](/migration/#migrate-outbound-dns-rule-items-to-domain-resolver). 
+    `outbound` rule items are deprecated and will be removed in sing-box 1.14.0, check [Migration](/migration/#migrate-outbound-dns-rule-items-to-domain-resolver).
 
 Match outbound.
 

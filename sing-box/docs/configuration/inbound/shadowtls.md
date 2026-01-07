@@ -53,7 +53,7 @@ See [Listen Fields](/configuration/shared/listen/) for details.
 ShadowTLS protocol version.
 
 | Value         | Protocol Version                                                                        |
-|---------------|-----------------------------------------------------------------------------------------|
+| ------------- | --------------------------------------------------------------------------------------- |
 | `1` (default) | [ShadowTLS v1](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-en.md#v1) |
 | `2`           | [ShadowTLS v2](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-en.md#v2) |
 | `3`           | [ShadowTLS v3](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-v3-en.md) |
@@ -98,9 +98,9 @@ ShadowTLS wildcard SNI mode.
 
 Available values are:
 
-* `off`: (default) Disabled.
-* `authed`: Authenticated connections will have their destination overwritten to `(servername):443`
-* `all`: All connections will have their destination overwritten to `(servername):443`
+- `off`: (default) Disabled.
+- `authed`: Authenticated connections will have their destination overwritten to `(servername):443`
+- `all`: All connections will have their destination overwritten to `(servername):443`
 
 Additionally, connections matching `handshake_for_server_name` are not affected.
 

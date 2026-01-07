@@ -42,7 +42,7 @@ icon: material/new-box
   "detour": "",
 
   // Deprecated
-  
+
   "sniff": false,
   "sniff_override_destination": false,
   "sniff_timeout": "",
@@ -195,8 +195,6 @@ If `sniff_override_destination` is in effect, its value will be taken as a fallb
 
     Inbound fields are deprecated and will be removed in sing-box 1.13.0, check [Migration](/migration/#migrate-legacy-inbound-fields-to-rule-actions).
 
-If enabled, for UDP proxy requests addressed to a domain, 
-the original packet address will be sent in the response instead of the mapped domain.
+If enabled, for UDP proxy requests addressed to a domain, the original packet address will be sent in the response instead of the mapped domain.
 
-This option is used for compatibility with clients that 
-do not support receiving UDP packets with domain addresses, such as Surge.
+This option is used for compatibility with clients that do not support receiving UDP packets with domain addresses, such as Surge.

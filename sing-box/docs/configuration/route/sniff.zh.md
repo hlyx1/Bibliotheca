@@ -11,21 +11,21 @@
 
 #### 支持的协议
 
-|   网络    |      协议      |     域名      |    客户端     |
-|:-------:|:------------:|:-----------:|:----------:|
-|   TCP   |    `http`    |    Host     |     /      |
-|   TCP   |    `tls`     | Server Name |     /      |
+|  网络   |     协议     |    域名     |     客户端      |
+| :-----: | :----------: | :---------: | :-------------: |
+|   TCP   |    `http`    |    Host     |        /        |
+|   TCP   |    `tls`     | Server Name |        /        |
 |   UDP   |    `quic`    | Server Name | QUIC 客户端类型 |
-|   UDP   |    `stun`    |      /      |     /      |
-| TCP/UDP |    `dns`     |      /      |     /      |
-| TCP/UDP | `bittorrent` |      /      |     /      |
-|   UDP   |    `dtls`    |      /      |     /      |
+|   UDP   |    `stun`    |      /      |        /        |
+| TCP/UDP |    `dns`     |      /      |        /        |
+| TCP/UDP | `bittorrent` |      /      |        /        |
+|   UDP   |    `dtls`    |      /      |        /        |
 |   TCP   |    `ssh`     |      /      | SSH 客户端名称  |
-|   TCP   |    `rdp`     |      /      |     /      |
-|   UDP   |    `ntp`     |      /      |     /      |
+|   TCP   |    `rdp`     |      /      |        /        |
+|   UDP   |    `ntp`     |      /      |        /        |
 
-|         QUIC 客户端         |     类型     |
-|:------------------------:|:----------:|
+|       QUIC 客户端        |    类型    |
+| :----------------------: | :--------: |
 |     Chromium/Cronet      | `chromium` |
 | Safari/Apple Network API |  `safari`  |
 | Firefox / uquic firefox  | `firefox`  |
