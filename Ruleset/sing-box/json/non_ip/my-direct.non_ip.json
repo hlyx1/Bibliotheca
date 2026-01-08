@@ -2,9 +2,6 @@
   "version": 4,
   "rules": [
     {
-      "domain": [
-        "mirrorbits.lineageos.org"
-      ],
       "domain_suffix": [
         ".torrentmac.net",
         ".engage.cloudflareclient.com",
