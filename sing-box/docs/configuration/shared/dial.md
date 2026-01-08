@@ -47,7 +47,7 @@ icon: material/new-box
   "fallback_delay": "",
 
   // Deprecated
-  
+
   "domain_strategy": ""
 }
 ```
@@ -104,10 +104,7 @@ Set network namespace, name or path.
 
 Connect timeout, in golang's Duration format.
 
-A duration string is a possibly signed sequence of
-decimal numbers, each with optional fraction and a unit suffix,
-such as "300ms", "-1.5h" or "2h45m".
-Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as "300ms", "-1.5h" or "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
 
 #### tcp_fast_open
 
@@ -166,8 +163,8 @@ This option uses the same format as the [route DNS rule action](/configuration/d
 Setting this option directly to a string is equivalent to setting `server` of this options.
 
 | Outbound/Endpoints | Effected domains         |
-|--------------------|--------------------------|
-| `direct`           | Domain in request        | 
+| ------------------ | ------------------------ |
+| `direct`           | Domain in request        |
 | others             | Domain in server address |
 
 #### network_strategy
@@ -186,9 +183,7 @@ Available values:
 - `hybrid`: Connect to all networks or networks specified in `network_type` concurrently.
 - `fallback`: Connect to default network or preferred networks specified in `network_type` concurrently, and try fallback networks when unavailable or timeout.
 
-For fallback, when preferred interfaces fails or times out,
-it will enter a 15s fast fallback state (Connect to all preferred and fallback networks concurrently),
-and exit immediately if preferred networks recover.
+For fallback, when preferred interfaces fails or times out, it will enter a 15s fast fallback state (Connect to all preferred and fallback networks concurrently), and exit immediately if preferred networks recover.
 
 Conflicts with `bind_interface`, `inet4_bind_address` and `inet6_bind_address`.
 
@@ -200,8 +195,7 @@ Conflicts with `bind_interface`, `inet4_bind_address` and `inet6_bind_address`.
 
     Only supported in graphical clients on Android and Apple platforms with `auto_detect_interface` enabled.
 
-Network types to use when using `default` or `hybrid` network strategy or
-preferred network types to use when using `fallback` network strategy.
+Network types to use when using `default` or `hybrid` network strategy or preferred network types to use when using `fallback` network strategy.
 
 Available values: `wifi`, `cellular`, `ethernet`, `other`.
 
@@ -229,11 +223,9 @@ All other networks expect preferred are used by default.
 
 The length of time to wait before spawning a RFC 6555 Fast Fallback connection.
 
-For `domain_strategy`, is the amount of time to wait for connection to succeed before assuming
-that IPv4/IPv6 is misconfigured and falling back to other type of addresses.
+For `domain_strategy`, is the amount of time to wait for connection to succeed before assuming that IPv4/IPv6 is misconfigured and falling back to other type of addresses.
 
-For `network_strategy`, is the amount of time to wait for connection to succeed before falling
-back to other interfaces.
+For `network_strategy`, is the amount of time to wait for connection to succeed before falling back to other interfaces.
 
 Only take effect when `domain_strategy` or `network_strategy` is set.
 
@@ -250,7 +242,6 @@ Available values: `prefer_ipv4`, `prefer_ipv6`, `ipv4_only`, `ipv6_only`.
 If set, the requested domain name will be resolved to IP before connect.
 
 | Outbound | Effected domains         | Fallback Value                            |
-|----------|--------------------------|-------------------------------------------|
-| `direct` | Domain in request        | Take `inbound.domain_strategy` if not set | 
+| -------- | ------------------------ | ----------------------------------------- |
+| `direct` | Domain in request        | Take `inbound.domain_strategy` if not set |
 | others   | Domain in server address | /                                         |
-

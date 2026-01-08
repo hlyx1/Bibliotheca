@@ -45,7 +45,7 @@ icon: material/new-box
   "network_type": [],
   "fallback_network_type": [],
   "fallback_delay": "",
-  
+
   // 废弃的
 
   "domain_strategy": ""
@@ -104,8 +104,7 @@ icon: material/new-box
 
 连接超时，采用 golang 的 Duration 格式。
 
-持续时间字符串是一个可能有符号的序列十进制数，每个都有可选的分数和单位后缀， 例如 "300ms"、"-1.5h" 或 "2h45m"。
-有效时间单位为 "ns"、"us"（或 "µs"）、"ms"、"s"、"m"、"h"。
+持续时间字符串是一个可能有符号的序列十进制数，每个都有可选的分数和单位后缀， 例如 "300ms"、"-1.5h" 或 "2h45m"。 有效时间单位为 "ns"、"us"（或 "µs"）、"ms"、"s"、"m"、"h"。
 
 #### tcp_fast_open
 
@@ -155,18 +154,18 @@ TCP keep alive 间隔。
 
 !!! info ""
 
-    当只有一个 DNS 服务器已配置时，`domain_resolver` 或 `route.default_domain_resolver` 是可选的。 
+    当只有一个 DNS 服务器已配置时，`domain_resolver` 或 `route.default_domain_resolver` 是可选的。
 
 用于设置解析域名的域名解析器。
 
-此选项的格式与 [路由 DNS 规则动作](/configuration/dns/rule_action/#route) 相同，但不包含 `action` 字段。  
+此选项的格式与 [路由 DNS 规则动作](/configuration/dns/rule_action/#route) 相同，但不包含 `action` 字段。
 
 若直接将此选项设置为字符串，则等同于设置该选项的 `server` 字段。
 
-| 出站/端点       | 受影响的域名                |
-|----------------|---------------------------|
-| `direct`       | 请求中的域名                | 
-| 其他类型        | 服务器地址中的域名           |
+| 出站/端点 | 受影响的域名       |
+| --------- | ------------------ |
+| `direct`  | 请求中的域名       |
+| 其他类型  | 服务器地址中的域名 |
 
 #### network_strategy
 
@@ -184,9 +183,7 @@ TCP keep alive 间隔。
 - `hybrid`：同时连接所有网络或 `network_type` 中指定的网络。
 - `fallback`：同时连接默认网络或 `network_type` 中指定的首选网络，当不可用或超时时尝试回退网络。
 
-对于回退模式，当首选接口失败或超时时，
-将进入15秒的快速回退状态（同时连接所有首选和回退网络），
-如果首选网络恢复，则立即退出。
+对于回退模式，当首选接口失败或超时时， 将进入15秒的快速回退状态（同时连接所有首选和回退网络）， 如果首选网络恢复，则立即退出。
 
 与 `bind_interface`, `bind_inet4_address` 和 `bind_inet6_address` 冲突。
 
@@ -238,7 +235,7 @@ TCP keep alive 间隔。
 
 如果设置，域名将在请求发出之前解析为 IP。
 
-| 出站       | 受影响的域名    | 默认回退值                     |
-|----------|-----------|---------------------------|
-| `direct` | 请求中的域名    | `inbound.domain_strategy` | 
+| 出站     | 受影响的域名       | 默认回退值                |
+| -------- | ------------------ | ------------------------- |
+| `direct` | 请求中的域名       | `inbound.domain_strategy` |
 | others   | 服务器地址中的域名 | /                         |

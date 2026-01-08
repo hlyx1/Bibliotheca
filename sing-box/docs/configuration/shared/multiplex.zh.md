@@ -46,8 +46,8 @@
 
 多路复用协议
 
-| 协议    | 描述                                 |
-|-------|------------------------------------|
+| 协议  | 描述                               |
+| ----- | ---------------------------------- |
 | smux  | https://github.com/xtaci/smux      |
 | yamux | https://github.com/hashicorp/yamux |
 | h2mux | https://golang.org/x/net/http2     |

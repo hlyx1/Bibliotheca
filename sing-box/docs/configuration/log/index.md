@@ -11,7 +11,6 @@
     "timestamp": true
   }
 }
-
 ```
 
 ### Fields

@@ -17,8 +17,7 @@ icon: material/new-box
         "tag": "",
 
         "server": "",
-        "server_port": 53,
-
+        "server_port": 53
         // 拨号字段
       }
     ]
