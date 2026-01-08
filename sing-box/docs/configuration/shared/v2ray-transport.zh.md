@@ -10,11 +10,11 @@ V2Ray Transport 是 v2ray 发明的一组私有协议，并污染了其他协议
 
 可用的传输协议：
 
-- HTTP
-- WebSocket
-- QUIC
-- gRPC
-- HTTPUpgrade
+* HTTP
+* WebSocket
+* QUIC
+* gRPC
+* HTTPUpgrade
 
 !!! warning "与 v2ray-core 的区别"
 

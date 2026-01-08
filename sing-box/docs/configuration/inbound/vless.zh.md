@@ -44,7 +44,7 @@ VLESS 子协议。
 
 可用值：
 
-- `xtls-rprx-vision`
+* `xtls-rprx-vision`
 
 #### tls
 

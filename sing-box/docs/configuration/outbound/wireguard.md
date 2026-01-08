@@ -11,7 +11,7 @@ icon: material/delete-clock
     :material-delete-alert: [gso](#gso)
 
 !!! quote "Changes in sing-box 1.8.0"
-
+    
     :material-plus: [gso](#gso)
 
 ### Structure
@@ -115,7 +115,7 @@ echo "private key" || wg pubkey
 
 #### peers
 
-Multi-peer support.
+Multi-peer support. 
 
 If enabled, `server, server_port, peer_public_key, pre_shared_key` will be ignored.
 

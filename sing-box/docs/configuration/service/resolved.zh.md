@@ -6,7 +6,8 @@ icon: material/new-box
 
 # Resolved
 
-Resolved 服务是一个伪造的 systemd-resolved DBUS 服务，用于从其他程序 （如 NetworkManager）接收 DNS 设置并提供 DNS 解析。
+Resolved 服务是一个伪造的 systemd-resolved DBUS 服务，用于从其他程序
+（如 NetworkManager）接收 DNS 设置并提供 DNS 解析。
 
 另请参阅：[Resolved DNS 服务器](/zh/configuration/dns/server/resolved/)
 

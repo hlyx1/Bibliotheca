@@ -4,10 +4,11 @@ icon: material/horse
 
 # Trojan
 
-Torjan is the most commonly used TLS proxy made in China. It can be used in various combinations, but only the combination of uTLS and multiplexing is recommended.
+Torjan is the most commonly used TLS proxy made in China. It can be used in various combinations,
+but only the combination of uTLS and multiplexing is recommended.
 
 | Protocol and implementation combination | Specification                                                        | Resists passive detection | Resists active probes |
-| --------------------------------------- | -------------------------------------------------------------------- | ------------------------- | --------------------- |
+|-----------------------------------------|----------------------------------------------------------------------|---------------------------|-----------------------|
 | Origin / trojan-gfw                     | [trojan-gfw.github.io](https://trojan-gfw.github.io/trojan/protocol) | :material-check:          | :material-check:      |
 | Basic Go implementation                 | /                                                                    | :material-alert:          | :material-check:      |
 | with privates transport by V2Ray        | No formal definition                                                 | :material-alert:          | :material-alert:      |
@@ -16,7 +17,7 @@ Torjan is the most commonly used TLS proxy made in China. It can be used in vari
 ## :material-text-box-check: Password Generator
 
 | Generate Password          | Action                                                          |
-| -------------------------- | --------------------------------------------------------------- |
+|----------------------------|-----------------------------------------------------------------|
 | <code id="password"><code> | <button class="md-button" onclick="generate()">Refresh</button> |
 
 <script>

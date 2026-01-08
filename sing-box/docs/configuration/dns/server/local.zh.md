@@ -19,7 +19,8 @@ icon: material/new-box
       {
         "type": "local",
         "tag": "",
-        "prefer_go": false
+        "prefer_go": false,
+
         // 拨号字段
       }
     ]
@@ -47,9 +48,13 @@ icon: material/new-box
 
 作为唯一的例外，它无法禁用以下行为：
 
-1. 在 Android 图形客户端中， `local` 将始终通过平台接口解析 DNS， 因为没有其他方法来获取上游 DNS 服务器； 在运行 Android 10 以下版本的设备上，此接口只能解析 A/AAAA 请求。
+1. 在 Android 图形客户端中，
+`local` 将始终通过平台接口解析 DNS，
+因为没有其他方法来获取上游 DNS 服务器；
+在运行 Android 10 以下版本的设备上，此接口只能解析 A/AAAA 请求。
 
-2. 在 macOS 上，`local` 会在 Network Extension 中首先尝试 DHCP，由于 DHCP 遵循拨号字段， 它不会被 `prefer_go` 禁用。
+2. 在 macOS 上，`local` 会在 Network Extension 中首先尝试 DHCP，由于 DHCP 遵循拨号字段，
+它不会被 `prefer_go` 禁用。
 
 ### 拨号字段
 

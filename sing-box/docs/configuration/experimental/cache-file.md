@@ -44,7 +44,8 @@ Store fakeip in the cache file
 
 Store rejected DNS response cache in the cache file
 
-The check results of [Address filter DNS rule items](/configuration/dns/rule/#address-filter-fields) will be cached until expiration.
+The check results of [Address filter DNS rule items](/configuration/dns/rule/#address-filter-fields)
+will be cached until expiration.
 
 #### rdrc_timeout
 

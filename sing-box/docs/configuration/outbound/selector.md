@@ -4,7 +4,7 @@
 {
   "type": "selector",
   "tag": "select",
-
+  
   "outbounds": [
     "proxy-a",
     "proxy-b",

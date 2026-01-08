@@ -46,22 +46,22 @@ VMess 用户 ID。
 
 加密方法：
 
-- `auto`
-- `none`
-- `zero`
-- `aes-128-gcm`
-- `chacha20-poly1305`
+* `auto`
+* `none`
+* `zero`
+* `aes-128-gcm`
+* `chacha20-poly1305`
 
 旧加密方法：
 
-- `aes-128-ctr`
+* `aes-128-ctr`
 
 #### alter_id
 
-| Alter ID | 描述             |
-| -------- | ---------------- |
-| 0        | 禁用旧协议       |
-| 1        | 启用旧协议       |
+| Alter ID | 描述         |
+|----------|------------|
+| 0        | 禁用旧协议      |
+| 1        | 启用旧协议      |
 | > 1      | 未使用, 行为同 1 |
 
 #### global_padding
@@ -88,9 +88,9 @@ TLS 配置, 参阅 [TLS](/zh/configuration/shared/tls/#outbound)。
 
 UDP 包编码。
 
-| 编码       | 描述             |
-| ---------- | ---------------- |
-| (空)       | 禁用             |
+| 编码         | 描述            |
+|------------|---------------|
+| (空)        | 禁用            |
 | packetaddr | 由 v2ray 5+ 支持 |
 | xudp       | 由 xray 支持     |
 

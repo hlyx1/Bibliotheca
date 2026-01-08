@@ -42,7 +42,7 @@ icon: material/new-box
   "detour": "",
 
   // 废弃的
-
+  
   "sniff": false,
   "sniff_override_destination": false,
   "sniff_timeout": "",
