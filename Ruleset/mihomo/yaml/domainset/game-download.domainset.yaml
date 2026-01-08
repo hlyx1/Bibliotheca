@@ -1,54 +1,54 @@
 payload:
-  - DOMAIN-SUFFIX,steamserver.net
-  - DOMAIN-SUFFIX,dl.playstation.net
-  - DOMAIN-SUFFIX,pf-cdn-content-prod.azureedge.net
-  - DOMAIN-SUFFIX,gamedownloads-rockstargames-com.akamaized.net
-  - DOMAIN-SUFFIX,epicgames-download1.akamaized.net
-  - DOMAIN-SUFFIX,steampipe-partner.akamaized.net
-  - DOMAIN-SUFFIX,steampipe-kr.akamaized.net
-  - DOMAIN-SUFFIX,steampipe.akamaized.net
-  - DOMAIN-SUFFIX,wup.eshop.nintendo.net
-  - DOMAIN-SUFFIX,wup.shop.nintendo.net
-  - DOMAIN-SUFFIX,cdn.nintendo.net
-  - DOMAIN-SUFFIX,download.cdp.bethesda.net
-  - DOMAIN-SUFFIX,content.cdp.bethesda.net
-  - DOMAIN-SUFFIX,dlgarenanow-a.akamaihd.net
-  - DOMAIN-SUFFIX,blzddistkr1-a.akamaihd.net
-  - DOMAIN-SUFFIX,blzddist3-a.akamaihd.net
-  - DOMAIN-SUFFIX,blzddist2-a.akamaihd.net
-  - DOMAIN-SUFFIX,blzddist1-a.akamaihd.net
-  - DOMAIN-SUFFIX,origin-a.akamaihd.net
-  - DOMAIN-SUFFIX,dyn.riotcdn.net
-  - DOMAIN-SUFFIX,edge.steam-dns.top.comcast.net
-  - DOMAIN-SUFFIX,content-origin.steampowered.com
-  - DOMAIN-SUFFIX,content.steampowered.com
-  - DOMAIN-SUFFIX,steamcontent.com
-  - DOMAIN-SUFFIX,epicgamescdn.com
-  - DOMAIN-SUFFIX,egdownload.fastly-edge.com
-  - DOMAIN-SUFFIX,fastly-download.epicgames.com
-  - DOMAIN-SUFFIX,download4.epicgames.com
-  - DOMAIN-SUFFIX,download3.epicgames.com
-  - DOMAIN-SUFFIX,download2.epicgames.com
-  - DOMAIN-SUFFIX,download.epicgames.com
-  - DOMAIN-SUFFIX,packagespc.xboxlive.com
-  - DOMAIN-SUFFIX,assets2.xboxlive.com
-  - DOMAIN-SUFFIX,assets1.xboxlive.com
-  - DOMAIN-SUFFIX,xvcf2.xboxlive.com
-  - DOMAIN-SUFFIX,xvcf1.xboxlive.com
-  - DOMAIN-SUFFIX,level3.blizzard.com
-  - DOMAIN-SUFFIX,dist.blizzard.com
-  - DOMAIN-SUFFIX,cdn.blizzard.com
-  - DOMAIN-SUFFIX,steam.naeu.qtlglb.com
-  - DOMAIN-SUFFIX,steam.apac.qtlglb.com
-  - DOMAIN-SUFFIX,steam.eca.qtlglb.com
-  - DOMAIN-SUFFIX,steam.ru.qtlglb.com
-  - DOMAIN-SUFFIX,download.dm.origin.com
-  - DOMAIN-SUFFIX,cdn-patch.swtor.com
-  - DOMAIN-SUFFIX,download.xbox.com
-  - DOMAIN-SUFFIX,cdn.ubi.com
-  - DOMAIN-SUFFIX,gog-cdn-fastly-cp77.gog.com
-  - DOMAIN-SUFFIX,gog-cdn-fastly.gog.com
-  - DOMAIN-SUFFIX,cdn.ea.com
-  - DOMAIN-SUFFIX,blizzard.gcdn.cloudn.co.kr
-  - DOMAIN-SUFFIX,download.hikarifield.co.jp
-  - DOMAIN-SUFFIX,client.hikarifield.co.jp
+- DOMAIN-SUFFIX,steamserver.net
+- DOMAIN-SUFFIX,dl.playstation.net
+- DOMAIN-SUFFIX,pf-cdn-content-prod.azureedge.net
+- DOMAIN-SUFFIX,gamedownloads-rockstargames-com.akamaized.net
+- DOMAIN-SUFFIX,epicgames-download1.akamaized.net
+- DOMAIN-SUFFIX,steampipe-partner.akamaized.net
+- DOMAIN-SUFFIX,steampipe-kr.akamaized.net
+- DOMAIN-SUFFIX,steampipe.akamaized.net
+- DOMAIN-SUFFIX,wup.eshop.nintendo.net
+- DOMAIN-SUFFIX,wup.shop.nintendo.net
+- DOMAIN-SUFFIX,cdn.nintendo.net
+- DOMAIN-SUFFIX,download.cdp.bethesda.net
+- DOMAIN-SUFFIX,content.cdp.bethesda.net
+- DOMAIN-SUFFIX,dlgarenanow-a.akamaihd.net
+- DOMAIN-SUFFIX,blzddistkr1-a.akamaihd.net
+- DOMAIN-SUFFIX,blzddist3-a.akamaihd.net
+- DOMAIN-SUFFIX,blzddist2-a.akamaihd.net
+- DOMAIN-SUFFIX,blzddist1-a.akamaihd.net
+- DOMAIN-SUFFIX,origin-a.akamaihd.net
+- DOMAIN-SUFFIX,dyn.riotcdn.net
+- DOMAIN-SUFFIX,edge.steam-dns.top.comcast.net
+- DOMAIN-SUFFIX,content-origin.steampowered.com
+- DOMAIN-SUFFIX,content.steampowered.com
+- DOMAIN-SUFFIX,steamcontent.com
+- DOMAIN-SUFFIX,epicgamescdn.com
+- DOMAIN-SUFFIX,egdownload.fastly-edge.com
+- DOMAIN-SUFFIX,fastly-download.epicgames.com
+- DOMAIN-SUFFIX,download4.epicgames.com
+- DOMAIN-SUFFIX,download3.epicgames.com
+- DOMAIN-SUFFIX,download2.epicgames.com
+- DOMAIN-SUFFIX,download.epicgames.com
+- DOMAIN-SUFFIX,packagespc.xboxlive.com
+- DOMAIN-SUFFIX,assets2.xboxlive.com
+- DOMAIN-SUFFIX,assets1.xboxlive.com
+- DOMAIN-SUFFIX,xvcf2.xboxlive.com
+- DOMAIN-SUFFIX,xvcf1.xboxlive.com
+- DOMAIN-SUFFIX,level3.blizzard.com
+- DOMAIN-SUFFIX,dist.blizzard.com
+- DOMAIN-SUFFIX,cdn.blizzard.com
+- DOMAIN-SUFFIX,steam.naeu.qtlglb.com
+- DOMAIN-SUFFIX,steam.apac.qtlglb.com
+- DOMAIN-SUFFIX,steam.eca.qtlglb.com
+- DOMAIN-SUFFIX,steam.ru.qtlglb.com
+- DOMAIN-SUFFIX,download.dm.origin.com
+- DOMAIN-SUFFIX,cdn-patch.swtor.com
+- DOMAIN-SUFFIX,download.xbox.com
+- DOMAIN-SUFFIX,cdn.ubi.com
+- DOMAIN-SUFFIX,gog-cdn-fastly-cp77.gog.com
+- DOMAIN-SUFFIX,gog-cdn-fastly.gog.com
+- DOMAIN-SUFFIX,cdn.ea.com
+- DOMAIN-SUFFIX,blizzard.gcdn.cloudn.co.kr
+- DOMAIN-SUFFIX,download.hikarifield.co.jp
+- DOMAIN-SUFFIX,client.hikarifield.co.jp

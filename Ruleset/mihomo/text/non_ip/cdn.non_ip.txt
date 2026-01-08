@@ -1,7 +1,3 @@
-DOMAIN,cdn-msp.18comic.vip
-DOMAIN,cdn-msp.18comic.org
-DOMAIN,cdn-msp.jmcomic-zzz.one
-DOMAIN,cdn-msp.jmcomic.me
 DOMAIN-KEYWORD,-files.gitbook.io
 DOMAIN-KEYWORD,vod-adaptive.akamaized.net
 DOMAIN-KEYWORD,web-assets.zendesk
@@ -23,6 +19,10 @@ DOMAIN-KEYWORD,-images.disco-api.com
 DOMAIN-KEYWORD,vdownload.hanime1
 DOMAIN-KEYWORD,fonts.hanime1
 DOMAIN-KEYWORD,static.grammarly.com
+DOMAIN,cdn-msp.18comic.vip
+DOMAIN,cdn-msp.18comic.org
+DOMAIN,cdn-msp.jmcomic-zzz.one
+DOMAIN,cdn-msp.jmcomic.me
 DOMAIN-WILDCARD,cdn.*.office.net
 DOMAIN-WILDCARD,cdn.*.microsoft.com
 DOMAIN-WILDCARD,cdn-*.microsoft.com

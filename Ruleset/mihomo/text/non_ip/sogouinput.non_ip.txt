@@ -1,4 +1,3 @@
-DOMAIN,oth.str.mdt.qq.com
 DOMAIN-SUFFIX,account.sogou.com
 DOMAIN-SUFFIX,shouji.sogou.com
 DOMAIN-SUFFIX,pinyin.sogou.com
@@ -10,3 +9,4 @@ DOMAIN-SUFFIX,beacon.qq.com
 PROCESS-NAME,SogouInput
 PROCESS-NAME,SogouTaskManager
 PROCESS-NAME,SogouServices
+DOMAIN,oth.str.mdt.qq.com

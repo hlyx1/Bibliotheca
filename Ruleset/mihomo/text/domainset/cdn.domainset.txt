@@ -262,6 +262,7 @@
 +.cdn-media-1.freecodecamp.org
 +.cdn-media-0.freecodecamp.org
 +.cdn.freecodecamp.org
++.media.fidoalliance.org
 +.embed.culturalspot.org
 +.cdn-telegram.org
 +.files.writefreely.org
@@ -843,6 +844,7 @@
 +.ipfs.orbitor.dev
 +.apac.orbitor.dev
 +.eu.orbitor.dev
++.biomejs.dev
 +.angular.dev
 +.vercel.dev
 +.stats.setapp.macpaw.dev
@@ -1835,6 +1837,7 @@
 +.cdnstatic.porno-cum.com
 +.static.polldaddy.com
 +.assets.polarbyte.com
++.image.pitchbook.com
 +.widgets.pinterest.com
 +.assets.pinterest.com
 +.storage-b.picacomic.com
@@ -2087,6 +2090,7 @@
 +.rrcdnbf3.com
 +.apps-static.route4me.com
 +.roseimgs.com
++.media-cdn.rollcall.com
 +.cdnassets.roboflow.com
 +.static.roboflow.com
 +.source.roboflow.com
@@ -3617,6 +3621,7 @@
 +.cdp.sph.com.sg
 +.ipfs.best-practice.se
 +.widget.datablocks.se
++.media-cdn.factba.se
 +.webp.se
 +.curl.se
 +.avatars.dzeninfra.ru

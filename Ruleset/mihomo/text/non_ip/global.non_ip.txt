@@ -1,3 +1,10 @@
+DOMAIN,news.ycombinator.com
+DOMAIN,ees.elsevier.com
+DOMAIN,community.oneplus.com
+DOMAIN,ccmdl.adobe.com
+DOMAIN,help.ubnt.com
+DOMAIN,wego.here.com
+DOMAIN,store.ui.com.cn
 DOMAIN-KEYWORD,google
 DOMAIN-KEYWORD,blogspot
 DOMAIN-KEYWORD,facebook
@@ -1225,10 +1232,3 @@ DOMAIN-SUFFIX,at
 DOMAIN-SUFFIX,instagr.am
 DOMAIN-SUFFIX,ai
 DOMAIN-SUFFIX,ac
-DOMAIN,news.ycombinator.com
-DOMAIN,ees.elsevier.com
-DOMAIN,community.oneplus.com
-DOMAIN,ccmdl.adobe.com
-DOMAIN,help.ubnt.com
-DOMAIN,wego.here.com
-DOMAIN,store.ui.com.cn

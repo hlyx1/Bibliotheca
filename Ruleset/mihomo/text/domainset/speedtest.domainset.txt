@@ -806,6 +806,7 @@
 +.ookla1.talkiefiber.com
 +.sp1.snsinternet.com
 +.speedtest-sd-da1.scalematrix.com
++.speedtest.samparkinfo.com
 +.speedtest-chicago.ripplefiber.com
 +.speedtest-stm.redeconecta.com
 +.speedtest-obd.redeconecta.com
@@ -1032,6 +1033,7 @@
 +.speedtest2-tor.teksavvy.com
 +.speedtest-tek.teksavvy.com
 +.speedtest-ookla-roc1.synoptek.com
++.speedtest.surrytel.com
 +.speedtest.summithq.com
 +.kami.smartone.com
 +.par1speedtest01.skylogic.com
@@ -1279,6 +1281,7 @@
 +.speedtest3.dal.nxlink.com
 +.speedtest1.chi.nxlink.com
 +.speedtest5.nmsurf.com
++.ookla.nieqtv.com
 +.mirror.nforce.com
 +.test-mi.netoip.com
 +.speedtest.netafy.com
@@ -1367,6 +1370,7 @@
 +.speedtest.hyperwave.uk
 +.speedtest.octaplus.uk
 +.speedtest-thn.krystal.uk
++.speedtest-lon.krystal.uk
 +.speedtest2.lightningfibre.net.uk
 +.speedtest.cadence.net.uk
 +.speedtest-ookla-alpha.giant.net.uk
@@ -1583,6 +1587,7 @@
 +.speed2.fiberlink.pl
 +.war-o1.speedtest.orange.pl
 +.speedtest.exatel.pl
++.warsaw.netia.pl
 +.speedtestooklabal1.plus.pl
 +.speedtest.jmdi.pl
 +.speedtest.skynet.net.pl
@@ -2028,6 +2033,7 @@
 +.speed2.netlixor.de
 +.speed.netlixor.de
 +.speedtest.ip-works.de
++.speedtest.twl-kom.de
 +.speedtest-gwn24.tele-ag.de
 +.speedtest1.t-m-net.de
 +.speedtest1.synlinq.de
@@ -2277,6 +2283,7 @@
 +.speedtest.albatroznetwork.com.br
 +.speedtest.agilityparacuru.com.br
 +.velocidade.webzoomtelecom.com.br
++.teste.topnetservices.com.br
 +.speedtest.saidnettelecom.com.br
 +.speedfortal.redeplanetanet.com.br
 +.velocidade.phinfortelecom.com.br
@@ -2439,6 +2446,7 @@
 +.speed.rikanet.com.br
 +.speedtest.redewsp.com.br
 +.sp1.raplink.com.br
++.speedteste.netfast.com.br
 +.veloteste.mrjomar.com.br
 +.speedtest.jvswifi.com.br
 +.speedtest.intlink.com.br
