@@ -43,7 +43,7 @@ Example:
 ```json
 {
   // "path": "/etc/hosts"
-  
+
   "path": [
     "/etc/hosts",
     "$HOME/.hosts"

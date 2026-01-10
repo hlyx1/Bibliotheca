@@ -40,7 +40,7 @@ icon: material/alert-decagram
     "default_network_type": [],
     "default_fallback_network_type": [],
     "default_fallback_delay": "",
-    
+
     // Removed
 
     "geoip": {},

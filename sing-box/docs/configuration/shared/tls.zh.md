@@ -139,30 +139,30 @@ icon: material/new-box
 
 TLS 版本值：
 
-* `1.0`
-* `1.1`
-* `1.2`
-* `1.3`
+- `1.0`
+- `1.1`
+- `1.2`
+- `1.3`
 
 密码套件值：
 
-* `TLS_RSA_WITH_AES_128_CBC_SHA`
-* `TLS_RSA_WITH_AES_256_CBC_SHA`
-* `TLS_RSA_WITH_AES_128_GCM_SHA256`
-* `TLS_RSA_WITH_AES_256_GCM_SHA384`
-* `TLS_AES_128_GCM_SHA256`
-* `TLS_AES_256_GCM_SHA384`
-* `TLS_CHACHA20_POLY1305_SHA256`
-* `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`
-* `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`
-* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
-* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
-* `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
-* `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
-* `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
-* `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-* `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256`
-* `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_RSA_WITH_AES_128_CBC_SHA`
+- `TLS_RSA_WITH_AES_256_CBC_SHA`
+- `TLS_RSA_WITH_AES_128_GCM_SHA256`
+- `TLS_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_AES_128_GCM_SHA256`
+- `TLS_AES_256_GCM_SHA384`
+- `TLS_CHACHA20_POLY1305_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`
+- `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+- `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+- `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+- `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
 
 !!! note ""
 
@@ -226,11 +226,11 @@ TLS 版本值：
 
 可用值，同时也是默认列表：
 
-* `P256`
-* `P384`
-* `P521`
-* `X25519`
-* `X25519MLKEM768`
+- `P256`
+- `P384`
+- `P521`
+- `X25519`
+- `X25519MLKEM768`
 
 #### certificate
 
@@ -324,14 +324,13 @@ echo | openssl s_client -servername example.com -connect example.com:443 2>/dev/
 
 可用值：
 
-* `no`（默认）
-* `request`
-* `require-any`
-* `verify-if-given`
-* `require-and-verify`
+- `no`（默认）
+- `request`
+- `require-any`
+- `verify-if-given`
+- `require-and-verify`
 
-如果此选项设置为 `verify-if-given` 或 `require-and-verify`，
-则需要 `client_certificate`、`client_certificate_path` 或 `client_certificate_public_key_sha256` 中的一个。
+如果此选项设置为 `verify-if-given` 或 `require-and-verify`， 则需要 `client_certificate`、`client_certificate_path` 或 `client_certificate_public_key_sha256` 中的一个。
 
 #### client_certificate
 
@@ -435,16 +434,16 @@ uTLS 是 "crypto/tls" 的一个分支，它提供了 ClientHello 指纹识别阻
     :material-close: chrome_pq  
     :material-close: chrome_pq_psk
 
-* chrome
-* firefox
-* edge
-* safari
-* 360
-* qq
-* ios
-* android
-* random
-* randomized
+- chrome
+- firefox
+- edge
+- safari
+- 360
+- qq
+- ios
+- android
+- random
+- randomized
 
 默认使用 chrome 指纹。
 
@@ -470,8 +469,7 @@ ECH 密钥和配置可以通过 `sing-box generate ech-keypair` 生成。
 
 禁用 TLS 记录的自适应大小调整。
 
-当为 true 时，总是使用最大可能的 TLS 记录大小。
-当为 false 时，可能会调整 TLS 记录的大小以尝试改善延迟。
+当为 true 时，总是使用最大可能的 TLS 记录大小。 当为 false 时，可能会调整 TLS 记录的大小以尝试改善延迟。
 
 #### key
 
@@ -527,12 +525,9 @@ ECH 配置路径，PEM 格式。
 
 由于性能不佳，请首先尝试 `record_fragment`，且仅应用于已知被阻止的服务器名称。
 
-在 Linux、Apple 平台和（需要管理员权限的）Windows 系统上，
-可以自动检测等待时间。否则，将回退到
-等待 `fragment_fallback_delay` 指定的固定时间。
+在 Linux、Apple 平台和（需要管理员权限的）Windows 系统上， 可以自动检测等待时间。否则，将回退到 等待 `fragment_fallback_delay` 指定的固定时间。
 
-此外，如果实际等待时间少于 20ms，也会回退到等待固定时间，
-因为目标被认为是本地的或在透明代理后面。
+此外，如果实际等待时间少于 20ms，也会回退到等待固定时间， 因为目标被认为是本地的或在透明代理后面。
 
 #### fragment_fallback_delay
 
@@ -578,11 +573,11 @@ ACME 数据存储目录。
 
 要使用的 ACME CA 供应商。
 
-| 值                  | 供应商           |
-|--------------------|---------------|
+| 值                   | 供应商        |
+| -------------------- | ------------- |
 | `letsencrypt (默认)` | Let's Encrypt |
-| `zerossl`          | ZeroSSL       |
-| `https://...`      | 自定义           |
+| `zerossl`            | ZeroSSL       |
+| `https://...`        | 自定义        |
 
 #### disable_http_challenge
 

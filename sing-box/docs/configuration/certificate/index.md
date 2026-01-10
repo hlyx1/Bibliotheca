@@ -31,12 +31,12 @@ icon: material/new-box
 
 The default X509 trusted CA certificate list.
 
-| Type               | Description                                                                                                    |
-|--------------------|----------------------------------------------------------------------------------------------------------------|
-| `system` (default) | System trusted CA certificates                                                                                 |
+| Type               | Description                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `system` (default) | System trusted CA certificates                                                                                |
 | `mozilla`          | [Mozilla Included List](https://wiki.mozilla.org/CA/Included_Certificates) with China CA certificates removed |
-| `chrome`           | [Chrome Root Store](https://g.co/chrome/root-policy) with China CA certificates removed                        |
-| `none`             | Empty list                                                                                                     |
+| `chrome`           | [Chrome Root Store](https://g.co/chrome/root-policy) with China CA certificates removed                       |
+| `none`             | Empty list                                                                                                    |
 
 #### certificate
 
