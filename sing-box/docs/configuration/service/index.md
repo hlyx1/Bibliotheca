@@ -22,7 +22,7 @@ icon: material/new-box
 ### Fields
 
 | Type       | Format                 |
-| ---------- | ---------------------- |
+|------------|------------------------|
 | `ccm`      | [CCM](./ccm)           |
 | `derp`     | [DERP](./derp)         |
 | `ocm`      | [OCM](./ocm)           |

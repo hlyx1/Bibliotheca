@@ -19,7 +19,8 @@ icon: material/new-box
         "server": "",
         "server_port": 853,
 
-        "tls": {}
+        "tls": {},
+
         // 拨号字段
       }
     ]

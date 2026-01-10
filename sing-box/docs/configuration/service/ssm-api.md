@@ -50,7 +50,8 @@ Example:
 
 #### cache_path
 
-If set, when the server is about to stop, traffic and user state will be saved to the specified JSON file to be restored on the next startup.
+If set, when the server is about to stop, traffic and user state will be saved to the specified JSON file
+to be restored on the next startup.
 
 #### tls
 

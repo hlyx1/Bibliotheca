@@ -4,10 +4,10 @@ icon: material/new-box
 
 !!! quote "Changes in sing-box 1.13.0"
 
-    :material-plus: [relay_server_port](#relay_server_port)
-    :material-plus: [relay_server_static_endpoints](#relay_server_static_endpoints)
-    :material-plus: [system_interface](#system_interface)
-    :material-plus: [system_interface_name](#system_interface_name)
+    :material-plus: [relay_server_port](#relay_server_port)  
+    :material-plus: [relay_server_static_endpoints](#relay_server_static_endpoints)  
+    :material-plus: [system_interface](#system_interface)  
+    :material-plus: [system_interface_name](#system_interface_name)  
     :material-plus: [system_interface_mtu](#system_interface_mtu)
 
 !!! question "Since sing-box 1.12.0"
@@ -52,10 +52,11 @@ Example: `$HOME/.tailscale`
 #### auth_key
 
 !!! note
-
+    
     Auth key is not required. By default, sing-box will log the login URL (or popup a notification on graphical clients).
 
-The auth key to create the node. If the node is already created (from state previously stored), then this field is not used.
+The auth key to create the node. If the node is already created (from state previously stored), then this field is not
+used.
 
 #### control_url
 
