@@ -4,8 +4,7 @@ icon: material/book-lock-open
 
 # TunnelVision
 
-TunnelVision is an attack that uses DHCP option 121 to set higher priority routes
-so that traffic does not go through the VPN.
+TunnelVision is an attack that uses DHCP option 121 to set higher priority routes so that traffic does not go through the VPN.
 
 Reference: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3661
 
@@ -17,11 +16,9 @@ Android does not handle DHCP option 121 and is not affected.
 
 ### Apple platforms
 
-Update [sing-box graphical client](/clients/apple/#download) to `1.9.0-rc.16` or newer,
-then enable `includeAllNetworks` in `Settings` — `Packet Tunnel` and you will be unaffected.
+Update [sing-box graphical client](/clients/apple/#download) to `1.9.0-rc.16` or newer, then enable `includeAllNetworks` in `Settings` — `Packet Tunnel` and you will be unaffected.
 
-Note: when `includeAllNetworks` is enabled, the default TUN stack is changed to `gvisor`,
-and the `system` and `mixed` stacks are not available.
+Note: when `includeAllNetworks` is enabled, the default TUN stack is changed to `gvisor`, and the `system` and `mixed` stacks are not available.
 
 ### Linux
 
@@ -33,6 +30,6 @@ No solution yet.
 
 ## Workarounds
 
-* Don't connect to untrusted networks
-* Relay untrusted network through another device
-* Just ignore it
+- Don't connect to untrusted networks
+- Relay untrusted network through another device
+- Just ignore it

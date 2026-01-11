@@ -90,12 +90,12 @@ UDP over TCP 配置。
 
 QUIC 拥塞控制算法。
 
-| 算法 | 描述 |
-|------|------|
-| `bbr` | BBR |
-| `bbr2` | BBRv2 |
-| `cubic` | CUBIC |
-| `reno` | New Reno |
+| 算法    | 描述     |
+| ------- | -------- |
+| `bbr`   | BBR      |
+| `bbr2`  | BBRv2    |
+| `cubic` | CUBIC    |
+| `reno`  | New Reno |
 
 默认使用 `bbr`（NaiveProxy 基于的 Chromium 使用的 QUICHE 的默认值）。
 

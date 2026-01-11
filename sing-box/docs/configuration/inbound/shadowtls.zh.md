@@ -52,8 +52,8 @@ icon: material/new-box
 
 ShadowTLS 协议版本。
 
-| 值             | 协议版本                                                                                    |
-|---------------|-----------------------------------------------------------------------------------------|
+| 值            | 协议版本                                                                                |
+| ------------- | --------------------------------------------------------------------------------------- |
 | `1` (default) | [ShadowTLS v1](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-en.md#v1) |
 | `2`           | [ShadowTLS v2](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-en.md#v2) |
 | `3`           | [ShadowTLS v3](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-v3-en.md) |
@@ -98,9 +98,9 @@ ShadowTLS 通配符 SNI 模式。
 
 可用值：
 
-* `off`：（默认）禁用。
-* `authed`：已认证的连接的目标将被重写为 `(servername):443`。
-* `all`：所有连接的目标将被重写为 `(servername):443`。
+- `off`：（默认）禁用。
+- `authed`：已认证的连接的目标将被重写为 `(servername):443`。
+- `all`：所有连接的目标将被重写为 `(servername):443`。
 
 此外，匹配 `handshake_for_server_name` 的连接不受影响。
 

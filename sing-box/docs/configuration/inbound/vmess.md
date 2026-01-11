@@ -33,7 +33,7 @@ See [Listen Fields](/configuration/shared/listen/) for details.
 VMess users.
 
 | Alter ID | Description             |
-|----------|-------------------------|
+| -------- | ----------------------- |
 | 0        | Disable legacy protocol |
 | > 0      | Enable legacy protocol  |
 

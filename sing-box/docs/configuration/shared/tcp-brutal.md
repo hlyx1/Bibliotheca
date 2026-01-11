@@ -1,7 +1,7 @@
 ### Server Requirements
 
-* Linux
-* `brutal` congestion control algorithm kernel module installed
+- Linux
+- `brutal` congestion control algorithm kernel module installed
 
 See [tcp-brutal](https://github.com/apernet/tcp-brutal) for details.
 

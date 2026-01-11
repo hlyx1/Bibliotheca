@@ -45,7 +45,7 @@ VLESS Sub-protocol.
 
 Available values:
 
-* `xtls-rprx-vision`
+- `xtls-rprx-vision`
 
 #### network
 
@@ -64,7 +64,7 @@ TLS configuration, see [TLS](/configuration/shared/tls/#outbound).
 UDP packet encoding, xudp is used by default.
 
 | Encoding   | Description           |
-|------------|-----------------------|
+| ---------- | --------------------- |
 | (none)     | Disabled              |
 | packetaddr | Supported by v2ray 5+ |
 | xudp       | Supported by xray     |

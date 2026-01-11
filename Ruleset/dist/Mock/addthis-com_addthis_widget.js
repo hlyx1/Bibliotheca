@@ -1,7 +1,7 @@
-(function () {
-  'use strict';
+(function() {
+  "use strict";
 
-  const noopfn = function () {
+  const noopfn = function() {
     // noop
   };
   window.addthis = {
@@ -12,9 +12,9 @@
     layers: noopfn,
     ready: noopfn,
     sharecounters: {
-      getShareCounts: noopfn
+      getShareCounts: noopfn,
     },
     toolbox: noopfn,
-    update: noopfn
+    update: noopfn,
   };
-}());
+})();

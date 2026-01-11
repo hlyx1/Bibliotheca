@@ -37,10 +37,10 @@ Use `sing-box rule-set compile [--output <file-name>.srs] <file-name>.json` to c
 
 Version of rule-set.
 
-* 1: sing-box 1.8.0: Initial rule-set version.
-* 2: sing-box 1.10.0: Optimized memory usages of `domain_suffix` rules in binary rule-sets.
-* 3: sing-box 1.11.0: Added `network_type`, `network_is_expensive` and `network_is_constrainted` rule items.
-* 4: sing-box 1.13.0: Added `network_interface_address` and `default_interface_address` rule items.
+- 1: sing-box 1.8.0: Initial rule-set version.
+- 2: sing-box 1.10.0: Optimized memory usages of `domain_suffix` rules in binary rule-sets.
+- 3: sing-box 1.11.0: Added `network_type`, `network_is_expensive` and `network_is_constrainted` rule items.
+- 4: sing-box 1.13.0: Added `network_interface_address` and `default_interface_address` rule items.
 
 #### rules
 

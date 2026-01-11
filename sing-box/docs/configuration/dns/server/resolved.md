@@ -22,7 +22,6 @@ icon: material/new-box
 }
 ```
 
-
 ### Fields
 
 #### service

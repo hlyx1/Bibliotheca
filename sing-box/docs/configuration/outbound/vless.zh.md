@@ -45,7 +45,7 @@ VLESS 子协议。
 
 可用值：
 
-* `xtls-rprx-vision`
+- `xtls-rprx-vision`
 
 #### network
 
@@ -63,9 +63,9 @@ TLS 配置, 参阅 [TLS](/zh/configuration/shared/tls/#outbound)。
 
 UDP 包编码，默认使用 xudp。
 
-| 编码         | 描述            |
-|------------|---------------|
-| (空)        | 禁用            |
+| 编码       | 描述             |
+| ---------- | ---------------- |
+| (空)       | 禁用             |
 | packetaddr | 由 v2ray 5+ 支持 |
 | xudp       | 由 xray 支持     |
 

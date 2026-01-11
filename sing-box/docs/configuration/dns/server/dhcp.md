@@ -16,8 +16,7 @@ icon: material/new-box
         "type": "dhcp",
         "tag": "",
 
-        "interface": "",
-        
+        "interface": ""
         // Dial Fields
       }
     ]
@@ -29,10 +28,10 @@ icon: material/new-box
 
 #### interface
 
-Interface name to listen on. 
+Interface name to listen on.
 
 Tge default interface will be used by default.
 
 ### Dial Fields
 
-See [Dial Fields](/configuration/shared/dial/) for details. 
+See [Dial Fields](/configuration/shared/dial/) for details.

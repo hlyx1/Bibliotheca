@@ -225,8 +225,7 @@ Available values: `wifi`, `cellular`, `ethernet` and `other`.
 
     Only supported in graphical clients on Android and Apple platforms.
 
-Match if network is considered Metered (on Android) or considered expensive,
-such as Cellular or a Personal Hotspot (on Apple platforms).
+Match if network is considered Metered (on Android) or considered expensive, such as Cellular or a Personal Hotspot (on Apple platforms).
 
 #### network_is_constrained
 
