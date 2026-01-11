@@ -44,7 +44,7 @@ VLESS Sub-protocol.
 
 Available values:
 
-- `xtls-rprx-vision`
+* `xtls-rprx-vision`
 
 #### tls
 

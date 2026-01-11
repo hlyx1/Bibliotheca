@@ -42,18 +42,18 @@ DNS 服务器的标签。
 
 DNS 服务器的地址。
 
-| 协议                                    | 格式                          |
-| --------------------------------------- | ----------------------------- |
-| `System`                                | `local`                       |
-| `TCP`                                   | `tcp://1.0.0.1`               |
-| `UDP`                                   | `8.8.8.8` `udp://8.8.4.4`     |
-| `TLS`                                   | `tls://dns.google`            |
-| `HTTPS`                                 | `https://1.1.1.1/dns-query`   |
-| `QUIC`                                  | `quic://dns.adguard.com`      |
-| `HTTP3`                                 | `h3://8.8.8.8/dns-query`      |
-| `RCode`                                 | `rcode://refused`             |
-| `DHCP`                                  | `dhcp://auto` 或 `dhcp://en0` |
-| [FakeIP](/zh/configuration/dns/fakeip/) | `fakeip`                      |
+| 协议                                   | 格式                           |
+|--------------------------------------|------------------------------|
+| `System`                             | `local`                      |
+| `TCP`                                | `tcp://1.0.0.1`              |
+| `UDP`                                | `8.8.8.8` `udp://8.8.4.4`    |
+| `TLS`                                | `tls://dns.google`           |
+| `HTTPS`                              | `https://1.1.1.1/dns-query`  |
+| `QUIC`                               | `quic://dns.adguard.com`     |
+| `HTTP3`                              | `h3://8.8.8.8/dns-query`     |
+| `RCode`                              | `rcode://refused`            |
+| `DHCP`                               | `dhcp://auto` 或 `dhcp://en0` |
+| [FakeIP](/zh/configuration/dns/fakeip/) | `fakeip`                     |
 
 !!! warning ""
 
@@ -63,14 +63,14 @@ DNS 服务器的地址。
 
     RCode 传输层传输层常用于屏蔽请求. 与 DNS 规则和 `disable_cache` 规则选项一起使用。
 
-| RCode             | 描述           |
-| ----------------- | -------------- |
-| `success`         | `无错误`       |
+| RCode             | 描述       | 
+|-------------------|----------|
+| `success`         | `无错误`    |
 | `format_error`    | `请求格式错误` |
-| `server_failure`  | `服务器出错`   |
-| `name_error`      | `域名不存在`   |
-| `not_implemented` | `功能未实现`   |
-| `refused`         | `请求被拒绝`   |
+| `server_failure`  | `服务器出错`  |
+| `name_error`      | `域名不存在`  |
+| `not_implemented` | `功能未实现`  |
+| `refused`         | `请求被拒绝`  |
 
 #### address_resolver
 

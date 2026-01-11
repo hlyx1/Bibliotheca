@@ -15,14 +15,15 @@ icon: material/new-box
       {
         "type": "https",
         "tag": "",
-
+        
         "server": "",
         "server_port": 443,
-
+        
         "path": "",
         "headers": {},
-
-        "tls": {}
+        
+        "tls": {},
+        
         // Dial Fields
       }
     ]

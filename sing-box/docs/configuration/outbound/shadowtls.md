@@ -34,7 +34,7 @@ The server port.
 ShadowTLS protocol version.
 
 | Value         | Protocol Version                                                                        |
-| ------------- | --------------------------------------------------------------------------------------- |
+|---------------|-----------------------------------------------------------------------------------------|
 | `1` (default) | [ShadowTLS v1](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-en.md#v1) |
 | `2`           | [ShadowTLS v2](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-en.md#v2) |
 | `3`           | [ShadowTLS v3](https://github.com/ihciah/shadow-tls/blob/master/docs/protocol-v3-en.md) |

@@ -76,11 +76,11 @@ Authentication password
 
 #### ignore_client_bandwidth
 
-_When `up_mbps` and `down_mbps` are not set_:
+*When `up_mbps` and `down_mbps` are not set*:
 
 Commands clients to use the BBR CC instead of Hysteria CC.
 
-_When `up_mbps` and `down_mbps` are set_:
+*When `up_mbps` and `down_mbps` are set*:
 
 Deny clients to use the BBR CC.
 
@@ -95,7 +95,7 @@ TLS configuration, see [TLS](/configuration/shared/tls/#inbound).
 HTTP3 server behavior (URL string configuration) when authentication fails.
 
 | Scheme       | Example                 | Description        |
-| ------------ | ----------------------- | ------------------ |
+|--------------|-------------------------|--------------------|
 | `file`       | `file:///var/www`       | As a file server   |
 | `http/https` | `http://127.0.0.1:8080` | As a reverse proxy |
 
@@ -108,7 +108,7 @@ A 404 page will be returned if masquerade is not configured.
 HTTP3 server behavior (Object configuration) when authentication fails.
 
 | Type     | Description                 | Fields                              |
-| -------- | --------------------------- | ----------------------------------- |
+|----------|-----------------------------|-------------------------------------|
 | `file`   | As a file server            | `directory`                         |
 | `proxy`  | As a reverse proxy          | `url`, `rewrite_host`               |
 | `string` | Reply with a fixed response | `status_code`, `headers`, `content` |

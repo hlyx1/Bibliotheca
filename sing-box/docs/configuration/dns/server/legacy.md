@@ -43,7 +43,7 @@ The tag of the dns server.
 The address of the dns server.
 
 | Protocol                             | Format                        |
-| ------------------------------------ | ----------------------------- |
+|--------------------------------------|-------------------------------|
 | `System`                             | `local`                       |
 | `TCP`                                | `tcp://1.0.0.1`               |
 | `UDP`                                | `8.8.8.8` `udp://8.8.4.4`     |
@@ -63,8 +63,8 @@ The address of the dns server.
 
     the RCode transport is often used to block queries. Use with rules and the `disable_cache` rule option.
 
-| RCode             | Description           |
-| ----------------- | --------------------- |
+| RCode             | Description           | 
+|-------------------|-----------------------|
 | `success`         | `No error`            |
 | `format_error`    | `Format error`        |
 | `server_failure`  | `Server failure`      |

@@ -20,6 +20,7 @@ icon: material/new-box
         "type": "local",
         "tag": "",
         "prefer_go": false
+
         // Dial Fields
       }
     ]
@@ -47,9 +48,13 @@ Specifically, it disables following behaviors which was added as features in sin
 
 As a sole exception, it cannot disable the following behavior:
 
-1. In the Android graphical client, `local` will always resolve DNS through the platform interface, as there is no other way to obtain upstream DNS servers; On devices running Android versions lower than 10, this interface can only resolve A/AAAA requests.
+1. In the Android graphical client,
+`local` will always resolve DNS through the platform interface,
+as there is no other way to obtain upstream DNS servers;
+On devices running Android versions lower than 10, this interface can only resolve A/AAAA requests.
 
-2. On macOS, `local` will try DHCP first in Network Extension, since DHCP respects DIal Fields, it will not be disabled by `prefer_go`.
+2. On macOS, `local` will try DHCP first in Network Extension, since DHCP respects DIal Fields,
+it will not be disabled by `prefer_go`.
 
 ### Dial Fields
 

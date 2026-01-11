@@ -65,27 +65,27 @@
 
 ==必填==
 
-| 方法                          | 密钥长度 |
-| ----------------------------- | -------- |
-| 2022-blake3-aes-128-gcm       | 16       |
-| 2022-blake3-aes-256-gcm       | 32       |
-| 2022-blake3-chacha20-poly1305 | 32       |
-| none                          | /        |
-| aes-128-gcm                   | /        |
-| aes-192-gcm                   | /        |
-| aes-256-gcm                   | /        |
-| chacha20-ietf-poly1305        | /        |
-| xchacha20-ietf-poly1305       | /        |
+| 方法                            | 密钥长度 |
+|-------------------------------|------|
+| 2022-blake3-aes-128-gcm       | 16   |
+| 2022-blake3-aes-256-gcm       | 32   |
+| 2022-blake3-chacha20-poly1305 | 32   |
+| none                          | /    |
+| aes-128-gcm                   | /    |
+| aes-192-gcm                   | /    |
+| aes-256-gcm                   | /    |
+| chacha20-ietf-poly1305        | /    |
+| xchacha20-ietf-poly1305       | /    |
 
 #### password
 
 ==必填==
 
-| 方法          | 密码格式                                     |
-| ------------- | -------------------------------------------- |
-| none          | /                                            |
+| 方法            | 密码格式                                     |
+|---------------|------------------------------------------|
+| none          | /                                        |
 | 2022 methods  | `sing-box generate rand --base64 <密钥长度>` |
-| other methods | 任意字符串                                   |
+| other methods | 任意字符串                                    |
 
 #### managed
 
