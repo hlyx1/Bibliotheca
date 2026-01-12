@@ -75,7 +75,9 @@ RESTful web API listening address. Clash API will be disabled if empty.
 
 #### external_ui
 
-A relative path to the configuration directory or an absolute path to a directory in which you put some static web resource. sing-box will then serve it at `http://{{external-controller}}/ui`.
+A relative path to the configuration directory or an absolute path to a
+directory in which you put some static web resource. sing-box will then
+serve it at `http://{{external-controller}}/ui`.
 
 #### external_ui_download_url
 
@@ -91,7 +93,9 @@ Default outbound will be used if empty.
 
 #### secret
 
-Secret for the RESTful API (optional) Authenticate by spedifying HTTP header `Authorization: Bearer ${secret}` ALWAYS set a secret if RESTful API is listening on 0.0.0.0
+Secret for the RESTful API (optional)
+Authenticate by spedifying HTTP header `Authorization: Bearer ${secret}`
+ALWAYS set a secret if RESTful API is listening on 0.0.0.0
 
 #### default_mode
 

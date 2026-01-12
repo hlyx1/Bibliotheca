@@ -28,7 +28,7 @@ icon: material/alert-decagram
 The type of the DNS server.
 
 | Type            | Format                    |
-| --------------- | ------------------------- |
+|-----------------|---------------------------|
 | empty (default) | [Legacy](./legacy/)       |
 | `local`         | [Local](./local/)         |
 | `hosts`         | [Hosts](./hosts/)         |

@@ -178,6 +178,7 @@ icon: material/new-box
     ]
   }
 }
+
 ```
 
 !!! note ""
@@ -379,7 +380,8 @@ icon: material/new-box
 
     仅在 Android 与 Apple 平台图形客户端中支持。
 
-匹配如果网络被视为计费 (在 Android) 或被视为昂贵， 像蜂窝网络或个人热点 (在 Apple 平台)。
+匹配如果网络被视为计费 (在 Android) 或被视为昂贵，
+像蜂窝网络或个人热点 (在 Apple 平台)。
 
 #### network_is_constrained
 
@@ -439,10 +441,10 @@ icon: material/new-box
 
 匹配制定出站的首选路由。
 
-| 类型        | 匹配                                   |
-| ----------- | -------------------------------------- |
+| 类型          | 匹配                             |
+|-------------|--------------------------------|
 | `tailscale` | 匹配 MagicDNS 域名和对端的 allowed IPs |
-| `wireguard` | 匹配对端的 allowed IPs                 |
+| `wireguard` | 匹配对端的 allowed IPs              |
 
 #### rule_set
 

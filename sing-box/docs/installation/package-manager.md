@@ -41,7 +41,8 @@ icon: material/package
 
 ## :material-download-box: Manual Installation
 
-The script download and install the latest package from GitHub releases for deb or rpm based Linux distributions, ArchLinux and OpenWrt.
+The script download and install the latest package from GitHub releases
+for deb or rpm based Linux distributions, ArchLinux and OpenWrt.
 
 ```shell
 curl -fsSL https://sing-box.app/install.sh | sh
@@ -100,23 +101,26 @@ curl -fsSL https://sing-box.app/install.sh | sh -s -- --version <version>
 ## :material-alert: Problematic Sources
 
 | Type       | Platform | Link                                                                                      | Promblem(s)                             |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | --------------------------------------- |
+|------------|----------|-------------------------------------------------------------------------------------------|-----------------------------------------|
 | DEB        | AOSC     | [aosc-os-abbs](https://github.com/AOSC-Dev/aosc-os-abbs/tree/stable/app-network/sing-box) | Problematic build tag list modification |
 | Homebrew   | /        | [homebrew-core][brew]                                                                     | Problematic build tag list modification |
 | Termux     | Android  | [termux-packages][termux]                                                                 | Problematic build tag list modification |
-| FreshPorts | FreeBSD  | [FreeBSD ports][ports]                                                                    | Old Go (go1.20)                         |
+| FreshPorts | FreeBSD  | [FreeBSD ports][ports]                                                                    | Old Go  (go1.20)                        |
 
 If you are a user of them, please report issues to them:
 
-1. Please do not modify release build tags without full understanding of the related functionality: enabling non-default labels may result in decreased performance; the lack of default labels may cause user confusion.
-2. sing-box supports compiling with some older Go versions, but it is not recommended (especially versions that are no longer supported by Go).
+1. Please do not modify release build tags without full understanding of the related functionality: enabling non-default
+   labels may result in decreased performance; the lack of default labels may cause user confusion.
+2. sing-box supports compiling with some older Go versions, but it is not recommended (especially versions that are no
+   longer supported by Go).
 
 ## :material-book-multiple: Service Management
 
-For Linux systems with [systemd][systemd], usually the installation already includes a sing-box service, you can manage the service using the following command:
+For Linux systems with [systemd][systemd], usually the installation already includes a sing-box service,
+you can manage the service using the following command:
 
 | Operation | Command                                       |
-| --------- | --------------------------------------------- |
+|-----------|-----------------------------------------------|
 | Enable    | `sudo systemctl enable sing-box`              |
 | Disable   | `sudo systemctl disable sing-box`             |
 | Start     | `sudo systemctl start sing-box`               |
@@ -127,15 +131,27 @@ For Linux systems with [systemd][systemd], usually the installation already incl
 | New Logs  | `sudo journalctl -u sing-box --output cat -f` |
 
 [alpine]: https://pkgs.alpinelinux.org/packages?name=sing-box
+
 [aur]: https://aur.archlinux.org/packages/sing-box
+
 [nixpkgs]: https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/tools/networking/sing-box/default.nix
+
 [brew]: https://formulae.brew.sh/formula/sing-box
+
 [openwrt]: https://github.com/openwrt/packages/tree/master/net/sing-box
+
 [immortalwrt]: https://github.com/immortalwrt/packages/tree/master/net/sing-box
+
 [choco]: https://chocolatey.org/packages/sing-box
+
 [scoop]: https://github.com/ScoopInstaller/Main/blob/master/bucket/sing-box.json
+
 [winget]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/s/SagerNet/sing-box
+
 [termux]: https://github.com/termux/termux-packages/tree/master/packages/sing-box
+
 [ports]: https://www.freshports.org/net/sing-box
+
 [aosc]: https://packages.aosc.io/packages/sing-box
+
 [systemd]: https://systemd.io/

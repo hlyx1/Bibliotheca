@@ -46,20 +46,20 @@ The VMess user id.
 
 Encryption methods:
 
-- `auto`
-- `none`
-- `zero`
-- `aes-128-gcm`
-- `chacha20-poly1305`
+* `auto`
+* `none`
+* `zero`
+* `aes-128-gcm`
+* `chacha20-poly1305`
 
 Legacy encryption methods:
 
-- `aes-128-ctr`
+* `aes-128-ctr`
 
 #### alter_id
 
 | Alter ID | Description         |
-| -------- | ------------------- |
+|----------|---------------------|
 | 0        | Use AEAD protocol   |
 | 1        | Use legacy protocol |
 | > 1      | Unused, same as 1   |
@@ -89,7 +89,7 @@ TLS configuration, see [TLS](/configuration/shared/tls/#outbound).
 UDP packet encoding.
 
 | Encoding   | Description           |
-| ---------- | --------------------- |
+|------------|-----------------------|
 | (none)     | Disabled              |
 | packetaddr | Supported by v2ray 5+ |
 | xudp       | Supported by xray     |
