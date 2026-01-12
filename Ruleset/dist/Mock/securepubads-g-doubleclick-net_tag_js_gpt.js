@@ -1,31 +1,31 @@
 (() => {
-  'use strict';
+  "use strict";
 
   // https://developers.google.com/doubleclick-gpt/reference
   const noopfn = () => {
     // noop
   };
-  const noopthisfn = function () {
+  const noopthisfn = function() {
     return this;
   };
-  const noopnullfn = function () {
+  const noopnullfn = function() {
     return null;
   };
-  const nooparrayfn = function () {
+  const nooparrayfn = function() {
     return [];
   };
-  const noopstrfn = function () {
-    return '';
+  const noopstrfn = function() {
+    return "";
   };
   //
   const companionAdsService = {
     addEventListener: noopthisfn,
     enableSyncLoading: noopfn,
-    setRefreshUnfilledSlots: noopfn
+    setRefreshUnfilledSlots: noopfn,
   };
   const contentService = {
     addEventListener: noopthisfn,
-    setContent: noopfn
+    setContent: noopfn,
   };
   const PassbackSlot = noopfn;
   let p = PassbackSlot.prototype;
@@ -43,8 +43,12 @@
     clearTagForChildDirectedTreatment: noopthisfn,
     clearTargeting: noopthisfn,
     collapseEmptyDivs: noopfn,
-    defineOutOfPagePassback() { return new PassbackSlot(); },
-    definePassback() { return new PassbackSlot(); },
+    defineOutOfPagePassback() {
+      return new PassbackSlot();
+    },
+    definePassback() {
+      return new PassbackSlot();
+    },
     disableInitialLoad: noopfn,
     display: noopfn,
     enableAsyncRendering: noopfn,
@@ -72,7 +76,7 @@
     setTagForChildDirectedTreatment: noopthisfn,
     setTargeting: noopthisfn,
     setVideoContent: noopthisfn,
-    updateCorrelator: noopfn
+    updateCorrelator: noopfn,
   };
   const SizeMappingBuilder = noopfn;
   p = SizeMappingBuilder.prototype;
@@ -105,26 +109,38 @@
   const cmd = gpt.cmd || [];
   gpt.apiReady = true;
   gpt.cmd = [];
-  gpt.cmd.push = function (a) {
+  gpt.cmd.push = function(a) {
     try {
       a();
     } catch {
     }
     return 1;
   };
-  gpt.companionAds = function () { return companionAdsService; };
-  gpt.content = function () { return contentService; };
-  gpt.defineOutOfPageSlot = function () { return new Slot(); };
-  gpt.defineSlot = function () { return new Slot(); };
+  gpt.companionAds = function() {
+    return companionAdsService;
+  };
+  gpt.content = function() {
+    return contentService;
+  };
+  gpt.defineOutOfPageSlot = function() {
+    return new Slot();
+  };
+  gpt.defineSlot = function() {
+    return new Slot();
+  };
   gpt.destroySlots = noopfn;
   gpt.disablePublisherConsole = noopfn;
   gpt.display = noopfn;
   gpt.enableServices = noopfn;
   gpt.getVersion = noopstrfn;
-  gpt.pubads = function () { return pubAdsService; };
+  gpt.pubads = function() {
+    return pubAdsService;
+  };
   gpt.pubadsReady = true;
   gpt.setAdIframeTitle = noopfn;
-  gpt.sizeMapping = function () { return new SizeMappingBuilder(); };
+  gpt.sizeMapping = function() {
+    return new SizeMappingBuilder();
+  };
   window.googletag = gpt;
   while (cmd.length !== 0) {
     gpt.cmd.push(cmd.shift());

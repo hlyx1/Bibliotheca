@@ -30,13 +30,12 @@ icon: material/alert-decagram
     "fakeip": {}
   }
 }
-
 ```
 
 ### Fields
 
 | Key      | Format                          |
-|----------|---------------------------------|
+| -------- | ------------------------------- |
 | `server` | List of [DNS Server](./server/) |
 | `rules`  | List of [DNS Rule](./rule/)     |
 | `fakeip` | [FakeIP](./fakeip/)             |
@@ -77,8 +76,7 @@ Value less than 1024 will be ignored.
 
 Stores a reverse mapping of IP addresses after responding to a DNS query in order to provide domain names when routing.
 
-Since this process relies on the act of resolving domain names by an application before making a request, it can be
-problematic in environments such as macOS, where DNS is proxied and cached by the system.
+Since this process relies on the act of resolving domain names by an application before making a request, it can be problematic in environments such as macOS, where DNS is proxied and cached by the system.
 
 #### client_subnet
 

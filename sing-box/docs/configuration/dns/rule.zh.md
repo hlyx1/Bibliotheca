@@ -190,7 +190,6 @@ icon: material/alert-decagram
     ]
   }
 }
-
 ```
 
 !!! note ""
@@ -364,8 +363,7 @@ Available values: `wifi`, `cellular`, `ethernet` and `other`.
 
     仅在 Android 与 Apple 平台图形客户端中支持。
 
-匹配如果网络被视为计费 (在 Android) 或被视为昂贵，
-像蜂窝网络或个人热点 (在 Apple 平台)。
+匹配如果网络被视为计费 (在 Android) 或被视为昂贵， 像蜂窝网络或个人热点 (在 Apple 平台)。
 
 #### network_is_constrained
 
@@ -506,7 +504,6 @@ Available values: `wifi`, `cellular`, `ethernet` and `other`.
 !!! failure "已在 sing-box 1.12.0 中被移除"
 
     GeoIP 已在 sing-box 1.8.0 废弃且在 sing-box 1.12.0 中被移除，参阅 [迁移指南](/zh/migration/#geoip)。
-
 
 与查询响应匹配 GeoIP。
 

@@ -48,9 +48,9 @@ Naive users.
 QUIC congestion control algorithm.
 
 | Algorithm      | Description                     |
-|----------------|---------------------------------|
+| -------------- | ------------------------------- |
 | `bbr`          | BBR                             |
-| `bbr_standard` | BBR (Standard version)         |
+| `bbr_standard` | BBR (Standard version)          |
 | `bbr2`         | BBRv2                           |
 | `bbr2_variant` | BBRv2 (An experimental variant) |
 | `cubic`        | CUBIC                           |

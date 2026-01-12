@@ -1,7 +1,7 @@
 ### 服务器要求
 
-* Linux
-* `brutal` 拥塞控制算法内核模块已安装
+- Linux
+- `brutal` 拥塞控制算法内核模块已安装
 
 参阅 [tcp-brutal](https://github.com/apernet/tcp-brutal)。
 
