@@ -1,6 +1,6 @@
 #########################################
 # Sukka's Ruleset - Reject And Drop
-# Last Updated: 2026-01-11T12:26:17.921Z
+# Last Updated: 2026-01-12T12:29:47.762Z
 # Size: 20
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe

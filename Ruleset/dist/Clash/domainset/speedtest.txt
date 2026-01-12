@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Speedtest Domains
-# Last Updated: 2026-01-11T12:26:17.477Z
-# Size: 2698
+# Last Updated: 2026-01-12T12:29:47.298Z
+# Size: 2699
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -1896,6 +1896,7 @@ speedtest.worldphone.in
 speedtestsirsa.tripleplay.in
 speedtestdelhi.tripleplay.in
 speedtest01.qualitynet.in
+speedtest.netbooster.in
 speedtest.msnetworks.in
 speedtestmum.mahabalnet.in
 speedtest.jprdigital.in

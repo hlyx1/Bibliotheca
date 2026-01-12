@@ -1,6 +1,6 @@
 #########################################
 # Sukka's Ruleset - Microsoft CDN
-# Last Updated: 2026-01-11T12:26:18.966Z
+# Last Updated: 2026-01-12T12:29:48.768Z
 # Size: 55
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
