@@ -33,10 +33,10 @@ jobs:
       - id: gate
         run: |
           commits="$(git log --since='24 hours ago' --oneline)"
-          has_news=$(printf '%s' "$commits" | grep -c 'feat(news): bump' || printf '0')
-          has_law=$(printf '%s' "$commits" | grep -c 'feat(law): bump' || printf '0')
-          has_ruleset=$(printf '%s' "$commits" | grep -c 'feat(ruleset):' || printf '0')
-          if [[ $has_news -gt 0 && $has_law -gt 0 && $has_ruleset -gt 0 ]]; then
+          has_news="$(echo "$commits" | grep -c 'feat(news): bump' 2>/dev/null || printf '0')"
+          has_law="$(echo "$commits" | grep -c 'feat(law): bump' 2>/dev/null || printf '0')"
+          has_ruleset="$(echo "$commits" | grep -c 'feat(ruleset):' 2>/dev/null || printf '0')"
+          if [[ "${has_news}" -gt 0 && "${has_law}" -gt 0 && "${has_ruleset}" -gt 0 ]]; then
             printf 'should_proceed=true\n' >> "$GITHUB_OUTPUT"
           else
             printf 'should_proceed=false\n' >> "$GITHUB_OUTPUT"
