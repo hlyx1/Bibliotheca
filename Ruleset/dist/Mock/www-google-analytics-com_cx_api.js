@@ -1,7 +1,7 @@
-(function() {
-  "use strict";
+(function () {
+  'use strict';
 
-  const noopfn = function() {
+  const noopfn = function () {
     // noop
   };
   window.cxApi = {
@@ -12,6 +12,6 @@
     setAllowHash: noopfn,
     setChosenVariation: noopfn,
     setCookiePath: noopfn,
-    setDomainName: noopfn,
+    setDomainName: noopfn
   };
-})();
+}());
