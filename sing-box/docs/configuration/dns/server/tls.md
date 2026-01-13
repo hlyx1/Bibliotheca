@@ -15,12 +15,11 @@ icon: material/new-box
       {
         "type": "tls",
         "tag": "",
-        
+
         "server": "",
         "server_port": 853,
-        
-        "tls": {},
-        
+
+        "tls": {}
         // Dial Fields
       }
     ]
