@@ -12,7 +12,7 @@ If enabled in the inbound, the protocol and domain name (if present) of by the c
 #### Supported Protocols
 
 | Network |   Protocol   | Domain Name |      Client      |
-| :-----: | :----------: | :---------: | :--------------: |
+|:-------:|:------------:|:-----------:|:----------------:|
 |   TCP   |    `http`    |    Host     |        /         |
 |   TCP   |    `tls`     | Server Name |        /         |
 |   UDP   |    `quic`    | Server Name | QUIC Client Type |
@@ -25,7 +25,7 @@ If enabled in the inbound, the protocol and domain name (if present) of by the c
 |   UDP   |    `ntp`     |      /      |        /         |
 
 |       QUIC Client        |    Type    |
-| :----------------------: | :--------: |
+|:------------------------:|:----------:|
 |     Chromium/Cronet      | `chromium` |
 | Safari/Apple Network API |  `safari`  |
 | Firefox / uquic firefox  | `firefox`  |

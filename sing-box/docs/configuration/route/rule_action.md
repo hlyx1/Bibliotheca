@@ -64,13 +64,16 @@ See `route-options` fields below.
 
 `bypass` bypasses sing-box at the kernel level for auto redirect connections in pre-match.
 
-For non-auto-redirect connections and already established connections, if `outbound` is specified, the behavior is the same as `route`; otherwise, the rule will be skipped.
+For non-auto-redirect connections and already established connections,
+if `outbound` is specified, the behavior is the same as `route`;
+otherwise, the rule will be skipped.
 
 #### outbound
 
 Tag of target outbound.
 
-If not specified, the rule only matches in [pre-match](/configuration/shared/pre-match/) from auto redirect, and will be skipped in other contexts.
+If not specified, the rule only matches in [pre-match](/configuration/shared/pre-match/)
+from auto redirect, and will be skipped in other contexts.
 
 #### route-options Fields
 
@@ -159,7 +162,8 @@ Override the connection destination port.
 
 See [Dial Fields](/configuration/shared/dial/#network_strategy) for details.
 
-Only take effect if outbound is direct without `outbound.bind_interface`, `outbound.inet4_bind_address` and `outbound.inet6_bind_address` set.
+Only take effect if outbound is direct without `outbound.bind_interface`,
+`outbound.inet4_bind_address` and `outbound.inet6_bind_address` set.
 
 #### network_type
 
@@ -175,9 +179,11 @@ See [Dial Fields](/configuration/shared/dial/#fallback_delay) for details.
 
 #### udp_disable_domain_unmapping
 
-If enabled, for UDP proxy requests addressed to a domain, the original packet address will be sent in the response instead of the mapped domain.
+If enabled, for UDP proxy requests addressed to a domain,
+the original packet address will be sent in the response instead of the mapped domain.
 
-This option is used for compatibility with clients that do not support receiving UDP packets with domain addresses, such as Surge.
+This option is used for compatibility with clients that
+do not support receiving UDP packets with domain addresses, such as Surge.
 
 #### udp_connect
 
@@ -192,14 +198,14 @@ Setting a larger value than the UDP timeout in inbounds will have no effect.
 Default value for protocol sniffed connections:
 
 | Timeout | Protocol             |
-| ------- | -------------------- |
+|---------|----------------------|
 | `10s`   | `dns`, `ntp`, `stun` |
 | `30s`   | `quic`, `dtls`       |
 
 If no protocol is sniffed, the following ports will be recognized as protocols by default:
 
 | Port | Protocol |
-| ---- | -------- |
+|------|----------|
 | 53   | `dns`    |
 | 123  | `ntp`    |
 | 443  | `quic`   |
@@ -211,13 +217,17 @@ If no protocol is sniffed, the following ports will be recognized as protocols b
 
 Fragment TLS handshakes to bypass firewalls.
 
-This feature is intended to circumvent simple firewalls based on **plaintext packet matching**, and should not be used to circumvent real censorship.
+This feature is intended to circumvent simple firewalls based on **plaintext packet matching**,
+and should not be used to circumvent real censorship.
 
 Due to poor performance, try `tls_record_fragment` first, and only apply to server names known to be blocked.
 
-On Linux, Apple platforms, (administrator privileges required) Windows, the wait time can be automatically detected. Otherwise, it will fall back to waiting for a fixed time specified by `tls_fragment_fallback_delay`.
+On Linux, Apple platforms, (administrator privileges required) Windows,
+the wait time can be automatically detected. Otherwise, it will fall back to
+waiting for a fixed time specified by `tls_fragment_fallback_delay`.
 
-In addition, if the actual wait time is less than 20ms, it will also fall back to waiting for a fixed time, because the target is considered to be local or behind a transparent proxy.
+In addition, if the actual wait time is less than 20ms, it will also fall back to waiting for a fixed time,
+because the target is considered to be local or behind a transparent proxy.
 
 #### tls_fragment_fallback_delay
 

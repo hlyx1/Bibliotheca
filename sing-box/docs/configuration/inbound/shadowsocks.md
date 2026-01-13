@@ -66,7 +66,7 @@ Both if empty.
 ==Required==
 
 | Method                        | Key Length |
-| ----------------------------- | ---------- |
+|-------------------------------|------------|
 | 2022-blake3-aes-128-gcm       | 16         |
 | 2022-blake3-aes-256-gcm       | 32         |
 | 2022-blake3-chacha20-poly1305 | 32         |
@@ -82,7 +82,7 @@ Both if empty.
 ==Required==
 
 | Method        | Password Format                                |
-| ------------- | ---------------------------------------------- |
+|---------------|------------------------------------------------|
 | none          | /                                              |
 | 2022 methods  | `sing-box generate rand --base64 <Key Length>` |
 | other methods | any string                                     |

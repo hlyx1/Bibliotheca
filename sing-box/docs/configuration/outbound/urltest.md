@@ -4,7 +4,7 @@
 {
   "type": "urltest",
   "tag": "auto",
-
+  
   "outbounds": [
     "proxy-a",
     "proxy-b",

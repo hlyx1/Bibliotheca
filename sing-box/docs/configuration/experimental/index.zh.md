@@ -19,8 +19,8 @@
 
 ### 字段
 
-| 键           | 格式                      |
-| ------------ | ------------------------- |
-| `cache_file` | [缓存文件](./cache-file/) |
+| 键            | 格式                       |
+|--------------|--------------------------|
+| `cache_file` | [缓存文件](./cache-file/)     |
 | `clash_api`  | [Clash API](./clash-api/) |
 | `v2ray_api`  | [V2Ray API](./v2ray-api/) |
